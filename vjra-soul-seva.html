@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vjra Soul Seva — Heal the Source</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --cream: #f8f4ee;
+      --cream-dark: #ede8e0;
+      --ink: #1a1410;
+      --ink-mid: #4a4038;
+      --ink-light: #8a8078;
+      --red: #c41e3a;
+      --red-soft: #e05060;
+      --nav-h: 72px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .announce {
+      background: var(--ink);
+      color: rgba(255,255,255,.88);
+      text-align: center;
+      padding: 10px 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      letter-spacing: .04em;
+    }
+
+    .site-nav {
+      background: var(--cream);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center; height: var(--nav-h);
+      padding: 0 40px;
+    }
+    .nav-left { display: flex; gap: 28px; align-items: center; }
+    .nav-left a, .nav-right a {
+      font-size: .82rem; color: var(--ink-mid);
+      text-decoration: none; letter-spacing: .03em;
+      transition: color .2s;
+    }
+    .nav-left a:hover, .nav-right a:hover { color: var(--ink); }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 400;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: .06em; text-align: center;
+      white-space: nowrap;
+    }
+    .nav-right { display: flex; gap: 20px; justify-content: flex-end; align-items: center; font-size: .82rem; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 80px 40px 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero-overlay { display: none; }
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: .72rem; color: var(--ink-light);
+      letter-spacing: .18em; text-transform: uppercase;
+      margin-bottom: 52px; font-weight: 400;
+    }
+    .hero-title-italic {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 300;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: 1.05; color: var(--ink);
+      display: block; letter-spacing: -.01em;
+    }
+    .hero-title-upright {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: normal; font-weight: 500;
+      font-size: clamp(4rem, 9vw, 8.5rem);
+      line-height: 1.0; color: var(--ink);
+      display: block; letter-spacing: -.02em;
+    }
+    .hero-title-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 300;
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      color: var(--ink-mid); display: block;
+      margin-top: 22px; letter-spacing: .01em;
+    }
+    .petal {
+      position: absolute;
+      border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+      box-shadow: inset -2px -3px 6px rgba(0,0,0,.18), inset 1px 1px 4px rgba(255,180,180,.3);
+      pointer-events: none;
+    }
+
+    /* ── Layout ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    .editorial {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 48px 40px;
+      align-items: start;
+      padding: 64px 0;
+    }
+    .editorial-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      line-height: 1.25; color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .editorial-body { font-size: .97rem; color: var(--ink-mid); }
+    .editorial-body p { margin-bottom: 16px; }
+    .editorial-body p:last-child { margin-bottom: 0; }
+
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .72rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--ink-light);
+      margin-bottom: 8px;
+    }
+
+    /* ── Science blocks ── */
+    .science-block {
+      padding: 32px 0;
+      border-top: 1px solid rgba(0,0,0,.08);
+    }
+    .science-block:first-child { border-top: none; }
+    .science-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: 1.4rem; color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .science-block .intro {
+      font-size: .93rem; color: var(--ink-light);
+      margin-bottom: 14px; font-style: italic;
+      line-height: 1.7;
+    }
+    .science-block ul { list-style: none; padding: 0; }
+    .science-block ul li {
+      font-size: .93rem; color: var(--ink-mid);
+      padding: 8px 0 8px 20px; position: relative;
+      border-bottom: 1px solid rgba(0,0,0,.05);
+      line-height: 1.65;
+    }
+    .science-block ul li:last-child { border-bottom: none; }
+    .science-block ul li::before {
+      content: '·'; position: absolute; left: 4px;
+      color: var(--red-soft); font-size: 1.4rem; top: 4px;
+      line-height: 1;
+    }
+
+    /* ── Testimonials ── */
+    .testimonial {
+      padding: 32px 0;
+      border-top: 1px solid rgba(0,0,0,.08);
+    }
+    .testimonial:first-child { border-top: none; }
+    .testimonial-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: 1.25rem; color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .testimonial-body {
+      font-size: .93rem; color: var(--ink-mid);
+      line-height: 1.75; margin-bottom: 12px;
+    }
+    .testimonial-sig {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: .95rem;
+      color: var(--ink-light);
+    }
+
+    /* ── Credentials ── */
+    .credential-block {
+      padding: 28px 0;
+      border-top: 1px solid rgba(0,0,0,.08);
+    }
+    .credential-block:first-child { border-top: none; }
+    .credential-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.3rem;
+      color: var(--ink); margin-bottom: 8px;
+    }
+    .credential-list {
+      font-size: .88rem; color: var(--ink-light);
+      line-height: 1.9;
+    }
+
+    /* ── Contact ── */
+    .contact-item {
+      display: flex; gap: 12px; align-items: baseline;
+      padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,.05);
+      font-size: .93rem; color: var(--ink-mid);
+    }
+    .contact-item:last-child { border-bottom: none; }
+    .contact-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .7rem; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--ink-light);
+      flex-shrink: 0; width: 80px;
+    }
+    .contact-item a { color: var(--ink-mid); text-decoration: none; }
+    .contact-item a:hover { color: var(--ink); }
+
+    /* ── Wave divider ── */
+    .wave-divider { width: 100%; overflow: hidden; line-height: 0; }
+    .wave-divider svg { display: block; width: 100%; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,.6);
+      text-align: center;
+      padding: 56px 40px;
+    }
+    footer .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; color: rgba(255,255,255,.9);
+      letter-spacing: .08em; margin-bottom: 12px;
+    }
+    footer p { font-size: .85rem; line-height: 1.8; }
+    footer .footer-links { display: flex; gap: 24px; justify-content: center; margin: 20px 0; }
+    footer .footer-links a { color: rgba(255,255,255,.5); text-decoration: none; font-size: .82rem; transition: color .2s; }
+    footer .footer-links a:hover { color: rgba(255,255,255,.9); }
+
+    @media (max-width: 900px) {
+      .editorial { grid-template-columns: 1fr; gap: 24px; }
+      .nav-inner { grid-template-columns: 1fr auto; }
+      .nav-right { display: none; }
+    }
+    @media (max-width: 600px) {
+      .nav-inner { padding: 0 20px; }
+      .container { padding: 0 20px; }
+      .hero { padding: 60px 20px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Announcement Bar ── -->
+<div class="announce">Healing that begins at the root, not the surface.</div>
+
+<!-- ── Navigation ── -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="#healing">Healing</a>
+      <a href="#pathways">Pathways</a>
+      <a href="#stories">Stories</a>
+      <a href="vibrational-field-v2.html">Science</a>
+      <a href="#about">About</a>
+    </div>
+    <a href="#" class="nav-logo">Vjra Soul Seva</a>
+    <div class="nav-right">
+      <a href="#connect">Connect With Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <!-- petals -->
+  <div class="petal" style="width:32px;height:46px;background:radial-gradient(ellipse at 40% 35%,#f0a0a8,#c41e3a);top:12%;left:4%;transform:rotate(-20deg);opacity:.55"></div>
+  <div class="petal" style="width:52px;height:72px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030);top:38%;left:6%;transform:rotate(35deg);opacity:.75"></div>
+  <div class="petal" style="width:22px;height:32px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#c41e3a);top:68%;left:5%;transform:rotate(-8deg);opacity:.5"></div>
+  <div class="petal" style="width:18px;height:26px;background:radial-gradient(ellipse at 40% 35%,#f0a0a8,#c41e3a);top:15%;right:6%;transform:rotate(25deg);opacity:.55"></div>
+  <div class="petal" style="width:42px;height:58px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030);top:42%;right:4%;transform:rotate(-18deg);opacity:.72"></div>
+  <div class="petal" style="width:26px;height:38px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#c41e3a);top:72%;right:7%;transform:rotate(50deg);opacity:.48"></div>
+  <div class="petal" style="width:14px;height:20px;background:radial-gradient(ellipse at 40% 35%,#f0b0b8,#c41e3a);top:22%;left:18%;transform:rotate(10deg);opacity:.35"></div>
+  <div class="petal" style="width:20px;height:28px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030);top:60%;right:20%;transform:rotate(-30deg);opacity:.4"></div>
+
+  <p class="hero-eyebrow">Vjra Soul Seva · Healing Practice</p>
+  <span class="hero-title-italic">Go Beyond Symptoms.</span>
+  <span class="hero-title-upright">Heal the Source.</span>
+  <span class="hero-title-sub">Guided by lived experience, grounded methods, and a calm,<br/>compassionate space for real change.</span>
+</section>
+
+<!-- ── Wave ── -->
+<div class="wave-divider" style="background:var(--cream-dark)">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+    <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="var(--cream)" opacity=".5"/>
+    <path d="M0,40 C360,10 720,55 1080,25 C1260,10 1350,40 1440,35 L1440,60 L0,60 Z" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".12"/>
+  </svg>
+</div>
+
+<!-- ── 01 · Healing ── -->
+<section id="healing" style="background:var(--cream-dark)">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label">01 · Healing</p>
+        <h2 class="editorial-heading">How This Work Creates Real Change</h2>
+      </div>
+      <div>
+        <div class="editorial-body">
+          <p>Most healing approaches rely heavily on personal effort — more journaling, more discipline, more habits, more self-work. But when someone is already exhausted, burdened, or emotionally overwhelmed, "doing more" often isn't the solution.</p>
+          <p>This approach works differently. Instead of placing the entire responsibility on you, it helps clear the deeper patterns and heavy internal weight you've been carrying — the patterns that keep recreating the same emotions, reactions, and life situations.</p>
+          <p>When those layers shift, the "heavy lifting" inside you softens. Your system becomes more open, balanced, and responsive. Change no longer requires force; it begins to unfold naturally.</p>
+          <p>You still have a role, but you're no longer fighting the same inner resistance. With the deeper blockages released, healing becomes faster, more stable, and more lasting.</p>
+          <p>Because these deeper patterns influence every part of your life, this approach naturally supports transformation across your physical well-being, emotional balance, relationships, and the practical flow of daily living.</p>
+        </div>
+        <div class="science-block" style="margin-top:8px">
+          <h3>What People Often Notice</h3>
+          <p class="intro">When the deeper patterns begin to shift, the changes are steady, noticeable, and genuinely meaningful. Many people experience:</p>
+          <ul>
+            <li>Relief that feels real and lasting</li>
+            <li>A lighter emotional and physical state</li>
+            <li>Fewer long-standing patterns repeating</li>
+            <li>Clearer thinking, steadier energy, and a sense of "something inside finally changing"</li>
+          </ul>
+          <p style="font-size:.92rem;color:var(--ink-mid);font-style:italic;margin-top:12px;">This is change that begins within — and naturally influences every part of life.</p>
+        </div>
+        <div class="science-block">
+          <h3>A Timeless Way of Healing</h3>
+          <p class="intro">"This way of healing isn't new — it's a return to how humans have always healed at the deepest level."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Wave ── -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 40" preserveAspectRatio="none" height="40">
+    <path d="M0,20 C360,40 720,0 1080,20 C1260,30 1380,10 1440,20" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
+  </svg>
+</div>
+
+<!-- ── 02 · Pathways ── -->
+<section id="pathways">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label">02 · Pathways</p>
+        <h2 class="editorial-heading">The Pathways to Transformation</h2>
+        <p style="font-size:.85rem;color:var(--ink-light);margin-top:12px;line-height:1.7;">Life doesn't break down in just one area — it ripples through your body, your thoughts, your relationships, and your work.<br/><br/>Wherever you're feeling stuck, this work helps shift the root cause.<br/><br/>Whatever you're carrying — physically, emotionally, or in life — we meet you where you are. These are some of the most common challenges people bring to this work.</p>
+      </div>
+      <div>
+
+        <!-- Physical Health -->
+        <div class="science-block" style="padding-bottom:32px">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:start">
+            <img src="https://static.wixstatic.com/media/f94a97_7d7789deb7a14f35b4c3cd6d68664cc1~mv2.jpg"
+                 alt="Physical Health" style="width:100%;border-radius:6px;display:block"/>
+            <div>
+              <h3>Physical Health</h3>
+              <p class="intro">When Your Body Feels Like It's Failing You</p>
+              <p style="font-size:.92rem;color:var(--ink-mid);line-height:1.75;margin-bottom:12px;">"It's exhausting to manage symptoms no one else can see — or solve." You've done the tests, followed the protocols, maybe even tried to power through. And yet… the symptoms linger, shift, or return.</p>
+              <p style="font-size:.88rem;color:var(--ink-mid);margin-bottom:6px;">We support people navigating:</p>
+              <ul>
+                <li>Fatigue, low energy, or burnout</li>
+                <li>Chronic pain, tension or migraines</li>
+                <li>Digestive issues (bloating, IBS)</li>
+                <li>Hormonal shifts, weight changes, or sleep challenges</li>
+                <li>Autoimmune symptoms or recurring illness</li>
+              </ul>
+              <p style="font-size:.92rem;color:var(--ink-mid);font-style:italic;margin-top:12px;">Even if your experience doesn't have a name, it's valid — and we meet you there.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Relationships -->
+        <div class="science-block" style="padding-bottom:32px">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:start">
+            <img src="https://static.wixstatic.com/media/f94a97_8db2c5dce3974857a54c48928687e9d2~mv2.jpg"
+                 alt="Relationships" style="width:100%;border-radius:6px;display:block"/>
+            <div>
+              <h3>Relationships</h3>
+              <p class="intro">When You Are Giving So Much — and Still Feeling Disconnected</p>
+              <p style="font-size:.92rem;color:var(--ink-mid);line-height:1.75;margin-bottom:12px;">"You care deeply. You try to communicate, to hold space, to keep the peace." But the connection doesn't land — or it fades quickly. You're left feeling misunderstood, exhausted, or alone.</p>
+              <p style="font-size:.88rem;color:var(--ink-mid);margin-bottom:6px;">We support people navigating:</p>
+              <ul>
+                <li>Communication breakdowns or emotional distance</li>
+                <li>Strain in marriage, partnership, parenting, or caregiving</li>
+                <li>People-pleasing, unclear boundaries, or over-responsibility</li>
+                <li>Workplace dynamics that feel draining, tense, or misaligned</li>
+                <li>Loneliness — even while surrounded by others</li>
+              </ul>
+              <p style="font-size:.92rem;color:var(--ink-mid);font-style:italic;margin-top:12px;">This isn't about fixing others. It's about shifting what's happening within you.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mental & Emotional Health -->
+        <div class="science-block" style="padding-bottom:32px">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:start">
+            <img src="https://static.wixstatic.com/media/f94a97_49258dca8fbf4e3d97db8b0dcf4342de~mv2.jpg"
+                 alt="Mental and Emotional Health" style="width:100%;border-radius:6px;display:block"/>
+            <div>
+              <h3>Mental &amp; Emotional Health</h3>
+              <p class="intro">When Your Mind Won't Turn Off — or Just Shuts Down</p>
+              <p style="font-size:.92rem;color:var(--ink-mid);line-height:1.75;margin-bottom:12px;">Some days you feel overwhelmed. Other days, "it's like you're not even there." You've tried to clear your head — but the noise returns, or you go completely flat.</p>
+              <p style="font-size:.88rem;color:var(--ink-mid);margin-bottom:6px;">We support people navigating:</p>
+              <ul>
+                <li>Anxiety, stress, or emotional overload</li>
+                <li>Brain fog, forgetfulness, or decision fatigue</li>
+                <li>Mood swings, irritability, or emotional numbness</li>
+                <li>Inner criticism, guilt, or self-doubt</li>
+                <li>Feeling easily triggered or emotionally reactive in everyday situations</li>
+              </ul>
+              <p style="font-size:.92rem;color:var(--ink-mid);font-style:italic;margin-top:12px;">Whatever your inner world looks like, we meet you there — with compassion and clarity.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Career & Purpose -->
+        <div class="science-block" style="padding-bottom:32px">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:start">
+            <img src="https://static.wixstatic.com/media/f94a97_a8e289fd3dae4bbf9896d5d07d1c94b8~mv2.jpg"
+                 alt="Career and Purpose" style="width:100%;border-radius:6px;display:block"/>
+            <div>
+              <h3>Career &amp; Purpose</h3>
+              <p class="intro">When Success Doesn't Feel Like Alignment</p>
+              <p style="font-size:.92rem;color:var(--ink-mid);line-height:1.75;margin-bottom:12px;">"You've done what's expected. Maybe even achieved more than most." But beneath the surface, it's starting to wear — burnout, disconnection, or a quiet sense of "this isn't it."</p>
+              <p style="font-size:.88rem;color:var(--ink-mid);margin-bottom:6px;">We support people navigating:</p>
+              <ul>
+                <li>"Always-on" burnout and work-life imbalance</li>
+                <li>Feeling stuck in a role that no longer fits</li>
+                <li>Midlife pivots or deeper identity shifts</li>
+                <li>High-pressure leadership or visibility fatigue</li>
+                <li>Difficulty asserting needs or setting limits</li>
+              </ul>
+              <p style="font-size:.92rem;color:var(--ink-mid);font-style:italic;margin-top:12px;">You don't have to choose between success and alignment. We help bring both back into view.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Wave ── -->
+<div class="wave-divider" style="background:var(--cream-dark)">
+  <svg viewBox="0 0 1440 40" preserveAspectRatio="none" height="40">
+    <path d="M0,20 C360,0 720,40 1080,20 C1260,10 1380,30 1440,20" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
+  </svg>
+</div>
+
+<!-- ── 03 · Approach ── -->
+<section style="background:var(--cream-dark)">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label">03 · Approach</p>
+        <h2 class="editorial-heading">How Our Approach Works</h2>
+      </div>
+      <div>
+        <div class="editorial-body">
+          <p>Your body, mind, and life aren't just shaped by habits or circumstances — they're shaped by deeper patterns of energy and information. When those patterns become disrupted through stress, trauma, or long-term pressure, they can show up in everyday life as:</p>
+          <ul style="margin:12px 0 16px 0;list-style:none;padding:0">
+            <li style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink-mid);padding:5px 0 5px 16px;position:relative;line-height:1.6"><span style="position:absolute;left:0">·</span>Chronic symptoms or exhaustion</li>
+            <li style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink-mid);padding:5px 0 5px 16px;position:relative;line-height:1.6"><span style="position:absolute;left:0">·</span>Depression, anxiety, emotional overload, or mental fog</li>
+            <li style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink-mid);padding:5px 0 5px 16px;position:relative;line-height:1.6"><span style="position:absolute;left:0">·</span>Challenging and strained relationships</li>
+            <li style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink-mid);padding:5px 0 5px 16px;position:relative;line-height:1.6"><span style="position:absolute;left:0">·</span>Burnout or a loss of purpose</li>
+          </ul>
+          <p>Many approaches manage symptoms or encourage pushing through. We work at the root — not just to ease what's on the surface, but to shift the deeper internal state that shapes your health, emotions, relationships, and the way you move through life.</p>
+          <p>In a safe, steady, and welcoming space, this approach helps you feel relaxed and supported — so you can begin to lighten what's been quietly weighing on you, and open to meaningful transformation across your body, mind, relationships, and purpose.</p>
+        </div>
+        <div class="science-block" style="margin-top:8px">
+          <h3>What You May Experience</h3>
+          <p class="intro">Everyone's journey is different. There's no formula or fixed outcome. But as your system begins to realign, people often notice quiet yet meaningful shifts — physically, emotionally, and in daily life.</p>
+          <h3 style="font-size:1rem;margin-top:20px;margin-bottom:8px">Body &amp; Energy</h3>
+          <ul>
+            <li>Feeling more rested and replenished</li>
+            <li>Less tension, pain, or chronic discomfort</li>
+            <li>Improved sleep, digestion, or hormonal balance</li>
+            <li>A calmer nervous system and a deeper sense of ease</li>
+          </ul>
+          <h3 style="font-size:1rem;margin-top:20px;margin-bottom:8px">Mind &amp; Emotions</h3>
+          <ul>
+            <li>Clearer thinking and confident decision-making</li>
+            <li>Emotional steadiness and reduced inner pressure</li>
+            <li>Greater self-compassion and inner quiet</li>
+            <li>Recognizing and gently shifting limiting patterns</li>
+            <li>Feeling more like yourself again</li>
+          </ul>
+          <h3 style="font-size:1rem;margin-top:20px;margin-bottom:8px">Relationships &amp; Life</h3>
+          <ul>
+            <li>More harmony in personal and professional relationships</li>
+            <li>Feeling supported rather than drained</li>
+            <li>Clearer boundaries without guilt</li>
+            <li>More ease in communication and connection</li>
+            <li>A renewed sense of direction, motivation, or purpose</li>
+            <li>Creative flow and space for what matters most</li>
+          </ul>
+          <p style="font-size:.92rem;color:var(--ink-mid);font-style:italic;margin-top:16px;">This work is tailored to your unique path. Not every change is loud. Sometimes the quiet ones — the ones that feel like coming home — are the most powerful.</p>
+          <p style="font-size:.92rem;color:var(--ink-mid);margin-top:10px;">This isn't theory or philosophy. It's space — for clarity to rise, for calm to return, and for the answers you've carried all along to come into view.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Wave ── -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 40" preserveAspectRatio="none" height="40">
+    <path d="M0,20 C360,40 720,0 1080,20 C1260,30 1380,10 1440,20" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
+  </svg>
+</div>
+
+<!-- ── 04 · Stories ── -->
+<section id="stories">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label">04 · Stories</p>
+        <h2 class="editorial-heading">Real Stories, Real Results</h2>
+        <p style="font-size:.85rem;color:var(--ink-light);margin-top:12px;line-height:1.7;">When the deeper patterns begin to shift, the changes are steady, noticeable, and genuinely meaningful.</p>
+      </div>
+      <div>
+        <div class="testimonial">
+          <p class="testimonial-title">A Journey of Hope: Twins Born Healthy, Defying All Odds</p>
+          <p class="testimonial-body">My wife and I were going through a high-risk twin pregnancy that brought us great stress and uncertainty.</p>
+          <p class="testimonial-body">When I reached out to Tina for help, they kindly agreed to support us.</p>
+          <p class="testimonial-body">From that moment on, every scan and hospital visit became a miracle. The large weight difference between the babies started to reduce, and all our reports gradually became normal.</p>
+          <p class="testimonial-body">We also stayed consistent with our practices and techniques. Another true blessing was that my work-from-home request, which seemed impossible at the time, was unexpectedly approved. This turned out to be life-saving.</p>
+          <p class="testimonial-body">Before the pregnancy, there were three medical emergencies when I had to rush my wife to the hospital immediately. Without the ability to work from home, I can't imagine what might have happened to my wife and our unborn babies.</p>
+          <p class="testimonial-body">Adding to our worries, an astrologer had predicted that we would not be able to have the babies, which only increased our fear.</p>
+          <p class="testimonial-body">But to our surprise and immense joy, we were blessed with a healthy baby boy and baby girl.</p>
+          <p class="testimonial-body">They did not even need to go to the NICU — both babies were handed to us the same day. It has truly been a journey of miracles. I am beyond grateful for this blessing of a smooth delivery and healthy babies.</p>
+          <p class="testimonial-sig">— J.</p>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-title">Beating Cancer Twice: Triumph Through Compassionate Healing</p>
+          <p class="testimonial-body">In June 2022, my Hodgkin Lymphoma relapsed at an advanced stage, and initial treatments weren't working well.</p>
+          <p class="testimonial-body">Under the guidance of Vipin and Tina, I received support and healing modalities including ground breaking techniques, energy-based practices, and focused self-care.</p>
+          <p class="testimonial-body">With their help, my body began responding better to medication. I supported myself with daily practices and healing routines during my treatment, including a bone marrow transplant.</p>
+          <p class="testimonial-body">Despite challenges like high blood pressure and depression, I overcame them with these practices. My latest PET scan is normal, and I continue to use these empowering healing methods.</p>
+          <p class="testimonial-body">I'm deeply grateful for the compassion and support I received.</p>
+          <p class="testimonial-sig">— N.</p>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-title">From Vacancy to Victory: Finding the Perfect Tenant in Four Days!</p>
+          <p class="testimonial-body">I was feeling overwhelmed as our rental property had been vacant for months.</p>
+          <p class="testimonial-body">Several families showed interest but never followed through, and I was starting to worry I'd need to move in myself to cover costs.</p>
+          <p class="testimonial-body">Tina offered practical guidance to help me approach the situation differently and focus my mindset.</p>
+          <p class="testimonial-body">I followed her suggestions sincerely, and within just 4 days, a great family visited and signed the lease.</p>
+          <p class="testimonial-body">Her support made a real difference.</p>
+          <p class="testimonial-sig">— S.</p>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-title">From Heartbreak to Harmony: Rebuilding a Mother–Daughter Connection</p>
+          <p class="testimonial-body">After returning from a summer trip my teenage daughter suddenly stopped all communication with me.</p>
+          <p class="testimonial-body">For months, she ignored my messages, avoided me in public, and wouldn't even accept food I sent. I was devastated.</p>
+          <p class="testimonial-body">With Tina's support, I began daily practices to shift the energy between us. Slowly, things began to change.</p>
+          <p class="testimonial-body">She started acknowledging me, accepted a meal, smiled in a photo, and eventually began spending time at my home again. Over several months, our connection has gradually improved. While we're still healing, I'm incredibly grateful for the progress and renewed closeness.</p>
+          <p class="testimonial-sig">— S.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Science Link ── -->
+<div style="background:var(--cream);text-align:center;padding:40px 20px">
+  <p style="font-family:'Cormorant Garamond',serif;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light);margin-bottom:12px">Explore the Science Behind This Work</p>
+  <a href="vibrational-field-v2.html" style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(0,0,0,.25);padding-bottom:2px;transition:border-color .2s">The Science of Vibrational Fields →</a>
+</div>
+
+<!-- ── Wave ── -->
+<div class="wave-divider" style="background:var(--cream-dark)">
+  <svg viewBox="0 0 1440 40" preserveAspectRatio="none" height="40">
+    <path d="M0,20 C360,0 720,40 1080,20 C1260,10 1380,30 1440,20" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
+  </svg>
+</div>
+
+<!-- ── 05 · About ── -->
+<section id="about" style="background:var(--cream-dark)">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label">05 · About</p>
+        <h2 class="editorial-heading">Get to Know Us</h2>
+      </div>
+      <div>
+        <div class="editorial-body" style="margin-bottom:32px">
+          <p>We are Tina and Vipin — partners in life and in the healing work we offer today. Our approach is rooted in lived experience, not theory. Before we ever supported others, we had to learn how to heal ourselves. What we teach comes from necessity, honesty, and years of personal practice — not trends, borrowed language, or quick fixes.</p>
+          <p>Healing becomes possible when you work at the deepest layer of a person — the patterns and impressions that quietly shape how you think, feel, relate, and respond to life. Our work helps people make those changes in a grounded, practical way — using tools that support emotional, mental, physical, and relational transformation. No promises. No guarantees. Just genuine, careful work that meets people where they are.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px">
+          <div>
+            <img src="https://static.wixstatic.com/media/f94a97_39092607b72a435c96134a42ea25b1a8~mv2.jpg/v1/fill/w_367,h_300,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/TinaBday_edited.jpg"
+                 alt="Tina Puri" style="width:100%;border-radius:6px;display:block"/>
+            <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--ink);margin-top:12px;margin-bottom:8px;">Tina Puri</p>
+            <p style="font-family:'Cormorant Garamond',serif;font-size:.92rem;color:var(--ink-mid);line-height:1.7;">Master Teacher | Soul Healing Practitioner | Universal 4th Dimensional Field Practitioner | Soul Communicator | Compassion Buddha Lineage Holder Level II | Source Song Master Practitioner | Advanced Healing Hands Practitioner | Yoga Teacher | Community Educator &amp; Senior Peer Counselor for cities of Fremont, Newark and Union City</p>
+          </div>
+          <div>
+            <img src="https://static.wixstatic.com/media/f94a97_21e42b9fc0de4dfb95ed5bcc20c2960f~mv2.jpg/v1/fill/w_367,h_300,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/VipinBlueSeattle_edited.jpg"
+                 alt="Vipin Puri" style="width:100%;border-radius:6px;display:block"/>
+            <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--ink);margin-top:12px;margin-bottom:8px;">Vipin Puri</p>
+            <p style="font-family:'Cormorant Garamond',serif;font-size:.92rem;color:var(--ink-mid);line-height:1.7;">Soul Healing Practitioner | Universal 4th Dimensional Field Practitioner | Soul Communicator | Compassion Buddha Lineage Holder Level II | Source Song Master Practitioner | Advanced Healing Hands Practitioner | Community Educator</p>
+          </div>
+        </div>
+        <div class="science-block">
+          <h3>Tina's Story</h3>
+          <p class="intro">Where This Work Began</p>
+          <p style="font-size:.93rem;color:var(--ink-mid);line-height:1.75;">For more than twenty years, Tina built a career in software. She was steady, capable, and outwardly "fine." Internally, her body was carrying far more than she realized.</p>
+          <p style="font-size:.93rem;color:var(--ink-mid);line-height:1.75;">Eventually, everything collapsed — fibromyalgia, chronic fatigue, and severe anxiety. She went from being fully active to barely functioning. Traditional approaches helped on the surface, but nothing reached the root.</p>
+          <p style="font-size:.93rem;color:var(--ink-mid);line-height:1.75;">The turning point came when she learned how to work at the deepest layer — the level where the underlying patterns lived. Instead of fighting symptoms, she began changing the internal drivers behind them.</p>
+          <p style="font-size:.93rem;color:var(--ink-mid);line-height:1.75;">The result wasn't just improvement — it was getting her life back. Greater clarity. A renewed sense of purpose. A way of understanding healing that was more complete than anything she had known. This is the foundation of everything they do now.</p>
+        </div>
+        <div class="science-block">
+          <h3>Vipin's Story</h3>
+          <p class="intro">The Path That Led Here</p>
+          <p style="font-size:.93rem;color:var(--ink-mid);line-height:1.75;">As Tina went through her healing, Vipin walked alongside her — witnessing the depth of her transformation and learning the practices himself. His background comes from decades in software engineering and product development, where clarity, structure, and grounded problem-solving guided everything.</p>
+          <p style="font-size:.93rem;color:var(--ink-mid);line-height:1.75;">Over time, those strengths became a natural complement to Tina's intuitive, lived understanding of healing — translating profound inner processes into practical, accessible steps that support people in everyday life — children, parents, professionals, and seniors alike.</p>
+          <p style="font-size:.93rem;color:var(--ink-mid);line-height:1.75;">Together, they've built an approach that is balanced, compassionate, and reliable. Vipin's role is to help ensure the work is clear, actionable, and supportive for every person who enters it.</p>
+        </div>
+        <div class="science-block">
+          <h3>What We Offer Today</h3>
+          <p style="font-size:.93rem;color:var(--ink-mid);line-height:1.75;">We create a space where people can work through what feels heavy — physical discomfort, emotional blocks, repeating relationship patterns, burnout, financial stress, or a general sense of being stuck.</p>
+          <p style="font-size:.88rem;color:var(--ink-mid);margin:12px 0 6px">Our approach blends:</p>
+          <ul>
+            <li>Deep inner-pattern transformation</li>
+            <li>Gentle energy-based techniques</li>
+            <li>Grounded guidance that connects inner work to daily life</li>
+          </ul>
+          <p style="font-size:.93rem;color:var(--ink-mid);line-height:1.75;margin-top:14px;">We focus on clarity, honesty, and real progress — not performance, jargon, or abstraction.</p>
+          <p style="font-size:.93rem;color:var(--ink-mid);line-height:1.75;">Whether someone is navigating pain, searching for direction, or simply feeling disconnected from themselves, our commitment is the same: a thoughtful, respectful, and genuinely supportive environment where meaningful change can happen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Wave ── -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 40" preserveAspectRatio="none" height="40">
+    <path d="M0,20 C360,40 720,0 1080,20 C1260,30 1380,10 1440,20" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
+  </svg>
+</div>
+
+<!-- ── 06 · Connect ── -->
+<section id="connect">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label">06 · Connect</p>
+        <h2 class="editorial-heading">Start Your Healing Journey</h2>
+      </div>
+      <div>
+        <div class="editorial-body" style="margin-bottom:32px">
+          <p>Whatever you're carrying — physical strain, emotional heaviness, repeating patterns, or a sense of being stuck — you don't have to navigate it alone. We're here with compassion, presence, and steady support.</p>
+          <p>If something in you is ready for change, we invite you to reach out.</p>
+          <p>Share your story, your questions, or whatever feels true in this moment.</p>
+          <p style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--ink);">Healing often begins quietly — with a single message, a single conversation, a single breath of relief.</p>
+        </div>
+        <!-- Contact Form — action points to Formspree endpoint -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="margin-bottom:32px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+            <div>
+              <label style="font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-light);display:block;margin-bottom:6px">First Name</label>
+              <input type="text" name="first_name" required
+                     style="width:100%;padding:10px 14px;border:1px solid rgba(0,0,0,.18);border-radius:3px;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);background:var(--cream);outline:none"/>
+            </div>
+            <div>
+              <label style="font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-light);display:block;margin-bottom:6px">Last Name</label>
+              <input type="text" name="last_name"
+                     style="width:100%;padding:10px 14px;border:1px solid rgba(0,0,0,.18);border-radius:3px;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);background:var(--cream);outline:none"/>
+            </div>
+          </div>
+          <div style="margin-bottom:16px">
+            <label style="font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-light);display:block;margin-bottom:6px">Email *</label>
+            <input type="email" name="email" required
+                   style="width:100%;padding:10px 14px;border:1px solid rgba(0,0,0,.18);border-radius:3px;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);background:var(--cream);outline:none"/>
+          </div>
+          <div style="margin-bottom:24px">
+            <label style="font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-light);display:block;margin-bottom:6px">Message</label>
+            <textarea name="message" rows="5"
+                      style="width:100%;padding:10px 14px;border:1px solid rgba(0,0,0,.18);border-radius:3px;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);background:var(--cream);outline:none;resize:vertical"></textarea>
+          </div>
+          <button type="submit"
+                  style="font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:.06em;color:var(--cream);background:var(--ink);border:none;padding:12px 36px;border-radius:3px;cursor:pointer">
+            Send Message
+          </button>
+        </form>
+
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          <a href="mailto:vjrasoulseva@gmail.com">vjrasoulseva@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Phone</span>
+          <a href="tel:+15105095072">(510) 509.5072</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">WhatsApp</span>
+          <a href="https://wa.me/15105095072">Message us on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-logo">Vjra Soul Seva</div>
+  <div class="footer-links">
+    <a href="#healing">Healing</a>
+    <a href="#pathways">Pathways</a>
+    <a href="#stories">Stories</a>
+    <a href="#about">About</a>
+    <a href="#connect">Connect</a>
+  </div>
+  <p>© 2026 Vjra Soul Seva · Tina &amp; Vipin Puri · vjrasoulseva@gmail.com</p>
+</footer>
+
+</body>
+</html>

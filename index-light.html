@@ -1,0 +1,1884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Source Nature — 10 Greatest Qualities</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --cream: #f8f4ee;
+      --cream-dark: #ede8e0;
+      --ink: #1a1410;
+      --ink-mid: #4a4038;
+      --ink-light: #8a8078;
+      --red: #c41e3a;
+      --red-soft: #e05060;
+      --nav-h: 72px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ── Announcement Bar ── */
+    .announce {
+      background: var(--ink);
+      color: rgba(255,255,255,.88);
+      text-align: center;
+      padding: 10px 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      letter-spacing: .04em;
+    }
+
+    /* ── Navigation ── */
+    .site-nav {
+      background: var(--cream);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center; height: var(--nav-h);
+      padding: 0 40px;
+    }
+    .nav-left { display: flex; gap: 28px; align-items: center; }
+    .nav-left a, .nav-right a {
+      font-size: .82rem; color: var(--ink-mid);
+      text-decoration: none; letter-spacing: .03em;
+      transition: color .2s;
+    }
+    .nav-left a:hover, .nav-right a:hover { color: var(--ink); }
+    .nav-left a.active { text-decoration: underline; text-underline-offset: 4px; }
+
+    /* ── Dropdown ── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger {
+      font-size: .82rem; color: var(--ink-mid);
+      text-decoration: none; letter-spacing: .03em;
+      cursor: pointer; display: flex; align-items: center; gap: 5px;
+      transition: color .2s; background: none; border: none;
+      font-family: inherit; padding: 0;
+    }
+    .nav-dropdown-trigger:hover { color: var(--ink); }
+    .nav-dropdown-trigger::after {
+      content: '›'; display: inline-block; transform: rotate(90deg);
+      font-size: .7rem; opacity: .5; transition: transform .2s;
+    }
+    .nav-dropdown:hover .nav-dropdown-trigger::after { transform: rotate(270deg); }
+    .nav-dropdown-menu {
+      position: absolute; top: calc(100% + 8px); left: 50%;
+      transform: translateX(-50%);
+      background: var(--cream);
+      border: 1px solid rgba(0,0,0,.09);
+      border-radius: 6px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.1);
+      min-width: 260px;
+      opacity: 0; visibility: hidden;
+      transform: translateX(-50%) translateY(-6px);
+      transition: opacity .18s, transform .18s, visibility .18s;
+      z-index: 200;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu {
+      opacity: 1; visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-menu a {
+      display: block; padding: 10px 18px;
+      font-size: .82rem; color: var(--ink-mid);
+      text-decoration: none; letter-spacing: .03em;
+      border-bottom: 1px solid rgba(0,0,0,.05);
+      transition: background .15s, color .15s;
+    }
+    .nav-dropdown-menu a:last-child { border-bottom: none; }
+    .nav-dropdown-menu a:hover { background: var(--cream-dark); color: var(--ink); }
+    .nav-dropdown-menu .drop-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .75rem; opacity: .4; margin-right: 8px;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 400;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: .06em; text-align: center;
+      white-space: nowrap;
+    }
+    .nav-right { display: flex; gap: 20px; justify-content: flex-end; align-items: center; font-size: .82rem; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 80px 40px 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero-title-italic {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 300;
+      font-size: clamp(4rem, 9vw, 8rem);
+      line-height: 1.0; color: var(--ink);
+      display: block; letter-spacing: -.01em;
+    }
+    .hero-title-upright {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: normal; font-weight: 500;
+      font-size: clamp(4.5rem, 10vw, 9.5rem);
+      line-height: 1.0; color: var(--ink);
+      display: block; letter-spacing: -.02em;
+    }
+    .hero-title-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 300;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      color: var(--ink-mid); display: block;
+      margin-top: 18px; letter-spacing: .01em;
+    }
+    .hero .hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: .78rem; color: var(--ink-light);
+      letter-spacing: .18em; text-transform: uppercase;
+      margin-bottom: 52px; font-weight: 400;
+    }
+
+    /* ── CSS Rose Petals ── */
+    .petal {
+      position: absolute;
+      border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+      box-shadow: inset -2px -3px 6px rgba(0,0,0,.18), inset 1px 1px 4px rgba(255,180,180,.3);
+      pointer-events: none;
+    }
+
+    /* ── Container & Editorial Layout ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+    .editorial {
+      display: grid;
+      grid-template-columns: 260px 1fr 220px;
+      gap: 48px 40px;
+      align-items: start;
+      padding: 64px 0;
+    }
+    .editorial.no-right { grid-template-columns: 260px 1fr; }
+
+    .editorial-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      line-height: 1.25; color: var(--ink);
+    }
+
+    .editorial-body { font-size: .97rem; color: var(--ink-mid); }
+    .editorial-body p { margin-bottom: 16px; }
+    .editorial-body p:last-child { margin-bottom: 0; }
+
+    .editorial-img {
+      display: flex; align-items: flex-start; justify-content: center;
+      padding-top: 8px;
+    }
+
+    /* ── Quality List ── */
+    .quality-list { list-style: none; padding: 0; }
+    .quality-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+      font-size: .97rem;
+      display: flex; align-items: baseline; gap: 10px;
+    }
+    .quality-list li:last-child { border-bottom: none; }
+    .quality-list .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .78rem; color: var(--ink-light);
+      flex-shrink: 0; padding-top: 1px;
+    }
+    .quality-list a {
+      text-decoration: none; font-weight: 400;
+      transition: opacity .2s;
+    }
+    .quality-list a:hover { opacity: .7; }
+
+    /* Quality colors */
+    .c-love        { color: #c41e3a; }
+    .c-forgiveness { color: #b8860b; }
+    .c-compassion  { color: #1a1410; }
+    .c-light       { color: #c8900a; }
+    .c-humility    { color: #2d5a27; }
+    .c-harmony     { color: #1a4a8a; }
+    .c-flourishing { color: #0e7a6e; }
+    .c-gratitude   { color: #3a7a8a; }
+    .c-service     { color: #6a3a9a; }
+    .c-enlightenment { color: #8a2a6a; }
+
+    /* ── Wavy Divider ── */
+    .wave-divider { width: 100%; overflow: hidden; line-height: 0; }
+    .wave-divider svg { display: block; width: 100%; }
+    .wave-divider.flip { transform: scaleY(-1); }
+
+    /* ── Section Intro ── */
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .72rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--ink-light);
+      margin-bottom: 8px;
+    }
+
+    /* ── Science Card (light style) ── */
+    .science-block {
+      padding: 32px 0;
+      border-top: 1px solid rgba(0,0,0,.08);
+    }
+    .science-block:first-child { border-top: none; }
+    .science-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: 1.4rem; color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .science-block .intro {
+      font-size: .93rem; color: var(--ink-light);
+      margin-bottom: 14px; font-style: italic;
+      line-height: 1.7;
+    }
+    .science-block ul { list-style: none; padding: 0; }
+    .science-block ul li {
+      font-size: .93rem; color: var(--ink-mid);
+      padding: 8px 0 8px 20px; position: relative;
+      border-bottom: 1px solid rgba(0,0,0,.05);
+      line-height: 1.65;
+    }
+    .science-block ul li:last-child { border-bottom: none; }
+    .science-block ul li::before {
+      content: '·'; position: absolute; left: 4px;
+      color: var(--red-soft); font-size: 1.4rem; top: 4px;
+      line-height: 1;
+    }
+
+    /* ── Practice Block ── */
+    .practice-item {
+      display: flex; gap: 20px; padding: 20px 0;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .practice-item:last-child { border-bottom: none; }
+    .practice-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; font-style: italic;
+      color: var(--cream-dark); line-height: 1;
+      flex-shrink: 0; width: 32px; text-align: right;
+      border-right: 1px solid rgba(0,0,0,.1);
+      padding-right: 16px; margin-right: 4px;
+      color: var(--ink-light);
+    }
+    .practice-text { font-size: .93rem; color: var(--ink-mid); line-height: 1.7; }
+
+    /* ── Citations ── */
+    .citations {
+      background: var(--cream-dark);
+      border-radius: 4px;
+      padding: 24px 28px;
+      margin-top: 32px;
+    }
+    .citations h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: .7rem; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--ink-light);
+      margin-bottom: 12px;
+    }
+    .citations ol { padding-left: 18px; }
+    .citations li { font-size: .82rem; color: var(--ink-light); padding: 3px 0; line-height: 1.5; }
+
+    /* ── Quality nav pills ── */
+    .quality-pills {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      padding: 32px 0;
+    }
+    .quality-pills a {
+      padding: 6px 14px; border-radius: 20px;
+      border: 1px solid rgba(0,0,0,.12);
+      font-size: .8rem; color: var(--ink-mid);
+      text-decoration: none; transition: all .2s;
+    }
+    .quality-pills a:hover, .quality-pills a.active {
+      background: var(--ink); color: var(--cream);
+      border-color: var(--ink);
+    }
+
+    /* ── Petal cluster (decorative CSS art) ── */
+    .petal-cluster { position: relative; width: 200px; height: 220px; }
+    .petal-cluster .p {
+      position: absolute;
+      border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+      box-shadow: inset -2px -3px 5px rgba(0,0,0,.15), inset 1px 1px 3px rgba(255,200,200,.25);
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,.6);
+      text-align: center;
+      padding: 56px 40px;
+    }
+    footer .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; color: rgba(255,255,255,.9);
+      letter-spacing: .08em; margin-bottom: 12px;
+    }
+    footer p { font-size: .85rem; line-height: 1.8; }
+    footer .footer-links { display: flex; gap: 24px; justify-content: center; margin: 20px 0; }
+    footer .footer-links a { color: rgba(255,255,255,.5); text-decoration: none; font-size: .82rem; transition: color .2s; }
+    footer .footer-links a:hover { color: rgba(255,255,255,.9); }
+
+    /* ── Hero petal scatter ── */
+    .hero-petals { position: absolute; inset: 0; pointer-events: none; }
+
+    /* ── Circular image frame ── */
+    .circle-img {
+      width: 180px; height: 180px; border-radius: 50%;
+      background: var(--cream-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+      box-shadow: 0 2px 20px rgba(0,0,0,.08);
+      overflow: hidden; position: relative;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .editorial { grid-template-columns: 1fr; gap: 24px; }
+      .editorial.no-right { grid-template-columns: 1fr; }
+      .editorial-img { display: none; }
+      .nav-inner { grid-template-columns: 1fr auto; }
+      .nav-right { display: none; }
+    }
+    @media (max-width: 600px) {
+      .nav-inner { padding: 0 20px; }
+      .container { padding: 0 20px; }
+      .hero { padding: 60px 20px 40px; }
+      .hero h1 { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Announcement Bar ── -->
+<div class="announce">This is all about life transformation!</div>
+
+<!-- ── Navigation ── -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="#qualities">All Qualities</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Science</button>
+        <div class="nav-dropdown-menu">
+          <a href="#science"><span class="drop-num">01</span>Greatest Love</a>
+          <a href="#science-forgiveness"><span class="drop-num">02</span>Greatest Forgiveness</a>
+          <a href="#science-compassion"><span class="drop-num">03</span>Greatest Compassion</a>
+          <a href="#science-light"><span class="drop-num">04</span>Greatest Light</a>
+          <a href="#science-humility"><span class="drop-num">05</span>Greatest Humility</a>
+          <a href="#science-harmony"><span class="drop-num">06</span>Greatest Harmony</a>
+          <a href="#science-flourishing"><span class="drop-num">07</span>Greatest Flourishing</a>
+          <a href="#science-gratitude"><span class="drop-num">08</span>Greatest Gratitude</a>
+          <a href="#science-service"><span class="drop-num">09</span>Greatest Service</a>
+          <a href="#science-enlightenment"><span class="drop-num">10</span>Greatest Enlightenment</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Practices</button>
+        <div class="nav-dropdown-menu">
+          <a href="#practices"><span class="drop-num">01</span>Greatest Love</a>
+          <a href="#practices-forgiveness"><span class="drop-num">02</span>Greatest Forgiveness</a>
+          <a href="#practices-compassion"><span class="drop-num">03</span>Greatest Compassion</a>
+          <a href="#practices-light"><span class="drop-num">04</span>Greatest Light</a>
+          <a href="#practices-humility"><span class="drop-num">05</span>Greatest Humility</a>
+          <a href="#practices-harmony"><span class="drop-num">06</span>Greatest Harmony</a>
+          <a href="#practices-flourishing"><span class="drop-num">07</span>Greatest Flourishing</a>
+          <a href="#practices-gratitude"><span class="drop-num">08</span>Greatest Gratitude</a>
+          <a href="#practices-service"><span class="drop-num">09</span>Greatest Service</a>
+          <a href="#practices-enlightenment"><span class="drop-num">10</span>Greatest Enlightenment</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Vibrational Field</button>
+        <div class="nav-dropdown-menu">
+          <a href="vibrational-field-v2.html#matter"><span class="drop-num">01</span>Matter</a>
+          <a href="vibrational-field-v2.html#waves"><span class="drop-num">02</span>Waves</a>
+          <a href="vibrational-field-v2.html#field"><span class="drop-num">03</span>Vibrational Field</a>
+          <a href="vibrational-field-v2.html#quantum"><span class="drop-num">04</span>Quantum Entanglement</a>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="nav-logo">Source Nature</a>
+    <div class="nav-right">
+      <a href="#contact">Get in Touch</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <!-- Scattered petals -->
+  <div class="hero-petals">
+    <!-- Left side -->
+    <div class="petal" style="width:14px;height:20px;background:radial-gradient(ellipse at 40% 35%,#f08090,#c41e3a);top:18%;left:6%;transform:rotate(-25deg);opacity:.7"></div>
+    <div class="petal" style="width:22px;height:30px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030,#6b000e);top:35%;left:9%;transform:rotate(40deg);opacity:.88;box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(255,100,120,.15)"></div>
+    <div class="petal" style="width:18px;height:26px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030,#6b000e);top:55%;left:5%;transform:rotate(-10deg);opacity:.88;box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(255,100,120,.15)"></div>
+    <div class="petal" style="width:30px;height:42px;background:radial-gradient(ellipse at 40% 35%,#f08090,#b01830);top:68%;left:12%;transform:rotate(55deg);opacity:.65"></div>
+    <div class="petal" style="width:12px;height:17px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#c41e3a);top:25%;left:16%;transform:rotate(-50deg);opacity:.45"></div>
+    <!-- Right side -->
+    <div class="petal" style="width:20px;height:28px;background:radial-gradient(ellipse at 40% 35%,#f08090,#c41e3a);top:20%;right:8%;transform:rotate(30deg);opacity:.65"></div>
+    <div class="petal" style="width:35px;height:48px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030,#6b000e);top:42%;right:5%;transform:rotate(-20deg);opacity:.88;box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(255,100,120,.15)"></div>
+    <div class="petal" style="width:15px;height:22px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#c41e3a);top:60%;right:10%;transform:rotate(65deg);opacity:.5"></div>
+    <div class="petal" style="width:25px;height:35px;background:radial-gradient(ellipse at 40% 35%,#f08090,#c41e3a);top:72%;right:7%;transform:rotate(-40deg);opacity:.6"></div>
+    <div class="petal" style="width:11px;height:16px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#c41e3a);top:30%;right:15%;transform:rotate(15deg);opacity:.4"></div>
+  </div>
+
+  <p class="hero-sub">Life Blosssoms · Source Nature</p>
+  <span class="hero-title-italic">Source</span>
+  <span class="hero-title-upright">Nature</span>
+  <span class="hero-title-sub">10 Greatest Qualities</span>
+</section>
+
+<!-- ── Wave Down ── -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+    <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="var(--cream-dark)" opacity=".5"/>
+    <path d="M0,40 C360,10 720,55 1080,25 C1260,10 1350,40 1440,35 L1440,60 L0,60 Z" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".15"/>
+  </svg>
+</div>
+
+<!-- ── Intro Editorial ── -->
+<section>
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label">Overview</p>
+        <h2 class="editorial-heading">Source Nature — 10 Greatest Qualities</h2>
+      </div>
+      <div class="editorial-body">
+        <p>Source nature is 10 greatest qualities. These qualities are wisdom, they're power, they're practice — they're abilities to transform our lives.</p>
+        <p>Each quality is not merely a virtue but a living force. When cultivated, they dissolve the blockages that prevent us from living fully — in body, mind, relationships, and soul. Modern science now confirms what the ancient traditions have always known: these qualities produce measurable transformation at every level of our being.</p>
+        <p>Below, each quality is presented with its spiritual essence and the scientific research that explains precisely how it heals, transforms, and elevates human life.</p>
+      </div>
+      <div class="editorial-img">
+        <div class="petal-cluster">
+          <div class="p" style="width:55px;height:76px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#c41e3a);top:20px;left:80px;transform:rotate(10deg)"></div>
+          <div class="p" style="width:45px;height:63px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#c41e3a);top:60px;left:40px;transform:rotate(-30deg)"></div>
+          <div class="p" style="width:38px;height:52px;background:radial-gradient(ellipse at 40% 35%,#e87080,#b01830);top:90px;left:100px;transform:rotate(50deg)"></div>
+          <div class="p" style="width:30px;height:42px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#d02840);top:130px;left:60px;transform:rotate(-15deg)"></div>
+          <div class="p" style="width:20px;height:28px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030,#6b000e);top:5px;left:30px;transform:rotate(-45deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(255,100,120,.15)"></div>
+          <div class="p" style="width:25px;height:35px;background:radial-gradient(ellipse at 40% 35%,#e87080,#b01830);top:150px;left:110px;transform:rotate(35deg)"></div>
+          <div class="p" style="width:15px;height:22px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#c41e3a);top:170px;left:50px;transform:rotate(60deg)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── The 10 Qualities List ── -->
+<section id="qualities" style="background: var(--cream-dark); padding: 2px 0">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label">The 10 Qualities</p>
+        <h2 class="editorial-heading">Greatest Qualities include</h2>
+      </div>
+      <div>
+        <ul class="quality-list">
+          <li><span class="num">01</span><a href="quality.html?q=love"       class="c-love">Greatest Love which melts all blockages and transforms all life</a></li>
+          <li><span class="num">02</span><a href="quality.html?q=forgiveness" class="c-forgiveness">Greatest Forgiveness which brings inner joy and inner peace</a></li>
+          <li><span class="num">03</span><a href="quality.html?q=compassion"  class="c-compassion">Greatest Compassion, which boosts ESVI</a></li>
+          <li><span class="num">04</span><a href="quality.html?q=light"        class="c-light">Greatest Light, which heals and transforms all life</a></li>
+          <li><span class="num">05</span><a href="quality.html?q=humility"    class="c-humility">Greatest Humility, which prevents and heals ego</a></li>
+          <li><span class="num">06</span><a href="quality.html?q=harmony"     class="c-harmony">Greatest Harmony, the secret of success in every aspect of life</a></li>
+          <li><span class="num">07</span><a href="quality.html?q=flourishing" class="c-flourishing">Greatest Flourishing, the resources and the engine for success in life</a></li>
+          <li><span class="num">08</span><a href="quality.html?q=gratitude"   class="c-gratitude">Greatest Gratitude, the key for progress in life and on the spiritual journey</a></li>
+          <li><span class="num">09</span><a href="quality.html?q=service"     class="c-service">Greatest Service, the purpose of life in every aspect</a></li>
+          <li><span class="num">10</span><a href="quality.html?q=enlightenment" class="c-enlightenment">Greatest Enlightenment, the ultimate achievement of one's physical life and soul journey</a></li>
+        </ul>
+      </div>
+      <div class="editorial-img" style="padding-top: 32px;">
+        <div class="petal-cluster" style="height:200px">
+          <div class="p" style="width:60px;height:84px;background:radial-gradient(ellipse at 40% 35%,#e87080,#c41e3a);top:0;left:60px;transform:rotate(-5deg)"></div>
+          <div class="p" style="width:50px;height:70px;background:radial-gradient(ellipse at 40% 35%,#e87080,#c41e3a);top:50px;left:10px;transform:rotate(-40deg)"></div>
+          <div class="p" style="width:42px;height:58px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#b01830);top:80px;left:90px;transform:rotate(55deg)"></div>
+          <div class="p" style="width:28px;height:40px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#d02840);top:130px;left:40px;transform:rotate(20deg)"></div>
+          <div class="p" style="width:18px;height:26px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030,#6b000e);top:160px;left:80px;transform:rotate(-30deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(255,100,120,.15)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Wave ── -->
+<div class="wave-divider" style="background:var(--cream-dark)">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+    <path d="M0,20 C360,55 720,0 1080,40 C1260,55 1350,15 1440,20 L1440,60 L0,60 Z" fill="var(--cream)" opacity="1"/>
+    <path d="M0,30 C240,5 600,55 900,20 C1100,5 1300,45 1440,30" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".12"/>
+  </svg>
+</div>
+
+<!-- ════════════════════════════════
+     GREATEST LOVE — FEATURED DEEP DIVE
+═════════════════════════════════ -->
+<section id="science">
+  <div class="container">
+
+    <!-- Section intro -->
+    <div class="editorial no-right" style="padding-bottom: 16px">
+      <div>
+        <p class="section-label" style="color: var(--red-soft)">Featured Quality</p>
+        <h2 class="editorial-heading" style="color: var(--red)">Greatest Love</h2>
+      </div>
+      <div class="editorial-body">
+        <p style="font-size:1.05rem; font-style:italic; color: var(--ink-mid)">"Greatest Love which melts all blockages and transforms all life"</p>
+        <p>Love is not merely an emotion — it is a measurable biological force. Modern science has confirmed what ancient traditions have always known: states of deep, unconditional love trigger cascading physiological changes that dissolve the body's blockages and reset the body's default toward healing, growth, and connection.</p>
+      </div>
+    </div>
+
+    <!-- Science sections -->
+    <div class="editorial" style="padding-top: 8px; align-items:start">
+      <div style="position:sticky;top:90px">
+        <p class="section-label">The Science</p>
+        <h3 class="editorial-heading" style="font-size:1.2rem; color:var(--ink-light)">4 mechanisms that explain how love transforms life</h3>
+        <div class="quality-pills" style="padding: 20px 0 0; flex-direction:column">
+          <a href="#oxytocin" style="border-color: rgba(196,30,58,.2); color: var(--red)">The Oxytocin System</a>
+          <a href="#heartmath" style="border-color: rgba(196,30,58,.2); color: var(--red)">Heart Coherence</a>
+          <a href="#epigenetics" style="border-color: rgba(196,30,58,.2); color: var(--red)">Epigenetic Reprogramming</a>
+          <a href="#cellular" style="border-color: rgba(196,30,58,.2); color: var(--red)">Cellular Environment</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="science-block" id="oxytocin">
+          <h3>The Oxytocin System</h3>
+          <p class="intro">At the heart of love's biology is oxytocin — a master regulator of the body's stress and healing architecture. Often called the 'love hormone', its effects extend far beyond bonding.</p>
+          <ul>
+            <li><strong>Cortisol suppression:</strong> Oxytocin directly suppresses cortisol and adrenaline — the primary drivers of chronic disease — by acting on the HPA axis.</li>
+            <li><strong>Vagal tone:</strong> Promotes the parasympathetic 'rest and repair' branch of the autonomic nervous system, enabling deep healing states.</li>
+            <li><strong>Wound healing:</strong> Accelerates tissue repair by stimulating fibroblast proliferation and angiogenesis (new blood vessel formation).</li>
+            <li><strong>Brain barrier crossing:</strong> Oxytocin crosses the blood-brain barrier, reducing amygdala reactivity and promoting trust, openness, and reduced fear.</li>
+          </ul>
+        </div>
+
+        <div class="science-block" id="heartmath">
+          <h3>Heart Coherence — The Electromagnetic Field of Love</h3>
+          <p class="intro">HeartMath Institute has conducted over 30 years of research demonstrating that feelings of love and appreciation create a measurably coherent, ordered electromagnetic field around the heart.</p>
+          <ul>
+            <li><strong>0.1 Hz coherent rhythm:</strong> In love/gratitude states, the heart produces a smooth sine-wave pattern that synchronizes the brain, immune, hormonal, and autonomic nervous systems simultaneously.</li>
+            <li><strong>Detectable field:</strong> The coherent field extends 3–5 feet around the body and can be measured in others' EEG recordings — love is literally contagious at a bioelectromagnetic level.</li>
+            <li><strong>Cognitive enhancement:</strong> Coherence improves reaction time, short-term memory, and decision speed within minutes of entering a love/appreciation state.</li>
+            <li><strong>Immune upregulation:</strong> IgA antibody levels (immune function) rise significantly during coherence sessions driven by love and appreciation.</li>
+          </ul>
+        </div>
+
+        <div class="science-block" id="epigenetics">
+          <h3>Epigenetic Reprogramming</h3>
+          <p class="intro">Dr. Dean Ornish's landmark research at UCSF demonstrated that love and connection are among the most powerful epigenetic forces available to a human being — capable of changing gene expression at the molecular level.</p>
+          <ul>
+            <li><strong>500+ genes altered:</strong> His 2008 PNAS study showed lifestyle changes anchored in love and connection altered expression of over 500 genes within 3 months — without drugs.</li>
+            <li><strong>Tumor suppression:</strong> Genes regulating inflammation, tumor suppression, and oxidative stress were all favorably modulated.</li>
+            <li><strong>Heart disease reversed:</strong> Ornish's program reversed documented coronary artery disease in 80% of participants — the first proven non-surgical reversal.</li>
+            <li><strong>Telomere protection:</strong> Chronic loneliness (absence of love) accelerates telomere shortening at a rate comparable to smoking 15 cigarettes per day (Cacioppo, 2015).</li>
+          </ul>
+        </div>
+
+        <div class="science-block" id="cellular">
+          <h3>Love as a Cellular Environment</h3>
+          <p class="intro">At the cellular level, love-states create a biochemical environment fundamentally incompatible with chronic disease. The shift from threat-mode to love-mode is a system-wide biological reset.</p>
+          <ul>
+            <li><strong>DHEA rise:</strong> The 'vitality hormone' DHEA rises significantly in sustained love states, counteracting cortisol's catabolic (tissue-destroying) effects.</li>
+            <li><strong>Nitric oxide:</strong> Production increases, relaxing blood vessels and improving circulation — the same mechanism targeted by cardiovascular medications.</li>
+            <li><strong>Cancer surveillance:</strong> Natural killer (NK) cell activity and T-lymphocyte proliferation increase, strengthening the body's cancer-monitoring system.</li>
+            <li><strong>Gut-brain axis:</strong> Love states increase serotonin production (90% produced in the gut), improving digestion, mood, and immunity simultaneously.</li>
+          </ul>
+        </div>
+
+        <div class="citations">
+          <h4>Key Research References</h4>
+          <ol>
+            <li>Uvnäs-Moberg K. (1998). Oxytocin may mediate the benefits of positive social interaction. <em>Psychoneuroendocrinology.</em></li>
+            <li>Ornish D. et al. (2008). Changes in prostate gene expression in men undergoing intensive nutrition and lifestyle changes. <em>PNAS.</em></li>
+            <li>McCraty R. (2015). Science of the Heart, Vol. 2. <em>HeartMath Institute.</em></li>
+            <li>Cacioppo J. et al. (2015). Loneliness and health: Potential mechanisms. <em>Psychosomatic Medicine.</em></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="editorial-img" style="padding-top: 40px; flex-direction:column; gap:40px">
+        <div class="circle-img">
+          <div class="petal-cluster" style="width:140px;height:140px">
+            <div class="p" style="width:45px;height:63px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#c41e3a);top:5px;left:45px;transform:rotate(5deg)"></div>
+            <div class="p" style="width:38px;height:53px;background:radial-gradient(ellipse at 40% 35%,#e87080,#c41e3a);top:40px;left:10px;transform:rotate(-35deg)"></div>
+            <div class="p" style="width:32px;height:45px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#b01830);top:65px;left:75px;transform:rotate(50deg)"></div>
+            <div class="p" style="width:22px;height:32px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030,#6b000e);top:95px;left:40px;transform:rotate(20deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(255,100,120,.15)"></div>
+          </div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink-light);text-align:center;line-height:1.6;padding:0 8px">
+          "Love is the most<br>potent force in<br>the universe — and<br>in the body."
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Wave ── -->
+<div class="wave-divider" style="margin-top:40px">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+    <path d="M0,40 C300,10 600,55 900,25 C1100,10 1300,50 1440,35 L1440,60 L0,60 Z" fill="var(--cream-dark)" opacity=".7"/>
+    <path d="M0,25 C200,55 500,5 800,35 C1000,55 1200,15 1440,30" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".1"/>
+  </svg>
+</div>
+
+<!-- ════════════════════════════════
+     GREATEST FORGIVENESS — SCIENCE DEEP DIVE
+═════════════════════════════════ -->
+<section id="science-forgiveness" style="background: rgba(245,166,35,.04)">
+  <div class="container">
+
+    <div class="editorial no-right" style="padding-bottom: 16px">
+      <div>
+        <p class="section-label" style="color: #b07800">Featured Quality</p>
+        <h2 class="editorial-heading" style="color: #8a5e00">Greatest Forgiveness</h2>
+      </div>
+      <div class="editorial-body">
+        <p style="font-size:1.05rem; font-style:italic; color: var(--ink-mid)">"Greatest Forgiveness which brings inner joy and inner peace"</p>
+        <p>Forgiveness is one of the most studied interventions in health psychology — and one of the most misunderstood. It is not condoning harm or erasing memory; it is releasing the body from the biological burden of sustained grievance. Unforgiveness is a chronic physiological stress state. Forgiveness ends it.</p>
+      </div>
+    </div>
+
+    <div class="editorial" style="padding-top: 8px; align-items:start">
+      <div style="position:sticky;top:90px">
+        <p class="section-label">The Science</p>
+        <h3 class="editorial-heading" style="font-size:1.2rem; color:var(--ink-light)">4 mechanisms that explain how forgiveness restores peace</h3>
+        <div class="quality-pills" style="padding: 20px 0 0; flex-direction:column">
+          <a href="#unforgiveness-bio" style="border-color: rgba(176,120,0,.25); color: #8a5e00">The Biology of Unforgiveness</a>
+          <a href="#stanford-forgiveness" style="border-color: rgba(176,120,0,.25); color: #8a5e00">Stanford Forgiveness Project</a>
+          <a href="#immune-restoration" style="border-color: rgba(176,120,0,.25); color: #8a5e00">Immune System Restoration</a>
+          <a href="#forgiveness-neuro" style="border-color: rgba(176,120,0,.25); color: #8a5e00">Neuroplasticity — Rewiring Peace</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="science-block" id="unforgiveness-bio">
+          <h3>The Biology of Unforgiveness</h3>
+          <p class="intro">When we hold a grudge, the body does not know it is in the past. Every replay of a grievance triggers the same sympathetic nervous system response as the original threat. This is unforgiveness as a biological prison.</p>
+          <ul>
+            <li><strong>HPA axis activation:</strong> Rumination about past wrongs activates the HPA axis as if the threat is current — elevating cortisol, epinephrine, and pro-inflammatory cytokines continuously.</li>
+            <li><strong>Chronic inflammation:</strong> Unforgiveness keeps the body in a persistent low-grade inflammatory state, a known driver of heart disease, cancer, diabetes, and autoimmune conditions.</li>
+            <li><strong>Amygdala entrenchment:</strong> The amygdala strengthens its 'threat' encoding with each emotional replay, progressively lowering the threshold for anger and fear responses.</li>
+            <li><strong>Sleep disruption:</strong> Rumination activates prefrontal-limbic circuits incompatible with restorative sleep stages, compounding cellular damage night after night.</li>
+          </ul>
+        </div>
+
+        <div class="science-block" id="stanford-forgiveness">
+          <h3>Stanford Forgiveness Project</h3>
+          <p class="intro">Dr. Fred Luskin of Stanford University's Forgiveness Project has conducted the most rigorous clinical trials on forgiveness, demonstrating profound, measurable improvements across multiple health domains.</p>
+          <ul>
+            <li><strong>70% reduction in hurt:</strong> In a 9-week forgiveness training program, participants showed a 70% reduction in hurt feelings, 40% reduction in anger, and 35% reduction in perceived stress.</li>
+            <li><strong>Physical symptoms decline:</strong> Headaches, stomach aches, dizziness, and muscle tension all declined significantly versus control groups.</li>
+            <li><strong>HOPE trial:</strong> Victims of Northern Ireland sectarian violence showed forgiveness training reduced depression by 40% in a population with profound trauma.</li>
+            <li><strong>Durable benefits:</strong> Gains held at 6-month follow-up — forgiveness is not a temporary state but a learnable, sustainable orientation.</li>
+          </ul>
+        </div>
+
+        <div class="science-block" id="immune-restoration">
+          <h3>Immune System Restoration</h3>
+          <p class="intro">Witvliet et al.'s landmark study directly measured immune function during forgiveness and unforgiveness states, demonstrating that the immune cost of grievance is real and reversible.</p>
+          <ul>
+            <li><strong>Immediate physiological threat:</strong> Replaying a grudge caused immediate increases in blood pressure, heart rate, and galvanic skin response — a measurable physiological threat state.</li>
+            <li><strong>NK cell recovery:</strong> Natural killer (NK) cell activity — the immune system's primary cancer surveillance — is significantly suppressed by chronic resentment and restored by forgiveness.</li>
+            <li><strong>IgA restoration:</strong> Secretory IgA (salivary immunoglobulin, first-line mucosal defense) decreases during anger states and recovers during states of forgiveness and compassion.</li>
+            <li><strong>IL-6 reduction:</strong> Interleukin-6, a key inflammatory marker, correlates inversely with forgiveness disposition — more forgiving people carry lower chronic inflammation.</li>
+          </ul>
+        </div>
+
+        <div class="science-block" id="forgiveness-neuro">
+          <h3>Neuroplasticity — Rewiring Peace</h3>
+          <p class="intro">Forgiveness is not just an emotional choice — it is a neural restructuring process. With practice, the brain physically rewires toward equanimity and lasting inner peace.</p>
+          <ul>
+            <li><strong>Prefrontal thickening:</strong> Forgiveness practice thickens the prefrontal cortex, the brain's center for perspective-taking, impulse regulation, and compassion.</li>
+            <li><strong>Amygdala calming:</strong> The amygdala shows reduced gray matter density and lower reactivity in long-term forgiveness practitioners.</li>
+            <li><strong>ACC strengthening:</strong> The anterior cingulate cortex, mediating between emotional and rational regions, becomes more robust — reducing emotional flooding.</li>
+            <li><strong>Theory of mind:</strong> Forgiveness activates the TPJ (temporoparietal junction), enabling the cognitive shift from judgment to understanding that underlies true release.</li>
+          </ul>
+        </div>
+
+        <div class="citations">
+          <h4>Key Research References</h4>
+          <ol>
+            <li>Luskin F. (2002). Forgive for Good. HarperCollins. <em>Stanford FGRI.</em></li>
+            <li>Witvliet C.V. et al. (2001). Granting forgiveness or harboring grudges. <em>Psychological Science.</em></li>
+            <li>Worthington E.L. (2006). Forgiveness and Reconciliation. <em>Routledge.</em></li>
+            <li>Toussaint L. et al. (2015). Effects of lifetime stress exposure on mental and physical health in young adulthood. <em>BMC Psychiatry.</em></li>
+            <li>Harris A.H. & Thoresen C. (2005). Forgiveness, unforgiveness, health, and disease. <em>Handbook of Forgiveness.</em></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="editorial-img" style="padding-top: 40px; flex-direction:column; gap:40px">
+        <div class="circle-img" style="background: rgba(245,166,35,.12)">
+          <div class="petal-cluster" style="width:140px;height:140px">
+            <div class="p" style="width:45px;height:63px;background:radial-gradient(ellipse at 40% 35%,#f8d070,#d4900a);top:5px;left:45px;transform:rotate(5deg)"></div>
+            <div class="p" style="width:38px;height:53px;background:radial-gradient(ellipse at 40% 35%,#f5c040,#b07800);top:40px;left:10px;transform:rotate(-35deg)"></div>
+            <div class="p" style="width:32px;height:45px;background:radial-gradient(ellipse at 40% 35%,#fde090,#c98a10);top:65px;left:75px;transform:rotate(50deg)"></div>
+            <div class="p" style="width:22px;height:32px;background:radial-gradient(ellipse at 40% 35%,#e8a010,#7a4e00,#4a2e00);top:95px;left:40px;transform:rotate(20deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(255,200,80,.2)"></div>
+          </div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink-light);text-align:center;line-height:1.6;padding:0 8px">
+          "To forgive is to<br>set a prisoner free<br>and discover that<br>the prisoner was you."
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Wave ── -->
+<div class="wave-divider" style="margin-top:40px">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+    <path d="M0,30 C360,60 720,5 1080,35 C1260,50 1380,20 1440,30 L1440,60 L0,60 Z" fill="var(--cream-dark)" opacity=".6"/>
+    <path d="M0,20 C240,50 500,10 800,40 C1000,60 1200,20 1440,35" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".1"/>
+  </svg>
+</div>
+
+<!-- ── Practices ── -->
+<section id="practices" style="background: rgba(0,0,0,.02); padding: 2px 0">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label">Cultivation</p>
+        <h2 class="editorial-heading">How to cultivate Greatest Love</h2>
+      </div>
+      <div>
+        <div class="practice-item">
+          <div class="practice-num">1</div>
+          <p class="practice-text"><strong>Loving-kindness meditation (Metta):</strong> Systematically extending love from self outward — to loved ones, neutral people, difficult people, all beings. Shown to increase positive emotions, vagal tone, and social connection in as little as 7 weeks.</p>
+        </div>
+        <div class="practice-item">
+          <div class="practice-num">2</div>
+          <p class="practice-text"><strong>Heart-focused breathing:</strong> Direct attention to the heart center while breathing slowly (5 sec in / 5 sec out) while generating a genuine feeling of love or appreciation. HeartMath research shows measurable physiological coherence within 3–5 minutes.</p>
+        </div>
+        <div class="practice-item">
+          <div class="practice-num">3</div>
+          <p class="practice-text"><strong>Conscious loving presence:</strong> Bringing full, non-judgmental loving attention to another person — in conversation, service, or simply being together. Scientifically shown to be the most healing interpersonal act measurable, releasing oxytocin in both people.</p>
+        </div>
+      </div>
+      <div class="editorial-img">
+        <div class="petal-cluster" style="width:180px;height:200px">
+          <div class="p" style="width:65px;height:90px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#c41e3a);top:0;left:55px;transform:rotate(-8deg)"></div>
+          <div class="p" style="width:55px;height:76px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#c41e3a);top:55px;left:5px;transform:rotate(-42deg)"></div>
+          <div class="p" style="width:48px;height:67px;background:radial-gradient(ellipse at 40% 35%,#e87080,#b01830);top:80px;left:100px;transform:rotate(52deg)"></div>
+          <div class="p" style="width:35px;height:50px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#d02840);top:140px;left:50px;transform:rotate(18deg)"></div>
+          <div class="p" style="width:22px;height:30px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030,#6b000e);top:170px;left:110px;transform:rotate(-28deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(255,100,120,.15)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Wave ── -->
+<div class="wave-divider" style="margin-top:40px">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+    <path d="M0,35 C300,5 700,55 1000,20 C1200,5 1350,45 1440,30 L1440,60 L0,60 Z" fill="rgba(245,166,35,.06)" opacity="1"/>
+    <path d="M0,20 C240,50 500,10 800,40 C1000,60 1200,20 1440,35" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".08"/>
+  </svg>
+</div>
+
+<!-- ── Forgiveness Practices ── -->
+<section id="practices-forgiveness" style="background: rgba(245,166,35,.04); padding: 2px 0">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label" style="color:#b07800">Cultivation</p>
+        <h2 class="editorial-heading">How to cultivate Greatest Forgiveness</h2>
+      </div>
+      <div>
+        <div class="practice-item">
+          <div class="practice-num" style="color:#b07800">1</div>
+          <p class="practice-text"><strong>The REACH model (Dr. Worthington):</strong> Recall the hurt → Empathize with the offender → Altruistic gift of forgiveness → Commit to forgive → Hold onto forgiveness when doubt returns. The most clinically validated forgiveness protocol, tested across cultures and trauma types.</p>
+        </div>
+        <div class="practice-item">
+          <div class="practice-num" style="color:#b07800">2</div>
+          <p class="practice-text"><strong>Loving-kindness (Metta) directed at the offender:</strong> Neurologically creates new positive associations that override the old threat encoding. Sending genuine goodwill — not approval — dissolves the amygdala's grip on the grievance memory over time.</p>
+        </div>
+        <div class="practice-item">
+          <div class="practice-num" style="color:#b07800">3</div>
+          <p class="practice-text"><strong>Somatic release:</strong> Forgiveness is held in the body — breathwork, yoga, and body-scan practices release the physical residue of unresolved grievance stored in the fascia, diaphragm, and nervous system that cognitive approaches alone cannot reach.</p>
+        </div>
+      </div>
+      <div class="editorial-img">
+        <div class="petal-cluster" style="width:180px;height:200px">
+          <div class="p" style="width:65px;height:90px;background:radial-gradient(ellipse at 40% 35%,#f8d070,#d4900a);top:0;left:55px;transform:rotate(-8deg)"></div>
+          <div class="p" style="width:55px;height:76px;background:radial-gradient(ellipse at 40% 35%,#fde090,#c98a10);top:55px;left:5px;transform:rotate(-42deg)"></div>
+          <div class="p" style="width:48px;height:67px;background:radial-gradient(ellipse at 40% 35%,#f5c040,#b07800);top:80px;left:100px;transform:rotate(52deg)"></div>
+          <div class="p" style="width:35px;height:50px;background:radial-gradient(ellipse at 40% 35%,#fde090,#c98a10);top:140px;left:50px;transform:rotate(18deg)"></div>
+          <div class="p" style="width:22px;height:30px;background:radial-gradient(ellipse at 40% 35%,#e8a010,#7a4e00,#4a2e00);top:170px;left:110px;transform:rotate(-28deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(255,200,80,.2)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Wave ── -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 50" preserveAspectRatio="none" height="50">
+    <path d="M0,25 C400,50 800,0 1200,30 C1320,40 1380,20 1440,25 L1440,50 L0,50 Z" fill="var(--ink)" opacity="1"/>
+  </svg>
+</div>
+
+<!-- ════════════════════════════════
+     GREATEST COMPASSION
+═════════════════════════════════ -->
+<section id="science-compassion" style="background: rgba(62,207,207,.04)">
+  <div class="container">
+    <div class="editorial no-right" style="padding-bottom:16px">
+      <div>
+        <p class="section-label" style="color:#1a9090">Featured Quality</p>
+        <h2 class="editorial-heading" style="color:#0e6e6e">Greatest Compassion</h2>
+      </div>
+      <div class="editorial-body">
+        <p style="font-size:1.05rem;font-style:italic;color:var(--ink-mid)">"Greatest Compassion which boosts Emotional, Spiritual, Vibrational &amp; Immune health"</p>
+        <p>Compassion — the capacity to feel and respond to the suffering of others — is one of the most potent anti-inflammatory interventions science has measured. Unlike empathy, which can lead to burnout, true compassion activates a distinct caregiving neural circuit that strengthens rather than depletes the practitioner.</p>
+      </div>
+    </div>
+    <div class="editorial" style="padding-top:8px;align-items:start">
+      <div style="position:sticky;top:90px">
+        <p class="section-label">The Science</p>
+        <h3 class="editorial-heading" style="font-size:1.2rem;color:var(--ink-light)">4 mechanisms that explain how compassion transforms health</h3>
+        <div class="quality-pills" style="padding:20px 0 0;flex-direction:column">
+          <a href="#compassion-vagal" style="border-color:rgba(62,207,207,.3);color:#0e6e6e">Vagal Tone &amp; the Health Link</a>
+          <a href="#compassion-stanford" style="border-color:rgba(62,207,207,.3);color:#0e6e6e">Stanford CCARE Research</a>
+          <a href="#compassion-self" style="border-color:rgba(62,207,207,.3);color:#0e6e6e">Self-Compassion Science</a>
+          <a href="#compassion-vibration" style="border-color:rgba(62,207,207,.3);color:#0e6e6e">Vibrational &amp; Energetic Dimension</a>
+        </div>
+      </div>
+      <div>
+        <div class="science-block" id="compassion-vagal">
+          <h3>Vagal Tone and the Compassion-Health Link</h3>
+          <p class="intro">The vagus nerve is the primary information highway of the parasympathetic nervous system, innervating the heart, lungs, gut, and immune organs. Compassion is one of the strongest activators of vagal tone ever measured.</p>
+          <ul>
+            <li><strong>HRV increase:</strong> Kok et al. (2013) demonstrated compassion meditation increased heart rate variability — the gold-standard measure of vagal tone — within weeks.</li>
+            <li><strong>Inflammation reduction:</strong> Higher vagal tone correlates with lower IL-6, lower C-reactive protein, and reduced NF-κB — the master switch of inflammatory gene expression.</li>
+            <li><strong>Immune command:</strong> The vagus nerve directly innervates lymphoid organs including the spleen and thymus, meaning vagal activation literally commands immune cells.</li>
+            <li><strong>Upward spiral:</strong> More compassion → higher HRV → less inflammation → better emotional regulation → more compassion capacity.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="compassion-stanford">
+          <h3>Stanford CCARE — Measurable Compassion Effects</h3>
+          <p class="intro">The Center for Compassion and Altruism Research and Education (CCARE) at Stanford University, founded by Dr. James Doty, has produced the most rigorous compassion science to date.</p>
+          <ul>
+            <li><strong>CCT results:</strong> 8-week Compassion Cultivation Training significantly reduced suffering, increased compassion for self and others, and improved social connectedness.</li>
+            <li><strong>Neural activation:</strong> fMRI shows compassion activates the insula, anterior cingulate cortex, and prefrontal cortex — while reducing amygdala threat response.</li>
+            <li><strong>Energizes vs. exhausts:</strong> Compassion activates the caregiving system (not the shared-pain system) — explaining why it energizes rather than burns out practitioners.</li>
+            <li><strong>Cardiovascular protection:</strong> Oxytocin released during compassionate acts strengthens the heart and has direct anti-inflammatory cardiovascular effects.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="compassion-self">
+          <h3>Self-Compassion — The Often Overlooked Dimension</h3>
+          <p class="intro">Dr. Kristin Neff's research establishes that self-compassion is a significantly stronger predictor of wellbeing, resilience, and health than self-esteem.</p>
+          <ul>
+            <li><strong>Cortisol threat loop:</strong> Self-criticism activates the same threat pathways as external attack — chronically self-critical people sustain elevated cortisol comparable to social threats.</li>
+            <li><strong>HRV and immune uplift:</strong> Self-compassion increases salivary IgA and reduces inflammatory markers more effectively than self-esteem building.</li>
+            <li><strong>Anxiety and depression:</strong> Self-compassion practice reduces cortisol reactivity and is associated with reduced rates of anxiety and depression.</li>
+            <li><strong>DMN rest:</strong> Self-compassion deactivates the self-referential DMN rumination loop, providing real neurological rest from inner criticism.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="compassion-vibration">
+          <h3>Vibrational and Energetic Dimension</h3>
+          <p class="intro">Beyond biochemistry, compassion research in biofield science suggests that compassionate states alter the body's electromagnetic and biophotonic output in measurable ways.</p>
+          <ul>
+            <li><strong>Coherent heart field:</strong> HeartMath research shows compassionate heart states produce more ordered electromagnetic fields, detectable in others' EEG recordings.</li>
+            <li><strong>Biophotonic coherence:</strong> Compassion-focused meditators show increased biophotonic emission coherence — cellular communication becomes more organized.</li>
+            <li><strong>Tend-and-befriend:</strong> The oxytocin-driven affiliative stress response (Taylor, 2000) is compassion's innate biological expression.</li>
+            <li><strong>Gamma synchrony:</strong> Sustained compassion practice correlates with increased gamma-wave neural synchrony — higher-order information integration across brain regions.</li>
+          </ul>
+        </div>
+        <div class="citations">
+          <h4>Key Research References</h4>
+          <ol>
+            <li>Kok B. et al. (2013). How positive emotions build physical health. <em>Psychological Science.</em></li>
+            <li>Doty J. (2016). Into the Magic Shop. <em>Avery. Stanford CCARE.</em></li>
+            <li>Neff K. &amp; Germer C. (2013). A pilot study of a mindful self-compassion intervention. <em>Journal of Clinical Psychology.</em></li>
+            <li>McGonigal K. (2015). The Upside of Stress. <em>Avery.</em></li>
+            <li>Lutz A. et al. (2008). Regulation of the neural circuitry of emotion by compassion meditation. <em>PLoS ONE.</em></li>
+          </ol>
+        </div>
+      </div>
+      <div class="editorial-img" style="padding-top:40px;flex-direction:column;gap:40px">
+        <div class="circle-img" style="background:rgba(62,207,207,.1)">
+          <div class="petal-cluster" style="width:140px;height:140px">
+            <div class="p" style="width:45px;height:63px;background:radial-gradient(ellipse at 40% 35%,#7ef0e0,#1a9090);top:5px;left:45px;transform:rotate(5deg)"></div>
+            <div class="p" style="width:38px;height:53px;background:radial-gradient(ellipse at 40% 35%,#3ecfcf,#0e6e6e);top:40px;left:10px;transform:rotate(-35deg)"></div>
+            <div class="p" style="width:32px;height:45px;background:radial-gradient(ellipse at 40% 35%,#a0f0e8,#2aabab);top:65px;left:75px;transform:rotate(50deg)"></div>
+            <div class="p" style="width:22px;height:32px;background:radial-gradient(ellipse at 40% 35%,#0e8080,#054040,#022020);top:95px;left:40px;transform:rotate(20deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(100,255,240,.2)"></div>
+          </div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink-light);text-align:center;line-height:1.6;padding:0 8px">"Compassion is the<br>medicine the world<br>needs most — and<br>it heals the giver first."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="margin-top:40px"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,30 C360,60 720,5 1080,35 C1260,50 1380,20 1440,30 L1440,60 L0,60 Z" fill="rgba(62,207,207,.05)" opacity="1"/><path d="M0,20 C240,50 500,10 800,40 C1000,60 1200,20 1440,35" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".08"/></svg></div>
+
+<section id="practices-compassion" style="background:rgba(62,207,207,.04);padding:2px 0">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label" style="color:#1a9090">Cultivation</p>
+        <h2 class="editorial-heading">How to cultivate Greatest Compassion</h2>
+      </div>
+      <div>
+        <div class="practice-item"><div class="practice-num" style="color:#1a9090">1</div><p class="practice-text"><strong>Compassion Cultivation Training (CCT):</strong> Stanford's 8-week structured progression from self-compassion → loved ones → neutral people → difficult people. Clinically validated to reduce suffering and increase immune function.</p></div>
+        <div class="practice-item"><div class="practice-num" style="color:#1a9090">2</div><p class="practice-text"><strong>Tonglen (Tibetan giving and taking):</strong> Breathe in the suffering of others, breathe out relief. Directly strengthens the compassion circuit and reduces empathic distress by shifting from shared-pain to caregiving mode.</p></div>
+        <div class="practice-item"><div class="practice-num" style="color:#1a9090">3</div><p class="practice-text"><strong>Loving-Kindness + Compassion pairing:</strong> LKM cultivates warmth (metta), compassion meditation (karuna) specifically responds to suffering. Both are neurologically distinct and complementary — together they cover the full spectrum of the heart's healing capacity.</p></div>
+      </div>
+      <div class="editorial-img">
+        <div class="petal-cluster" style="width:180px;height:200px">
+          <div class="p" style="width:65px;height:90px;background:radial-gradient(ellipse at 40% 35%,#7ef0e0,#1a9090);top:0;left:55px;transform:rotate(-8deg)"></div>
+          <div class="p" style="width:55px;height:76px;background:radial-gradient(ellipse at 40% 35%,#a0f0e8,#2aabab);top:55px;left:5px;transform:rotate(-42deg)"></div>
+          <div class="p" style="width:48px;height:67px;background:radial-gradient(ellipse at 40% 35%,#3ecfcf,#0e6e6e);top:80px;left:100px;transform:rotate(52deg)"></div>
+          <div class="p" style="width:35px;height:50px;background:radial-gradient(ellipse at 40% 35%,#a0f0e8,#2aabab);top:140px;left:50px;transform:rotate(18deg)"></div>
+          <div class="p" style="width:22px;height:30px;background:radial-gradient(ellipse at 40% 35%,#0e8080,#054040,#022020);top:170px;left:110px;transform:rotate(-28deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(100,255,240,.2)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="margin-top:40px"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,40 C300,10 600,55 900,25 C1100,10 1300,50 1440,35 L1440,60 L0,60 Z" fill="var(--cream-dark)" opacity=".7"/><path d="M0,25 C200,55 500,5 800,35 C1000,55 1200,15 1440,30" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".1"/></svg></div>
+
+<!-- ════════════════════════════════
+     GREATEST LIGHT
+═════════════════════════════════ -->
+<section id="science-light" style="background:rgba(255,224,102,.05)">
+  <div class="container">
+    <div class="editorial no-right" style="padding-bottom:16px">
+      <div>
+        <p class="section-label" style="color:#8a7000">Featured Quality</p>
+        <h2 class="editorial-heading" style="color:#6a5200">Greatest Light</h2>
+      </div>
+      <div class="editorial-body">
+        <p style="font-size:1.05rem;font-style:italic;color:var(--ink-mid)">"Greatest Light which heals and transforms all life"</p>
+        <p>Light is not merely a metaphor — it is a literal biological currency. Every living cell both emits and absorbs coherent light (biophotons), uses light-driven reactions for energy production, and depends on light signals for timing every major biological process. Light heals because life is, at its core, a light-based phenomenon.</p>
+      </div>
+    </div>
+    <div class="editorial" style="padding-top:8px;align-items:start">
+      <div style="position:sticky;top:90px">
+        <p class="section-label">The Science</p>
+        <h3 class="editorial-heading" style="font-size:1.2rem;color:var(--ink-light)">4 mechanisms that explain how light heals and transforms</h3>
+        <div class="quality-pills" style="padding:20px 0 0;flex-direction:column">
+          <a href="#light-biophotons" style="border-color:rgba(180,160,0,.3);color:#6a5200">Biophotons — The Body's Inner Light</a>
+          <a href="#light-pbm" style="border-color:rgba(180,160,0,.3);color:#6a5200">Photobiomodulation — Light as Medicine</a>
+          <a href="#light-vitamind" style="border-color:rgba(180,160,0,.3);color:#6a5200">Sunlight &amp; the Immune Genome</a>
+          <a href="#light-circadian" style="border-color:rgba(180,160,0,.3);color:#6a5200">Circadian Biology — The Light-Timed Body</a>
+        </div>
+      </div>
+      <div>
+        <div class="science-block" id="light-biophotons">
+          <h3>Biophotons — The Body's Inner Light</h3>
+          <p class="intro">Fritz-Albert Popp demonstrated that all living cells emit coherent photons and that this biophotonic field regulates biological information transfer throughout the organism.</p>
+          <ul>
+            <li><strong>Cellular light emission:</strong> Every human cell emits 1–1000 photons per second. Healthier cells emit more coherent light; disease states show disordered biophotonic patterns.</li>
+            <li><strong>DNA as light-pipe:</strong> Biophotons travel along DNA, functioning as a waveguide enabling instantaneous communication — far faster than chemical signaling.</li>
+            <li><strong>Cancer signature:</strong> Cancer cells emit more but less coherent light — disrupted biophotonic regulation is a measurable feature of malignancy.</li>
+            <li><strong>Healing as coherence:</strong> Healing is the restoration of biophotonic coherence — directly aligning with Greatest Light restoring order at the cellular level.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="light-pbm">
+          <h3>Photobiomodulation — Light as Medicine</h3>
+          <p class="intro">Photobiomodulation (PBM), an FDA-cleared modality, demonstrates that specific light wavelengths trigger powerful healing cascades in human tissue.</p>
+          <ul>
+            <li><strong>Mitochondrial activation:</strong> Near-infrared light (600–1100 nm) is absorbed by cytochrome c oxidase, directly increasing ATP production — the cell's energy currency.</li>
+            <li><strong>Neuroinflammation:</strong> Harvard's Dr. Hamblin shows significant reductions in TNF-α, IL-1β, and IL-6 with red/NIR light exposure.</li>
+            <li><strong>Clinical breadth:</strong> Strong evidence for wound healing, traumatic brain injury, joint inflammation, nerve regeneration, and depression.</li>
+            <li><strong>Nrf2 activation:</strong> PBM upregulates protective transcription factors that activate the body's own antioxidant defense systems — a systemic healing cascade from light.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="light-vitamind">
+          <h3>Sunlight, Vitamin D, and the Immune Genome</h3>
+          <p class="intro">Sunlight exposure and its downstream signaling through vitamin D regulates over 200 genes across virtually every tissue in the body.</p>
+          <ul>
+            <li><strong>VDR presence everywhere:</strong> The vitamin D receptor is present in nearly every cell type, controlling immune function, inflammation, cell proliferation, and differentiation.</li>
+            <li><strong>Disease risk:</strong> Vitamin D deficiency is associated with 17 types of cancer, MS, type 1 diabetes, cardiovascular disease, and COVID-19 severity.</li>
+            <li><strong>Nitric oxide:</strong> UVB exposure triggers skin nitric oxide synthesis — causing immediate vasodilation and blood pressure reduction, independent of vitamin D.</li>
+            <li><strong>Circadian reset:</strong> Morning sunlight to the eyes sets the hypothalamic-pituitary clock, governing cortisol rhythm, sleep, and metabolic timing.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="light-circadian">
+          <h3>Circadian Biology — The Light-Timed Body</h3>
+          <p class="intro">Every cell contains a molecular clock. Light is the master synchronizer. When intact, cellular repair, detoxification, immune surveillance, and hormones all occur in optimal sequence.</p>
+          <ul>
+            <li><strong>SCN master clock:</strong> The suprachiasmatic nucleus receives direct light input and broadcasts time signals to every organ via hormones and nerves.</li>
+            <li><strong>Melatonin and repair:</strong> Darkness triggers melatonin, initiating DNA repair, autophagy (cellular cleanup), and immune surveillance only possible in low-light states.</li>
+            <li><strong>Light disruption as carcinogen:</strong> Circadian disruption (shift work, blue light at night) is classified as a probable carcinogen by the IARC.</li>
+            <li><strong>Chronotherapy:</strong> Timing treatments to circadian rhythms can make chemotherapy 5× more effective and 5× less toxic.</li>
+          </ul>
+        </div>
+        <div class="citations">
+          <h4>Key Research References</h4>
+          <ol>
+            <li>Popp F.A. (1984). Biologie des Lichts. <em>Paul Parey, Berlin.</em></li>
+            <li>Hamblin M.R. (2017). Mechanisms and mitochondrial redox signaling in photobiomodulation. <em>Photochemistry &amp; Photobiology.</em></li>
+            <li>Holick M.F. (2007). Vitamin D deficiency. <em>New England Journal of Medicine.</em></li>
+            <li>Czeisler C.A. (2013). Casting light on sleep deficiency. <em>Nature.</em></li>
+            <li>Yan X. et al. (2002). Extraordinary phenomenon in biophoton research. <em>Journal of Alternative and Complementary Medicine.</em></li>
+          </ol>
+        </div>
+      </div>
+      <div class="editorial-img" style="padding-top:40px;flex-direction:column;gap:40px">
+        <div class="circle-img" style="background:rgba(255,224,102,.15)">
+          <div class="petal-cluster" style="width:140px;height:140px">
+            <div class="p" style="width:45px;height:63px;background:radial-gradient(ellipse at 40% 35%,#fff5b0,#d4b800);top:5px;left:45px;transform:rotate(5deg)"></div>
+            <div class="p" style="width:38px;height:53px;background:radial-gradient(ellipse at 40% 35%,#ffe066,#a08000);top:40px;left:10px;transform:rotate(-35deg)"></div>
+            <div class="p" style="width:32px;height:45px;background:radial-gradient(ellipse at 40% 35%,#fff5b0,#c0a000);top:65px;left:75px;transform:rotate(50deg)"></div>
+            <div class="p" style="width:22px;height:32px;background:radial-gradient(ellipse at 40% 35%,#b08000,#604400,#302200);top:95px;left:40px;transform:rotate(20deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(255,240,100,.2)"></div>
+          </div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink-light);text-align:center;line-height:1.6;padding:0 8px">"We are not beings<br>who have light —<br>we are beings<br>made of light."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="margin-top:40px"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,30 C360,60 720,5 1080,35 C1260,50 1380,20 1440,30 L1440,60 L0,60 Z" fill="rgba(255,224,102,.05)" opacity="1"/><path d="M0,20 C240,50 500,10 800,40 C1000,60 1200,20 1440,35" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".08"/></svg></div>
+
+<section id="practices-light" style="background:rgba(255,224,102,.05);padding:2px 0">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label" style="color:#8a7000">Cultivation</p>
+        <h2 class="editorial-heading">How to cultivate Greatest Light</h2>
+      </div>
+      <div>
+        <div class="practice-item"><div class="practice-num" style="color:#8a7000">1</div><p class="practice-text"><strong>Morning sunlight exposure:</strong> 10–20 minutes of direct morning sunlight within an hour of waking — sets the circadian clock, boosts serotonin, and reduces evening cortisol. The single highest-leverage light intervention available.</p></div>
+        <div class="practice-item"><div class="practice-num" style="color:#8a7000">2</div><p class="practice-text"><strong>Mindful light meditation:</strong> Visualize a sphere of luminous, coherent light at the heart center expanding through the body. HeartMath research shows visualization of light changes cardiac coherence in measurable, physical ways.</p></div>
+        <div class="practice-item"><div class="practice-num" style="color:#8a7000">3</div><p class="practice-text"><strong>Red/NIR light therapy:</strong> Evidence-based photobiomodulation devices (630–850 nm) for 10–20 min/day — clinical-grade mitochondrial activation with broad healing effects including tissue repair, neuroinflammation reduction, and mood improvement.</p></div>
+      </div>
+      <div class="editorial-img">
+        <div class="petal-cluster" style="width:180px;height:200px">
+          <div class="p" style="width:65px;height:90px;background:radial-gradient(ellipse at 40% 35%,#fff5b0,#d4b800);top:0;left:55px;transform:rotate(-8deg)"></div>
+          <div class="p" style="width:55px;height:76px;background:radial-gradient(ellipse at 40% 35%,#ffe066,#a08000);top:55px;left:5px;transform:rotate(-42deg)"></div>
+          <div class="p" style="width:48px;height:67px;background:radial-gradient(ellipse at 40% 35%,#fff5b0,#c0a000);top:80px;left:100px;transform:rotate(52deg)"></div>
+          <div class="p" style="width:35px;height:50px;background:radial-gradient(ellipse at 40% 35%,#ffe066,#a08000);top:140px;left:50px;transform:rotate(18deg)"></div>
+          <div class="p" style="width:22px;height:30px;background:radial-gradient(ellipse at 40% 35%,#b08000,#604400,#302200);top:170px;left:110px;transform:rotate(-28deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(255,240,100,.2)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="margin-top:40px"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,40 C300,10 600,55 900,25 C1100,10 1300,50 1440,35 L1440,60 L0,60 Z" fill="var(--cream-dark)" opacity=".7"/><path d="M0,25 C200,55 500,5 800,35 C1000,55 1200,15 1440,30" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".1"/></svg></div>
+
+<!-- ════════════════════════════════
+     GREATEST HUMILITY
+═════════════════════════════════ -->
+<section id="science-humility" style="background:rgba(155,110,243,.04)">
+  <div class="container">
+    <div class="editorial no-right" style="padding-bottom:16px">
+      <div>
+        <p class="section-label" style="color:#6b3ecf">Featured Quality</p>
+        <h2 class="editorial-heading" style="color:#4a1fa8">Greatest Humility</h2>
+      </div>
+      <div class="editorial-body">
+        <p style="font-size:1.05rem;font-style:italic;color:var(--ink-mid)">"Greatest Humility which prevents and heals ego"</p>
+        <p>Humility is not weakness — it is the accurate perception of oneself in relation to others and reality. The ego — defined as an inflated, defended self-concept — is a chronic physiological stress state. Humility dissolves it, and science shows this dissolution is measurably health-promoting.</p>
+      </div>
+    </div>
+    <div class="editorial" style="padding-top:8px;align-items:start">
+      <div style="position:sticky;top:90px">
+        <p class="section-label">The Science</p>
+        <h3 class="editorial-heading" style="font-size:1.2rem;color:var(--ink-light)">4 mechanisms that explain how humility heals ego and life</h3>
+        <div class="quality-pills" style="padding:20px 0 0;flex-direction:column">
+          <a href="#humility-ego" style="border-color:rgba(155,110,243,.3);color:#4a1fa8">The Neuroscience of Ego &amp; Its Cost</a>
+          <a href="#humility-advantage" style="border-color:rgba(155,110,243,.3);color:#4a1fa8">Humility as a Biological Advantage</a>
+          <a href="#humility-social" style="border-color:rgba(155,110,243,.3);color:#4a1fa8">Social Biology &amp; Longevity</a>
+          <a href="#humility-meditation" style="border-color:rgba(155,110,243,.3);color:#4a1fa8">Meditative Dissolution of Ego</a>
+        </div>
+      </div>
+      <div>
+        <div class="science-block" id="humility-ego">
+          <h3>The Neuroscience of Ego and Its Cost</h3>
+          <p class="intro">The 'ego' in neuroscientific terms corresponds to activity in the Default Mode Network — a set of brain regions that generate self-referential narrative, comparison, and defense. Chronic DMN activity is expensive.</p>
+          <ul>
+            <li><strong>Energy cost:</strong> The DMN consumes ~20% of the brain's energy budget at rest — primarily maintaining the self-narrative and scanning for social threats.</li>
+            <li><strong>Cognitive drag:</strong> High DMN activity correlates with anxiety, depression, rumination, and reduced working memory — the ego literally crowds out performance.</li>
+            <li><strong>Threat cascade:</strong> In ego-threat states (criticism, failure), the amygdala fires the same response as physical danger — triggering cortisol and impairing prefrontal function.</li>
+            <li><strong>Accelerated aging:</strong> Trait narcissism is associated with elevated baseline cortisol, higher cardiovascular reactivity to criticism, and shorter telomeres.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="humility-advantage">
+          <h3>Humility as a Cognitive and Biological Advantage</h3>
+          <p class="intro">Research by Dr. Mark Leary (Duke) and Dr. Everett Worthington (VCU) consistently shows that humility confers measurable advantages in decision-making, stress resilience, and health outcomes.</p>
+          <ul>
+            <li><strong>Better decisions:</strong> Intellectually humble people show significantly less confirmation bias — they update beliefs more readily, making higher-quality decisions.</li>
+            <li><strong>Proportionate stress:</strong> Humble individuals show lower cortisol reactivity to failure — the HPA axis response is brief rather than prolonged and inflammatory.</li>
+            <li><strong>Relationship quality:</strong> Humility predicts conflict resolution and forgiveness — both independently predict longevity.</li>
+            <li><strong>Leadership performance:</strong> Humble leaders outperform confident-but-not-humble leaders on team performance, wellbeing, and innovation in multi-country studies.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="humility-social">
+          <h3>Social Biology — Humility and Longevity</h3>
+          <p class="intro">Holt-Lunstad's meta-analysis of 350,000 participants found social connection is as powerful a longevity predictor as smoking cessation. Humility is the primary enabler of genuine connection.</p>
+          <ul>
+            <li><strong>Connection enabler:</strong> Humility reduces status-competition and social threat-detection, enabling deeper, more trusting relationships — the most potent longevity resource known.</li>
+            <li><strong>Lower inflammation:</strong> Pride and status-defense activate inflammatory pathways — humility's absence of defensive states means chronic inflammation is measurably lower.</li>
+            <li><strong>Health compliance:</strong> Humble people are more likely to seek medical help, follow health advice, and change health behaviors.</li>
+            <li><strong>Cognitive longevity:</strong> Higher humility scores predict slower cognitive decline in aging, possibly via reduced chronic neuroinflammation from reduced social vigilance.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="humility-meditation">
+          <h3>Meditative Dissolution of Ego</h3>
+          <p class="intro">Advanced contemplative traditions consistently identify ego-dissolution as the gateway to deeper wisdom and health. Neuroscience is now measuring this transition directly.</p>
+          <ul>
+            <li><strong>MBSR reduces DMN:</strong> Mindfulness meditation systematically reduces DMN activity — the neural correlate of ego — in as little as 8 weeks (Brewer, 2011).</li>
+            <li><strong>Psychedelic research:</strong> Ego dissolution correlates with acute DMN disruption and lasting personality changes toward openness and humility (Carhart-Harris, Imperial College).</li>
+            <li><strong>Advanced meditators:</strong> Baseline DMN suppression — their resting state resembles focused attention, freeing cognitive resources from self-rumination.</li>
+            <li><strong>No-self insight:</strong> The 'no-self' insight correlates neurologically with reduced amygdala-DMN connectivity — a measurable shift in the suffering-generating architecture of the brain.</li>
+          </ul>
+        </div>
+        <div class="citations">
+          <h4>Key Research References</h4>
+          <ol>
+            <li>Leary M.R. et al. (2017). Cognitive and Interpersonal Features of Intellectual Humility. <em>JPSP.</em></li>
+            <li>Worthington E.L. (2007). Humility: The Quiet Virtue. <em>Templeton Press.</em></li>
+            <li>Holt-Lunstad J. et al. (2010). Social relationships and mortality risk. <em>PLoS Medicine.</em></li>
+            <li>Brewer J.A. et al. (2011). Meditation experience is associated with differences in default mode network. <em>PNAS.</em></li>
+            <li>Carhart-Harris R. et al. (2016). Neural correlates of the psychedelic state. <em>PNAS.</em></li>
+          </ol>
+        </div>
+      </div>
+      <div class="editorial-img" style="padding-top:40px;flex-direction:column;gap:40px">
+        <div class="circle-img" style="background:rgba(155,110,243,.1)">
+          <div class="petal-cluster" style="width:140px;height:140px">
+            <div class="p" style="width:45px;height:63px;background:radial-gradient(ellipse at 40% 35%,#c9a8ff,#6b3ecf);top:5px;left:45px;transform:rotate(5deg)"></div>
+            <div class="p" style="width:38px;height:53px;background:radial-gradient(ellipse at 40% 35%,#9b6ef3,#4a1fa8);top:40px;left:10px;transform:rotate(-35deg)"></div>
+            <div class="p" style="width:32px;height:45px;background:radial-gradient(ellipse at 40% 35%,#c9a8ff,#7a50d0);top:65px;left:75px;transform:rotate(50deg)"></div>
+            <div class="p" style="width:22px;height:32px;background:radial-gradient(ellipse at 40% 35%,#4a20a0,#280e60,#120630);top:95px;left:40px;transform:rotate(20deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(180,140,255,.2)"></div>
+          </div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink-light);text-align:center;line-height:1.6;padding:0 8px">"Humility is not<br>thinking less of yourself —<br>it is thinking of<br>yourself less."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="margin-top:40px"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,30 C360,60 720,5 1080,35 C1260,50 1380,20 1440,30 L1440,60 L0,60 Z" fill="rgba(155,110,243,.05)" opacity="1"/><path d="M0,20 C240,50 500,10 800,40 C1000,60 1200,20 1440,35" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".08"/></svg></div>
+
+<section id="practices-humility" style="background:rgba(155,110,243,.04);padding:2px 0">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label" style="color:#6b3ecf">Cultivation</p>
+        <h2 class="editorial-heading">How to cultivate Greatest Humility</h2>
+      </div>
+      <div>
+        <div class="practice-item"><div class="practice-num" style="color:#6b3ecf">1</div><p class="practice-text"><strong>Intellectual humility practice:</strong> Daily review of one belief held confidently — actively seeking disconfirming evidence. Builds the prefrontal flexibility that characterizes humble minds and reduces confirmation bias measurably.</p></div>
+        <div class="practice-item"><div class="practice-num" style="color:#6b3ecf">2</div><p class="practice-text"><strong>Anonymous service:</strong> Performing meaningful service with no recognition directly disrupts the ego-reward loop and builds humility through lived experience — the most effective antidote to narcissistic patterning.</p></div>
+        <div class="practice-item"><div class="practice-num" style="color:#6b3ecf">3</div><p class="practice-text"><strong>Meditation on vastness:</strong> Contemplating the scale of the cosmos, deep time, or the web of interdependence — natural inducers of awe, which reliably reduces self-importance and inflammatory markers simultaneously.</p></div>
+      </div>
+      <div class="editorial-img">
+        <div class="petal-cluster" style="width:180px;height:200px">
+          <div class="p" style="width:65px;height:90px;background:radial-gradient(ellipse at 40% 35%,#c9a8ff,#6b3ecf);top:0;left:55px;transform:rotate(-8deg)"></div>
+          <div class="p" style="width:55px;height:76px;background:radial-gradient(ellipse at 40% 35%,#c9a8ff,#7a50d0);top:55px;left:5px;transform:rotate(-42deg)"></div>
+          <div class="p" style="width:48px;height:67px;background:radial-gradient(ellipse at 40% 35%,#9b6ef3,#4a1fa8);top:80px;left:100px;transform:rotate(52deg)"></div>
+          <div class="p" style="width:35px;height:50px;background:radial-gradient(ellipse at 40% 35%,#c9a8ff,#7a50d0);top:140px;left:50px;transform:rotate(18deg)"></div>
+          <div class="p" style="width:22px;height:30px;background:radial-gradient(ellipse at 40% 35%,#4a20a0,#280e60,#120630);top:170px;left:110px;transform:rotate(-28deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(180,140,255,.2)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="margin-top:40px"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,40 C300,10 600,55 900,25 C1100,10 1300,50 1440,35 L1440,60 L0,60 Z" fill="var(--cream-dark)" opacity=".7"/><path d="M0,25 C200,55 500,5 800,35 C1000,55 1200,15 1440,30" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".1"/></svg></div>
+
+<!-- ════════════════════════════════
+     GREATEST HARMONY
+═════════════════════════════════ -->
+<section id="science-harmony" style="background:rgba(91,141,238,.04)">
+  <div class="container">
+    <div class="editorial no-right" style="padding-bottom:16px">
+      <div>
+        <p class="section-label" style="color:#2a5ab8">Featured Quality</p>
+        <h2 class="editorial-heading" style="color:#1a3c88">Greatest Harmony</h2>
+      </div>
+      <div class="editorial-body">
+        <p style="font-size:1.05rem;font-style:italic;color:var(--ink-mid)">"Greatest Harmony, the secret of success in every aspect of life"</p>
+        <p>Harmony is the coherent alignment of systems — within the body, between people, and with the environment. Science increasingly recognizes that health is not the absence of disease but the presence of integrated order across biological systems.</p>
+      </div>
+    </div>
+    <div class="editorial" style="padding-top:8px;align-items:start">
+      <div style="position:sticky;top:90px">
+        <p class="section-label">The Science</p>
+        <h3 class="editorial-heading" style="font-size:1.2rem;color:var(--ink-light)">4 mechanisms that explain how harmony creates success</h3>
+        <div class="quality-pills" style="padding:20px 0 0;flex-direction:column">
+          <a href="#harmony-coherence" style="border-color:rgba(91,141,238,.3);color:#1a3c88">Physiological Coherence — Harmony Within</a>
+          <a href="#harmony-resonance" style="border-color:rgba(91,141,238,.3);color:#1a3c88">Resonance — The Physics of Harmony</a>
+          <a href="#harmony-social" style="border-color:rgba(91,141,238,.3);color:#1a3c88">Social Harmony &amp; Health Science</a>
+          <a href="#harmony-entropy" style="border-color:rgba(91,141,238,.3);color:#1a3c88">Harmony as Low Biological Entropy</a>
+        </div>
+      </div>
+      <div>
+        <div class="science-block" id="harmony-coherence">
+          <h3>Physiological Coherence — Harmony Within</h3>
+          <p class="intro">HeartMath Institute defines physiological coherence as the synchronization of the heart, brain, respiratory system, and autonomic nervous system into a single coherent rhythm — measurable, trainable, and profoundly health-promoting.</p>
+          <ul>
+            <li><strong>0.1 Hz resonance:</strong> In coherence, heart rhythm shows a smooth sine-wave pattern synchronizing cardiovascular, immune, and cognitive systems simultaneously.</li>
+            <li><strong>Cognitive boost:</strong> Coherence improves reaction time, short-term memory, and decision speed measurably within minutes.</li>
+            <li><strong>Immune upregulation:</strong> IgA antibody levels rise significantly during 30-minute coherence sessions — direct immune benefit from inner harmony.</li>
+            <li><strong>Contagious field:</strong> Coherent heart electromagnetic fields can be detected in others' EEG recordings — harmony is literally bioelectromagnetically contagious.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="harmony-resonance">
+          <h3>Resonance — The Physics of Harmony</h3>
+          <p class="intro">Physics defines resonance as the tendency of systems to synchronize their oscillations. Biological systems — from cells to organisms — are fundamentally oscillatory, and harmony is their synchronized state.</p>
+          <ul>
+            <li><strong>Cellular synchrony:</strong> Cells in culture spontaneously synchronize their electrical oscillations — a biological demonstration of resonance as a fundamental life principle.</li>
+            <li><strong>Schumann resonance:</strong> Earth's electromagnetic heartbeat (7.83 Hz) aligns closely with human alpha brainwave frequencies — suggesting evolutionary attunement to planetary harmony.</li>
+            <li><strong>Music as medicine:</strong> Organized sound harmony reduces cortisol, increases dopamine and serotonin, and synchronizes cardiac and respiratory rhythms across listeners.</li>
+            <li><strong>Environmental cost:</strong> Chronic noise and conflict measurably increase inflammatory markers, cortisol, and cardiovascular strain.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="harmony-social">
+          <h3>Social Harmony — The Team and Health Science</h3>
+          <p class="intro">Harmony between people is a measurable biological state with direct health consequences. Our nervous systems co-regulate each other continuously through mirror neuron systems.</p>
+          <ul>
+            <li><strong>Mirror neuron synchrony:</strong> Witnessing or sharing an emotion creates automatic physiological mirroring — we co-regulate each other's autonomic state.</li>
+            <li><strong>Project Aristotle:</strong> Google's 2016 study found psychological safety — team harmony — to be the single most important predictor of high-performing teams, outranking all individual talent.</li>
+            <li><strong>Allostatic load:</strong> Allostatic load is significantly reduced in harmonious work and home environments, independent of all other health factors.</li>
+            <li><strong>Couple synchrony:</strong> Harmonious couples' HRV rhythms synchronize over time — shared nervous system harmony as a measurable intimacy metric.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="harmony-entropy">
+          <h3>Harmony as Low Biological Entropy</h3>
+          <p class="intro">Systems biology offers a precise framing: healthy systems are low-entropy, ordered systems. Disease, aging, and dysfunction are all measurable increases in biological entropy.</p>
+          <ul>
+            <li><strong>Entropy = disorder:</strong> Biological entropy corresponds to loss of coherent organization — from gene expression to cellular architecture to organ system coordination.</li>
+            <li><strong>HRV as harmony metric:</strong> Heart rate variability — the most validated health biomarker — is fundamentally a measure of organized complexity: high HRV = high biological harmony.</li>
+            <li><strong>Aging as entropy:</strong> Aging is characterized by progressive loss of physiological complexity — practices maintaining coherence demonstrably slow this entropy increase.</li>
+            <li><strong>Systems within systems:</strong> Gut microbiome harmony improves brain function via the vagus nerve; psychological harmony reduces gut inflammation — all tuned by harmony.</li>
+          </ul>
+        </div>
+        <div class="citations">
+          <h4>Key Research References</h4>
+          <ol>
+            <li>McCraty R. &amp; Shaffer F. (2015). Heart rate variability: New perspectives on physiological mechanisms. <em>Frontiers in Public Health.</em></li>
+            <li>Google re:Work, Project Aristotle (2016). <em>rework.withgoogle.com.</em></li>
+            <li>Feldman R. (2017). The neurobiology of human attachments. <em>Trends in Cognitive Sciences.</em></li>
+            <li>Basar E. (2013). A review of alpha activity in integrative brain function. <em>International Journal of Psychophysiology.</em></li>
+            <li>Lipsitz L.A. &amp; Goldberger A.L. (1992). Loss of 'complexity' and aging. <em>JAMA.</em></li>
+          </ol>
+        </div>
+      </div>
+      <div class="editorial-img" style="padding-top:40px;flex-direction:column;gap:40px">
+        <div class="circle-img" style="background:rgba(91,141,238,.1)">
+          <div class="petal-cluster" style="width:140px;height:140px">
+            <div class="p" style="width:45px;height:63px;background:radial-gradient(ellipse at 40% 35%,#a0c4ff,#2a5ab8);top:5px;left:45px;transform:rotate(5deg)"></div>
+            <div class="p" style="width:38px;height:53px;background:radial-gradient(ellipse at 40% 35%,#5b8dee,#1a3c88);top:40px;left:10px;transform:rotate(-35deg)"></div>
+            <div class="p" style="width:32px;height:45px;background:radial-gradient(ellipse at 40% 35%,#a0c4ff,#3a70c8);top:65px;left:75px;transform:rotate(50deg)"></div>
+            <div class="p" style="width:22px;height:32px;background:radial-gradient(ellipse at 40% 35%,#1a3a80,#0a1e50,#040e28);top:95px;left:40px;transform:rotate(20deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(140,180,255,.2)"></div>
+          </div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink-light);text-align:center;line-height:1.6;padding:0 8px">"When you are in<br>harmony, everything<br>conspires to help<br>you succeed."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="margin-top:40px"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,30 C360,60 720,5 1080,35 C1260,50 1380,20 1440,30 L1440,60 L0,60 Z" fill="rgba(91,141,238,.05)" opacity="1"/><path d="M0,20 C240,50 500,10 800,40 C1000,60 1200,20 1440,35" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".08"/></svg></div>
+
+<section id="practices-harmony" style="background:rgba(91,141,238,.04);padding:2px 0">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label" style="color:#2a5ab8">Cultivation</p>
+        <h2 class="editorial-heading">How to cultivate Greatest Harmony</h2>
+      </div>
+      <div>
+        <div class="practice-item"><div class="practice-num" style="color:#2a5ab8">1</div><p class="practice-text"><strong>Heart-focused coherence breathing (HeartMath):</strong> 5–6 breaths per minute with heart-focused attention — achieves measurable physiological coherence within 3–5 minutes, consistently the most reliable entry point to inner harmony.</p></div>
+        <div class="practice-item"><div class="practice-num" style="color:#2a5ab8">2</div><p class="practice-text"><strong>Conscious harmonizing:</strong> In any relationship or group, notice and gently shift your own emotional state toward harmony before seeking external change. Your field affects theirs — inner harmony is the most reliable path to outer harmony.</p></div>
+        <div class="practice-item"><div class="practice-num" style="color:#2a5ab8">3</div><p class="practice-text"><strong>Nature immersion:</strong> Spending time in natural environments measurably reduces cortisol, lowers blood pressure, and synchronizes brainwaves to coherent natural frequencies — the earth itself is a harmony teacher.</p></div>
+      </div>
+      <div class="editorial-img">
+        <div class="petal-cluster" style="width:180px;height:200px">
+          <div class="p" style="width:65px;height:90px;background:radial-gradient(ellipse at 40% 35%,#a0c4ff,#2a5ab8);top:0;left:55px;transform:rotate(-8deg)"></div>
+          <div class="p" style="width:55px;height:76px;background:radial-gradient(ellipse at 40% 35%,#a0c4ff,#3a70c8);top:55px;left:5px;transform:rotate(-42deg)"></div>
+          <div class="p" style="width:48px;height:67px;background:radial-gradient(ellipse at 40% 35%,#5b8dee,#1a3c88);top:80px;left:100px;transform:rotate(52deg)"></div>
+          <div class="p" style="width:35px;height:50px;background:radial-gradient(ellipse at 40% 35%,#a0c4ff,#3a70c8);top:140px;left:50px;transform:rotate(18deg)"></div>
+          <div class="p" style="width:22px;height:30px;background:radial-gradient(ellipse at 40% 35%,#1a3a80,#0a1e50,#040e28);top:170px;left:110px;transform:rotate(-28deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(140,180,255,.2)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="margin-top:40px"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,40 C300,10 600,55 900,25 C1100,10 1300,50 1440,35 L1440,60 L0,60 Z" fill="var(--cream-dark)" opacity=".7"/><path d="M0,25 C200,55 500,5 800,35 C1000,55 1200,15 1440,30" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".1"/></svg></div>
+
+<!-- ════════════════════════════════
+     GREATEST FLOURISHING
+═════════════════════════════════ -->
+<section id="science-flourishing" style="background:rgba(72,187,120,.04)">
+  <div class="container">
+    <div class="editorial no-right" style="padding-bottom:16px">
+      <div>
+        <p class="section-label" style="color:#1a7a4a">Featured Quality</p>
+        <h2 class="editorial-heading" style="color:#0e5a32">Greatest Flourishing</h2>
+      </div>
+      <div class="editorial-body">
+        <p style="font-size:1.05rem;font-style:italic;color:var(--ink-mid)">"Greatest Flourishing, the resources and the engine for success in life"</p>
+        <p>Flourishing is the complete expression of human potential — physically, psychologically, socially, and spiritually. Positive psychology has moved beyond studying illness to rigorously measuring what makes people and organisms truly thrive. The science reveals that the conditions for peak performance, healing, and joy are identical.</p>
+      </div>
+    </div>
+    <div class="editorial" style="padding-top:8px;align-items:start">
+      <div style="position:sticky;top:90px">
+        <p class="section-label">The Science</p>
+        <h3 class="editorial-heading" style="font-size:1.2rem;color:var(--ink-light)">4 mechanisms that explain how flourishing drives success</h3>
+        <div class="quality-pills" style="padding:20px 0 0;flex-direction:column">
+          <a href="#flourish-perma" style="border-color:rgba(72,187,120,.3);color:#0e5a32">PERMA &amp; the Architecture of Flourishing</a>
+          <a href="#flourish-broaden" style="border-color:rgba(72,187,120,.3);color:#0e5a32">Broaden-and-Build Theory</a>
+          <a href="#flourish-flow" style="border-color:rgba(72,187,120,.3);color:#0e5a32">Flow — Neuroscience of Peak Performance</a>
+          <a href="#flourish-mito" style="border-color:rgba(72,187,120,.3);color:#0e5a32">Mitochondrial Flourishing</a>
+        </div>
+      </div>
+      <div>
+        <div class="science-block" id="flourish-perma">
+          <h3>PERMA and the Architecture of Flourishing</h3>
+          <p class="intro">Dr. Martin Seligman's PERMA model (Positive emotions, Engagement, Relationships, Meaning, Accomplishment) is the most empirically validated framework for human flourishing.</p>
+          <ul>
+            <li><strong>Synergistic effects:</strong> Each PERMA element independently predicts longevity and immune function — the combined effect is synergistic, not merely additive.</li>
+            <li><strong>7-year longevity advantage:</strong> Positive emotions are associated with a 7-year longevity advantage in the landmark Nun Study.</li>
+            <li><strong>Biological markers:</strong> Flourishing people show 23% lower cortisol, 20% higher protective antibodies, and significantly lower rates of cardiovascular disease.</li>
+            <li><strong>Cross-domain results:</strong> PERMA programs in military, school, and workplace settings consistently reduce depression while increasing performance metrics.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="flourish-broaden">
+          <h3>Broaden-and-Build — Positive Emotions as Resources</h3>
+          <p class="intro">Dr. Barbara Fredrickson's broaden-and-build theory: positive emotions literally expand awareness and build lasting biological, cognitive, and social resources.</p>
+          <ul>
+            <li><strong>Wider visual fields:</strong> People in positive emotional states show literally wider visual fields in controlled experiments — a biological broadening of awareness.</li>
+            <li><strong>Resource building:</strong> Broadened awareness builds resources: faster learning, more creative connections, stronger social bonds.</li>
+            <li><strong>Positivity ratio:</strong> Above approximately 3:1 positive-to-negative emotional experiences, individuals and teams flourish; below it, they languish.</li>
+            <li><strong>Cardiovascular reset:</strong> Positive emotions undo the cardiovascular effects of negative emotions faster than neutral states — a direct physiological recovery mechanism.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="flourish-flow">
+          <h3>Flow — The Neuroscience of Peak Performance</h3>
+          <p class="intro">Csikszentmihalyi's flow research, combined with modern neuroimaging, maps the brain state underlying flourishing at its peak: full absorption in a meaningful challenge.</p>
+          <ul>
+            <li><strong>Transient hypofrontality:</strong> The prefrontal 'inner critic' quiets in flow, eliminating self-consciousness and unlocking unconscious processing resources.</li>
+            <li><strong>Alpha-theta synchrony:</strong> EEG shows flow correlates with deeply coherent brain states associated with creativity and effortless performance.</li>
+            <li><strong>5-neurochemical cocktail:</strong> Cortisol drops to daytime lows; norepinephrine, dopamine, serotonin, anandamide, and endorphins simultaneously peak.</li>
+            <li><strong>Neuroplasticity peak:</strong> Flow produces maximum BDNF (brain growth factor), maximum signal-to-noise, and maximum learning efficiency.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="flourish-mito">
+          <h3>Mitochondrial Flourishing — The Cellular Engine</h3>
+          <p class="intro">Flourishing is not only psychological — it reaches to the mitochondria, the cell's power generators. Positive states literally increase cellular energy production and mitochondrial health.</p>
+          <ul>
+            <li><strong>PGC-1α upregulation:</strong> The master regulator of mitochondrial biogenesis is upregulated by positive psychological states — new mitochondria created by flourishing.</li>
+            <li><strong>BDNF dual role:</strong> BDNF — which peaks during positive states and flow — promotes both neuronal survival and mitochondrial biogenesis in brain cells.</li>
+            <li><strong>Energy and longevity:</strong> Mitochondrial density determines energy, resilience, cognitive clarity, and lifespan — it is the biological substrate of flourishing.</li>
+            <li><strong>Languishing reversal:</strong> Chronic stress suppresses PGC-1α, shrinks the hippocampus, and impairs mitochondrial function — the biology of withering vs. flourishing.</li>
+          </ul>
+        </div>
+        <div class="citations">
+          <h4>Key Research References</h4>
+          <ol>
+            <li>Seligman M. (2011). Flourish. <em>Free Press.</em></li>
+            <li>Fredrickson B. (2001). The role of positive emotions in positive psychology. <em>American Psychologist.</em></li>
+            <li>Csikszentmihalyi M. (1990). Flow: The Psychology of Optimal Experience. <em>Harper &amp; Row.</em></li>
+            <li>Kotler S. (2014). The Rise of Superman. <em>New Harvest.</em></li>
+            <li>Danner D.D. et al. (2001). Positive emotions in early life and longevity. <em>JPSP.</em> [Nun Study]</li>
+          </ol>
+        </div>
+      </div>
+      <div class="editorial-img" style="padding-top:40px;flex-direction:column;gap:40px">
+        <div class="circle-img" style="background:rgba(72,187,120,.1)">
+          <div class="petal-cluster" style="width:140px;height:140px">
+            <div class="p" style="width:45px;height:63px;background:radial-gradient(ellipse at 40% 35%,#9ae6b4,#1a7a4a);top:5px;left:45px;transform:rotate(5deg)"></div>
+            <div class="p" style="width:38px;height:53px;background:radial-gradient(ellipse at 40% 35%,#48bb78,#0e5a32);top:40px;left:10px;transform:rotate(-35deg)"></div>
+            <div class="p" style="width:32px;height:45px;background:radial-gradient(ellipse at 40% 35%,#9ae6b4,#2a9060);top:65px;left:75px;transform:rotate(50deg)"></div>
+            <div class="p" style="width:22px;height:32px;background:radial-gradient(ellipse at 40% 35%,#0e5030,#062818,#02100a);top:95px;left:40px;transform:rotate(20deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(120,220,160,.2)"></div>
+          </div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink-light);text-align:center;line-height:1.6;padding:0 8px">"Flourishing is not<br>the destination —<br>it is the natural state<br>of an unblocked life."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="margin-top:40px"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,30 C360,60 720,5 1080,35 C1260,50 1380,20 1440,30 L1440,60 L0,60 Z" fill="rgba(72,187,120,.05)" opacity="1"/><path d="M0,20 C240,50 500,10 800,40 C1000,60 1200,20 1440,35" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".08"/></svg></div>
+
+<section id="practices-flourishing" style="background:rgba(72,187,120,.04);padding:2px 0">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label" style="color:#1a7a4a">Cultivation</p>
+        <h2 class="editorial-heading">How to cultivate Greatest Flourishing</h2>
+      </div>
+      <div>
+        <div class="practice-item"><div class="practice-num" style="color:#1a7a4a">1</div><p class="practice-text"><strong>PERMA audit:</strong> Weekly 5-minute review of each PERMA dimension — identify the weakest dimension and apply one targeted action. Seligman's research shows this alone significantly moves flourishing scores within weeks.</p></div>
+        <div class="practice-item"><div class="practice-num" style="color:#1a7a4a">2</div><p class="practice-text"><strong>Flow architecture:</strong> Design daily work to balance challenge (slightly above current skill) with clear goals and immediate feedback — the three essential flow triggers. Commit to at least one genuine flow session per day.</p></div>
+        <div class="practice-item"><div class="practice-num" style="color:#1a7a4a">3</div><p class="practice-text"><strong>Positive emotion portfolio:</strong> Deliberately cultivate awe, gratitude, love, serenity, interest, hope, pride, amusement, and inspiration — Fredrickson's 10 positive emotions, each with distinct and cumulative biological effects.</p></div>
+      </div>
+      <div class="editorial-img">
+        <div class="petal-cluster" style="width:180px;height:200px">
+          <div class="p" style="width:65px;height:90px;background:radial-gradient(ellipse at 40% 35%,#9ae6b4,#1a7a4a);top:0;left:55px;transform:rotate(-8deg)"></div>
+          <div class="p" style="width:55px;height:76px;background:radial-gradient(ellipse at 40% 35%,#9ae6b4,#2a9060);top:55px;left:5px;transform:rotate(-42deg)"></div>
+          <div class="p" style="width:48px;height:67px;background:radial-gradient(ellipse at 40% 35%,#48bb78,#0e5a32);top:80px;left:100px;transform:rotate(52deg)"></div>
+          <div class="p" style="width:35px;height:50px;background:radial-gradient(ellipse at 40% 35%,#9ae6b4,#2a9060);top:140px;left:50px;transform:rotate(18deg)"></div>
+          <div class="p" style="width:22px;height:30px;background:radial-gradient(ellipse at 40% 35%,#0e5030,#062818,#02100a);top:170px;left:110px;transform:rotate(-28deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(120,220,160,.2)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="margin-top:40px"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,40 C300,10 600,55 900,25 C1100,10 1300,50 1440,35 L1440,60 L0,60 Z" fill="var(--cream-dark)" opacity=".7"/><path d="M0,25 C200,55 500,5 800,35 C1000,55 1200,15 1440,30" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".1"/></svg></div>
+
+<!-- ════════════════════════════════
+     GREATEST GRATITUDE
+═════════════════════════════════ -->
+<section id="science-gratitude" style="background:rgba(237,137,54,.04)">
+  <div class="container">
+    <div class="editorial no-right" style="padding-bottom:16px">
+      <div>
+        <p class="section-label" style="color:#b85a00">Featured Quality</p>
+        <h2 class="editorial-heading" style="color:#8a4000">Greatest Gratitude</h2>
+      </div>
+      <div class="editorial-body">
+        <p style="font-size:1.05rem;font-style:italic;color:var(--ink-mid)">"Greatest Gratitude, the key for progress in life and on the spiritual journey"</p>
+        <p>Gratitude is the most studied positive psychology intervention in existence — and consistently among the most powerful. It is an active orientation toward abundance that rewires the brain, reshapes the immune system, and accelerates both psychological and spiritual progress.</p>
+      </div>
+    </div>
+    <div class="editorial" style="padding-top:8px;align-items:start">
+      <div style="position:sticky;top:90px">
+        <p class="section-label">The Science</p>
+        <h3 class="editorial-heading" style="font-size:1.2rem;color:var(--ink-light)">4 mechanisms that explain how gratitude accelerates progress</h3>
+        <div class="quality-pills" style="padding:20px 0 0;flex-direction:column">
+          <a href="#gratitude-emmons" style="border-color:rgba(237,137,54,.3);color:#8a4000">Robert Emmons — The Gratitude Science</a>
+          <a href="#gratitude-neuro" style="border-color:rgba(237,137,54,.3);color:#8a4000">Neurochemistry of Gratitude</a>
+          <a href="#gratitude-sleep" style="border-color:rgba(237,137,54,.3);color:#8a4000">Sleep, Inflammation &amp; Physical Health</a>
+          <a href="#gratitude-spirit" style="border-color:rgba(237,137,54,.3);color:#8a4000">Gratitude as a Spiritual Accelerator</a>
+        </div>
+      </div>
+      <div>
+        <div class="science-block" id="gratitude-emmons">
+          <h3>Robert Emmons — The Gratitude Science</h3>
+          <p class="intro">Dr. Robert Emmons, UC Davis, is the world's leading scientific expert on gratitude. His three decades of rigorous research establish gratitude as one of the most consistent, replicable wellbeing interventions ever studied.</p>
+          <ul>
+            <li><strong>25% higher life satisfaction:</strong> Gratitude journal writers reported 25% higher life satisfaction, 20% more positive affect, and were 33% more likely to exercise regularly.</li>
+            <li><strong>Triple benefit:</strong> Grateful people report fewer physical symptoms, more optimism, and more generous behavior simultaneously.</li>
+            <li><strong>Dose-response:</strong> Greater frequency and depth of practice correlates with greater wellbeing gains — gratitude scales with investment.</li>
+            <li><strong>Greatest for those struggling:</strong> The benefit of gratitude is greatest for people initially struggling — a powerful lever precisely when life is hardest.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="gratitude-neuro">
+          <h3>Neurochemistry of Gratitude</h3>
+          <p class="intro">Gratitude has a distinct neurochemical signature. It activates reward and social-bonding circuits producing lasting, sustainable wellbeing — not the fleeting pleasure spike of hedonic rewards.</p>
+          <ul>
+            <li><strong>Dopamine pathway:</strong> Gratitude activates the VTA and nucleus accumbens in a pattern associated with meaningful connection rather than addictive craving.</li>
+            <li><strong>Serotonin boost:</strong> Reflective, interpersonal gratitude activates medial prefrontal areas associated with social bonding and increases serotonin production.</li>
+            <li><strong>Amygdala reduction:</strong> Gratitude reduces amygdala (threat-detection) activity and increases anterior cingulate cortex (empathy, moral reasoning) activity.</li>
+            <li><strong>Structural change:</strong> More grateful people show greater medial prefrontal cortex activation — a region associated with learning, decision-making, and interpersonal processing.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="gratitude-sleep">
+          <h3>Sleep, Inflammation, and Physical Health</h3>
+          <p class="intro">Gratitude's effects extend well beyond mood — into the body's physical maintenance systems, improving sleep quality, reducing inflammation, and promoting cardiovascular health.</p>
+          <ul>
+            <li><strong>Better sleep:</strong> Gratitude uniquely predicted better sleep quality by reducing pre-sleep cognitive arousal — the mind quiets when anchored in appreciation.</li>
+            <li><strong>Lower inflammation:</strong> Higher trait gratitude correlates with lower C-reactive protein and IL-6 — key inflammatory biomarkers — independent of other lifestyle factors.</li>
+            <li><strong>Heart failure study:</strong> Gratitude journaling in heart failure patients significantly improved sleep, fatigue, and mood, and reduced inflammatory biomarkers within 2 months.</li>
+            <li><strong>Heart rate variability:</strong> Grateful people have measurably better HRV and lower resting heart rates — sustained parasympathetic dominance as a gratitude trait.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="gratitude-spirit">
+          <h3>Gratitude as a Spiritual Accelerator</h3>
+          <p class="intro">In contemplative traditions, gratitude is the primary attitude of the realized mind. Science is beginning to confirm why gratitude and spiritual progress are so deeply linked.</p>
+          <ul>
+            <li><strong>Scarcity to abundance:</strong> Gratitude shifts perception from 'what I lack' to 'what is given' — the cognitive mechanism of spiritual progress across all traditions.</li>
+            <li><strong>Awe and inflammation:</strong> Awe — cosmic gratitude — reliably reduces self-importance, increases connection to something larger, and reduces inflammatory cytokines.</li>
+            <li><strong>Prosocial amplifier:</strong> Grateful people are more likely to help others, invest in long-term goals, and sustain spiritual practice.</li>
+            <li><strong>DMN reduction:</strong> Regular gratitude practice reduces Default Mode Network (ego-narrative) activity over time — confirming gratitude as a de facto contemplative practice.</li>
+          </ul>
+        </div>
+        <div class="citations">
+          <h4>Key Research References</h4>
+          <ol>
+            <li>Emmons R. &amp; McCullough M. (2003). Counting blessings versus burdens. <em>JPSP.</em></li>
+            <li>Wood A. et al. (2009). Gratitude influences sleep through the mechanism of pre-sleep cognitions. <em>J Psychosom Res.</em></li>
+            <li>Mills P. et al. (2015). The role of gratitude in spiritual well-being in asymptomatic heart failure patients. <em>Spiritual Clinical Practice.</em></li>
+            <li>Stellar J. et al. (2015). Positive affect and markers of inflammation. <em>Emotion.</em></li>
+            <li>Fox G.R. et al. (2015). Neural correlates of gratitude. <em>Frontiers in Psychology.</em></li>
+          </ol>
+        </div>
+      </div>
+      <div class="editorial-img" style="padding-top:40px;flex-direction:column;gap:40px">
+        <div class="circle-img" style="background:rgba(237,137,54,.1)">
+          <div class="petal-cluster" style="width:140px;height:140px">
+            <div class="p" style="width:45px;height:63px;background:radial-gradient(ellipse at 40% 35%,#fbd38d,#b85a00);top:5px;left:45px;transform:rotate(5deg)"></div>
+            <div class="p" style="width:38px;height:53px;background:radial-gradient(ellipse at 40% 35%,#ed8936,#8a4000);top:40px;left:10px;transform:rotate(-35deg)"></div>
+            <div class="p" style="width:32px;height:45px;background:radial-gradient(ellipse at 40% 35%,#fbd38d,#c06820);top:65px;left:75px;transform:rotate(50deg)"></div>
+            <div class="p" style="width:22px;height:32px;background:radial-gradient(ellipse at 40% 35%,#8a3800,#441c00,#200c00);top:95px;left:40px;transform:rotate(20deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(255,180,80,.2)"></div>
+          </div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink-light);text-align:center;line-height:1.6;padding:0 8px">"Gratitude turns<br>what we have into<br>enough — and more<br>than enough."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="margin-top:40px"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,30 C360,60 720,5 1080,35 C1260,50 1380,20 1440,30 L1440,60 L0,60 Z" fill="rgba(237,137,54,.05)" opacity="1"/><path d="M0,20 C240,50 500,10 800,40 C1000,60 1200,20 1440,35" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".08"/></svg></div>
+
+<section id="practices-gratitude" style="background:rgba(237,137,54,.04);padding:2px 0">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label" style="color:#b85a00">Cultivation</p>
+        <h2 class="editorial-heading">How to cultivate Greatest Gratitude</h2>
+      </div>
+      <div>
+        <div class="practice-item"><div class="practice-num" style="color:#b85a00">1</div><p class="practice-text"><strong>Gratitude journaling (3× per week, not daily):</strong> Emmons' research shows variety prevents adaptation — write 3 specific, personal items each session. Frequency and specificity matter more than volume.</p></div>
+        <div class="practice-item"><div class="practice-num" style="color:#b85a00">2</div><p class="practice-text"><strong>Gratitude letter + visit:</strong> Write a detailed letter of gratitude to a person who has helped you, deliver it in person, and read it aloud — the single most potent one-time wellbeing intervention in positive psychology.</p></div>
+        <div class="practice-item"><div class="practice-num" style="color:#b85a00">3</div><p class="practice-text"><strong>Mental subtraction:</strong> Vividly imagine your life without key positive elements (relationships, abilities, opportunities) — reactivates gratitude that familiarity has dimmed, and is neurologically distinct from counting blessings.</p></div>
+      </div>
+      <div class="editorial-img">
+        <div class="petal-cluster" style="width:180px;height:200px">
+          <div class="p" style="width:65px;height:90px;background:radial-gradient(ellipse at 40% 35%,#fbd38d,#b85a00);top:0;left:55px;transform:rotate(-8deg)"></div>
+          <div class="p" style="width:55px;height:76px;background:radial-gradient(ellipse at 40% 35%,#fbd38d,#c06820);top:55px;left:5px;transform:rotate(-42deg)"></div>
+          <div class="p" style="width:48px;height:67px;background:radial-gradient(ellipse at 40% 35%,#ed8936,#8a4000);top:80px;left:100px;transform:rotate(52deg)"></div>
+          <div class="p" style="width:35px;height:50px;background:radial-gradient(ellipse at 40% 35%,#fbd38d,#c06820);top:140px;left:50px;transform:rotate(18deg)"></div>
+          <div class="p" style="width:22px;height:30px;background:radial-gradient(ellipse at 40% 35%,#8a3800,#441c00,#200c00);top:170px;left:110px;transform:rotate(-28deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(255,180,80,.2)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="margin-top:40px"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,40 C300,10 600,55 900,25 C1100,10 1300,50 1440,35 L1440,60 L0,60 Z" fill="var(--cream-dark)" opacity=".7"/><path d="M0,25 C200,55 500,5 800,35 C1000,55 1200,15 1440,30" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".1"/></svg></div>
+
+<!-- ════════════════════════════════
+     GREATEST SERVICE
+═════════════════════════════════ -->
+<section id="science-service" style="background:rgba(102,126,234,.04)">
+  <div class="container">
+    <div class="editorial no-right" style="padding-bottom:16px">
+      <div>
+        <p class="section-label" style="color:#3a4eb8">Featured Quality</p>
+        <h2 class="editorial-heading" style="color:#243088">Greatest Service</h2>
+      </div>
+      <div class="editorial-body">
+        <p style="font-size:1.05rem;font-style:italic;color:var(--ink-mid)">"Greatest Service, the purpose of life in every aspect"</p>
+        <p>Service — contributing to the wellbeing of others — is one of the most robustly health-promoting behaviors in scientific literature. The longevity effects of genuine service rival those of the best-known lifestyle interventions. Service is not self-sacrifice: it is, biologically and psychologically, one of the most self-nourishing acts available to a human being.</p>
+      </div>
+    </div>
+    <div class="editorial" style="padding-top:8px;align-items:start">
+      <div style="position:sticky;top:90px">
+        <p class="section-label">The Science</p>
+        <h3 class="editorial-heading" style="font-size:1.2rem;color:var(--ink-light)">4 mechanisms that explain why service is the purpose of life</h3>
+        <div class="quality-pills" style="padding:20px 0 0;flex-direction:column">
+          <a href="#service-high" style="border-color:rgba(102,126,234,.3);color:#243088">The Helper's High</a>
+          <a href="#service-longevity" style="border-color:rgba(102,126,234,.3);color:#243088">Longevity — The Mortality Benefit</a>
+          <a href="#service-purpose" style="border-color:rgba(102,126,234,.3);color:#243088">Purpose, Ikigai &amp; Cellular Aging</a>
+          <a href="#service-eudaimonic" style="border-color:rgba(102,126,234,.3);color:#243088">Eudaimonic Wellbeing</a>
+        </div>
+      </div>
+      <div>
+        <div class="science-block" id="service-high">
+          <h3>The Helper's High — Neurochemistry of Giving</h3>
+          <p class="intro">The 'helper's high' has been verified neurologically as a distinct, robust neurochemical response to genuine helping behavior — not a metaphor but a measurable biological state.</p>
+          <ul>
+            <li><strong>Broad-spectrum uplift:</strong> Helping triggers endorphins, oxytocin, serotonin, and dopamine simultaneously — the widest neurochemical benefit of any single behavior.</li>
+            <li><strong>Mesolimbic activation:</strong> fMRI shows giving to charity activates the mesolimbic reward pathway (same as food, sex, and other primary rewards).</li>
+            <li><strong>Sustainable reward:</strong> The helper's high does not habituate as quickly as hedonic pleasures — sustainable giving produces sustainable reward.</li>
+            <li><strong>Rapid mood regulation:</strong> Negative emotions are significantly reduced by prosocial behavior, often within minutes — one of the fastest mood-regulation tools available.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="service-longevity">
+          <h3>Longevity — The Mortality Benefit of Service</h3>
+          <p class="intro">The longevity science on service is among the most striking in epidemiology. Volunteering is consistently associated with reduced mortality across multiple large-scale studies.</p>
+          <ul>
+            <li><strong>22–44% mortality reduction:</strong> Okun et al.'s 2013 meta-analysis of 40+ studies found volunteering associated with this mortality risk reduction — comparable to regular physical exercise.</li>
+            <li><strong>Multiple pathways:</strong> Reduced depression, increased social connection, greater sense of purpose, and direct neuroendocrine effects all mediate the survival advantage.</li>
+            <li><strong>Giving beats receiving:</strong> Giving social support to others reduced mortality risk more than receiving it — counter to most people's intuition.</li>
+            <li><strong>Motivation matters:</strong> The benefit is most pronounced when service is motivated by genuine concern for others rather than personal gain — quality of motivation matters biologically.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="service-purpose">
+          <h3>Purpose, Ikigai, and Cellular Aging</h3>
+          <p class="intro">Service provides the most direct pathway to ikigai — the Japanese concept of 'reason for being' — and purpose is one of the most powerful levers of cellular longevity science has discovered.</p>
+          <ul>
+            <li><strong>Alzheimer's protection:</strong> Boyle et al. (2009) found those with highest sense of purpose had 57% lower risk of Alzheimer's disease.</li>
+            <li><strong>Telomere length:</strong> People with a strong sense of purpose have longer telomeres — the molecular caps protecting chromosomes from aging.</li>
+            <li><strong>Telomerase activity:</strong> Increased telomerase (the enzyme that maintains telomere length) is associated with greater feelings of meaning and purpose (Elizabeth Blackburn, Nobel laureate).</li>
+            <li><strong>Sustained wellbeing:</strong> Service-based purpose activates vmPFC — governing purpose-driven behavior — associated with sustained wellbeing rather than transient pleasure.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="service-eudaimonic">
+          <h3>Eudaimonic Wellbeing — Why Service Satisfies the Soul</h3>
+          <p class="intro">Modern neuroscience has vindicated Aristotle's distinction: eudaimonic (meaning-based) and hedonic (pleasure-based) wellbeing are neurologically distinct, with eudaimonic wellbeing producing uniquely favorable biology.</p>
+          <ul>
+            <li><strong>Favorable gene expression:</strong> Eudaimonic wellbeing is associated with reduced pro-inflammatory gene expression and increased interferon/antibody gene activity (Cole et al., 2015).</li>
+            <li><strong>Hedonic inadequacy:</strong> Hedonic wellbeing alone showed no gene expression advantage — and in some studies showed the same inflammatory profile as loneliness.</li>
+            <li><strong>Superior biology:</strong> Eudaimonic people show greater resting HRV, lower inflammatory markers, and better immune function than those with equal hedonic pleasure.</li>
+            <li><strong>No adaptation:</strong> Contributions to others are not subject to hedonic adaptation — they maintain meaning indefinitely, unlike pleasures.</li>
+          </ul>
+        </div>
+        <div class="citations">
+          <h4>Key Research References</h4>
+          <ol>
+            <li>Okun M. et al. (2013). Volunteering by older adults and risk of mortality. <em>Psychology and Aging.</em></li>
+            <li>Boyle P. et al. (2009). Purpose in life is associated with mortality among community-dwelling older persons. <em>Psychosomatic Medicine.</em></li>
+            <li>Cole S. et al. (2015). Myeloid differentiation architecture of leukocyte transcriptome dynamics in perceived social isolation. <em>PNAS.</em></li>
+            <li>Harris A.H. &amp; Thoresen C.E. (2005). Volunteering is associated with delayed mortality. <em>Journal of Health Psychology.</em></li>
+            <li>Blackburn E. &amp; Epel E. (2017). The Telomere Effect. <em>Grand Central Publishing.</em></li>
+          </ol>
+        </div>
+      </div>
+      <div class="editorial-img" style="padding-top:40px;flex-direction:column;gap:40px">
+        <div class="circle-img" style="background:rgba(102,126,234,.1)">
+          <div class="petal-cluster" style="width:140px;height:140px">
+            <div class="p" style="width:45px;height:63px;background:radial-gradient(ellipse at 40% 35%,#9f7aea,#3a4eb8);top:5px;left:45px;transform:rotate(5deg)"></div>
+            <div class="p" style="width:38px;height:53px;background:radial-gradient(ellipse at 40% 35%,#667eea,#243088);top:40px;left:10px;transform:rotate(-35deg)"></div>
+            <div class="p" style="width:32px;height:45px;background:radial-gradient(ellipse at 40% 35%,#9f7aea,#4a60c8);top:65px;left:75px;transform:rotate(50deg)"></div>
+            <div class="p" style="width:22px;height:32px;background:radial-gradient(ellipse at 40% 35%,#243080,#101840,#080c20);top:95px;left:40px;transform:rotate(20deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(150,160,255,.2)"></div>
+          </div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink-light);text-align:center;line-height:1.6;padding:0 8px">"The best way<br>to find yourself<br>is to lose yourself<br>in the service of others."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="margin-top:40px"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,30 C360,60 720,5 1080,35 C1260,50 1380,20 1440,30 L1440,60 L0,60 Z" fill="rgba(102,126,234,.05)" opacity="1"/><path d="M0,20 C240,50 500,10 800,40 C1000,60 1200,20 1440,35" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".08"/></svg></div>
+
+<section id="practices-service" style="background:rgba(102,126,234,.04);padding:2px 0">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label" style="color:#3a4eb8">Cultivation</p>
+        <h2 class="editorial-heading">How to cultivate Greatest Service</h2>
+      </div>
+      <div>
+        <div class="practice-item"><div class="practice-num" style="color:#3a4eb8">1</div><p class="practice-text"><strong>Micro-service:</strong> Identify one small, genuine act of service daily — not for recognition. Research shows even small prosocial acts confer full neurochemical benefits and initiate upward spirals of purpose and connection.</p></div>
+        <div class="practice-item"><div class="practice-num" style="color:#3a4eb8">2</div><p class="practice-text"><strong>Strengths-based service:</strong> Identify your top personal strengths (VIA Character Strengths assessment) and apply them in service to others — authentic self-expression combined with contribution maximizes both flow and meaning.</p></div>
+        <div class="practice-item"><div class="practice-num" style="color:#3a4eb8">3</div><p class="practice-text"><strong>Compassionate community:</strong> Deliberate participation in service-oriented communities amplifies all individual effects through shared purpose, social bonding, and collective meaning — the most potent form of service available.</p></div>
+      </div>
+      <div class="editorial-img">
+        <div class="petal-cluster" style="width:180px;height:200px">
+          <div class="p" style="width:65px;height:90px;background:radial-gradient(ellipse at 40% 35%,#9f7aea,#3a4eb8);top:0;left:55px;transform:rotate(-8deg)"></div>
+          <div class="p" style="width:55px;height:76px;background:radial-gradient(ellipse at 40% 35%,#9f7aea,#4a60c8);top:55px;left:5px;transform:rotate(-42deg)"></div>
+          <div class="p" style="width:48px;height:67px;background:radial-gradient(ellipse at 40% 35%,#667eea,#243088);top:80px;left:100px;transform:rotate(52deg)"></div>
+          <div class="p" style="width:35px;height:50px;background:radial-gradient(ellipse at 40% 35%,#9f7aea,#4a60c8);top:140px;left:50px;transform:rotate(18deg)"></div>
+          <div class="p" style="width:22px;height:30px;background:radial-gradient(ellipse at 40% 35%,#243080,#101840,#080c20);top:170px;left:110px;transform:rotate(-28deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(150,160,255,.2)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="margin-top:40px"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,40 C300,10 600,55 900,25 C1100,10 1300,50 1440,35 L1440,60 L0,60 Z" fill="var(--cream-dark)" opacity=".7"/><path d="M0,25 C200,55 500,5 800,35 C1000,55 1200,15 1440,30" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".1"/></svg></div>
+
+<!-- ════════════════════════════════
+     GREATEST ENLIGHTENMENT
+═════════════════════════════════ -->
+<section id="science-enlightenment" style="background:rgba(201,168,76,.05)">
+  <div class="container">
+    <div class="editorial no-right" style="padding-bottom:16px">
+      <div>
+        <p class="section-label" style="color:#8a6a00">Featured Quality</p>
+        <h2 class="editorial-heading" style="color:#6a4e00">Greatest Enlightenment</h2>
+      </div>
+      <div class="editorial-body">
+        <p style="font-size:1.05rem;font-style:italic;color:var(--ink-mid)">"Greatest Enlightenment, the ultimate achievement of one's physical life and soul journey"</p>
+        <p>Enlightenment — the ultimate integration of self, wisdom, and reality — is now a subject of rigorous neuroscience. What contemplative traditions have pointed toward for millennia, modern brain science is beginning to map in anatomical, electrical, and molecular detail.</p>
+      </div>
+    </div>
+    <div class="editorial" style="padding-top:8px;align-items:start">
+      <div style="position:sticky;top:90px">
+        <p class="section-label">The Science</p>
+        <h3 class="editorial-heading" style="font-size:1.2rem;color:var(--ink-light)">4 mechanisms that explain the science of enlightenment</h3>
+        <div class="quality-pills" style="padding:20px 0 0;flex-direction:column">
+          <a href="#enlighten-brain" style="border-color:rgba(201,168,76,.35);color:#6a4e00">The Enlightened Brain</a>
+          <a href="#enlighten-gamma" style="border-color:rgba(201,168,76,.35);color:#6a4e00">Gamma Waves — Neural Signature of Integration</a>
+          <a href="#enlighten-dmn" style="border-color:rgba(201,168,76,.35);color:#6a4e00">Default Mode Network — Dissolving the Self</a>
+          <a href="#enlighten-cellular" style="border-color:rgba(201,168,76,.35);color:#6a4e00">Cellular Enlightenment — Telomeres &amp; Aging</a>
+        </div>
+      </div>
+      <div>
+        <div class="science-block" id="enlighten-brain">
+          <h3>The Enlightened Brain — Structural Changes</h3>
+          <p class="intro">Dr. Sara Lazar's Harvard Medical School research was among the first to demonstrate that meditation physically changes brain structure — not just function.</p>
+          <ul>
+            <li><strong>Cortical thickening:</strong> Long-term meditators had significantly increased cortical thickness in the prefrontal cortex, right anterior insula, and sensory cortices.</li>
+            <li><strong>Hippocampal growth:</strong> The hippocampus shows increased gray matter density in long-term practitioners; amygdala volume decreases — less threat reactivity.</li>
+            <li><strong>8-week changes:</strong> MBSR participants showed measurable hippocampal growth and amygdala shrinkage after just 8 weeks — enlightenment-related changes accessible to ordinary practitioners.</li>
+            <li><strong>Hemispheric integration:</strong> Advanced practitioners show larger corpus callosum — a literal anatomical marker of the integration that enlightenment traditions describe.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="enlighten-gamma">
+          <h3>Gamma Waves — The Neural Signature of Integration</h3>
+          <p class="intro">Dr. Richard Davidson and colleagues recorded the most striking neuroscientific data ever obtained from meditating humans — studying Olympic-level practitioners of Tibetan Buddhism.</p>
+          <ul>
+            <li><strong>Record-breaking gamma:</strong> Advanced Tibetan monks (10,000–50,000+ hours) showed gamma-wave oscillations of an amplitude never previously recorded in non-pathological human EEG.</li>
+            <li><strong>Integration signal:</strong> Gamma waves represent the highest-frequency synchronization of neural activity — the signature of information integration across distributed brain regions.</li>
+            <li><strong>Sustained baseline:</strong> The monks' gamma activity was present not only during meditation but as a resting-state baseline — ordinary mind restructured to sustain peak integration.</li>
+            <li><strong>Insight made continuous:</strong> Gamma synchrony is associated with moments of insight and peak creativity — the 'aha' experience as a sustained state, not a fleeting event.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="enlighten-dmn">
+          <h3>Default Mode Network — Dissolving the Suffering-Generating Self</h3>
+          <p class="intro">The DMN — the brain's self-referential narrative circuit — is the neural substrate of the 'suffering self.' Enlightenment traditions all point toward its transcendence. Neuroscience is now measuring it.</p>
+          <ul>
+            <li><strong>Baseline suppression:</strong> Advanced meditators show dramatic DMN suppression at rest — their resting brain does not generate the same self-referential narrative as ordinary minds.</li>
+            <li><strong>Phenomenology confirmed:</strong> DMN deactivation correlates with reduced psychological suffering, rumination, self-comparison, and increased present-moment awareness.</li>
+            <li><strong>Observer without capture:</strong> Experienced meditators show less DMN reactivity to self-referential thought — they observe it without being captured by it (Brewer, Brown University).</li>
+            <li><strong>Common mechanism:</strong> Psychedelic ego dissolution shows the same DMN disruption pattern as deep meditation — confirming a shared neural mechanism across methods.</li>
+          </ul>
+        </div>
+        <div class="science-block" id="enlighten-cellular">
+          <h3>Cellular Enlightenment — Telomeres, Telomerase, and Aging</h3>
+          <p class="intro">The effects of sustained enlightenment practice reach all the way to the molecular level — to the structures that govern how long and how well our cells live.</p>
+          <ul>
+            <li><strong>Telomerase increase:</strong> Intensive meditation retreats increase telomerase activity — the enzyme that rebuilds telomere length — compared to waiting-list controls (Blackburn &amp; Epel).</li>
+            <li><strong>Biological age:</strong> Shorter telomeres mean older biological age, greater cancer risk, and higher mortality. Meditation demonstrably slows their shortening.</li>
+            <li><strong>Multiple pathways:</strong> Purpose, meaning, and reduced rumination — all products of sustained practice — independently predict telomere length.</li>
+            <li><strong>Longevity proteins:</strong> Sirtuins and FOXO transcription factors — the cellular machinery of longevity — are favorably regulated by the reduced oxidative stress characterizing meditative states.</li>
+          </ul>
+        </div>
+        <div class="citations">
+          <h4>Key Research References</h4>
+          <ol>
+            <li>Lazar S. et al. (2005). Meditation experience is associated with increased cortical thickness. <em>NeuroReport.</em></li>
+            <li>Davidson R. &amp; Lutz A. (2008). Buddha's Brain: Neuroplasticity and Meditation. <em>Scientific American.</em></li>
+            <li>Brewer J.A. et al. (2011). Meditation experience is associated with differences in default mode network activity. <em>PNAS.</em></li>
+            <li>Blackburn E. &amp; Epel E. (2017). The Telomere Effect. <em>Grand Central Publishing.</em></li>
+            <li>Carhart-Harris R. et al. (2016). Neural correlates of the psychedelic state as determined by fMRI. <em>PNAS.</em></li>
+          </ol>
+        </div>
+      </div>
+      <div class="editorial-img" style="padding-top:40px;flex-direction:column;gap:40px">
+        <div class="circle-img" style="background:rgba(201,168,76,.12)">
+          <div class="petal-cluster" style="width:140px;height:140px">
+            <div class="p" style="width:45px;height:63px;background:radial-gradient(ellipse at 40% 35%,#f0d070,#8a6a00);top:5px;left:45px;transform:rotate(5deg)"></div>
+            <div class="p" style="width:38px;height:53px;background:radial-gradient(ellipse at 40% 35%,#c9a84c,#6a4e00);top:40px;left:10px;transform:rotate(-35deg)"></div>
+            <div class="p" style="width:32px;height:45px;background:radial-gradient(ellipse at 40% 35%,#f0d070,#a08030);top:65px;left:75px;transform:rotate(50deg)"></div>
+            <div class="p" style="width:22px;height:32px;background:radial-gradient(ellipse at 40% 35%,#6a4800,#342400,#181000);top:95px;left:40px;transform:rotate(20deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(220,190,80,.2)"></div>
+          </div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink-light);text-align:center;line-height:1.6;padding:0 8px">"Enlightenment is not<br>a distant peak —<br>it is the nature of<br>awareness itself."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="margin-top:40px"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,30 C360,60 720,5 1080,35 C1260,50 1380,20 1440,30 L1440,60 L0,60 Z" fill="rgba(201,168,76,.06)" opacity="1"/><path d="M0,20 C240,50 500,10 800,40 C1000,60 1200,20 1440,35" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".08"/></svg></div>
+
+<section id="practices-enlightenment" style="background:rgba(201,168,76,.05);padding:2px 0">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label" style="color:#8a6a00">Cultivation</p>
+        <h2 class="editorial-heading">How to cultivate Greatest Enlightenment</h2>
+      </div>
+      <div>
+        <div class="practice-item"><div class="practice-num" style="color:#8a6a00">1</div><p class="practice-text"><strong>Progressive meditation:</strong> Begin with breath-focused attention (samatha) to develop concentration, then move to open awareness (vipassana) to observe the nature of experience — the scientifically validated 8-week MBSR curriculum, drawn from 2,500-year-old wisdom.</p></div>
+        <div class="practice-item"><div class="practice-num" style="color:#8a6a00">2</div><p class="practice-text"><strong>Non-dual inquiry:</strong> Direct investigation of 'who is aware?' (Ramana Maharshi's method; Rupert Spira's contemporary form) — neurologically, this directly queries the DMN from a meta-perspective, enabling its gradual dissolution and the experience of pure awareness.</p></div>
+        <div class="practice-item"><div class="practice-num" style="color:#8a6a00">3</div><p class="practice-text"><strong>Integration of all 10 qualities:</strong> Enlightenment is not separate from love, forgiveness, compassion, humility, and service — it is their full flowering. The 10 Greatest Qualities are both the path and the destination, lived simultaneously.</p></div>
+      </div>
+      <div class="editorial-img">
+        <div class="petal-cluster" style="width:180px;height:200px">
+          <div class="p" style="width:65px;height:90px;background:radial-gradient(ellipse at 40% 35%,#f0d070,#8a6a00);top:0;left:55px;transform:rotate(-8deg)"></div>
+          <div class="p" style="width:55px;height:76px;background:radial-gradient(ellipse at 40% 35%,#f0d070,#a08030);top:55px;left:5px;transform:rotate(-42deg)"></div>
+          <div class="p" style="width:48px;height:67px;background:radial-gradient(ellipse at 40% 35%,#c9a84c,#6a4e00);top:80px;left:100px;transform:rotate(52deg)"></div>
+          <div class="p" style="width:35px;height:50px;background:radial-gradient(ellipse at 40% 35%,#f0d070,#a08030);top:140px;left:50px;transform:rotate(18deg)"></div>
+          <div class="p" style="width:22px;height:30px;background:radial-gradient(ellipse at 40% 35%,#6a4800,#342400,#181000);top:170px;left:110px;transform:rotate(-28deg);box-shadow:inset -3px -4px 8px rgba(0,0,0,.3),inset 1px 1px 4px rgba(220,190,80,.2)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="margin-top:40px"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,25 C400,50 800,0 1200,30 C1320,40 1380,20 1440,25 L1440,50 L0,50 Z" fill="var(--ink)" opacity="1"/></svg></div>
+
+<!-- ── Explore Other Qualities ── -->
+<section style="background:var(--ink); padding: 64px 0">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:start">
+      <div>
+        <p style="font-family:'Inter';font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px">Explore</p>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:2rem;color:rgba(255,255,255,.9);line-height:1.2">All 10 Greatest Qualities</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+        <a href="quality.html?q=love" style="display:flex;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:.85rem;color:rgba(255,255,255,.35);width:24px">01</span>
+          <span style="font-size:.9rem;color:#f08090">Greatest Love</span>
+        </a>
+        <a href="quality.html?q=forgiveness" style="display:flex;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);text-decoration:none" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:.85rem;color:rgba(255,255,255,.35);width:24px">02</span>
+          <span style="font-size:.9rem;color:#d4a843">Greatest Forgiveness</span>
+        </a>
+        <a href="quality.html?q=compassion" style="display:flex;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);text-decoration:none" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:.85rem;color:rgba(255,255,255,.35);width:24px">03</span>
+          <span style="font-size:.9rem;color:rgba(255,255,255,.75)">Greatest Compassion</span>
+        </a>
+        <a href="quality.html?q=light" style="display:flex;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);text-decoration:none" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:.85rem;color:rgba(255,255,255,.35);width:24px">04</span>
+          <span style="font-size:.9rem;color:#d4a843">Greatest Light</span>
+        </a>
+        <a href="quality.html?q=humility" style="display:flex;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);text-decoration:none" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:.85rem;color:rgba(255,255,255,.35);width:24px">05</span>
+          <span style="font-size:.9rem;color:#7ab87a">Greatest Humility</span>
+        </a>
+        <a href="quality.html?q=harmony" style="display:flex;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);text-decoration:none" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:.85rem;color:rgba(255,255,255,.35);width:24px">06</span>
+          <span style="font-size:.9rem;color:#7aaad8">Greatest Harmony</span>
+        </a>
+        <a href="quality.html?q=flourishing" style="display:flex;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);text-decoration:none" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:.85rem;color:rgba(255,255,255,.35);width:24px">07</span>
+          <span style="font-size:.9rem;color:#7acfc8">Greatest Flourishing</span>
+        </a>
+        <a href="quality.html?q=gratitude" style="display:flex;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);text-decoration:none" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:.85rem;color:rgba(255,255,255,.35);width:24px">08</span>
+          <span style="font-size:.9rem;color:#7ab8c8">Greatest Gratitude</span>
+        </a>
+        <a href="quality.html?q=service" style="display:flex;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);text-decoration:none" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:.85rem;color:rgba(255,255,255,.35);width:24px">09</span>
+          <span style="font-size:.9rem;color:#b07ad8">Greatest Service</span>
+        </a>
+        <a href="quality.html?q=enlightenment" style="display:flex;align-items:center;gap:10px;padding:14px 0;text-decoration:none" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:.85rem;color:rgba(255,255,255,.35);width:24px">10</span>
+          <span style="font-size:.9rem;color:#d87ab8">Greatest Enlightenment</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-logo">Source Nature</div>
+  <div class="footer-links">
+    <a href="index-light.html">All Qualities</a>
+    <a href="#">Our Story</a>
+    <a href="#">Get in Touch</a>
+  </div>
+  <p>Ancient wisdom confirmed by modern science.<br>
+  Each quality is both a spiritual practice and a biological upgrade.</p>
+  <p style="margin-top:16px;font-size:.75rem;opacity:.35">Scientific references cited for educational purposes.</p>
+</footer>
+
+</body>
+</html>

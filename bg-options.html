@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Background Options — Source Nature</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Arial', sans-serif; background: #0a0a0a; color: #e0e0e0; }
+
+    h1 {
+      text-align: center; padding: 40px 20px 8px;
+      font-size: 1.5rem; font-weight: 300; letter-spacing: .1em;
+      color: #c9a84c;
+    }
+    .subtitle {
+      text-align: center; color: #666; font-size: .85rem;
+      padding-bottom: 40px; letter-spacing: .05em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px; margin: 0 auto; padding: 0 24px 60px;
+    }
+
+    .swatch {
+      border-radius: 16px; overflow: hidden;
+      border: 2px solid rgba(255,255,255,.08);
+      cursor: pointer; transition: transform .2s, border-color .2s;
+      position: relative;
+    }
+    .swatch:hover { transform: translateY(-4px); border-color: #c9a84c; }
+    .swatch.active { border-color: #c9a84c; box-shadow: 0 0 0 3px rgba(201,168,76,.3); }
+
+    .preview {
+      height: 200px; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .preview-card {
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 10px;
+      padding: 14px 20px;
+      font-size: .82rem; color: rgba(255,255,255,.85);
+      z-index: 2; position: relative; text-align: center;
+      width: 160px;
+    }
+    .preview-card .icon { font-size: 1.6rem; margin-bottom: 6px; }
+    .preview-card .title { font-size: .78rem; opacity: .9; }
+
+    .label {
+      padding: 14px 16px;
+      background: rgba(0,0,0,.6);
+    }
+    .label h3 { font-size: .88rem; font-weight: 600; color: #e0d0b0; margin-bottom: 3px; }
+    .label p  { font-size: .75rem; color: #888; }
+
+    .pick-btn {
+      display: block; width: calc(100% - 32px); margin: 0 16px 16px;
+      padding: 10px; border-radius: 8px;
+      background: rgba(201,168,76,.12); border: 1px solid rgba(201,168,76,.3);
+      color: #c9a84c; font-size: .78rem; letter-spacing: .1em;
+      text-transform: uppercase; cursor: pointer; transition: all .2s;
+    }
+    .pick-btn:hover { background: rgba(201,168,76,.22); color: #f0d070; }
+
+    /* ── Fullscreen Preview ── */
+    .fullscreen {
+      position: fixed; inset: 0; z-index: 100;
+      display: none; align-items: center; justify-content: center;
+    }
+    .fullscreen.open { display: flex; }
+    .fullscreen-bg { position: absolute; inset: 0; }
+    .fullscreen-content {
+      z-index: 2; text-align: center; max-width: 600px; padding: 40px;
+    }
+    .fullscreen-content h2 {
+      font-size: 2.4rem; font-weight: 300; letter-spacing: .05em;
+      background: linear-gradient(135deg, #f0d070, #c9a84c);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 12px;
+    }
+    .fullscreen-content p {
+      font-size: 1rem; color: rgba(255,255,255,.6);
+      font-style: italic; margin-bottom: 32px;
+    }
+    .close-btn {
+      position: fixed; top: 24px; right: 24px; z-index: 3;
+      background: rgba(0,0,0,.5); border: 1px solid rgba(255,255,255,.2);
+      color: #ccc; padding: 8px 16px; border-radius: 8px;
+      cursor: pointer; font-size: .82rem; letter-spacing: .08em;
+      transition: all .2s;
+    }
+    .close-btn:hover { background: rgba(0,0,0,.8); color: #fff; }
+    .apply-btn {
+      padding: 12px 28px; border-radius: 10px;
+      background: rgba(201,168,76,.2); border: 1px solid rgba(201,168,76,.5);
+      color: #f0d070; font-size: .88rem; letter-spacing: .1em;
+      text-transform: uppercase; cursor: pointer; transition: all .2s;
+    }
+    .apply-btn:hover { background: rgba(201,168,76,.35); }
+
+    /* ═══════════════════════════════════════
+       BACKGROUND DEFINITIONS
+    ═══════════════════════════════════════ */
+
+    /* 1. Current — Cosmic Dark */
+    .bg-cosmic {
+      background: #09090f;
+      background-image:
+        radial-gradient(ellipse at 20% 20%, rgba(91,141,238,.15) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 80%, rgba(155,110,243,.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 0%, rgba(201,168,76,.10) 0%, transparent 50%);
+    }
+
+    /* 2. Aurora Flow */
+    .bg-aurora {
+      background: #030810;
+      background-image:
+        radial-gradient(ellipse at 0% 50%, rgba(0,200,150,.18) 0%, transparent 50%),
+        radial-gradient(ellipse at 100% 20%, rgba(100,60,220,.22) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 100%, rgba(0,150,255,.15) 0%, transparent 50%);
+      animation: aurora-shift 8s ease-in-out infinite alternate;
+    }
+    @keyframes aurora-shift {
+      0%   { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(30deg); }
+    }
+
+    /* 3. Mesh Gradient (Apple/Stripe style) */
+    .bg-mesh {
+      background:
+        radial-gradient(at 20% 30%, #1a0533 0%, transparent 50%),
+        radial-gradient(at 80% 10%, #0d1f4a 0%, transparent 50%),
+        radial-gradient(at 60% 80%, #0f2d1a 0%, transparent 50%),
+        radial-gradient(at 10% 90%, #2a0a1a 0%, transparent 50%),
+        radial-gradient(at 90% 60%, #1a1a00 0%, transparent 50%);
+      background-color: #080810;
+    }
+
+    /* 4. Sacred Geometry */
+    .bg-sacred {
+      background: #08060f;
+      background-image:
+        radial-gradient(ellipse at 50% 50%, rgba(201,168,76,.08) 0%, transparent 70%);
+      position: relative;
+    }
+    .bg-sacred::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(201,168,76,.04) 0px, transparent 1px, transparent 60px, rgba(201,168,76,.04) 61px),
+        repeating-linear-gradient(90deg, rgba(201,168,76,.04) 0px, transparent 1px, transparent 60px, rgba(201,168,76,.04) 61px),
+        repeating-linear-gradient(60deg, rgba(201,168,76,.025) 0px, transparent 1px, transparent 60px),
+        repeating-linear-gradient(-60deg, rgba(201,168,76,.025) 0px, transparent 1px, transparent 60px);
+    }
+
+    /* 5. Dark Grain */
+    .bg-grain {
+      background: #0c0b0a;
+      background-image:
+        radial-gradient(ellipse at 30% 20%, rgba(201,168,76,.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(120,80,40,.08) 0%, transparent 50%);
+      position: relative;
+    }
+    .bg-grain::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      opacity: .6;
+    }
+
+    /* 6. Minimal Light */
+    .bg-light {
+      background: #f8f5ef;
+      background-image:
+        radial-gradient(ellipse at 20% 10%, rgba(201,168,76,.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 90%, rgba(150,120,80,.08) 0%, transparent 50%);
+    }
+    .bg-light .preview-card {
+      background: rgba(255,255,255,.85);
+      border-color: rgba(0,0,0,.08);
+      color: #3a3020;
+    }
+
+    /* 7. Deep Ocean */
+    .bg-ocean {
+      background: #020810;
+      background-image:
+        radial-gradient(ellipse at 50% 0%,   rgba(0,80,160,.25) 0%, transparent 60%),
+        radial-gradient(ellipse at 10% 100%, rgba(0,40,100,.20) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 50%,  rgba(0,150,200,.10) 0%, transparent 50%);
+    }
+
+    /* 8. Warm Earth */
+    .bg-earth {
+      background: #0d0905;
+      background-image:
+        radial-gradient(ellipse at 30% 0%,   rgba(180,100,30,.15) 0%, transparent 55%),
+        radial-gradient(ellipse at 70% 100%, rgba(140,60,20,.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 50%,  rgba(201,168,76,.06) 0%, transparent 60%);
+    }
+
+    /* 9. Neon Minimal */
+    .bg-neon {
+      background: #040408;
+      background-image:
+        radial-gradient(ellipse at 0% 0%,   rgba(0,255,200,.08) 0%, transparent 40%),
+        radial-gradient(ellipse at 100% 100%, rgba(150,0,255,.10) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 50%,  rgba(255,50,150,.05) 0%, transparent 50%);
+    }
+
+    /* 10. Soft Dusk */
+    .bg-dusk {
+      background: #0e080f;
+      background-image:
+        radial-gradient(ellipse at 50% 0%,   rgba(220,120,60,.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 80%,  rgba(140,60,200,.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 60%,  rgba(200,80,80,.08) 0%, transparent 50%);
+    }
+
+    /* ── Particles canvas (used in a few) ── */
+    canvas.particles {
+      position: absolute; inset: 0; z-index: 1; opacity: .5;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Background Options</h1>
+<p class="subtitle">Click any option to preview fullscreen · Pick your favourite</p>
+
+<div class="grid">
+
+  <!-- 1 -->
+  <div class="swatch active" onclick="preview('cosmic','Cosmic Dark','Deep space — current default')">
+    <div class="preview bg-cosmic">
+      <div class="preview-card"><div class="icon">❤️</div><div class="title">Greatest Love</div></div>
+    </div>
+    <div class="label"><h3>1 · Cosmic Dark</h3><p>Current · Deep space radial gradients</p></div>
+    <button class="pick-btn">Preview fullscreen</button>
+  </div>
+
+  <!-- 2 -->
+  <div class="swatch" onclick="preview('aurora','Aurora Flow','Living colour — northern lights in motion')">
+    <div class="preview bg-aurora">
+      <div class="preview-card"><div class="icon">✨</div><div class="title">Greatest Light</div></div>
+    </div>
+    <div class="label"><h3>2 · Aurora Flow</h3><p>Animated · teal / indigo / blue aurora</p></div>
+    <button class="pick-btn">Preview fullscreen</button>
+  </div>
+
+  <!-- 3 -->
+  <div class="swatch" onclick="preview('mesh','Mesh Gradient','Apple / Stripe style — rich dark colour mesh')">
+    <div class="preview bg-mesh">
+      <div class="preview-card"><div class="icon">🌸</div><div class="title">Greatest Flourishing</div></div>
+    </div>
+    <div class="label"><h3>3 · Mesh Gradient</h3><p>Contemporary · multi-colour dark mesh</p></div>
+    <button class="pick-btn">Preview fullscreen</button>
+  </div>
+
+  <!-- 4 -->
+  <div class="swatch" onclick="preview('sacred','Sacred Geometry','Dark with subtle golden grid & flower of life')">
+    <div class="preview bg-sacred" style="overflow:hidden">
+      <div class="preview-card" style="z-index:2"><div class="icon">☀️</div><div class="title">Enlightenment</div></div>
+    </div>
+    <div class="label"><h3>4 · Sacred Geometry</h3><p>Subtle · golden grid overlay on deep black</p></div>
+    <button class="pick-btn">Preview fullscreen</button>
+  </div>
+
+  <!-- 5 -->
+  <div class="swatch" onclick="preview('grain','Dark Grain','Editorial / luxury — noise texture + warm tones')">
+    <div class="preview bg-grain" style="overflow:hidden">
+      <div class="preview-card" style="z-index:2"><div class="icon">🙏</div><div class="title">Greatest Gratitude</div></div>
+    </div>
+    <div class="label"><h3>5 · Dark Grain</h3><p>Editorial · noise texture + warm dark tones</p></div>
+    <button class="pick-btn">Preview fullscreen</button>
+  </div>
+
+  <!-- 6 -->
+  <div class="swatch" onclick="preview('light','Minimal Light','Clean white / cream — editorial, open, airy')">
+    <div class="preview bg-light">
+      <div class="preview-card bg-light" style="background:rgba(255,255,255,.85);border-color:rgba(0,0,0,.1);color:#3a3020"><div class="icon">🕊️</div><div class="title" style="color:#6a5a40">Forgiveness</div></div>
+    </div>
+    <div class="label"><h3>6 · Minimal Light</h3><p>Light mode · cream / warm white</p></div>
+    <button class="pick-btn">Preview fullscreen</button>
+  </div>
+
+  <!-- 7 -->
+  <div class="swatch" onclick="preview('ocean','Deep Ocean','Midnight blue depths — calm, vast, meditative')">
+    <div class="preview bg-ocean">
+      <div class="preview-card"><div class="icon">🌊</div><div class="title">Greatest Compassion</div></div>
+    </div>
+    <div class="label"><h3>7 · Deep Ocean</h3><p>Midnight blue · vast and meditative</p></div>
+    <button class="pick-btn">Preview fullscreen</button>
+  </div>
+
+  <!-- 8 -->
+  <div class="swatch" onclick="preview('earth','Warm Earth','Rich amber + umber tones — grounded, sacred')">
+    <div class="preview bg-earth">
+      <div class="preview-card"><div class="icon">🌱</div><div class="title">Greatest Humility</div></div>
+    </div>
+    <div class="label"><h3>8 · Warm Earth</h3><p>Amber + umber · grounded and sacred</p></div>
+    <button class="pick-btn">Preview fullscreen</button>
+  </div>
+
+  <!-- 9 -->
+  <div class="swatch" onclick="preview('neon','Neon Minimal','Ultra-dark with faint neon accent glow')">
+    <div class="preview bg-neon">
+      <div class="preview-card"><div class="icon">🎶</div><div class="title">Greatest Harmony</div></div>
+    </div>
+    <div class="label"><h3>9 · Neon Minimal</h3><p>Ultra-dark · faint neon cyan / violet</p></div>
+    <button class="pick-btn">Preview fullscreen</button>
+  </div>
+
+  <!-- 10 -->
+  <div class="swatch" onclick="preview('dusk','Soft Dusk','Twilight · amber, rose and violet horizon')">
+    <div class="preview bg-dusk">
+      <div class="preview-card"><div class="icon">🤝</div><div class="title">Greatest Service</div></div>
+    </div>
+    <div class="label"><h3>10 · Soft Dusk</h3><p>Twilight · amber + rose + violet</p></div>
+    <button class="pick-btn">Preview fullscreen</button>
+  </div>
+
+</div>
+
+<!-- ═══ FULLSCREEN PREVIEW ═══ -->
+<div class="fullscreen" id="fullscreen">
+  <div class="fullscreen-bg" id="fs-bg"></div>
+  <div class="fullscreen-content">
+    <div style="font-size:3rem; margin-bottom:12px" id="fs-icon">☀️</div>
+    <h2 id="fs-title">Background Name</h2>
+    <p id="fs-desc">Description</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button class="apply-btn" onclick="applyChoice()">Apply this background →</button>
+      <button class="apply-btn" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15);color:#aaa" onclick="closePreview()">← Back to options</button>
+    </div>
+  </div>
+  <button class="close-btn" onclick="closePreview()">✕ Close</button>
+</div>
+
+<script>
+  const ICONS = { cosmic:'🌌', aurora:'🌠', mesh:'🎨', sacred:'✡️', grain:'🖤', light:'☀️', ocean:'🌊', earth:'🌍', neon:'⚡', dusk:'🌅' };
+  let currentBg = '';
+
+  function preview(bg, title, desc) {
+    currentBg = bg;
+    const fs = document.getElementById('fullscreen');
+    const fsBg = document.getElementById('fs-bg');
+    // Remove all bg classes
+    fsBg.className = 'fullscreen-bg';
+    fsBg.classList.add('bg-' + bg);
+    document.getElementById('fs-title').textContent = title;
+    document.getElementById('fs-desc').textContent = desc;
+    document.getElementById('fs-icon').textContent = ICONS[bg] || '✨';
+    fs.classList.add('open');
+  }
+
+  function closePreview() {
+    document.getElementById('fullscreen').classList.remove('open');
+  }
+
+  function applyChoice() {
+    closePreview();
+    // Highlight chosen
+    document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+    const allSwatches = document.querySelectorAll('.swatch');
+    const bgs = ['cosmic','aurora','mesh','sacred','grain','light','ocean','earth','neon','dusk'];
+    const idx = bgs.indexOf(currentBg);
+    if (idx >= 0) allSwatches[idx].classList.add('active');
+
+    // Show confirmation
+    const names = {cosmic:'Cosmic Dark',aurora:'Aurora Flow',mesh:'Mesh Gradient',sacred:'Sacred Geometry',grain:'Dark Grain',light:'Minimal Light',ocean:'Deep Ocean',earth:'Warm Earth',neon:'Neon Minimal',dusk:'Soft Dusk'};
+    alert(`You selected: ${names[currentBg]}\n\nTell Claude which one you picked and it will be applied to the full website.`);
+  }
+
+  // Close on backdrop click
+  document.getElementById('fullscreen').addEventListener('click', function(e) {
+    if (e.target === this) closePreview();
+  });
+</script>
+
+</body>
+</html>

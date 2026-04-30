@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rose Petal Sample v2</title>
+  <style>
+    body {
+      margin: 0; background: #f8f4ee;
+      font-family: 'Georgia', serif;
+      display: flex; flex-direction: column;
+      align-items: center; padding: 60px 40px;
+      gap: 48px;
+    }
+    h2 { font-style:italic; font-weight:300; font-size:1.6rem; color:#3a2a20; text-align:center; margin:0 }
+    p.sub { color:#9a8878; font-size:.85rem; text-align:center; margin:-36px 0 0 }
+    .label { font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:#9a8878; text-align:center; margin-top:8px }
+
+    /* Individual petal shapes row */
+    .row { display:flex; gap:32px; flex-wrap:wrap; justify-content:center; align-items:flex-end }
+
+    /* Scatter canvas */
+    .scatter-box {
+      background:#fff; border-radius:20px;
+      box-shadow: 0 4px 30px rgba(0,0,0,.07);
+      overflow:hidden;
+      width: 560px; height: 360px;
+      position:relative;
+    }
+    .scatter-box svg { position:absolute; top:0; left:0 }
+  </style>
+</head>
+<body>
+
+<h2>Natural Rose Petal — Shape & Colour</h2>
+<p class="sub">Heart-shaped · cream base · dark crimson · veins</p>
+
+<!-- ══════════════════════════════
+     SVG DEFS (shared across page)
+════════════════════════════════ -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+
+    <!-- ── Core petal gradient: cream at base → vivid red → deep crimson edges ── -->
+    <radialGradient id="g-main" cx="50%" cy="88%" r="80%" gradientUnits="objectBoundingBox">
+      <stop offset="0%"   stop-color="#fff2e8"/>   <!-- cream/white at base -->
+      <stop offset="12%"  stop-color="#e83040"/>   <!-- bright red -->
+      <stop offset="55%"  stop-color="#b81828"/>   <!-- mid crimson -->
+      <stop offset="100%" stop-color="#780810"/>   <!-- dark edge -->
+    </radialGradient>
+
+    <!-- Slightly lighter variant -->
+    <radialGradient id="g-light" cx="50%" cy="85%" r="78%" gradientUnits="objectBoundingBox">
+      <stop offset="0%"   stop-color="#fff5ee"/>
+      <stop offset="10%"  stop-color="#e84050"/>
+      <stop offset="50%"  stop-color="#c02030"/>
+      <stop offset="100%" stop-color="#880a18"/>
+    </radialGradient>
+
+    <!-- Darker/shadowed variant (underside / edge petals) -->
+    <radialGradient id="g-dark" cx="45%" cy="82%" r="75%" gradientUnits="objectBoundingBox">
+      <stop offset="0%"   stop-color="#f0c8c0"/>
+      <stop offset="18%"  stop-color="#c01828"/>
+      <stop offset="60%"  stop-color="#8a0c18"/>
+      <stop offset="100%" stop-color="#580008"/>
+    </radialGradient>
+
+    <!-- Highlight sheen (overlay) -->
+    <radialGradient id="g-sheen" cx="35%" cy="30%" r="45%" gradientUnits="objectBoundingBox">
+      <stop offset="0%"   stop-color="rgba(255,220,220,.35)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+
+    <!-- Drop shadow filter -->
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="rgba(60,0,10,.30)"/>
+    </filter>
+    <filter id="shadow-sm" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2.5" flood-color="rgba(60,0,10,.22)"/>
+    </filter>
+    <filter id="shadow-xs" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="1" dy="1.5" stdDeviation="1.8" flood-color="rgba(60,0,10,.18)"/>
+    </filter>
+
+    <!--
+      ── THE PETAL PATH ──
+      Heart-shaped: wide across top with concave notch, tapers to soft point at base.
+      ViewBox per-petal: 0 0 130 112
+      Base (stem attachment) is at bottom-center: (65, 108)
+      Left peak:  ~(22, 10)
+      Right peak: ~(108, 10)
+      Top notch:  (65, 28)
+      Widest left: ~(6, 56)   Widest right: ~(124, 56)
+    -->
+    <path id="petal"
+      d="M 65,106
+         C 38,98  6,78  3,52
+         C 0,28  16,6  35,6
+         C 46,4  54,14  65,26
+         C 76,14  84,4  95,6
+         C 114,6  130,28  127,52
+         C 124,78  92,98  65,106
+         Z"/>
+
+    <!-- Slightly wider / rounder variant -->
+    <path id="petal-wide"
+      d="M 65,106
+         C 36,100  2,80  1,54
+         C 0,30  14,4  34,4
+         C 46,2  55,14  65,27
+         C 75,14  84,2  96,4
+         C 116,4  130,30  129,54
+         C 128,80  94,100  65,106
+         Z"/>
+
+    <!-- Narrower / side-view variant (appears tilted) -->
+    <path id="petal-narrow"
+      d="M 65,106
+         C 42,100  12,80  10,54
+         C 8,30  22,6  40,6
+         C 51,4  58,15  65,26
+         C 72,15  79,4  90,6
+         C 108,6  122,30  120,54
+         C 118,80  88,100  65,106
+         Z"/>
+
+  </defs>
+</svg>
+
+<!-- ══════════════════════════════
+     1 — CLOSE-UP SINGLE PETAL
+════════════════════════════════ -->
+<div style="text-align:center">
+  <svg width="260" height="224" viewBox="0 0 130 112">
+
+    <!-- Main fill -->
+    <use href="#petal" fill="url(#g-main)" filter="url(#shadow)"/>
+
+    <!-- Sheen overlay -->
+    <use href="#petal" fill="url(#g-sheen)"/>
+
+    <!-- Veins: radiating from base upward -->
+    <g stroke="rgba(80,0,12,.13)" stroke-width=".9" fill="none">
+      <!-- Central vein -->
+      <path d="M65,104 Q64,75 60,42 Q57,22 50,10"/>
+      <!-- Right of center -->
+      <path d="M65,100 Q70,70 78,45 Q86,25 95,10"/>
+      <!-- Far right -->
+      <path d="M65,98 Q75,68 88,46 Q100,28 112,16"/>
+      <!-- Left of center -->
+      <path d="M65,100 Q60,70 52,45 Q44,25 35,10"/>
+      <!-- Far left -->
+      <path d="M65,98 Q55,68 42,46 Q30,28 18,16"/>
+      <!-- Sub-veins right -->
+      <path d="M78,50 Q88,44 98,42"/>
+      <path d="M72,35 Q80,30 90,28"/>
+      <!-- Sub-veins left -->
+      <path d="M52,50 Q42,44 32,42"/>
+      <path d="M58,35 Q50,30 40,28"/>
+    </g>
+
+    <!-- Cream highlight at base -->
+    <ellipse cx="65" cy="98" rx="10" ry="7"
+             fill="rgba(255,240,225,.55)" filter="url(#shadow-xs)"/>
+
+  </svg>
+  <p class="label">Close-up · heart shape · veins · cream base</p>
+</div>
+
+<!-- ══════════════════════════════
+     2 — 4 SHAPE VARIANTS
+════════════════════════════════ -->
+<div class="row">
+
+  <!-- Upright classic -->
+  <div style="text-align:center">
+    <svg width="156" height="134" viewBox="0 0 130 112">
+      <use href="#petal" fill="url(#g-main)" filter="url(#shadow)"/>
+      <use href="#petal" fill="url(#g-sheen)"/>
+      <g stroke="rgba(80,0,12,.11)" stroke-width=".9" fill="none">
+        <path d="M65,104 Q64,70 60,38 Q57,20 50,10"/>
+        <path d="M65,100 Q72,68 82,42 Q90,22 98,10"/>
+        <path d="M65,100 Q58,68 48,42 Q40,22 32,10"/>
+        <path d="M82,48 Q94,40 104,38"/>
+        <path d="M48,48 Q36,40 26,38"/>
+      </g>
+      <ellipse cx="65" cy="98" rx="10" ry="7" fill="rgba(255,240,225,.5)"/>
+    </svg>
+    <p class="label">Upright</p>
+  </div>
+
+  <!-- Tilted / lying flat (scaleY compressed to simulate perspective) -->
+  <div style="text-align:center">
+    <svg width="156" height="80" viewBox="0 0 130 66">
+      <g transform="scale(1, 0.58) translate(0, -18)">
+        <use href="#petal-wide" fill="url(#g-dark)" filter="url(#shadow)"/>
+        <use href="#petal-wide" fill="url(#g-sheen)"/>
+        <g stroke="rgba(80,0,12,.10)" stroke-width="1.2" fill="none">
+          <path d="M65,104 Q64,70 60,38 Q57,20 50,10"/>
+          <path d="M65,100 Q72,68 82,42 Q90,22 98,10"/>
+          <path d="M65,100 Q58,68 48,42 Q40,22 32,10"/>
+        </g>
+        <ellipse cx="65" cy="98" rx="12" ry="8" fill="rgba(255,230,215,.45)"/>
+      </g>
+    </svg>
+    <p class="label">Lying flat</p>
+  </div>
+
+  <!-- Slightly angled / curled left edge -->
+  <div style="text-align:center">
+    <svg width="156" height="134" viewBox="0 0 130 112">
+      <use href="#petal-narrow" fill="url(#g-light)" filter="url(#shadow)"/>
+      <use href="#petal-narrow" fill="url(#g-sheen)"/>
+      <!-- darker left curl overlay -->
+      <path d="M35,6 C22,12 8,30 8,52 C8,70 20,88 38,98 C25,85 16,68 17,50 C18,30 28,14 35,6 Z"
+            fill="rgba(60,0,8,.12)"/>
+      <g stroke="rgba(80,0,12,.11)" stroke-width=".9" fill="none">
+        <path d="M65,104 Q64,70 60,38 Q57,20 50,10"/>
+        <path d="M65,100 Q72,68 82,42 Q90,22 98,10"/>
+        <path d="M65,100 Q58,68 48,42 Q40,22 32,10"/>
+      </g>
+      <ellipse cx="65" cy="98" rx="10" ry="7" fill="rgba(255,240,225,.5)"/>
+    </svg>
+    <p class="label">Curled edge</p>
+  </div>
+
+  <!-- Very flat / ground-level -->
+  <div style="text-align:center">
+    <svg width="156" height="56" viewBox="0 0 130 46">
+      <g transform="scale(1, 0.40) translate(0, -36)">
+        <use href="#petal" fill="url(#g-dark)" filter="url(#shadow)"/>
+        <g stroke="rgba(80,0,12,.09)" stroke-width="1.4" fill="none">
+          <path d="M65,104 Q64,70 60,38 Q57,20 50,10"/>
+          <path d="M65,100 Q72,68 82,42 Q90,22 98,10"/>
+          <path d="M65,100 Q58,68 48,42 Q40,22 32,10"/>
+        </g>
+      </g>
+    </svg>
+    <p class="label">Ground level</p>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════
+     3 — NATURAL SCATTER (matches photo 2)
+════════════════════════════════ -->
+<h2 style="font-size:1.2rem">Natural Scatter</h2>
+
+<div class="scatter-box">
+  <svg width="560" height="360" viewBox="0 0 560 360">
+
+    <!-- Back layer — larger, more upright -->
+
+    <!-- Petal 1: top-left, angled -->
+    <g transform="translate(55,45) rotate(-15) scale(.82)">
+      <use href="#petal" fill="url(#g-main)" filter="url(#shadow)"/>
+      <use href="#petal" fill="url(#g-sheen)"/>
+      <g stroke="rgba(80,0,12,.10)" stroke-width=".9" fill="none">
+        <path d="M65,104 Q64,70 60,38 Q57,20 50,10"/>
+        <path d="M65,100 Q72,68 82,42 Q90,22 98,10"/>
+        <path d="M65,100 Q58,68 48,42 Q40,22 32,10"/>
+      </g>
+      <ellipse cx="65" cy="99" rx="9" ry="6" fill="rgba(255,240,225,.5)"/>
+    </g>
+
+    <!-- Petal 2: top-right, lying flat -->
+    <g transform="translate(340,30) rotate(22)">
+      <g transform="scale(1, 0.52) translate(0,-20)">
+        <use href="#petal-wide" fill="url(#g-dark)" filter="url(#shadow)"/>
+        <use href="#petal-wide" fill="url(#g-sheen)"/>
+        <g stroke="rgba(80,0,12,.09)" stroke-width="1.1" fill="none">
+          <path d="M65,104 Q64,70 60,38 Q57,20 50,10"/>
+          <path d="M65,100 Q72,68 82,42"/>
+          <path d="M65,100 Q58,68 48,42"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Petal 3: center-left, slight tilt -->
+    <g transform="translate(120,150) rotate(-40) scale(.78)">
+      <use href="#petal" fill="url(#g-light)" filter="url(#shadow)"/>
+      <use href="#petal" fill="url(#g-sheen)"/>
+      <g stroke="rgba(80,0,12,.10)" stroke-width=".85" fill="none">
+        <path d="M65,104 Q64,70 60,38 Q57,20 50,10"/>
+        <path d="M65,100 Q72,68 82,42 Q90,22 98,10"/>
+        <path d="M65,100 Q58,68 48,42 Q40,22 32,10"/>
+        <path d="M82,48 Q94,40 104,38"/>
+        <path d="M48,48 Q36,40 26,38"/>
+      </g>
+      <ellipse cx="65" cy="99" rx="9" ry="6" fill="rgba(255,240,225,.48)"/>
+    </g>
+
+    <!-- Petal 4: center, lying very flat -->
+    <g transform="translate(240,165) rotate(10)">
+      <g transform="scale(1.1, 0.38) translate(-8, -38)">
+        <use href="#petal-wide" fill="url(#g-dark)" filter="url(#shadow)"/>
+        <g stroke="rgba(80,0,12,.08)" stroke-width="1.3" fill="none">
+          <path d="M65,104 Q64,70 60,38 Q57,20 50,10"/>
+          <path d="M65,100 Q72,68 82,42"/>
+          <path d="M65,100 Q58,68 48,42"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Petal 5: right side, upright -->
+    <g transform="translate(390,120) rotate(35) scale(.72)">
+      <use href="#petal-narrow" fill="url(#g-main)" filter="url(#shadow)"/>
+      <use href="#petal-narrow" fill="url(#g-sheen)"/>
+      <g stroke="rgba(80,0,12,.10)" stroke-width=".85" fill="none">
+        <path d="M65,104 Q64,70 60,38 Q57,20 50,10"/>
+        <path d="M65,100 Q72,68 82,42 Q90,22 98,10"/>
+        <path d="M65,100 Q58,68 48,42 Q40,22 32,10"/>
+      </g>
+      <ellipse cx="65" cy="99" rx="9" ry="6" fill="rgba(255,240,225,.45)"/>
+    </g>
+
+    <!-- Petal 6: bottom-left, lying flat, rotated -->
+    <g transform="translate(60,255) rotate(-25)">
+      <g transform="scale(0.9, 0.45) translate(0, -25)">
+        <use href="#petal" fill="url(#g-dark)" filter="url(#shadow-sm)"/>
+        <use href="#petal" fill="url(#g-sheen)"/>
+        <g stroke="rgba(80,0,12,.08)" stroke-width="1.2" fill="none">
+          <path d="M65,104 Q64,70 60,38 Q57,20 50,10"/>
+          <path d="M65,100 Q72,68 82,42"/>
+          <path d="M65,100 Q58,68 48,42"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Petal 7: bottom-center, upright, dark -->
+    <g transform="translate(220,250) rotate(50) scale(.68)">
+      <use href="#petal" fill="url(#g-dark)" filter="url(#shadow-sm)"/>
+      <use href="#petal" fill="url(#g-sheen)"/>
+      <g stroke="rgba(80,0,12,.09)" stroke-width=".8" fill="none">
+        <path d="M65,104 Q64,70 60,38 Q57,20 50,10"/>
+        <path d="M65,100 Q72,68 82,42 Q90,22 98,10"/>
+        <path d="M65,100 Q58,68 48,42 Q40,22 32,10"/>
+      </g>
+      <ellipse cx="65" cy="99" rx="8" ry="6" fill="rgba(255,240,225,.4)"/>
+    </g>
+
+    <!-- Petal 8: bottom-right, slight flat -->
+    <g transform="translate(390,250) rotate(-30)">
+      <g transform="scale(0.85, 0.5) translate(0, -18)">
+        <use href="#petal-wide" fill="url(#g-light)" filter="url(#shadow-sm)"/>
+        <use href="#petal-wide" fill="url(#g-sheen)"/>
+        <g stroke="rgba(80,0,12,.09)" stroke-width="1.1" fill="none">
+          <path d="M65,104 Q64,70 60,38 Q57,20 50,10"/>
+          <path d="M65,100 Q72,68 82,42"/>
+          <path d="M65,100 Q58,68 48,42"/>
+        </g>
+        <ellipse cx="65" cy="99" rx="10" ry="7" fill="rgba(255,240,225,.42)"/>
+      </g>
+    </g>
+
+    <!-- Petal 9: tiny, far right -->
+    <g transform="translate(490,175) rotate(15) scale(.52)">
+      <use href="#petal-narrow" fill="url(#g-main)" filter="url(#shadow-xs)"/>
+      <g stroke="rgba(80,0,12,.09)" stroke-width=".8" fill="none">
+        <path d="M65,104 Q64,70 60,38 Q57,20 50,10"/>
+        <path d="M65,100 Q72,68 82,42 Q90,22 98,10"/>
+        <path d="M65,100 Q58,68 48,42 Q40,22 32,10"/>
+      </g>
+    </g>
+
+  </svg>
+</div>
+
+<p style="color:#9a8878;font-size:.82rem;font-style:italic;text-align:center;max-width:480px">
+  Happy with these? Say the word and I'll replace all petals on the full site with this style.
+</p>
+
+</body>
+</html>

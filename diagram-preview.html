@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diagram Options Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #f8f4ee;
+      --cream-dark: #ede8e0;
+      --ink: #1a1410;
+      --ink-mid: #4a4038;
+      --ink-light: #8a8078;
+      --red: #c41e3a;
+      --red-soft: #e05060;
+    }
+    body { font-family: 'Inter', sans-serif; font-weight: 300; background: var(--cream); color: var(--ink); padding: 60px 40px; }
+
+    .option-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .option-label {
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 32px;
+    }
+    .option-block {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.07);
+      border-radius: 8px;
+      padding: 48px;
+      margin-bottom: 60px;
+    }
+
+    /* ── OPTION A: Nested/Concentric circles ── */
+    .nested-wrap {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .nested-diagram {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      flex-shrink: 0;
+    }
+    .nc {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
+    .nc-label {
+      font-size: .65rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 5px 8px;
+      line-height: 1;
+    }
+    .nc1 { width: 280px; height: 280px; border-color: rgba(26,20,16,.12); }
+    .nc1 .nc-label { color: var(--ink-light); }
+    .nc2 { width: 220px; height: 220px; border-color: rgba(26,20,16,.18); }
+    .nc2 .nc-label { color: var(--ink-light); }
+    .nc3 { width: 164px; height: 164px; border-color: rgba(26,20,16,.25); }
+    .nc3 .nc-label { color: var(--ink-mid); }
+    .nc4 { width: 116px; height: 116px; border-color: rgba(26,20,16,.35); }
+    .nc4 .nc-label { color: var(--ink-mid); }
+    .nc5 { width: 72px; height: 72px; border-color: rgba(196,30,58,.4); background: rgba(196,30,58,.04); }
+    .nc5 .nc-label { color: var(--red); font-weight: 500; }
+    .nc6 { width: 28px; height: 28px; background: var(--red); border-color: var(--red); }
+
+    .nested-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .legend-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .legend-dot {
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: 1.5px solid;
+    }
+    .legend-text {
+      font-size: .82rem;
+      color: var(--ink-mid);
+      line-height: 1.4;
+    }
+    .legend-text strong { font-weight: 500; color: var(--ink); }
+    .legend-sub { font-size: .72rem; color: var(--ink-light); }
+
+    /* ── OPTION B: Horizontal flow ── */
+    .flow-wrap {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 32px 24px;
+      background: var(--cream-dark);
+      border-radius: 6px;
+    }
+    .flow-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .flow-circle {
+      border-radius: 50%;
+      border: 1.5px solid rgba(26,20,16,.2);
+      background: radial-gradient(circle at 38% 32%, #f8f4ee 0%, #d8cfc4 60%, #b0a898 100%);
+      flex-shrink: 0;
+    }
+    .fc-body  { width: 56px; height: 56px; }
+    .fc-cell  { width: 46px; height: 46px; }
+    .fc-mol   { width: 38px; height: 38px; }
+    .fc-atom  { width: 30px; height: 30px; }
+    .fc-nuc   { width: 22px; height: 22px; }
+    .fc-quark { width: 16px; height: 16px; background: radial-gradient(circle at 38% 32%, #f8c0c8 0%, #e05060 55%, #a01030 100%); border-color: var(--red); }
+    .flow-label {
+      font-size: .65rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      text-align: center;
+      line-height: 1.3;
+    }
+    .flow-arrow {
+      font-size: 1.2rem;
+      color: var(--ink-light);
+      margin: 0 2px;
+      margin-bottom: 20px;
+    }
+    .flow-wave {
+      margin-bottom: 20px;
+      margin-left: 4px;
+    }
+
+    .caption {
+      font-size: .78rem;
+      color: var(--ink-light);
+      margin-top: 20px;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    hr { border: none; border-top: 1px solid rgba(0,0,0,.07); margin: 48px 0; }
+  </style>
+</head>
+<body>
+
+<!-- ── OPTION A ── -->
+<div class="option-block">
+  <p class="option-label">Option A</p>
+  <h2 class="option-title">Nested Zoom Diagram</h2>
+
+  <div class="nested-wrap">
+    <!-- Concentric circles -->
+    <div class="nested-diagram">
+      <!-- Body (outermost) -->
+      <div class="nc nc1">
+        <span class="nc-label">Body</span>
+      </div>
+      <!-- Cell -->
+      <div class="nc nc2">
+        <span class="nc-label">Cell</span>
+      </div>
+      <!-- Molecule -->
+      <div class="nc nc3">
+        <span class="nc-label">Molecule</span>
+      </div>
+      <!-- Atom -->
+      <div class="nc nc4">
+        <span class="nc-label">Atom</span>
+      </div>
+      <!-- Nucleus -->
+      <div class="nc nc5">
+        <span class="nc-label">Nucleus</span>
+      </div>
+      <!-- Quark (solid dot center) -->
+      <div class="nc nc6"></div>
+    </div>
+
+    <!-- Legend -->
+    <div class="nested-legend">
+      <div class="legend-row">
+        <div class="legend-dot" style="width:22px;height:22px;border-color:rgba(26,20,16,.12)"></div>
+        <div class="legend-text"><strong>Human Body</strong><br/><span class="legend-sub">~1.7 m</span></div>
+      </div>
+      <div class="legend-row">
+        <div class="legend-dot" style="width:18px;height:18px;border-color:rgba(26,20,16,.18)"></div>
+        <div class="legend-text"><strong>Cell</strong><br/><span class="legend-sub">~10 μm</span></div>
+      </div>
+      <div class="legend-row">
+        <div class="legend-dot" style="width:14px;height:14px;border-color:rgba(26,20,16,.25)"></div>
+        <div class="legend-text"><strong>Molecule</strong><br/><span class="legend-sub">~1 nm</span></div>
+      </div>
+      <div class="legend-row">
+        <div class="legend-dot" style="width:12px;height:12px;border-color:rgba(26,20,16,.35)"></div>
+        <div class="legend-text"><strong>Atom</strong><br/><span class="legend-sub">~0.1 nm</span></div>
+      </div>
+      <div class="legend-row">
+        <div class="legend-dot" style="width:10px;height:10px;border-color:rgba(196,30,58,.4)"></div>
+        <div class="legend-text"><strong>Nucleus</strong><br/><span class="legend-sub">~1 fm</span></div>
+      </div>
+      <div class="legend-row">
+        <div class="legend-dot" style="width:10px;height:10px;background:var(--red);border-color:var(--red)"></div>
+        <div class="legend-text" style="color:var(--red)"><strong>Quark</strong><br/><span class="legend-sub">Elementary — indivisible</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="caption">Rings shrink toward center · innermost red dot = Quark · zoom reveals matter's true building block</p>
+</div>
+
+<!-- ── OPTION B ── -->
+<div class="option-block">
+  <p class="option-label">Option B</p>
+  <h2 class="option-title">Horizontal Flow</h2>
+
+  <div class="flow-wrap">
+    <div class="flow-node">
+      <div class="flow-circle fc-body"></div>
+      <span class="flow-label">Human<br/>Body</span>
+    </div>
+    <span class="flow-arrow">›</span>
+    <div class="flow-node">
+      <div class="flow-circle fc-cell"></div>
+      <span class="flow-label">Cell</span>
+    </div>
+    <span class="flow-arrow">›</span>
+    <div class="flow-node">
+      <div class="flow-circle fc-mol"></div>
+      <span class="flow-label">Molecule</span>
+    </div>
+    <span class="flow-arrow">›</span>
+    <div class="flow-node">
+      <div class="flow-circle fc-atom"></div>
+      <span class="flow-label">Atom</span>
+    </div>
+    <span class="flow-arrow">›</span>
+    <div class="flow-node">
+      <div class="flow-circle fc-nuc"></div>
+      <span class="flow-label">Nucleus</span>
+    </div>
+    <span class="flow-arrow">›</span>
+    <div class="flow-node">
+      <div class="flow-circle fc-quark"></div>
+      <span class="flow-label" style="color:var(--red);font-weight:500">Quark</span>
+    </div>
+    <svg class="flow-wave" viewBox="0 0 60 24" width="52" height="24">
+      <path d="M0,12 C10,4 20,20 30,12 C40,4 50,20 60,12"
+            fill="none" stroke="var(--ink-light)" stroke-width="1.5"/>
+    </svg>
+  </div>
+  <p class="caption">Shrinking circles show scale · red = Quark (elementary, indivisible) · consistent with the vibration chain below</p>
+</div>
+
+<!-- ── OPTION D: Universal Vibrational Field ── -->
+<div class="option-block" style="margin-top:60px">
+  <p class="option-label">Option D</p>
+  <h2 class="option-title">Universal Vibrational Field</h2>
+
+  <div style="display:flex;justify-content:center;padding:20px 0;overflow-x:auto">
+    <svg viewBox="0 0 860 560" width="860" height="560" style="max-width:100%;font-family:Inter,sans-serif">
+      <defs>
+        <clipPath id="cp1"><ellipse cx="175" cy="230" rx="108" ry="65"/></clipPath>
+        <clipPath id="cp2"><ellipse cx="430" cy="230" rx="108" ry="65"/></clipPath>
+        <clipPath id="cp3"><ellipse cx="685" cy="230" rx="108" ry="65"/></clipPath>
+      </defs>
+
+      <!-- ── BIG outer oval ── -->
+      <ellipse cx="430" cy="268" rx="415" ry="255"
+               fill="#f5f0e8" stroke="#1a1410" stroke-width="2.5"/>
+
+      <!-- ══ JANET — teal · high frequency ══ -->
+      <ellipse cx="175" cy="230" rx="108" ry="65" fill="#e0f4f0" stroke="#1a8a78" stroke-width="2"/>
+      <text x="175" y="148" text-anchor="middle" font-size="12" fill="#1a8a78" font-weight="700" letter-spacing=".3">Janet</text>
+      <text x="175" y="161" text-anchor="middle" font-size="9.5" fill="#1a8a78" font-weight="400" opacity=".75">Vibrational Field</text>
+      <g clip-path="url(#cp1)">
+        <path d="M67,192 C75,180 83,204 91,192 C99,180 107,204 115,192 C123,180 131,204 139,192 C147,180 155,204 163,192 C171,180 179,204 187,192 C195,180 203,204 211,192 C219,180 227,204 235,192 C243,180 251,202 259,192 C267,180 275,200 283,192"
+              fill="none" stroke="#1a8a78" stroke-width="2.2"/>
+        <path d="M67,211 C78,195 89,227 100,211 C111,195 122,227 133,211 C144,195 155,227 166,211 C177,195 188,225 199,211 C210,197 226,223 244,211 C253,201 262,219 278,211"
+              fill="none" stroke="#1a8a78" stroke-width="2" opacity=".8"/>
+        <path d="M67,232 C81,214 95,250 109,232 C123,214 137,250 151,232 C165,214 179,248 193,232 C207,216 221,244 239,232 C250,220 263,240 278,232"
+              fill="none" stroke="#1a8a78" stroke-width="1.8" opacity=".65"/>
+        <path d="M67,255 C84,233 101,277 118,255 C135,233 152,277 169,255 C186,233 203,275 220,255 C235,237 252,267 275,255"
+              fill="none" stroke="#1a8a78" stroke-width="1.6" opacity=".5"/>
+      </g>
+
+      <!-- ══ JULIE — blue · medium frequency ══ -->
+      <ellipse cx="430" cy="230" rx="108" ry="65" fill="#deeaf8" stroke="#1a50b0" stroke-width="2"/>
+      <text x="430" y="148" text-anchor="middle" font-size="12" fill="#1a50b0" font-weight="700" letter-spacing=".3">Julie</text>
+      <text x="430" y="161" text-anchor="middle" font-size="9.5" fill="#1a50b0" font-weight="400" opacity=".75">Vibrational Field</text>
+      <g clip-path="url(#cp2)">
+        <path d="M322,192 C338,174 354,210 370,192 C386,174 402,210 418,192 C434,174 450,210 466,192 C482,174 498,208 514,192 C526,178 534,204 538,192"
+              fill="none" stroke="#1a50b0" stroke-width="2.2"/>
+        <path d="M322,211 C343,187 364,235 385,211 C406,187 427,235 448,211 C469,187 490,233 511,211 C526,193 536,227 538,211"
+              fill="none" stroke="#1a50b0" stroke-width="2" opacity=".8"/>
+        <path d="M322,232 C348,200 374,264 400,232 C426,200 452,262 478,232 C500,206 522,254 538,232"
+              fill="none" stroke="#1a50b0" stroke-width="1.8" opacity=".65"/>
+        <path d="M322,255 C352,217 382,293 412,255 C442,217 472,291 502,255 C520,237 532,269 538,255"
+              fill="none" stroke="#1a50b0" stroke-width="1.6" opacity=".5"/>
+      </g>
+
+      <!-- ══ NISHA — purple · low frequency ══ -->
+      <ellipse cx="685" cy="230" rx="108" ry="65" fill="#ecddf8" stroke="#6020a8" stroke-width="2"/>
+      <text x="685" y="148" text-anchor="middle" font-size="12" fill="#6020a8" font-weight="700" letter-spacing=".3">Nisha</text>
+      <text x="685" y="161" text-anchor="middle" font-size="9.5" fill="#6020a8" font-weight="400" opacity=".75">Vibrational Field</text>
+      <g clip-path="url(#cp3)">
+        <path d="M577,192 C605,164 633,220 661,192 C689,164 717,220 745,192 C767,170 782,212 793,192"
+              fill="none" stroke="#6020a8" stroke-width="2.2"/>
+        <path d="M577,211 C610,175 643,247 676,211 C709,175 742,245 775,211 C783,202 790,218 793,211"
+              fill="none" stroke="#6020a8" stroke-width="2" opacity=".8"/>
+        <path d="M577,232 C614,188 651,276 688,232 C725,188 762,274 793,232"
+              fill="none" stroke="#6020a8" stroke-width="1.8" opacity=".65"/>
+        <path d="M577,255 C619,203 661,307 703,255 C737,215 766,287 793,255"
+              fill="none" stroke="#6020a8" stroke-width="1.6" opacity=".5"/>
+      </g>
+
+      <!-- ── Wave type labels centered in Julie's oval ── -->
+      <rect x="389" y="184" width="82" height="13" rx="3" fill="rgba(222,234,248,.93)"/>
+      <text x="430" y="194" text-anchor="middle" font-size="9.5" fill="#3a2e18" font-weight="700" letter-spacing=".5">Emotions</text>
+      <rect x="373" y="203" width="114" height="13" rx="3" fill="rgba(222,234,248,.93)"/>
+      <text x="430" y="213" text-anchor="middle" font-size="9.5" fill="#3a2e18" font-weight="700" letter-spacing=".5">Relationship</text>
+      <rect x="385" y="224" width="90" height="13" rx="3" fill="rgba(222,234,248,.93)"/>
+      <text x="430" y="234" text-anchor="middle" font-size="9.5" fill="#3a2e18" font-weight="700" letter-spacing=".5">Business</text>
+      <rect x="395" y="247" width="70" height="13" rx="3" fill="rgba(222,234,248,.93)"/>
+      <text x="430" y="257" text-anchor="middle" font-size="9.5" fill="#3a2e18" font-weight="700" letter-spacing=".5">Family</text>
+
+      <!-- ══ Ghost ovals — suggest many more VFs exist ══ -->
+      <ellipse cx="100" cy="345" rx="30" ry="18"
+               fill="rgba(200,190,170,.1)" stroke="rgba(106,92,58,.35)" stroke-width="1.2" stroke-dasharray="4 3"/>
+
+      <ellipse cx="302" cy="358" rx="34" ry="20"
+               fill="rgba(200,190,170,.1)" stroke="rgba(106,92,58,.35)" stroke-width="1.2" stroke-dasharray="4 3"/>
+
+      <ellipse cx="430" cy="368" rx="34" ry="20"
+               fill="rgba(200,190,170,.1)" stroke="rgba(106,92,58,.35)" stroke-width="1.2" stroke-dasharray="4 3"/>
+
+      <ellipse cx="558" cy="358" rx="34" ry="20"
+               fill="rgba(200,190,170,.1)" stroke="rgba(106,92,58,.35)" stroke-width="1.2" stroke-dasharray="4 3"/>
+
+      <ellipse cx="760" cy="345" rx="30" ry="18"
+               fill="rgba(200,190,170,.1)" stroke="rgba(106,92,58,.35)" stroke-width="1.2" stroke-dasharray="4 3"/>
+
+      <!-- ── Shared field ── -->
+      <text x="430" y="438" text-anchor="middle" font-size="9" fill="#3a2e18" letter-spacing="2" font-weight="600" opacity=".5">SHARED VIBRATIONAL FIELD</text>
+      <path d="M40,452 C90,435 140,469 190,452 C240,435 290,469 340,452 C390,435 440,469 490,452 C540,435 590,469 640,452 C690,435 740,467 820,452"
+            fill="none" stroke="#1a8a78" stroke-width="1.8" opacity=".65"/>
+      <path d="M40,466 C100,444 160,488 220,466 C280,444 340,488 400,466 C460,444 520,486 580,466 C640,444 720,484 820,466"
+            fill="none" stroke="#1a50b0" stroke-width="1.8" opacity=".65"/>
+      <path d="M40,480 C110,454 180,506 250,480 C320,454 390,504 460,480 C530,454 610,502 700,480 C750,466 790,492 820,480"
+            fill="none" stroke="#6020a8" stroke-width="1.8" opacity=".65"/>
+
+      <!-- ── Title below outer oval ── -->
+      <text x="430" y="542" text-anchor="middle" font-size="11" fill="#3a2e18" letter-spacing="3" font-weight="600">UNIVERSAL VIBRATIONAL FIELD</text>
+
+    </svg>
+  </div>
+  <p class="caption" style="text-align:center;margin-top:8px">Each oval = one person's vibrational field · named ovals show waves at different frequencies · dashed ovals = many more VFs inside the Universal Field</p>
+</div>
+
+<!-- ── OPTION C: Oval with waves A B C D ── -->
+<div class="option-block" style="margin-top:60px">
+  <p class="option-label">Option C</p>
+  <h2 class="option-title">Oval — Waves A · B · C · D</h2>
+
+  <div style="display:flex;justify-content:center;padding:20px 0">
+    <svg viewBox="0 0 520 280" width="520" height="280" style="max-width:100%">
+      <!-- Oval border -->
+      <ellipse cx="260" cy="140" rx="240" ry="120"
+               fill="#f0ece4" stroke="rgba(26,20,16,.15)" stroke-width="1.5"/>
+
+      <!-- Wave A — teal, high freq -->
+      <g>
+        <text x="30" y="82" font-family="Inter,sans-serif" font-size="11" fill="#5ba89a" font-weight="500" letter-spacing="1">A</text>
+        <path d="M50,78 C65,62 80,94 95,78 C110,62 125,94 140,78 C155,62 170,94 185,78 C200,62 215,94 230,78 C245,62 260,94 275,78 C290,62 305,94 320,78 C335,62 350,94 365,78 C380,62 395,94 410,78 C425,62 440,94 460,78"
+              fill="none" stroke="#5ba89a" stroke-width="2" opacity=".85"/>
+      </g>
+
+      <!-- Wave B — blue, medium freq -->
+      <g>
+        <text x="30" y="118" font-family="Inter,sans-serif" font-size="11" fill="#6a96d4" font-weight="500" letter-spacing="1">B</text>
+        <path d="M50,114 C72,94 94,134 116,114 C138,94 160,134 182,114 C204,94 226,134 248,114 C270,94 292,134 314,114 C336,94 358,134 380,114 C402,94 424,134 460,114"
+              fill="none" stroke="#6a96d4" stroke-width="2" opacity=".85"/>
+      </g>
+
+      <!-- Wave C — purple, lower freq -->
+      <g>
+        <text x="30" y="158" font-family="Inter,sans-serif" font-size="11" fill="#a07ac8" font-weight="500" letter-spacing="1">C</text>
+        <path d="M50,154 C83,126 116,182 149,154 C182,126 215,182 248,154 C281,126 314,182 347,154 C380,126 413,182 460,154"
+              fill="none" stroke="#a07ac8" stroke-width="2" opacity=".85"/>
+      </g>
+
+      <!-- Wave D — red, very low freq -->
+      <g>
+        <text x="30" y="198" font-family="Inter,sans-serif" font-size="11" fill="#c41e3a" font-weight="500" letter-spacing="1">D</text>
+        <path d="M50,194 C110,158 170,230 230,194 C290,158 350,230 410,194 C430,182 445,206 460,194"
+              fill="none" stroke="#c41e3a" stroke-width="2" opacity=".8"/>
+      </g>
+
+      <!-- Oval border on top to clip waves at edge -->
+      <ellipse cx="260" cy="140" rx="240" ry="120"
+               fill="none" stroke="rgba(26,20,16,.15)" stroke-width="1.5"/>
+    </svg>
+  </div>
+  <p class="caption" style="text-align:center">4 waves of different frequency inside a shared field · A = high freq, D = low freq</p>
+</div>
+
+</body>
+</html>

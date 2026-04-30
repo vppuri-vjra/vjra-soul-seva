@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vibrational Field — Life Blosssoms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --cream: #f8f4ee;
+      --cream-dark: #ede8e0;
+      --ink: #1a1410;
+      --ink-mid: #4a4038;
+      --ink-light: #8a8078;
+      --red: #c41e3a;
+      --red-soft: #e05060;
+      --nav-h: 72px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ── Announcement bar ── */
+    .announce {
+      background: var(--ink);
+      color: rgba(255,255,255,.88);
+      text-align: center;
+      padding: 10px 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      letter-spacing: .04em;
+    }
+
+    /* ── Nav ── */
+    .site-nav {
+      background: var(--cream);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center; height: var(--nav-h);
+      padding: 0 40px;
+    }
+    .nav-left { display: flex; gap: 28px; align-items: center; }
+    .nav-left a, .nav-right a {
+      font-size: .82rem; color: var(--ink-mid);
+      text-decoration: none; letter-spacing: .03em; transition: color .2s;
+    }
+    .nav-left a:hover, .nav-right a:hover { color: var(--ink); }
+    .nav-left a.active { text-decoration: underline; text-underline-offset: 4px; }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 400;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: .06em; text-align: center; white-space: nowrap;
+    }
+    .nav-right { display: flex; gap: 20px; justify-content: flex-end; align-items: center; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 72px 40px 52px;
+      position: relative; overflow: hidden;
+    }
+    .hero-sub {
+      font-size: .72rem; color: var(--ink-light);
+      letter-spacing: .18em; text-transform: uppercase;
+      margin-bottom: 40px; font-weight: 400;
+    }
+    .hero-title-italic {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 300;
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      line-height: 1.0; color: var(--ink); display: block;
+    }
+    .hero-title-upright {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: normal; font-weight: 500;
+      font-size: clamp(4rem, 9vw, 7.5rem);
+      line-height: 1.0; color: var(--ink); display: block; letter-spacing: -.02em;
+    }
+    .hero-title-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 300;
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      color: var(--ink-mid); display: block; margin-top: 16px;
+    }
+    .hero-petals { position: absolute; inset: 0; pointer-events: none; }
+    .petal {
+      position: absolute;
+      border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+      box-shadow: inset -2px -3px 6px rgba(0,0,0,.18), inset 1px 1px 4px rgba(255,180,180,.3);
+      pointer-events: none;
+    }
+
+    /* ── Wave divider ── */
+    .wave-divider { width: 100%; overflow: hidden; line-height: 0; }
+    .wave-divider svg { display: block; width: 100%; }
+
+    /* ── Container & editorial ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+    .editorial {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 48px 40px;
+      align-items: start;
+      padding: 64px 0;
+    }
+
+    .editorial-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: clamp(1.5rem, 2.2vw, 2rem);
+      line-height: 1.25; color: var(--ink);
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .72rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--ink-light);
+      margin-bottom: 8px;
+    }
+
+    /* ── Science block ── */
+    .science-block {
+      padding: 32px 0;
+      border-top: 1px solid rgba(0,0,0,.08);
+    }
+    .science-block:first-child { border-top: none; }
+    .science-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: 1.35rem; color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .science-block .intro {
+      font-size: .9rem; color: var(--ink-light);
+      margin-bottom: 14px; font-style: italic;
+      line-height: 1.7;
+    }
+    .science-block ul { list-style: none; padding: 0; }
+    .science-block ul li {
+      font-size: .93rem; color: var(--ink-mid);
+      padding: 8px 0 8px 20px; position: relative;
+      border-bottom: 1px solid rgba(0,0,0,.05);
+      line-height: 1.65;
+    }
+    .science-block ul li:last-child { border-bottom: none; }
+    .science-block ul li::before {
+      content: '·'; position: absolute; left: 4px;
+      color: var(--red-soft); font-size: 1.4rem; top: 4px; line-height: 1;
+    }
+
+    /* ── Diagram grid ── */
+    .diagram-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .diagram-grid .span-2 { grid-column: 1 / -1; }
+    .diagram-img {
+      width: 100%; display: block;
+      border-radius: 4px;
+      border: 1px solid rgba(0,0,0,.06);
+    }
+
+    /* ── Hierarchy chain ── */
+    .hier-wrap {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 24px;
+      padding: 24px 20px;
+      background: var(--cream-dark);
+      border-radius: 6px;
+    }
+    .hier-body {
+      width: 36px; margin-right: 8px; opacity: .75;
+    }
+    .hier-node {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 5px;
+    }
+    .hier-circle {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: radial-gradient(circle at 38% 32%, #f2e8d0 0%, #c8a830 55%, #7a6010 100%);
+      border: 1px solid rgba(180,130,20,.4);
+    }
+    .hier-label {
+      font-size: .72rem; color: var(--ink-light);
+      letter-spacing: .03em; white-space: nowrap;
+    }
+    .hier-arrow {
+      font-size: 1rem; color: var(--red-soft);
+      margin: 0 2px; padding-bottom: 18px;
+    }
+    .hier-wave {
+      width: 80px; margin-left: 6px; opacity: .85;
+    }
+
+    /* ── Content blocks (rectangular from slides) ── */
+    .content-block {
+      background: var(--cream-dark);
+      border-radius: 4px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+      border-left: 2px solid var(--red-soft);
+    }
+    .content-block p {
+      font-size: .9rem; color: var(--ink-mid); line-height: 1.65;
+    }
+
+    /* ── VF persons ── */
+    .vf-field {
+      display: flex; flex-wrap: wrap; gap: 24px;
+      margin-bottom: 24px;
+      padding: 20px;
+      background: var(--cream-dark);
+      border-radius: 6px;
+    }
+    .vf-person { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .vf-circle {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: radial-gradient(circle at 38% 32%, #f2e8d0 0%, #c8a830 55%, #7a6010 100%);
+      border: 1px solid rgba(180,130,20,.35);
+    }
+    .vf-name {
+      font-size: .75rem; color: var(--ink-light); letter-spacing: .03em;
+    }
+
+    /* ── Wave display ── */
+    .wave-svg {
+      width: 100%; display: block;
+      margin-bottom: 20px;
+    }
+    .wave-svg-small {
+      display: block; flex-shrink: 0;
+      margin-left: 6px;
+    }
+
+    /* ── Matter flow diagram ── */
+    .matter-flow-wrap {
+      background: var(--cream-dark);
+      border-radius: 6px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+    .matter-flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+    .mf-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+    }
+    .mf-circle {
+      border-radius: 50%;
+      border: 1.5px solid rgba(26,20,16,.22);
+      background: radial-gradient(circle at 38% 32%, #f8f4ee 0%, #d8cfc4 60%, #b0a898 100%);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mf-size {
+      font-size: .58rem;
+      font-weight: 500;
+      color: rgba(255,255,255,.92);
+      text-align: center;
+      line-height: 1.2;
+      letter-spacing: .01em;
+      text-shadow: 0 1px 2px rgba(0,0,0,.3);
+      pointer-events: none;
+    }
+    .mf-quark {
+      background: radial-gradient(circle at 38% 32%, #f8c0c8 0%, #e05060 55%, #a01030 100%);
+      border-color: var(--red) !important;
+    }
+    .mf-label {
+      font-size: .65rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      white-space: nowrap;
+    }
+    .mf-arrow {
+      font-size: 1rem;
+      color: var(--ink-light);
+      margin: 0 2px;
+      padding-bottom: 22px;
+    }
+    .mf-wave-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+    }
+    .mf-caption {
+      font-size: .78rem;
+      color: var(--ink-light);
+      font-style: italic;
+      border-top: 1px solid rgba(0,0,0,.07);
+      padding-top: 14px;
+      margin-top: 4px;
+      line-height: 1.6;
+    }
+    .matter-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-top: 1px solid rgba(0,0,0,.07);
+      padding-top: 18px;
+    }
+    .ml-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ml-dot {
+      border-radius: 50%;
+      border: 1.5px solid;
+      flex-shrink: 0;
+    }
+    .ml-name {
+      font-size: .82rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .ml-scale {
+      font-size: .75rem;
+      color: var(--ink-light);
+      margin-left: 6px;
+    }
+
+    /* ── Person waves ── */
+    .person-waves {
+      margin-bottom: 24px;
+    }
+    .pw-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0,0,0,.05);
+    }
+    .pw-row:last-child { border-bottom: none; }
+    .pw-name {
+      font-size: .78rem;
+      letter-spacing: .06em;
+      color: var(--ink-mid);
+      white-space: nowrap;
+      width: 72px;
+      flex-shrink: 0;
+    }
+    .pw-wave {
+      flex: 1;
+      display: block;
+      min-width: 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,.6);
+      text-align: center;
+      padding: 56px 40px;
+    }
+    footer .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; color: rgba(255,255,255,.9);
+      letter-spacing: .08em; margin-bottom: 12px;
+    }
+    footer p { font-size: .85rem; line-height: 1.8; }
+    footer .footer-links { display: flex; gap: 24px; justify-content: center; margin: 20px 0; }
+    footer .footer-links a { color: rgba(255,255,255,.5); text-decoration: none; font-size: .82rem; transition: color .2s; }
+    footer .footer-links a:hover { color: rgba(255,255,255,.9); }
+
+    @media (max-width: 900px) {
+      .editorial { grid-template-columns: 1fr; gap: 20px; }
+      .nav-inner { grid-template-columns: 1fr auto; }
+    }
+    @media (max-width: 600px) {
+      .nav-inner { padding: 0 20px; }
+      .container { padding: 0 20px; }
+      .diagram-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Announcement bar ── -->
+<div class="announce">This is all about life transformation!</div>
+
+<!-- ── Nav ── -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="index-light.html">Source Nature ↩</a>
+      <a href="vjra-soul-seva.html">Vjra Soul Seva ↩</a>
+    </div>
+    <a href="index-light.html" class="nav-logo">Life Blosssoms</a>
+    <div class="nav-right">
+      <a href="#">Get in Touch</a>
+      <a href="#">Login</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-petals">
+    <div class="petal" style="width:14px;height:20px;background:radial-gradient(ellipse at 40% 35%,#f08090,#c41e3a);top:18%;left:6%;transform:rotate(-25deg);opacity:.6"></div>
+    <div class="petal" style="width:22px;height:30px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030);top:45%;left:8%;transform:rotate(40deg);opacity:.8"></div>
+    <div class="petal" style="width:18px;height:26px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030);top:65%;left:5%;transform:rotate(-10deg);opacity:.7"></div>
+    <div class="petal" style="width:20px;height:28px;background:radial-gradient(ellipse at 40% 35%,#f08090,#c41e3a);top:22%;right:7%;transform:rotate(30deg);opacity:.6"></div>
+    <div class="petal" style="width:30px;height:42px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030);top:48%;right:5%;transform:rotate(-20deg);opacity:.8"></div>
+    <div class="petal" style="width:15px;height:22px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#c41e3a);top:70%;right:9%;transform:rotate(60deg);opacity:.5"></div>
+  </div>
+  <p class="hero-sub">Life Blosssoms · Quantum Science</p>
+  <span class="hero-title-italic">Waves &amp;</span>
+  <span class="hero-title-upright">Vibrational Field</span>
+  <span class="hero-title-sub">Building blocks of matter, vibration and the vibrational field</span>
+</section>
+
+<!-- ── Wave down ── -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+    <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="var(--cream-dark)" opacity=".5"/>
+    <path d="M0,40 C360,10 720,55 1080,25 C1260,10 1350,40 1440,35 L1440,60 L0,60 Z" fill="none" stroke="var(--ink)" stroke-width=".8" opacity=".15"/>
+  </svg>
+</div>
+
+<!-- ── Slide 3: Building Block of Matter ── -->
+<section id="matter">
+  <div class="container">
+    <div class="editorial" style="padding-bottom:24px">
+      <div>
+        <p class="section-label">01 · Matter</p>
+        <h2 class="editorial-heading">Building Block of Matter</h2>
+        <p style="font-size:.85rem;color:var(--ink-light);margin-top:12px;line-height:1.7;">
+          Human Body to Quark<br/>
+          Structure of Matter<br/>
+          Atom to Quark
+        </p>
+      </div>
+      <div>
+        <!-- ── Matter flow diagram ── -->
+        <div class="matter-flow-wrap">
+          <div class="matter-flow">
+            <!-- human figure icon left of green circle -->
+            <div class="mf-node" style="margin-right:4px">
+              <svg viewBox="0 0 54 76" width="44" height="62" style="display:block;opacity:.86">
+                <g transform="translate(54,0) scale(-1,1)">
+                  <circle cx="36" cy="11" r="9" fill="#2d2418"/>
+                  <circle cx="33" cy="8"  r="3.5" fill="rgba(255,255,255,.22)"/>
+                  <path d="M34,19 C28,16 20,10 12,4 C10,2 8,5 10,7 C18,12 26,18 32,21" fill="#2d2418"/>
+                  <path d="M32,21 C36,28 38,36 34,48 L40,64 C41,67 37,69 36,66 L30,50 C28,57 26,63 24,67 C23,70 19,69 20,66 L26,48 C20,38 12,28 10,22 C8,19 11,17 13,20 C18,24 26,30 32,22 Z" fill="#2d2418"/>
+                </g>
+              </svg>
+              <span class="mf-label">Person</span>
+            </div>
+            <span class="mf-arrow">›</span>
+            <div class="mf-node">
+              <div class="mf-circle" style="width:88px;height:88px;background:radial-gradient(circle at 38% 32%,#e8f4f0 0%,#5ba89a 55%,#2d6e64 100%);border-color:rgba(91,168,154,.4)"><span class="mf-size">~1.7 m</span></div>
+              <span class="mf-label">Human Body</span>
+            </div>
+            <span class="mf-arrow">›</span>
+            <div class="mf-node">
+              <div class="mf-circle" style="width:72px;height:72px;background:radial-gradient(circle at 38% 32%,#eaf0fb 0%,#6a96d4 55%,#2e5fa8 100%);border-color:rgba(106,150,212,.4)"><span class="mf-size">~10 μm</span></div>
+              <span class="mf-label">Cell</span>
+            </div>
+            <span class="mf-arrow">›</span>
+            <div class="mf-node">
+              <div class="mf-circle" style="width:58px;height:58px;background:radial-gradient(circle at 38% 32%,#f4eef8 0%,#a07ac8 55%,#6040a0 100%);border-color:rgba(160,122,200,.4)"><span class="mf-size">~1 nm</span></div>
+              <span class="mf-label">Molecule</span>
+            </div>
+            <span class="mf-arrow">›</span>
+            <div class="mf-node">
+              <div class="mf-circle" style="width:46px;height:46px;background:radial-gradient(circle at 38% 32%,#fef4e4 0%,#d4943a 55%,#9a5c10 100%);border-color:rgba(212,148,58,.4)"><span class="mf-size">~0.1 nm</span></div>
+              <span class="mf-label">Atom</span>
+            </div>
+            <span class="mf-arrow">›</span>
+            <div class="mf-node">
+              <div class="mf-circle" style="width:34px;height:34px;background:radial-gradient(circle at 38% 32%,#fdeef0 0%,#e07890 55%,#b04060 100%);border-color:rgba(224,120,144,.4)"><span class="mf-size">~1 fm</span></div>
+              <span class="mf-label">Nucleus</span>
+            </div>
+            <span class="mf-arrow">›</span>
+            <div class="mf-node">
+              <div class="mf-circle mf-quark" style="width:22px;height:22px"></div>
+              <span class="mf-label" style="color:var(--red);font-weight:500">Quark</span>
+            </div>
+            <span class="mf-arrow">›</span>
+            <div class="mf-wave-node">
+              <svg viewBox="0 0 80 32" width="80" height="32">
+                <path d="M0,16 C10,4 20,28 30,16 C40,4 50,28 60,16 C68,6 74,24 80,16"
+                      fill="none" stroke="var(--red-soft)" stroke-width="2" opacity=".8"/>
+                <path d="M0,16 C13,6 26,26 40,16 C54,6 67,26 80,16"
+                      fill="none" stroke="var(--ink-light)" stroke-width="1.2" opacity=".5"/>
+              </svg>
+              <span class="mf-label" style="color:var(--ink-mid);font-style:italic">Wave <em>Ψ</em></span>
+            </div>
+          </div>
+          <p class="mf-caption">Human Body is made of Cells · Cells of Molecules · Molecules of Atoms · Atoms of Nucleus · Nucleus of Quarks · Quarks become Waves <em>(Ψ)</em></p>
+        </div>
+        <div class="science-block">
+          <ul>
+            <li>Matter is made of a molecular structure and space, as it was told by our scientists, no object is really solid, rather it vibrates at different speeds and makes the object appear solid</li>
+            <li>Objects are made of atoms and quarks vibrating at different speed giving the impression of solidity</li>
+            <li>Our world is a world of exchange of vibrational energies, sound</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Wave divider ── -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 40" preserveAspectRatio="none" height="40">
+    <path d="M0,20 C360,0 720,40 1080,20 C1260,10 1380,30 1440,20" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
+  </svg>
+</div>
+
+<!-- ── Slide 5: Vibration Field — Waves ── -->
+<section id="waves">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label">02 · Waves</p>
+        <h2 class="editorial-heading">Vibration Field — Waves</h2>
+      </div>
+      <div>
+        <div class="person-waves">
+          <div class="pw-row">
+            <span class="pw-name">Janet VF</span>
+            <svg viewBox="0 0 54 76" width="32" height="45" style="flex-shrink:0;opacity:.82"><g transform="translate(54,0) scale(-1,1)"><circle cx="36" cy="11" r="9" fill="#2d2418"/><circle cx="33" cy="8" r="3.5" fill="rgba(255,255,255,.22)"/><path d="M34,19 C28,16 20,10 12,4 C10,2 8,5 10,7 C18,12 26,18 32,21" fill="#2d2418"/><path d="M32,21 C36,28 38,36 34,48 L40,64 C41,67 37,69 36,66 L30,50 C28,57 26,63 24,67 C23,70 19,69 20,66 L26,48 C20,38 12,28 10,22 C8,19 11,17 13,20 C18,24 26,30 32,22 Z" fill="#2d2418"/></g></svg>
+            <svg class="pw-wave" viewBox="0 0 500 48" preserveAspectRatio="none" height="48">
+              <path d="M0,24 C40,6 80,42 120,24 C160,6 200,42 240,24 C280,6 320,42 360,24 C400,6 440,42 500,24"
+                    fill="none" stroke="#5ba89a" stroke-width="2" opacity=".85"/>
+              <path d="M0,24 C60,8 120,40 180,24 C240,8 300,40 360,24 C420,8 480,40 500,24"
+                    fill="none" stroke="#5ba89a" stroke-width="1.2" opacity=".4"/>
+            </svg>
+          </div>
+          <div class="pw-row">
+            <span class="pw-name">Julie VF</span>
+            <svg viewBox="0 0 54 76" width="32" height="45" style="flex-shrink:0;opacity:.82"><g transform="translate(54,0) scale(-1,1)"><circle cx="36" cy="11" r="9" fill="#2d2418"/><circle cx="33" cy="8" r="3.5" fill="rgba(255,255,255,.22)"/><path d="M34,19 C28,16 20,10 12,4 C10,2 8,5 10,7 C18,12 26,18 32,21" fill="#2d2418"/><path d="M32,21 C36,28 38,36 34,48 L40,64 C41,67 37,69 36,66 L30,50 C28,57 26,63 24,67 C23,70 19,69 20,66 L26,48 C20,38 12,28 10,22 C8,19 11,17 13,20 C18,24 26,30 32,22 Z" fill="#2d2418"/></g></svg>
+            <svg class="pw-wave" viewBox="0 0 500 48" preserveAspectRatio="none" height="48">
+              <path d="M0,24 C50,4 100,44 150,24 C200,4 250,44 300,24 C350,4 400,44 450,24 C475,14 490,34 500,24"
+                    fill="none" stroke="var(--red-soft)" stroke-width="2" opacity=".8"/>
+              <path d="M0,24 C70,10 140,38 210,24 C280,10 350,38 420,24 C460,14 485,34 500,24"
+                    fill="none" stroke="var(--red-soft)" stroke-width="1.2" opacity=".35"/>
+            </svg>
+          </div>
+          <div class="pw-row">
+            <span class="pw-name">Nisha VF</span>
+            <svg viewBox="0 0 54 76" width="32" height="45" style="flex-shrink:0;opacity:.82"><g transform="translate(54,0) scale(-1,1)"><circle cx="36" cy="11" r="9" fill="#2d2418"/><circle cx="33" cy="8" r="3.5" fill="rgba(255,255,255,.22)"/><path d="M34,19 C28,16 20,10 12,4 C10,2 8,5 10,7 C18,12 26,18 32,21" fill="#2d2418"/><path d="M32,21 C36,28 38,36 34,48 L40,64 C41,67 37,69 36,66 L30,50 C28,57 26,63 24,67 C23,70 19,69 20,66 L26,48 C20,38 12,28 10,22 C8,19 11,17 13,20 C18,24 26,30 32,22 Z" fill="#2d2418"/></g></svg>
+            <svg class="pw-wave" viewBox="0 0 500 48" preserveAspectRatio="none" height="48">
+              <path d="M0,24 C35,8 70,40 105,24 C140,8 175,40 210,24 C245,8 280,40 315,24 C350,8 385,40 420,24 C455,8 480,38 500,24"
+                    fill="none" stroke="#a07ac8" stroke-width="2" opacity=".8"/>
+              <path d="M0,24 C55,6 110,42 165,24 C220,6 275,42 330,24 C385,6 440,42 500,24"
+                    fill="none" stroke="#a07ac8" stroke-width="1.2" opacity=".35"/>
+            </svg>
+          </div>
+        </div>
+        <div class="content-block">
+          <p>Everyone is made up of waves — many waves of different energy &amp; momentum<br/>
+          Relationship · Emotions · Business · Family · Finances</p>
+        </div>
+        <div class="content-block">
+          <p>Wave Function = <em>Ψ</em> = Kind of waves + amount of each wave<br/>
+          Wave Energy ∝ Frequency &nbsp;·&nbsp; Momentum 1/∝ Wavelength</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Wave divider ── -->
+<div class="wave-divider" style="background:var(--cream-dark)">
+  <svg viewBox="0 0 1440 40" preserveAspectRatio="none" height="40">
+    <path d="M0,20 C360,40 720,0 1080,20 C1260,30 1380,10 1440,20" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
+  </svg>
+</div>
+
+<!-- ── Slide 6: Vibrational Field ── -->
+<section id="field" style="background: var(--cream-dark)">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label">03 · Field</p>
+        <h2 class="editorial-heading">Vibrational Field</h2>
+      </div>
+      <div>
+        <!-- Universal Vibrational Field oval diagram -->
+        <div style="overflow-x:auto;margin-bottom:24px">
+          <svg viewBox="0 0 860 560" width="645" height="420" style="max-width:100%;display:block;font-family:'Inter',sans-serif">
+            <defs>
+              <!-- Janet: red = Quarks -->
+              <radialGradient id="vf-grad1" cx="38%" cy="32%" r="65%">
+                <stop offset="0%"   stop-color="#fde8ea"/>
+                <stop offset="55%"  stop-color="#e04058"/>
+                <stop offset="100%" stop-color="#a81830"/>
+              </radialGradient>
+              <!-- Julie: amber = Neutron -->
+              <radialGradient id="vf-grad2" cx="38%" cy="32%" r="65%">
+                <stop offset="0%"   stop-color="#fef4e0"/>
+                <stop offset="55%"  stop-color="#d4943a"/>
+                <stop offset="100%" stop-color="#9a6010"/>
+              </radialGradient>
+              <!-- Nisha: teal = Human Body -->
+              <radialGradient id="vf-grad3" cx="38%" cy="32%" r="65%">
+                <stop offset="0%"   stop-color="#e8f4f0"/>
+                <stop offset="55%"  stop-color="#5ba89a"/>
+                <stop offset="100%" stop-color="#2d6e64"/>
+              </radialGradient>
+            </defs>
+
+            <!-- outer oval — golden amber -->
+            <ellipse cx="430" cy="265" rx="415" ry="248" fill="#fef4e4" stroke="#d4943a" stroke-width="2.5"/>
+
+            <!-- human figures — facing right, left of each circle -->
+            <g transform="translate(55,157) scale(0.74)"><g transform="translate(54,0) scale(-1,1)"><circle cx="36" cy="11" r="9" fill="#2d2418"/><circle cx="33" cy="8" r="3.5" fill="rgba(255,255,255,.22)"/><path d="M34,19 C28,16 20,10 12,4 C10,2 8,5 10,7 C18,12 26,18 32,21" fill="#2d2418"/><path d="M32,21 C36,28 38,36 34,48 L40,64 C41,67 37,69 36,66 L30,50 C28,57 26,63 24,67 C23,70 19,69 20,66 L26,48 C20,38 12,28 10,22 C8,19 11,17 13,20 C18,24 26,30 32,22 Z" fill="#2d2418"/></g></g>
+            <g transform="translate(310,157) scale(0.74)"><g transform="translate(54,0) scale(-1,1)"><circle cx="36" cy="11" r="9" fill="#2d2418"/><circle cx="33" cy="8" r="3.5" fill="rgba(255,255,255,.22)"/><path d="M34,19 C28,16 20,10 12,4 C10,2 8,5 10,7 C18,12 26,18 32,21" fill="#2d2418"/><path d="M32,21 C36,28 38,36 34,48 L40,64 C41,67 37,69 36,66 L30,50 C28,57 26,63 24,67 C23,70 19,69 20,66 L26,48 C20,38 12,28 10,22 C8,19 11,17 13,20 C18,24 26,30 32,22 Z" fill="#2d2418"/></g></g>
+            <g transform="translate(565,157) scale(0.74)"><g transform="translate(54,0) scale(-1,1)"><circle cx="36" cy="11" r="9" fill="#2d2418"/><circle cx="33" cy="8" r="3.5" fill="rgba(255,255,255,.22)"/><path d="M34,19 C28,16 20,10 12,4 C10,2 8,5 10,7 C18,12 26,18 32,21" fill="#2d2418"/><path d="M32,21 C36,28 38,36 34,48 L40,64 C41,67 37,69 36,66 L30,50 C28,57 26,63 24,67 C23,70 19,69 20,66 L26,48 C20,38 12,28 10,22 C8,19 11,17 13,20 C18,24 26,30 32,22 Z" fill="#2d2418"/></g></g>
+
+            <!-- ══ JANET — red (Quarks) ══ -->
+            <circle cx="175" cy="185" r="72" fill="url(#vf-grad1)" stroke="#a81830" stroke-width="2"/>
+            <text x="175" y="181" text-anchor="middle" font-size="14" fill="#fff" font-weight="700" letter-spacing=".5">Janet</text>
+            <text x="175" y="197" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.8)" letter-spacing=".5">Vibrational Field</text>
+            <!-- Janet waves — high frequency, 2 lines -->
+            <path d="M100,283 C108,271 116,295 124,283 C132,271 140,295 148,283 C156,271 164,295 172,283 C180,271 188,295 196,283 C204,271 212,295 220,283 C228,271 236,295 244,283"
+                  fill="none" stroke="#e04058" stroke-width="2.2"/>
+            <path d="M100,300 C108,288 116,312 124,300 C132,288 140,312 148,300 C156,288 164,312 172,300 C180,288 188,312 196,300 C204,288 212,312 220,300 C228,288 236,312 244,300"
+                  fill="none" stroke="#e04058" stroke-width="1.5" stroke-opacity=".6"/>
+
+            <!-- ══ JULIE — amber (Neutron) ══ -->
+            <circle cx="430" cy="185" r="72" fill="url(#vf-grad2)" stroke="#9a6010" stroke-width="2"/>
+            <text x="430" y="181" text-anchor="middle" font-size="14" fill="#fff" font-weight="700" letter-spacing=".5">Julie</text>
+            <text x="430" y="197" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.8)" letter-spacing=".5">Vibrational Field</text>
+            <!-- Julie waves — medium frequency, 2 lines -->
+            <path d="M355,283 C371,265 387,301 403,283 C419,265 435,301 451,283 C467,265 483,299 499,283"
+                  fill="none" stroke="#d4943a" stroke-width="2.2"/>
+            <path d="M355,300 C371,282 387,318 403,300 C419,282 435,318 451,300 C467,282 483,316 499,300"
+                  fill="none" stroke="#d4943a" stroke-width="1.5" stroke-opacity=".6"/>
+
+            <!-- ══ NISHA — teal (Human Body) ══ -->
+            <circle cx="685" cy="185" r="72" fill="url(#vf-grad3)" stroke="#2d6e64" stroke-width="2"/>
+            <text x="685" y="181" text-anchor="middle" font-size="14" fill="#fff" font-weight="700" letter-spacing=".5">Nisha</text>
+            <text x="685" y="197" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.8)" letter-spacing=".5">Vibrational Field</text>
+            <!-- Nisha waves — low frequency, 2 lines -->
+            <path d="M610,283 C635,257 660,309 685,283 C710,257 735,307 760,283"
+                  fill="none" stroke="#5ba89a" stroke-width="2.2"/>
+            <path d="M610,300 C635,274 660,326 685,300 C710,274 735,324 760,300"
+                  fill="none" stroke="#5ba89a" stroke-width="1.5" stroke-opacity=".6"/>
+
+            <!-- wave labels -->
+            <text x="175" y="320" text-anchor="middle" font-size="8.5" fill="#8a7848" font-style="italic" letter-spacing=".3">Emotions, Relationships, Finances, ...</text>
+            <text x="430" y="320" text-anchor="middle" font-size="8.5" fill="#8a7848" font-style="italic" letter-spacing=".3">Emotions, Relationships, Finances, ...</text>
+            <text x="685" y="320" text-anchor="middle" font-size="8.5" fill="#8a7848" font-style="italic" letter-spacing=".3">Emotions, Relationships, Finances, ...</text>
+
+            <!-- ghost circles using sphere colors — many more VFs -->
+            <circle cx="105" cy="378" r="26" fill="rgba(91,168,154,.15)"  stroke="#5ba89a" stroke-width="1.3" stroke-dasharray="4 3"/>
+            <text x="105" y="416" text-anchor="middle" font-size="8" fill="#8a7848" font-style="italic">VF</text>
+            <circle cx="210" cy="393" r="30" fill="rgba(106,150,212,.15)" stroke="#6a96d4" stroke-width="1.3" stroke-dasharray="4 3"/>
+            <text x="210" y="433" text-anchor="middle" font-size="8" fill="#8a7848" font-style="italic">VF</text>
+            <circle cx="330" cy="400" r="27" fill="rgba(160,122,200,.15)" stroke="#a07ac8" stroke-width="1.3" stroke-dasharray="4 3"/>
+            <text x="330" y="438" text-anchor="middle" font-size="8" fill="#8a7848" font-style="italic">VF</text>
+            <circle cx="430" cy="404" r="30" fill="rgba(212,148,58,.15)"  stroke="#d4943a" stroke-width="1.3" stroke-dasharray="4 3"/>
+            <text x="430" y="444" text-anchor="middle" font-size="8" fill="#8a7848" font-style="italic">VF</text>
+            <circle cx="530" cy="400" r="27" fill="rgba(224,80,96,.15)"   stroke="#e05060" stroke-width="1.3" stroke-dasharray="4 3"/>
+            <text x="530" y="438" text-anchor="middle" font-size="8" fill="#8a7848" font-style="italic">VF</text>
+            <circle cx="650" cy="393" r="30" fill="rgba(91,168,154,.15)"  stroke="#5ba89a" stroke-width="1.3" stroke-dasharray="4 3"/>
+            <text x="650" y="433" text-anchor="middle" font-size="8" fill="#8a7848" font-style="italic">VF</text>
+            <circle cx="755" cy="378" r="26" fill="rgba(106,150,212,.15)" stroke="#6a96d4" stroke-width="1.3" stroke-dasharray="4 3"/>
+            <text x="755" y="416" text-anchor="middle" font-size="8" fill="#8a7848" font-style="italic">VF</text>
+
+            <!-- title inside oval at top -->
+            <text x="430" y="52" text-anchor="middle" font-size="11" fill="#3a2e18" letter-spacing="3" font-weight="600">UNIVERSAL VIBRATIONAL FIELD</text>
+          </svg>
+        </div>
+        <div class="science-block">
+          <ul>
+            <li>Everyone is made up of vibrations</li>
+            <li>Everyone is made of many vibrations of different energy &amp; momentum</li>
+            <li>Everyone is made of many vibrations — Relationship, Emotions, Business, Family, Finances</li>
+            <li>Wave Function = <em>Ψ</em> = Kind of waves + amount of each wave</li>
+            <li>Wave Energy ∝ Frequency &nbsp;·&nbsp; Momentum 1/∝ Wavelength</li>
+            <li><em>Everyone &amp; Everything is a Vibrational Field</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Wave divider ── -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 40" preserveAspectRatio="none" height="40">
+    <path d="M0,20 C360,0 720,40 1080,20 C1260,10 1380,30 1440,20" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
+  </svg>
+</div>
+
+<!-- ── Section 4: Quantum Entanglement ── -->
+<section id="quantum">
+  <div class="container">
+    <div class="editorial">
+      <div>
+        <p class="section-label">04 · Quantum</p>
+        <h2 class="editorial-heading">Quantum Entanglement</h2>
+      </div>
+      <div>
+        <div class="science-block">
+          <ul>
+            <li>Quantum entanglement is a phenomenon where two or more particles can become correlated in such a way that the state of one particle depends on the state of the other, even if the particles are separated by a large distance</li>
+            <li>This correlation is not explained by classical physics and is one of the key features of quantum mechanics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-logo">Life Blosssoms</div>
+  <div class="footer-links">
+    <a href="index-light.html">Our Story</a>
+    <a href="vibrational-field.html">Vibrational Field V1</a>
+    <a href="#">Relationship</a>
+    <a href="#">Get in Touch</a>
+  </div>
+  <p>© 2026 Life Blosssoms · Source Nature</p>
+</footer>
+
+</body>
+</html>
