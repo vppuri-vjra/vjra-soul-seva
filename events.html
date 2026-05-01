@@ -137,59 +137,8 @@
     .petal {
       position: fixed;
       border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+      box-shadow: inset -2px -3px 6px rgba(0,0,0,.18), inset 1px 1px 4px rgba(255,180,180,.3);
       pointer-events: none; z-index: 0;
-    }
-    /* Left side petals */
-    .p-l1 {
-      width: 52px; height: 72px; top: 18%; left: 2%;
-      background: radial-gradient(ellipse at 40% 35%, #f8bfc5, #e8a0aa, #d07888);
-      box-shadow: inset -2px -3px 6px rgba(0,0,0,.12), inset 1px 1px 3px rgba(255,180,190,.2);
-      transform: rotate(-30deg);
-    }
-    .p-l2 {
-      /* rose red accent — smallest outer petal */
-      width: 32px; height: 44px; top: 38%; left: 1%;
-      background: radial-gradient(ellipse at 40% 35%, #e8405a, #9b1030, #6b000e);
-      box-shadow: inset -2px -3px 6px rgba(0,0,0,.3), inset 1px 1px 3px rgba(255,100,120,.15);
-      transform: rotate(-15deg);
-    }
-    .p-l3 {
-      width: 42px; height: 58px; top: 58%; left: 3%;
-      background: radial-gradient(ellipse at 40% 35%, #f8bfc5, #e8a0aa, #d07888);
-      box-shadow: inset -2px -3px 6px rgba(0,0,0,.12), inset 1px 1px 3px rgba(255,180,190,.2);
-      transform: rotate(-40deg);
-    }
-    .p-l4 {
-      width: 22px; height: 30px; top: 75%; left: 1.5%;
-      background: radial-gradient(ellipse at 40% 35%, #f8bfc5, #e8a0aa);
-      box-shadow: inset -1px -2px 4px rgba(0,0,0,.1);
-      transform: rotate(-20deg);
-    }
-    /* Right side petals */
-    .p-r1 {
-      width: 48px; height: 66px; top: 22%; right: 2%;
-      background: radial-gradient(ellipse at 40% 35%, #f8bfc5, #e8a0aa, #d07888);
-      box-shadow: inset -2px -3px 6px rgba(0,0,0,.12), inset 1px 1px 3px rgba(255,180,190,.2);
-      transform: rotate(25deg);
-    }
-    .p-r2 {
-      /* rose red accent — smallest outer petal */
-      width: 28px; height: 38px; top: 42%; right: 1%;
-      background: radial-gradient(ellipse at 40% 35%, #e8405a, #9b1030, #6b000e);
-      box-shadow: inset -2px -3px 6px rgba(0,0,0,.3), inset 1px 1px 3px rgba(255,100,120,.15);
-      transform: rotate(10deg);
-    }
-    .p-r3 {
-      width: 38px; height: 52px; top: 62%; right: 3%;
-      background: radial-gradient(ellipse at 40% 35%, #f8bfc5, #e8a0aa, #d07888);
-      box-shadow: inset -2px -3px 6px rgba(0,0,0,.12), inset 1px 1px 3px rgba(255,180,190,.2);
-      transform: rotate(35deg);
-    }
-    .p-r4 {
-      width: 20px; height: 28px; top: 80%; right: 1.5%;
-      background: radial-gradient(ellipse at 40% 35%, #f8bfc5, #e8a0aa);
-      box-shadow: inset -1px -2px 4px rgba(0,0,0,.1);
-      transform: rotate(18deg);
     }
 
     /* ── Wave footer ── */
@@ -205,14 +154,14 @@
 <body>
 
 <!-- ── Petals ── -->
-<div class="petal p-l1"></div>
-<div class="petal p-l2"></div>
-<div class="petal p-l3"></div>
-<div class="petal p-l4"></div>
-<div class="petal p-r1"></div>
-<div class="petal p-r2"></div>
-<div class="petal p-r3"></div>
-<div class="petal p-r4"></div>
+<div class="petal" style="width:32px;height:46px;background:radial-gradient(ellipse at 40% 35%,#f0a0a8,#c41e3a);top:12%;left:4%;transform:rotate(-20deg);opacity:.55"></div>
+<div class="petal" style="width:52px;height:72px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030);top:38%;left:6%;transform:rotate(35deg);opacity:.75"></div>
+<div class="petal" style="width:22px;height:32px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#c41e3a);top:68%;left:5%;transform:rotate(-8deg);opacity:.5"></div>
+<div class="petal" style="width:18px;height:26px;background:radial-gradient(ellipse at 40% 35%,#f0a0a8,#c41e3a);top:15%;right:6%;transform:rotate(25deg);opacity:.55"></div>
+<div class="petal" style="width:42px;height:58px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030);top:42%;right:4%;transform:rotate(-18deg);opacity:.72"></div>
+<div class="petal" style="width:26px;height:38px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#c41e3a);top:72%;right:7%;transform:rotate(50deg);opacity:.48"></div>
+<div class="petal" style="width:14px;height:20px;background:radial-gradient(ellipse at 40% 35%,#f0b0b8,#c41e3a);top:22%;left:18%;transform:rotate(10deg);opacity:.35"></div>
+<div class="petal" style="width:20px;height:28px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030);top:60%;right:20%;transform:rotate(-30deg);opacity:.4"></div>
 
 <!-- ── Nav ── -->
 <nav class="site-nav">
