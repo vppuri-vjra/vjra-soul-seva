@@ -149,6 +149,31 @@
       .event-card { grid-template-columns: 1fr; gap: 8px; }
       .nav-logo { position: static; transform: none; }
     }
+    /* ── Lightbox ── */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+    }
+    .lightbox-overlay.active { display: flex; }
+    .lightbox-overlay img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 10px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      animation: lb-in .2s ease;
+    }
+    @keyframes lb-in {
+      from { opacity: 0; transform: scale(.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .flyer-img { cursor: zoom-in; transition: transform .2s; }
+    .flyer-img:hover { transform: scale(1.04); }
   </style>
 </head>
 <body>
@@ -208,7 +233,7 @@
           </a>
         </div>
       </div>
-      <img src="img/Mar_28th_2026.jpeg" alt="Awakening Shakti flyer" style="width:130px;border-radius:8px;flex-shrink:0;box-shadow:0 6px 24px rgba(0,0,0,0.15);">
+      <img src="img/Mar_28th_2026.jpeg" alt="Awakening Shakti flyer" class="flyer-img" style="width:130px;border-radius:8px;flex-shrink:0;box-shadow:0 6px 24px rgba(0,0,0,0.15);" onclick="document.getElementById('lightbox').classList.add('active')">
     </div>
   </div>
 
@@ -295,6 +320,17 @@
           fill="none" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
   </svg>
 </div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox-overlay" onclick="this.classList.remove('active')">
+  <img src="img/Mar_28th_2026.jpeg" alt="Awakening Shakti flyer">
+</div>
+
+<script>
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('active');
+  });
+</script>
 
 </body>
 </html>
