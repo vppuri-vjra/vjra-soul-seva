@@ -68,6 +68,35 @@
     }
     .nav-right { display: flex; gap: 20px; justify-content: flex-end; align-items: center; font-size: .82rem; }
 
+    /* ── Dropdown ── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+    .nav-dropdown > a::after {
+      content: '▾'; font-size: .55rem; opacity: .5; transition: opacity .2s;
+    }
+    .nav-dropdown:hover > a::after { opacity: 1; }
+    .dropdown-menu {
+      display: none;
+      position: absolute; top: calc(100% + 8px); left: 0;
+      background: var(--cream);
+      border: 1px solid rgba(0,0,0,.09);
+      border-radius: 4px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.09);
+      min-width: 210px;
+      z-index: 200;
+      padding: 8px 0;
+    }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu a {
+      display: block;
+      font-size: .82rem; color: var(--ink-mid);
+      text-decoration: none; letter-spacing: .02em;
+      padding: 9px 18px;
+      transition: background .15s, color .15s;
+    }
+    .dropdown-menu a:hover { background: var(--cream-dark); color: var(--ink); }
+    .dropdown-divider { height: 1px; background: rgba(0,0,0,.07); margin: 6px 0; }
+
     /* ── Hero ── */
     .hero {
       text-align: center;
@@ -268,7 +297,18 @@
       <a href="#stories">Stories</a>
       <a href="vibrational-field-v2.html">Science</a>
       <a href="events.html">Events</a>
-      <a href="service.html">Service</a>
+      <div class="nav-dropdown">
+        <a href="service.html">Mantras</a>
+        <div class="dropdown-menu">
+          <a href="service.html#significance">Significance of Mantras</a>
+          <a href="service.html#how-to-chant">How to Chant</a>
+          <a href="service.html#why-108">Why 108</a>
+          <a href="service.html#best-time">Best Time to Practice</a>
+          <a href="service.html#first-session">Your First Session</a>
+          <div class="dropdown-divider"></div>
+          <a href="service.html#ten-mantras">The Ten Mantras</a>
+        </div>
+      </div>
     </div>
     <a href="#" class="nav-logo">Vjra Soul Seva</a>
     <div class="nav-right">
