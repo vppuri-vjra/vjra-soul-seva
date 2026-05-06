@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sacred Arati — Vjra Soul Seva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --cream: #f8f4ee;
+      --ink: #1a1410;
+      --ink-mid: #4a4038;
+      --ink-light: #8a8078;
+      --nav-h: 64px;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* ── Nav ── */
+    .site-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center; height: var(--nav-h); padding: 0 40px;
+    }
+    .nav-left { display: flex; gap: 24px; align-items: center; }
+    .nav-left a, .nav-right a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .9rem; color: var(--ink-mid);
+      text-decoration: none; letter-spacing: .02em;
+      transition: color .2s;
+    }
+    .nav-left a:hover, .nav-right a:hover { color: var(--ink); }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 400;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: .04em; white-space: nowrap; text-align: center;
+    }
+    .nav-right { display: flex; gap: 20px; justify-content: flex-end; align-items: center; }
+
+    /* ── Page ── */
+    .page-wrap {
+      max-width: 1100px; margin: 0 auto;
+      padding: 72px 40px 100px;
+    }
+
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 300;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.1; color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .page-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1rem;
+      color: var(--ink-light); margin-bottom: 64px;
+    }
+
+    /* ── Grid ── */
+    .arati-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    /* ── Card ── */
+    .arati-card {
+      border-top: 1px solid rgba(0,0,0,.08);
+      padding-top: 28px;
+    }
+
+    .arati-image {
+      width: 100%;
+      height: 180px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      letter-spacing: 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .arati-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .arati-image .deity-placeholder {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.85);
+      letter-spacing: .05em;
+      text-align: center;
+      padding: 0 12px;
+    }
+
+    .arati-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: 1.4rem; color: var(--ink);
+      margin-bottom: 4px; line-height: 1.2;
+    }
+    .arati-god {
+      font-family: 'Inter', sans-serif;
+      font-size: .72rem; font-weight: 400;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--ink-light); margin-bottom: 16px;
+    }
+
+    .arati-row {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .arati-field {
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .arati-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .65rem; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--ink-light);
+    }
+    .arati-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; color: var(--ink-mid);
+      line-height: 1.4;
+    }
+    .freq-badge {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: .65rem; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--ink-light);
+      border: 1px solid rgba(0,0,0,.12);
+      border-radius: 2px; padding: 2px 7px;
+      margin-top: 2px;
+    }
+
+    /* ── Wave footer ── */
+    .wave-footer { overflow: hidden; margin-top: 60px; }
+
+    @media (max-width: 700px) {
+      .page-wrap { padding: 48px 20px 60px; }
+      .arati-grid { grid-template-columns: 1fr; }
+      .nav-logo { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="vjra-soul-seva.html">Vjra Soul Seva ↩</a>
+      <a href="events.html">Events</a>
+    </div>
+    <a href="vjra-soul-seva.html" class="nav-logo">Vjra Soul Seva</a>
+    <div class="nav-right">
+      <a href="vjra-soul-seva.html#about">About</a>
+      <a href="vjra-soul-seva.html#connect">Connect With Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Page ── -->
+<div class="page-wrap">
+
+  <h1 class="page-title">Sacred Arati</h1>
+  <p class="page-sub">Ten divine invocations — deity, mantra &amp; healing frequency.</p>
+
+  <div class="arati-grid">
+
+    <!-- 1. Vishnu -->
+    <div class="arati-card">
+      <div class="arati-image" style="background:linear-gradient(135deg,#1a3a6e,#2d5fa0);">
+        <span class="deity-placeholder">ॐ</span>
+      </div>
+      <p class="arati-name">Om Jai Jagdish Hare</p>
+      <p class="arati-god">Lord Vishnu</p>
+      <div class="arati-row">
+        <div class="arati-field">
+          <span class="arati-label">Mantra</span>
+          <span class="arati-value">Om Namo Bhagavate Vasudevaya</span>
+        </div>
+        <div class="arati-field">
+          <span class="arati-label">Frequency</span>
+          <span class="freq-badge">432 Hz</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Durga -->
+    <div class="arati-card">
+      <div class="arati-image" style="background:linear-gradient(135deg,#8b1a1a,#c84b1a);">
+        <span class="deity-placeholder">ॐ</span>
+      </div>
+      <p class="arati-name">Jai Ambe Gauri</p>
+      <p class="arati-god">Goddess Durga</p>
+      <div class="arati-row">
+        <div class="arati-field">
+          <span class="arati-label">Mantra</span>
+          <span class="arati-value">Om Aim Hreem Kleem Chamundaye Viche</span>
+        </div>
+        <div class="arati-field">
+          <span class="arati-label">Frequency</span>
+          <span class="freq-badge">528 Hz</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Shiva -->
+    <div class="arati-card">
+      <div class="arati-image" style="background:linear-gradient(135deg,#3a3a4a,#6a6a8a);">
+        <span class="deity-placeholder">ॐ</span>
+      </div>
+      <p class="arati-name">Om Jai Shiv Omkara</p>
+      <p class="arati-god">Lord Shiva</p>
+      <div class="arati-row">
+        <div class="arati-field">
+          <span class="arati-label">Mantra</span>
+          <span class="arati-value">Om Namah Shivaya</span>
+        </div>
+        <div class="arati-field">
+          <span class="arati-label">Frequency</span>
+          <span class="freq-badge">852 Hz</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Ganesha -->
+    <div class="arati-card">
+      <div class="arati-image" style="background:linear-gradient(135deg,#b55a00,#e08020);">
+        <span class="deity-placeholder">ॐ</span>
+      </div>
+      <p class="arati-name">Jai Ganesh Deva</p>
+      <p class="arati-god">Lord Ganesha</p>
+      <div class="arati-row">
+        <div class="arati-field">
+          <span class="arati-label">Mantra</span>
+          <span class="arati-value">Om Gan Ganapataye Namah</span>
+        </div>
+        <div class="arati-field">
+          <span class="arati-label">Frequency</span>
+          <span class="freq-badge">396 Hz</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Lakshmi -->
+    <div class="arati-card">
+      <div class="arati-image" style="background:linear-gradient(135deg,#8a6a00,#c9a84c);">
+        <span class="deity-placeholder">ॐ</span>
+      </div>
+      <p class="arati-name">Om Jai Lakshmi Mata</p>
+      <p class="arati-god">Goddess Lakshmi</p>
+      <div class="arati-row">
+        <div class="arati-field">
+          <span class="arati-label">Mantra</span>
+          <span class="arati-value">Om Shreem Mahalakshmiyei Namah</span>
+        </div>
+        <div class="arati-field">
+          <span class="arati-label">Frequency</span>
+          <span class="freq-badge">528 Hz</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Saraswati -->
+    <div class="arati-card">
+      <div class="arati-image" style="background:linear-gradient(135deg,#4a6a8a,#7aaac0);">
+        <span class="deity-placeholder">ॐ</span>
+      </div>
+      <p class="arati-name">Om Jai Saraswati Mata</p>
+      <p class="arati-god">Goddess Saraswati</p>
+      <div class="arati-row">
+        <div class="arati-field">
+          <span class="arati-label">Mantra</span>
+          <span class="arati-value">Om Aim Saraswatyai Namah</span>
+        </div>
+        <div class="arati-field">
+          <span class="arati-label">Frequency</span>
+          <span class="freq-badge">741 Hz</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Hanuman -->
+    <div class="arati-card">
+      <div class="arati-image" style="background:linear-gradient(135deg,#7a2000,#c04010);">
+        <span class="deity-placeholder">ॐ</span>
+      </div>
+      <p class="arati-name">Jai Hanuman</p>
+      <p class="arati-god">Lord Hanuman</p>
+      <div class="arati-row">
+        <div class="arati-field">
+          <span class="arati-label">Mantra</span>
+          <span class="arati-value">Om Han Hanumate Namah</span>
+        </div>
+        <div class="arati-field">
+          <span class="arati-label">Frequency</span>
+          <span class="freq-badge">417 Hz</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Ram -->
+    <div class="arati-card">
+      <div class="arati-image" style="background:linear-gradient(135deg,#1a5a3a,#2e8a5a);">
+        <span class="deity-placeholder">ॐ</span>
+      </div>
+      <p class="arati-name">Om Jai Shri Ram</p>
+      <p class="arati-god">Lord Ram</p>
+      <div class="arati-row">
+        <div class="arati-field">
+          <span class="arati-label">Mantra</span>
+          <span class="arati-value">Om Sri Ramaya Namah</span>
+        </div>
+        <div class="arati-field">
+          <span class="arati-label">Frequency</span>
+          <span class="freq-badge">432 Hz</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Krishna -->
+    <div class="arati-card">
+      <div class="arati-image" style="background:linear-gradient(135deg,#1a2a6e,#4a5aaa);">
+        <span class="deity-placeholder">ॐ</span>
+      </div>
+      <p class="arati-name">Om Jai Shri Krishna</p>
+      <p class="arati-god">Lord Krishna</p>
+      <div class="arati-row">
+        <div class="arati-field">
+          <span class="arati-label">Mantra</span>
+          <span class="arati-value">Om Kleem Krishnaya Namah</span>
+        </div>
+        <div class="arati-field">
+          <span class="arati-label">Frequency</span>
+          <span class="freq-badge">639 Hz</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. Surya -->
+    <div class="arati-card">
+      <div class="arati-image" style="background:linear-gradient(135deg,#8a5a00,#d4900a);">
+        <span class="deity-placeholder">ॐ</span>
+      </div>
+      <p class="arati-name">Om Jai Surya Bhagwan</p>
+      <p class="arati-god">Surya — Sun God</p>
+      <div class="arati-row">
+        <div class="arati-field">
+          <span class="arati-label">Mantra</span>
+          <span class="arati-value">Om Hreem Suryaya Namah</span>
+        </div>
+        <div class="arati-field">
+          <span class="arati-label">Frequency</span>
+          <span class="freq-badge">963 Hz</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Wave ── -->
+<div class="wave-footer">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" width="100%" height="60">
+    <path d="M0,30 C360,60 720,0 1080,30 C1260,45 1380,15 1440,30"
+          fill="none" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
+  </svg>
+</div>
+
+</body>
+</html>
