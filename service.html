@@ -82,23 +82,55 @@
     .dropdown-menu a:hover { background: #ede8e0; color: var(--ink); }
     .dropdown-divider { height: 1px; background: rgba(0,0,0,.07); margin: 6px 0; }
 
-    /* ── Page ── */
-    .page-wrap {
-      max-width: 1100px; margin: 0 auto;
-      padding: 72px 40px 100px;
+    /* ── Hero ── */
+    .page-hero {
+      width: 100%;
+      background: radial-gradient(ellipse at 60% 50%, #f5ede0 0%, #f8f4ee 60%);
+      padding: 80px 0 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-
+    .page-hero::before {
+      content: 'ॐ';
+      position: absolute;
+      font-size: 28rem;
+      line-height: 1;
+      color: rgba(0,0,0,.028);
+      font-family: 'Cormorant Garamond', serif;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      user-select: none;
+    }
+    .page-hero-inner {
+      position: relative; z-index: 1;
+      max-width: 700px; margin: 0 auto; padding: 0 40px;
+    }
     .page-title {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic; font-weight: 300;
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      line-height: 1.1; color: var(--ink);
-      margin-bottom: 12px;
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 1.05; color: var(--ink);
+      margin-bottom: 16px;
+      letter-spacing: -.01em;
     }
     .page-sub {
       font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-size: 1rem;
-      color: var(--ink-light); margin-bottom: 64px;
+      font-style: italic; font-size: 1.1rem;
+      color: var(--ink-light); margin-bottom: 0;
+      letter-spacing: .02em;
+    }
+    .hero-rule {
+      width: 48px; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(160,120,40,.5), transparent);
+      margin: 24px auto 20px;
+    }
+
+    /* ── Page ── */
+    .page-wrap {
+      max-width: 1100px; margin: 0 auto;
+      padding: 48px 40px 100px;
     }
 
     /* ── Significance ── */
@@ -347,6 +379,16 @@
       padding: 52px 56px;
       margin-bottom: 28px;
       max-width: 100%;
+      border-top: 2px solid rgba(180,130,40,.18);
+      /* Fade-in on scroll — start hidden */
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    #significance.visible, #how-to-chant.visible, #why-108.visible,
+    #best-time.visible, #first-session.visible, #ten-mantras-band.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     /* Remove old margins now that panels handle spacing */
     .significance  { margin-bottom: 0; max-width: 100%; }
@@ -396,11 +438,17 @@
   </div>
 </nav>
 
+<!-- ── Hero ── -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1 class="page-title">Sacred Mantras</h1>
+    <div class="hero-rule"></div>
+    <p class="page-sub">Ten divine invocations — purpose, practice &amp; chanting guide.</p>
+  </div>
+</div>
+
 <!-- ── Page ── -->
 <div class="page-wrap">
-
-  <h1 class="page-title">Sacred Mantras</h1>
-  <p class="page-sub">Ten divine invocations — purpose, practice &amp; chanting guide.</p>
 
   <!-- ── Significance ── -->
   <div class="significance" id="significance">
@@ -824,6 +872,22 @@
           fill="none" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
   </svg>
 </div>
+
+<script>
+  // Fade-in panels on scroll
+  const panels = document.querySelectorAll(
+    '#significance, #how-to-chant, #why-108, #best-time, #first-session, #ten-mantras-band'
+  );
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  panels.forEach(p => observer.observe(p));
+</script>
 
 </body>
 </html>
