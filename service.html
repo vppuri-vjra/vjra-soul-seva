@@ -60,7 +60,7 @@
     .nav-dropdown:hover > a::after { opacity: 1; }
     .dropdown-menu {
       display: none;
-      position: absolute; top: calc(100% + 8px); left: 0;
+      position: absolute; top: 100%; left: 0;
       background: var(--cream);
       border: 1px solid rgba(0,0,0,.09);
       border-radius: 4px;
@@ -68,6 +68,7 @@
       min-width: 210px;
       z-index: 200;
       padding: 8px 0;
+      margin-top: 0;
     }
     .nav-dropdown:hover .dropdown-menu { display: block; }
     .dropdown-menu a {
@@ -356,7 +357,6 @@
   <div class="nav-inner">
     <div class="nav-left">
       <a href="vjra-soul-seva.html">Vjra Soul Seva ↩</a>
-      <a href="events.html">Events</a>
     </div>
     <a href="vjra-soul-seva.html" class="nav-logo">Vjra Soul Seva</a>
     <div class="nav-right">
