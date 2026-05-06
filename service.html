@@ -340,6 +340,26 @@
 
     .wave-footer { overflow: hidden; margin-top: 60px; }
 
+    /* ── Section Color Panels ── */
+    #significance, #how-to-chant, #why-108,
+    #best-time, #first-session, #ten-mantras-band {
+      border-radius: 20px;
+      padding: 52px 56px;
+      margin-bottom: 28px;
+      max-width: 100%;
+    }
+    /* Remove old margins now that panels handle spacing */
+    .significance  { margin-bottom: 0; max-width: 100%; }
+    .practice-section { margin-bottom: 0; max-width: 100%; }
+
+    /* Individual tones — each section has its own breath */
+    #significance    { background: #fdfaf5; }        /* soft ivory */
+    #how-to-chant    { background: #f0ebe0; }        /* warm sand */
+    #why-108         { background: #fdf8ef; }        /* amber glow */
+    #best-time       { background: #f2f5f1; }        /* pale sage */
+    #first-session   { background: #f5f2fb; }        /* soft lavender */
+    #ten-mantras-band { background: #fdf6e4; }       /* saffron gold */
+
     @media (max-width: 700px) {
       .page-wrap { padding: 48px 20px 60px; }
       .arati-grid { grid-template-columns: 1fr; }
@@ -549,6 +569,7 @@
   </div>
 
   <!-- ── Mantra Cards ── -->
+  <div id="ten-mantras-band">
   <h2 class="sig-title" id="ten-mantras" style="margin-bottom:32px;">The Ten Mantras</h2>
   <div class="arati-grid">
 
@@ -793,6 +814,7 @@
     </div>
 
   </div>
+  </div><!-- /ten-mantras-band -->
 </div>
 
 <!-- ── Wave ── -->
