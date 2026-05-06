@@ -160,6 +160,15 @@
       margin-top: 4px;
       display: block;
     }
+    .arati-value.small {
+      font-size: .88rem;
+    }
+    .arati-field.two-col {
+      display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;
+    }
+    .arati-field.two-col > div {
+      display: flex; flex-direction: column; gap: 3px;
+    }
 
     .wave-footer { overflow: hidden; margin-top: 60px; }
 
@@ -190,58 +199,63 @@
 <!-- ── Page ── -->
 <div class="page-wrap">
 
-  <h1 class="page-title">Sacred Arati</h1>
-  <p class="page-sub">Ten divine invocations — deity, mantra &amp; chanting practice.</p>
+  <h1 class="page-title">Sacred Mantras</h1>
+  <p class="page-sub">Ten divine invocations — purpose, practice &amp; chanting guide.</p>
 
   <div class="arati-grid">
 
-    <!-- 1. Vishnu -->
+    <!-- 1. Gayatri -->
     <div class="arati-card">
-      <div class="arati-image" style="background:linear-gradient(135deg,#1a3a6e,#2d5fa0);">
+      <div class="arati-image" style="background:linear-gradient(135deg,#8a6000,#d4a010);">
         <span class="deity-placeholder">ॐ</span>
       </div>
-      <p class="arati-name">Om Jai Jagdish Hare</p>
-      <p class="arati-god">Lord Vishnu</p>
+      <p class="arati-name">Gayatri Mantra</p>
       <div class="arati-row">
         <div class="arati-field">
           <span class="arati-label">Mantra</span>
-          <span class="arati-value">Om Namo Bhagavate Vasudevaya</span>
-          <span class="arati-hindi">ॐ नमो भगवते वासुदेवाय</span>
+          <span class="arati-value">Om Bhur Bhuvah Swaha...</span>
+          <span class="arati-hindi">ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यम्</span>
         </div>
         <div class="arati-field">
-          <span class="arati-label">Chant</span>
-          <span class="freq-badge">108 times</span>
+          <span class="arati-label">Purpose</span>
+          <span class="arati-value">Wisdom &amp; clarity</span>
+        </div>
+        <div class="arati-field two-col">
+          <div><span class="arati-label">Chant Count</span><span class="freq-badge">108 / 21</span></div>
+          <div><span class="arati-label">Use</span><span class="arati-value small">Morning</span></div>
         </div>
       </div>
     </div>
 
-    <!-- 2. Durga -->
-    <div class="arati-card">
-      <div class="arati-image" style="background:linear-gradient(135deg,#8b1a1a,#c84b1a);">
-        <span class="deity-placeholder">ॐ</span>
-      </div>
-      <p class="arati-name">Jai Ambe Gauri</p>
-      <p class="arati-god">Goddess Durga</p>
-      <div class="arati-row">
-        <div class="arati-field">
-          <span class="arati-label">Mantra</span>
-          <span class="arati-value">Om Aim Hreem Kleem Chamundaye Viche</span>
-          <span class="arati-hindi">ॐ ऐं ह्रीं क्लीं चामुण्डायै विच्चे</span>
-        </div>
-        <div class="arati-field">
-          <span class="arati-label">Chant</span>
-          <span class="freq-badge">108 times</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3. Shiva -->
+    <!-- 2. Maha Mrityunjaya -->
     <div class="arati-card">
       <div class="arati-image" style="background:linear-gradient(135deg,#3a3a4a,#6a6a8a);">
         <span class="deity-placeholder">ॐ</span>
       </div>
-      <p class="arati-name">Om Jai Shiv Omkara</p>
-      <p class="arati-god">Lord Shiva</p>
+      <p class="arati-name">Maha Mrityunjaya</p>
+      <div class="arati-row">
+        <div class="arati-field">
+          <span class="arati-label">Mantra</span>
+          <span class="arati-value">Om Tryambakam Yajamahe...</span>
+          <span class="arati-hindi">ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम्</span>
+        </div>
+        <div class="arati-field">
+          <span class="arati-label">Purpose</span>
+          <span class="arati-value">Healing &amp; protection</span>
+        </div>
+        <div class="arati-field two-col">
+          <div><span class="arati-label">Chant Count</span><span class="freq-badge">108 / 21</span></div>
+          <div><span class="arati-label">Use</span><span class="arati-value small">Stress</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Om Namah Shivaya -->
+    <div class="arati-card">
+      <div class="arati-image" style="background:linear-gradient(135deg,#4a3060,#7a5090);">
+        <span class="deity-placeholder">ॐ</span>
+      </div>
+      <p class="arati-name">Om Namah Shivaya</p>
       <div class="arati-row">
         <div class="arati-field">
           <span class="arati-label">Mantra</span>
@@ -249,19 +263,68 @@
           <span class="arati-hindi">ॐ नमः शिवाय</span>
         </div>
         <div class="arati-field">
-          <span class="arati-label">Chant</span>
-          <span class="freq-badge">108 times</span>
+          <span class="arati-label">Purpose</span>
+          <span class="arati-value">Inner peace</span>
+        </div>
+        <div class="arati-field two-col">
+          <div><span class="arati-label">Chant Count</span><span class="freq-badge">108 / 27</span></div>
+          <div><span class="arati-label">Use</span><span class="arati-value small">Daily</span></div>
         </div>
       </div>
     </div>
 
-    <!-- 4. Ganesha -->
+    <!-- 4. Vasudevaya -->
+    <div class="arati-card">
+      <div class="arati-image" style="background:linear-gradient(135deg,#1a3a6e,#2d5fa0);">
+        <span class="deity-placeholder">ॐ</span>
+      </div>
+      <p class="arati-name">Vasudevaya Mantra</p>
+      <div class="arati-row">
+        <div class="arati-field">
+          <span class="arati-label">Mantra</span>
+          <span class="arati-value">Om Namo Bhagavate Vasudevaya</span>
+          <span class="arati-hindi">ॐ नमो भगवते वासुदेवाय</span>
+        </div>
+        <div class="arati-field">
+          <span class="arati-label">Purpose</span>
+          <span class="arati-value">Devotion</span>
+        </div>
+        <div class="arati-field two-col">
+          <div><span class="arati-label">Chant Count</span><span class="freq-badge">108 / 21</span></div>
+          <div><span class="arati-label">Use</span><span class="arati-value small">Daily</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Hare Krishna -->
+    <div class="arati-card">
+      <div class="arati-image" style="background:linear-gradient(135deg,#1a2a6e,#4a5aaa);">
+        <span class="deity-placeholder">ॐ</span>
+      </div>
+      <p class="arati-name">Hare Krishna</p>
+      <div class="arati-row">
+        <div class="arati-field">
+          <span class="arati-label">Mantra</span>
+          <span class="arati-value">Hare Krishna Hare Krishna...</span>
+          <span class="arati-hindi">हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे</span>
+        </div>
+        <div class="arati-field">
+          <span class="arati-label">Purpose</span>
+          <span class="arati-value">Joy</span>
+        </div>
+        <div class="arati-field two-col">
+          <div><span class="arati-label">Chant Count</span><span class="freq-badge">108</span></div>
+          <div><span class="arati-label">Use</span><span class="arati-value small">Anytime</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Ganesh -->
     <div class="arati-card">
       <div class="arati-image" style="background:linear-gradient(135deg,#b55a00,#e08020);">
         <span class="deity-placeholder">ॐ</span>
       </div>
-      <p class="arati-name">Jai Ganesh Deva</p>
-      <p class="arati-god">Lord Ganesha</p>
+      <p class="arati-name">Ganesh Mantra</p>
       <div class="arati-row">
         <div class="arati-field">
           <span class="arati-label">Mantra</span>
@@ -269,128 +332,104 @@
           <span class="arati-hindi">ॐ गं गणपतये नमः</span>
         </div>
         <div class="arati-field">
-          <span class="arati-label">Chant</span>
-          <span class="freq-badge">21 times</span>
+          <span class="arati-label">Purpose</span>
+          <span class="arati-value">Remove obstacles</span>
+        </div>
+        <div class="arati-field two-col">
+          <div><span class="arati-label">Chant Count</span><span class="freq-badge">21 / 11</span></div>
+          <div><span class="arati-label">Use</span><span class="arati-value small">Start work</span></div>
         </div>
       </div>
     </div>
 
-    <!-- 5. Lakshmi -->
-    <div class="arati-card">
-      <div class="arati-image" style="background:linear-gradient(135deg,#8a6a00,#c9a84c);">
-        <span class="deity-placeholder">ॐ</span>
-      </div>
-      <p class="arati-name">Om Jai Lakshmi Mata</p>
-      <p class="arati-god">Goddess Lakshmi</p>
-      <div class="arati-row">
-        <div class="arati-field">
-          <span class="arati-label">Mantra</span>
-          <span class="arati-value">Om Shreem Mahalakshmiyei Namah</span>
-          <span class="arati-hindi">ॐ श्रीं महालक्ष्म्यै नमः</span>
-        </div>
-        <div class="arati-field">
-          <span class="arati-label">Chant</span>
-          <span class="freq-badge">108 times</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 6. Saraswati -->
+    <!-- 7. Om Shanti -->
     <div class="arati-card">
       <div class="arati-image" style="background:linear-gradient(135deg,#4a6a8a,#7aaac0);">
         <span class="deity-placeholder">ॐ</span>
       </div>
-      <p class="arati-name">Om Jai Saraswati Mata</p>
-      <p class="arati-god">Goddess Saraswati</p>
+      <p class="arati-name">Om Shanti</p>
       <div class="arati-row">
         <div class="arati-field">
           <span class="arati-label">Mantra</span>
-          <span class="arati-value">Om Aim Saraswatyai Namah</span>
-          <span class="arati-hindi">ॐ ऐं सरस्वत्यै नमः</span>
+          <span class="arati-value">Om Shanti Shanti Shanti</span>
+          <span class="arati-hindi">ॐ शान्ति शान्ति शान्ति</span>
         </div>
         <div class="arati-field">
-          <span class="arati-label">Chant</span>
-          <span class="freq-badge">108 times</span>
+          <span class="arati-label">Purpose</span>
+          <span class="arati-value">Calmness</span>
+        </div>
+        <div class="arati-field two-col">
+          <div><span class="arati-label">Chant Count</span><span class="freq-badge">11 / 21</span></div>
+          <div><span class="arati-label">Use</span><span class="arati-value small">Sleep</span></div>
         </div>
       </div>
     </div>
 
-    <!-- 7. Hanuman -->
+    <!-- 8. Durga -->
     <div class="arati-card">
-      <div class="arati-image" style="background:linear-gradient(135deg,#7a2000,#c04010);">
+      <div class="arati-image" style="background:linear-gradient(135deg,#8b1a1a,#c84b1a);">
         <span class="deity-placeholder">ॐ</span>
       </div>
-      <p class="arati-name">Jai Hanuman</p>
-      <p class="arati-god">Lord Hanuman</p>
+      <p class="arati-name">Durga Mantra</p>
       <div class="arati-row">
         <div class="arati-field">
           <span class="arati-label">Mantra</span>
-          <span class="arati-value">Om Han Hanumate Namah</span>
-          <span class="arati-hindi">ॐ हं हनुमते नमः</span>
+          <span class="arati-value">Om Dum Durgayei Namaha</span>
+          <span class="arati-hindi">ॐ दुं दुर्गायै नमः</span>
         </div>
         <div class="arati-field">
-          <span class="arati-label">Chant</span>
-          <span class="freq-badge">108 times</span>
+          <span class="arati-label">Purpose</span>
+          <span class="arati-value">Strength</span>
+        </div>
+        <div class="arati-field two-col">
+          <div><span class="arati-label">Chant Count</span><span class="freq-badge">21 / 108</span></div>
+          <div><span class="arati-label">Use</span><span class="arati-value small">Challenges</span></div>
         </div>
       </div>
     </div>
 
-    <!-- 8. Ram -->
+    <!-- 9. Om Hreem -->
+    <div class="arati-card">
+      <div class="arati-image" style="background:linear-gradient(135deg,#3a1a5a,#7a4090);">
+        <span class="deity-placeholder">ॐ</span>
+      </div>
+      <p class="arati-name">Om Hreem Namah</p>
+      <div class="arati-row">
+        <div class="arati-field">
+          <span class="arati-label">Mantra</span>
+          <span class="arati-value">Om Hreem Namah</span>
+          <span class="arati-hindi">ॐ ह्रीं नमः</span>
+        </div>
+        <div class="arati-field">
+          <span class="arati-label">Purpose</span>
+          <span class="arati-value">Energy</span>
+        </div>
+        <div class="arati-field two-col">
+          <div><span class="arati-label">Chant Count</span><span class="freq-badge">108</span></div>
+          <div><span class="arati-label">Use</span><span class="arati-value small">Meditation</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. Ram -->
     <div class="arati-card">
       <div class="arati-image" style="background:linear-gradient(135deg,#1a5a3a,#2e8a5a);">
         <span class="deity-placeholder">ॐ</span>
       </div>
-      <p class="arati-name">Om Jai Shri Ram</p>
-      <p class="arati-god">Lord Ram</p>
+      <p class="arati-name">Ram Mantra</p>
       <div class="arati-row">
         <div class="arati-field">
           <span class="arati-label">Mantra</span>
-          <span class="arati-value">Om Sri Ramaya Namah</span>
-          <span class="arati-hindi">ॐ श्री रामाय नमः</span>
+          <span class="arati-value">Om Sri Ram Jai Ram Jai Jai Ram</span>
+          <span class="arati-hindi">ॐ श्री राम जय राम जय जय राम</span>
         </div>
         <div class="arati-field">
-          <span class="arati-label">Chant</span>
-          <span class="freq-badge">108 times</span>
+          <span class="arati-label">Purpose</span>
+          <span class="arati-value">Peace</span>
         </div>
-      </div>
-    </div>
-
-    <!-- 9. Krishna -->
-    <div class="arati-card">
-      <div class="arati-image" style="background:linear-gradient(135deg,#1a2a6e,#4a5aaa);">
-        <span class="deity-placeholder">ॐ</span>
-      </div>
-      <p class="arati-name">Om Jai Shri Krishna</p>
-      <p class="arati-god">Lord Krishna</p>
-      <div class="arati-row">
-        <div class="arati-field">
-          <span class="arati-label">Mantra</span>
-          <span class="arati-value">Om Kleem Krishnaya Namah</span>
-          <span class="arati-hindi">ॐ क्लीं कृष्णाय नमः</span>
-        </div>
-        <div class="arati-field">
-          <span class="arati-label">Chant</span>
-          <span class="freq-badge">108 times</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 10. Surya -->
-    <div class="arati-card">
-      <div class="arati-image" style="background:linear-gradient(135deg,#8a5a00,#d4900a);">
-        <span class="deity-placeholder">ॐ</span>
-      </div>
-      <p class="arati-name">Om Jai Surya Bhagwan</p>
-      <p class="arati-god">Surya — Sun God</p>
-      <div class="arati-row">
-        <div class="arati-field">
-          <span class="arati-label">Mantra</span>
-          <span class="arati-value">Om Hreem Suryaya Namah</span>
-          <span class="arati-hindi">ॐ ह्रीं सूर्याय नमः</span>
-        </div>
-        <div class="arati-field">
-          <span class="arati-label">Chant</span>
-          <span class="freq-badge">12 times</span>
+        <div class="arati-field two-col">
+          <div><span class="arati-label">Chant Count</span><span class="freq-badge">108 / 21</span></div>
+          <div><span class="arati-label">Use</span><span class="arati-value small">Daily</span></div>
         </div>
       </div>
     </div>
