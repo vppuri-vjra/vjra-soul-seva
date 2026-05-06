@@ -114,6 +114,86 @@
       padding-left: 20px;
     }
 
+    /* ── Practice Sections ── */
+    .practice-section {
+      margin-bottom: 72px;
+      max-width: 900px;
+    }
+    .practice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 28px;
+    }
+    .practice-item {
+      border-top: 1px solid rgba(0,0,0,.08);
+      padding-top: 18px;
+    }
+    .practice-num {
+      font-family: 'Inter', sans-serif;
+      font-size: .65rem; letter-spacing: .14em;
+      color: var(--ink-light); display: block;
+      margin-bottom: 8px;
+    }
+    .practice-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.15rem;
+      color: var(--ink); margin-bottom: 8px;
+    }
+    .practice-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .98rem; color: var(--ink-mid);
+      line-height: 1.75;
+    }
+
+    /* ── Time Grid ── */
+    .time-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .time-card {
+      border-top: 1px solid rgba(0,0,0,.08);
+      padding-top: 18px;
+    }
+    .time-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.15rem;
+      color: var(--ink); margin-bottom: 4px;
+    }
+    .time-hours {
+      font-family: 'Inter', sans-serif;
+      font-size: .65rem; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--ink-light);
+      margin-bottom: 12px;
+    }
+
+    /* ── Steps ── */
+    .steps-list {
+      display: flex; flex-direction: column; gap: 0;
+      max-width: 680px;
+    }
+    .step-row {
+      display: flex; gap: 24px; align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.6rem;
+      color: rgba(0,0,0,.15); flex-shrink: 0;
+      width: 28px; text-align: center; margin-top: 2px;
+    }
+    .step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.1rem;
+      color: var(--ink); margin-bottom: 4px;
+    }
+    .step-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .98rem; color: var(--ink-mid);
+      line-height: 1.75;
+    }
+
     /* ── Grid ── */
     .arati-grid {
       display: grid;
@@ -233,6 +313,8 @@
       .page-wrap { padding: 48px 20px 60px; }
       .arati-grid { grid-template-columns: 1fr; }
       .sig-grid { grid-template-columns: 1fr; }
+      .practice-grid { grid-template-columns: 1fr; }
+      .time-grid { grid-template-columns: 1fr 1fr; }
       .nav-logo { font-size: 1.1rem; }
     }
   </style>
@@ -287,6 +369,147 @@
     <p class="sig-closing">Transformation through mantra is not sudden — it is steady. It works the way water shapes stone: not by force, but by return. Each chant is a return. Each session a deepening. Each day a quiet revolution in the way we meet ourselves and our lives.</p>
   </div>
 
+  <!-- ── How to Chant ── -->
+  <div class="practice-section">
+    <h2 class="sig-title">How to Chant</h2>
+    <div class="practice-grid">
+      <div class="practice-item">
+        <span class="practice-num">01</span>
+        <p class="practice-label">Posture</p>
+        <p class="practice-body">Sit comfortably with your spine upright — on the floor, a cushion, or a chair. Keep the body relaxed but alert. Rest your hands on your knees, palms facing up.</p>
+      </div>
+      <div class="practice-item">
+        <span class="practice-num">02</span>
+        <p class="practice-label">Breath</p>
+        <p class="practice-body">Begin with three slow, deep breaths. Let the exhale be longer than the inhale. This signals to the nervous system that it is safe to settle.</p>
+      </div>
+      <div class="practice-item">
+        <span class="practice-num">03</span>
+        <p class="practice-label">Voice</p>
+        <p class="practice-body">You may chant aloud, in a whisper, or silently in the mind. Aloud is most powerful for beginners — the vibration in the body anchors attention. Silent chanting is the deepest form.</p>
+      </div>
+      <div class="practice-item">
+        <span class="practice-num">04</span>
+        <p class="practice-label">Direction</p>
+        <p class="practice-body">Face east at sunrise or north during the day. These directions are traditionally aligned with solar energy and magnetic flow — supporting clarity and receptivity.</p>
+      </div>
+      <div class="practice-item">
+        <span class="practice-num">05</span>
+        <p class="practice-label">Mala Beads</p>
+        <p class="practice-body">Hold the mala in your right hand. Use your thumb to move one bead per chant. When you reach the Guru bead (the large central bead), pause, reverse direction — do not cross it.</p>
+      </div>
+      <div class="practice-item">
+        <span class="practice-num">06</span>
+        <p class="practice-label">Intention</p>
+        <p class="practice-body">Before you begin, hold your intention quietly — healing, clarity, gratitude, release. The mantra carries your intention into the field of sound. Set it consciously.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Why 108 ── -->
+  <div class="practice-section">
+    <h2 class="sig-title">Why 108</h2>
+    <p class="sig-body">The number 108 is considered sacred across Vedic, Buddhist, and yogic traditions. A mala has 108 beads — one full round of chanting completes a cycle of 108 repetitions. This number is not arbitrary.</p>
+    <div class="sig-grid">
+      <div class="sig-card">
+        <p class="sig-card-title">Astronomy</p>
+        <p class="sig-card-body">The distance between the Earth and the Sun is approximately 108 times the Sun's diameter. The distance between the Earth and the Moon is approximately 108 times the Moon's diameter. Ancient Vedic astronomers knew this.</p>
+      </div>
+      <div class="sig-card">
+        <p class="sig-card-title">The Body</p>
+        <p class="sig-card-body">There are 108 marma points — vital energy junctions — in the human body. There are 108 nadis (energy channels) said to converge at the heart center. Chanting 108 times touches each one.</p>
+      </div>
+      <div class="sig-card">
+        <p class="sig-card-title">Sanskrit</p>
+        <p class="sig-card-body">There are 54 letters in the Sanskrit alphabet. Each has a masculine (Shiva) and feminine (Shakti) form — 54 × 2 = 108. The entire field of sound, in all its polarity, is held within 108.</p>
+      </div>
+      <div class="sig-card">
+        <p class="sig-card-title">Completion</p>
+        <p class="sig-card-body">1 represents the singular — the source. 0 represents emptiness and wholeness. 8 represents infinity. Together: one being moving through wholeness toward the infinite. A complete cycle.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Best Time ── -->
+  <div class="practice-section">
+    <h2 class="sig-title">Best Time to Practice</h2>
+    <div class="time-grid">
+      <div class="time-card">
+        <p class="time-name">Brahma Muhurta</p>
+        <p class="time-hours">4:00 – 6:00 AM</p>
+        <p class="sig-card-body">The most auspicious window of the day. The mind is naturally quiet, the air is still, and the veil between waking and the deeper self is thinnest. Even 15 minutes here carries the effect of an hour later in the day.</p>
+      </div>
+      <div class="time-card">
+        <p class="time-name">Sunrise</p>
+        <p class="time-hours">Dawn</p>
+        <p class="sig-card-body">As light enters the world, chanting aligns your energy with the day ahead. Surya mantras are especially powerful at this time. Face east and offer the practice to the rising sun.</p>
+      </div>
+      <div class="time-card">
+        <p class="time-name">Midday</p>
+        <p class="time-hours">12:00 PM</p>
+        <p class="sig-card-body">A natural pause point. Even a short round of chanting at noon resets the nervous system, clears mental fog, and reconnects you to intention when the day has pulled you in many directions.</p>
+      </div>
+      <div class="time-card">
+        <p class="time-name">Sunset</p>
+        <p class="time-hours">Dusk</p>
+        <p class="sig-card-body">The transition from day to night is a sacred threshold. Evening chanting releases what the day has accumulated — stress, reactivity, overstimulation — and prepares the inner ground for rest and renewal.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Beginner's First Session ── -->
+  <div class="practice-section">
+    <h2 class="sig-title">Your First Session</h2>
+    <p class="sig-body">You do not need years of practice to begin. You need five minutes, a quiet space, and a willingness to show up. Here is a simple way to start today.</p>
+    <div class="steps-list">
+      <div class="step-row">
+        <span class="step-num">1</span>
+        <div>
+          <p class="step-title">Choose one mantra</p>
+          <p class="step-body">Start with Om Namah Shivaya or Om Shanti — both are gentle, accessible, and deeply calming. Do not try to learn all ten at once.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <span class="step-num">2</span>
+        <div>
+          <p class="step-title">Find a quiet place</p>
+          <p class="step-body">It does not need to be a dedicated altar. A corner of your room, a quiet chair, the floor by a window — anywhere you will not be interrupted for five to ten minutes.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <span class="step-num">3</span>
+        <div>
+          <p class="step-title">Sit, breathe, begin</p>
+          <p class="step-body">Close your eyes. Take three slow breaths. Then begin chanting — aloud or in a whisper. Let the sound be natural, not performative. There is no perfect way to sound.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <span class="step-num">4</span>
+        <div>
+          <p class="step-title">Chant 11 or 21 times</p>
+          <p class="step-body">For a first session, 11 rounds is enough. Use your fingers to count if you have no mala. The number matters less than the quality of your attention.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <span class="step-num">5</span>
+        <div>
+          <p class="step-title">Sit in silence after</p>
+          <p class="step-body">When you finish, do not immediately reach for your phone or stand up. Sit quietly for one or two minutes. Let the resonance settle. This is where the mantra does its deepest work.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <span class="step-num">6</span>
+        <div>
+          <p class="step-title">Return tomorrow</p>
+          <p class="step-body">Consistency is everything. One sincere session each day for 21 days creates a foundation. After 40 days, a practice becomes a part of who you are.</p>
+        </div>
+      </div>
+    </div>
+    <p class="sig-closing" style="margin-top:28px;">The most important thing is not how well you chant — it is that you chant. The mantra meets you where you are. Begin there.</p>
+  </div>
+
+  <!-- ── Mantra Cards ── -->
+  <h2 class="sig-title" style="margin-bottom:32px;">The Ten Mantras</h2>
   <div class="arati-grid">
 
     <!-- 1. Gayatri -->
