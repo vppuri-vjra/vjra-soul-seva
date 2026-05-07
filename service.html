@@ -92,27 +92,14 @@
       overflow: hidden;
     }
     .page-hero::before {
-      content: 'ॐ';
-      position: absolute;
-      font-size: 28rem;
-      line-height: 1;
-      color: rgba(0,0,0,.06);
-      font-family: 'Cormorant Garamond', serif;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      user-select: none;
-    }
-    .page-hero::after {
       content: '';
       position: absolute;
-      right: 0; top: 0;
-      width: 45%; height: 100%;
+      inset: 0;
       background-image: url('images/babaji.png');
       background-size: contain;
-      background-position: right center;
+      background-position: center;
       background-repeat: no-repeat;
-      opacity: 0.15;
+      opacity: 0.13;
       pointer-events: none;
       user-select: none;
     }
