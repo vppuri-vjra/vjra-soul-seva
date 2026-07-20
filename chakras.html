@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chakras — Vjra Soul Seva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --cream: #f8f4ee;
+      --cream-dark: #ede8e0;
+      --ink: #1a1410;
+      --ink-mid: #4a4038;
+      --ink-light: #8a8078;
+      --red-soft: #e05060;
+      --nav-h: 64px;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* ── Nav ── */
+    .site-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center;
+      height: var(--nav-h); padding: 0 40px;
+      position: relative;
+    }
+    .nav-left { display: flex; gap: 24px; align-items: center; flex: 1; }
+    .nav-left a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .9rem; color: var(--ink-mid);
+      text-decoration: none; letter-spacing: .02em;
+      transition: color .2s;
+    }
+    .nav-left a:hover { color: var(--ink); }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 400;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: .04em; white-space: nowrap;
+      position: absolute; left: 50%; transform: translateX(-50%);
+    }
+
+    /* ── Page ── */
+    .page-wrap {
+      max-width: 900px; margin: 0 auto;
+      padding: 72px 40px 80px;
+      position: relative; z-index: 1;
+    }
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 300;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.1; color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .page-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1rem;
+      color: var(--ink-light); margin-bottom: 56px;
+      max-width: 640px; line-height: 1.6;
+    }
+
+    /* ── Chakra card ── */
+    .chakra-card {
+      padding: 40px 0;
+      border-top: 1px solid rgba(0,0,0,.07);
+      scroll-margin-top: calc(var(--nav-h) + 16px);
+    }
+    .chakra-card:first-of-type { border-top: none; }
+    .chakra-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .72rem; font-weight: 400;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--ink-light); margin-bottom: 10px;
+    }
+    .chakra-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: 1.7rem; color: var(--ink);
+      margin-bottom: 4px; line-height: 1.2;
+    }
+    .chakra-devanagari {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; color: var(--ink-light);
+      margin-bottom: 20px;
+    }
+    .video-embed {
+      position: relative; padding-bottom: 56.25%; height: 0;
+      overflow: hidden; border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    }
+    .video-embed iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; border: 0;
+    }
+
+    /* ── Petals ── */
+    .petal {
+      position: fixed;
+      border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+      box-shadow: inset -2px -3px 6px rgba(0,0,0,.18), inset 1px 1px 4px rgba(255,180,180,.3);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── Wave footer ── */
+    .wave-footer { overflow: hidden; margin-top: 40px; }
+
+    @media (max-width: 700px) {
+      .page-wrap { padding: 48px 20px 60px; }
+      .nav-logo { position: static; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Petals ── -->
+<div class="petal" style="width:32px;height:46px;background:radial-gradient(ellipse at 40% 35%,#f0a0a8,#c41e3a);top:12%;left:4%;transform:rotate(-20deg);opacity:.55"></div>
+<div class="petal" style="width:52px;height:72px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030);top:38%;left:6%;transform:rotate(35deg);opacity:.75"></div>
+<div class="petal" style="width:22px;height:32px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#c41e3a);top:68%;left:5%;transform:rotate(-8deg);opacity:.5"></div>
+<div class="petal" style="width:18px;height:26px;background:radial-gradient(ellipse at 40% 35%,#f0a0a8,#c41e3a);top:15%;right:6%;transform:rotate(25deg);opacity:.55"></div>
+<div class="petal" style="width:42px;height:58px;background:radial-gradient(ellipse at 40% 35%,#e8405a,#9b1030);top:42%;right:4%;transform:rotate(-18deg);opacity:.72"></div>
+<div class="petal" style="width:26px;height:38px;background:radial-gradient(ellipse at 40% 35%,#f5a0a8,#c41e3a);top:72%;right:7%;transform:rotate(50deg);opacity:.48"></div>
+
+<!-- ── Nav ── -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="vjra-soul-seva.html">Vjra Soul Seva ↩</a>
+    </div>
+    <a href="vjra-soul-seva.html" class="nav-logo">Vjra Soul Seva</a>
+  </div>
+</nav>
+
+<!-- ── Page ── -->
+<div class="page-wrap">
+
+  <h1 class="page-title">The Chakra System</h1>
+  <p class="page-sub">Seven centers of energy, each with its own seed sound, quality, and practice. A living reference — updated as each chakra is added.</p>
+
+  <div class="chakra-card" id="chakra-1">
+    <p class="chakra-label">1 · Root</p>
+    <h2 class="chakra-title">Muladhara</h2>
+    <p class="chakra-devanagari">मूलाधार चक्र</p>
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/jGsN6Tu-b08" title="Muladhara Chakra" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="chakra-card" id="chakra-2">
+    <p class="chakra-label">2 · Sacral</p>
+    <h2 class="chakra-title">Svadhisthana</h2>
+    <p class="chakra-devanagari">स्वाधिष्ठान चक्र</p>
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/9rjDLwKKAJU" title="Svadhisthana Chakra" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="chakra-card" id="chakra-3">
+    <p class="chakra-label">3 · Solar Plexus</p>
+    <h2 class="chakra-title">Manipura</h2>
+    <p class="chakra-devanagari">मणिपुर चक्र</p>
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/4QNw0FsrGew" title="Manipura Chakra" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="chakra-card" id="chakra-4">
+    <p class="chakra-label">4 · Heart</p>
+    <h2 class="chakra-title">Anahata</h2>
+    <p class="chakra-devanagari">अनाहत चक्र</p>
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/KVd7I5Uls6A" title="Anahata Chakra" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="chakra-card" id="chakra-5">
+    <p class="chakra-label">5 · Throat</p>
+    <h2 class="chakra-title">Vishuddha</h2>
+    <p class="chakra-devanagari">विशुद्धि चक्र</p>
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/Jlnd4lzcCVk" title="Vishuddha Chakra" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="chakra-card" id="chakra-6">
+    <p class="chakra-label">6 · Third Eye</p>
+    <h2 class="chakra-title">Ajna</h2>
+    <p class="chakra-devanagari">आज्ञा चक्र</p>
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/8RhQ0X78lf4" title="Ajna Chakra" allowfullscreen></iframe>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Wave ── -->
+<div class="wave-footer">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" width="100%" height="60">
+    <path d="M0,30 C360,60 720,0 1080,30 C1260,45 1380,15 1440,30"
+          fill="none" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
+  </svg>
+</div>
+
+</body>
+</html>
