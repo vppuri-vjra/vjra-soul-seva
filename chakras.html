@@ -98,17 +98,39 @@
       font-size: 1.1rem; color: var(--ink-light);
       margin-bottom: 20px;
     }
-    .video-embed {
-      max-width: 320px; aspect-ratio: 16 / 9;
-      overflow: hidden; border-radius: 6px;
+    .video-card {
+      display: block; max-width: 240px;
+      position: relative; aspect-ratio: 16 / 9;
+      border-radius: 6px; overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,.1);
+      text-decoration: none;
     }
-    .video-embed iframe {
-      display: block; width: 100%; height: 100%; border: 0;
+    .video-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .video-card .play-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,.18); transition: background .2s;
     }
-    @media (max-width: 560px) {
-      .video-embed { max-width: 100%; }
+    .video-card:hover .play-overlay { background: rgba(0,0,0,.3); }
+    .play-button {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(196,30,58,.92);
+      box-shadow: 0 4px 14px rgba(0,0,0,.35);
+      display: flex; align-items: center; justify-content: center;
     }
+    .play-button::after {
+      content: ''; margin-left: 3px;
+      border-style: solid; border-width: 8px 0 8px 13px;
+      border-color: transparent transparent transparent #fff;
+    }
+    .watch-link {
+      display: inline-block; margin-top: 12px;
+      font-family: 'Inter', sans-serif; font-size: .78rem;
+      color: var(--ink-mid); text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,.2);
+      transition: color .2s;
+    }
+    .watch-link:hover { color: var(--ink); }
 
     /* ── Petals ── */
     .petal {
@@ -157,54 +179,66 @@
     <p class="chakra-label">1 · Root</p>
     <h2 class="chakra-title">Muladhara</h2>
     <p class="chakra-devanagari">मूलाधार चक्र</p>
-    <div class="video-embed">
-      <iframe src="https://www.youtube.com/embed/jGsN6Tu-b08" title="Muladhara Chakra" allowfullscreen></iframe>
-    </div>
+    <a class="video-card" href="https://youtu.be/jGsN6Tu-b08" target="_blank" rel="noopener">
+      <img src="https://img.youtube.com/vi/jGsN6Tu-b08/hqdefault.jpg" alt="Muladhara Chakra"/>
+      <span class="play-overlay"><span class="play-button"></span></span>
+    </a>
+    <a class="watch-link" href="https://youtu.be/jGsN6Tu-b08" target="_blank" rel="noopener">Watch on YouTube ↗</a>
   </div>
 
   <div class="chakra-card" id="chakra-2">
     <p class="chakra-label">2 · Sacral</p>
     <h2 class="chakra-title">Svadhisthana</h2>
     <p class="chakra-devanagari">स्वाधिष्ठान चक्र</p>
-    <div class="video-embed">
-      <iframe src="https://www.youtube.com/embed/9rjDLwKKAJU" title="Svadhisthana Chakra" allowfullscreen></iframe>
-    </div>
+    <a class="video-card" href="https://youtu.be/9rjDLwKKAJU" target="_blank" rel="noopener">
+      <img src="https://img.youtube.com/vi/9rjDLwKKAJU/hqdefault.jpg" alt="Svadhisthana Chakra"/>
+      <span class="play-overlay"><span class="play-button"></span></span>
+    </a>
+    <a class="watch-link" href="https://youtu.be/9rjDLwKKAJU" target="_blank" rel="noopener">Watch on YouTube ↗</a>
   </div>
 
   <div class="chakra-card" id="chakra-3">
     <p class="chakra-label">3 · Solar Plexus</p>
     <h2 class="chakra-title">Manipura</h2>
     <p class="chakra-devanagari">मणिपुर चक्र</p>
-    <div class="video-embed">
-      <iframe src="https://www.youtube.com/embed/4QNw0FsrGew" title="Manipura Chakra" allowfullscreen></iframe>
-    </div>
+    <a class="video-card" href="https://youtu.be/4QNw0FsrGew" target="_blank" rel="noopener">
+      <img src="https://img.youtube.com/vi/4QNw0FsrGew/hqdefault.jpg" alt="Manipura Chakra"/>
+      <span class="play-overlay"><span class="play-button"></span></span>
+    </a>
+    <a class="watch-link" href="https://youtu.be/4QNw0FsrGew" target="_blank" rel="noopener">Watch on YouTube ↗</a>
   </div>
 
   <div class="chakra-card" id="chakra-4">
     <p class="chakra-label">4 · Heart</p>
     <h2 class="chakra-title">Anahata</h2>
     <p class="chakra-devanagari">अनाहत चक्र</p>
-    <div class="video-embed">
-      <iframe src="https://www.youtube.com/embed/KVd7I5Uls6A" title="Anahata Chakra" allowfullscreen></iframe>
-    </div>
+    <a class="video-card" href="https://youtu.be/KVd7I5Uls6A" target="_blank" rel="noopener">
+      <img src="https://img.youtube.com/vi/KVd7I5Uls6A/hqdefault.jpg" alt="Anahata Chakra"/>
+      <span class="play-overlay"><span class="play-button"></span></span>
+    </a>
+    <a class="watch-link" href="https://youtu.be/KVd7I5Uls6A" target="_blank" rel="noopener">Watch on YouTube ↗</a>
   </div>
 
   <div class="chakra-card" id="chakra-5">
     <p class="chakra-label">5 · Throat</p>
     <h2 class="chakra-title">Vishuddha</h2>
     <p class="chakra-devanagari">विशुद्धि चक्र</p>
-    <div class="video-embed">
-      <iframe src="https://www.youtube.com/embed/Jlnd4lzcCVk" title="Vishuddha Chakra" allowfullscreen></iframe>
-    </div>
+    <a class="video-card" href="https://youtu.be/Jlnd4lzcCVk" target="_blank" rel="noopener">
+      <img src="https://img.youtube.com/vi/Jlnd4lzcCVk/hqdefault.jpg" alt="Vishuddha Chakra"/>
+      <span class="play-overlay"><span class="play-button"></span></span>
+    </a>
+    <a class="watch-link" href="https://youtu.be/Jlnd4lzcCVk" target="_blank" rel="noopener">Watch on YouTube ↗</a>
   </div>
 
   <div class="chakra-card" id="chakra-6">
     <p class="chakra-label">6 · Third Eye</p>
     <h2 class="chakra-title">Ajna</h2>
     <p class="chakra-devanagari">आज्ञा चक्र</p>
-    <div class="video-embed">
-      <iframe src="https://www.youtube.com/embed/8RhQ0X78lf4" title="Ajna Chakra" allowfullscreen></iframe>
-    </div>
+    <a class="video-card" href="https://youtu.be/8RhQ0X78lf4" target="_blank" rel="noopener">
+      <img src="https://img.youtube.com/vi/8RhQ0X78lf4/hqdefault.jpg" alt="Ajna Chakra"/>
+      <span class="play-overlay"><span class="play-button"></span></span>
+    </a>
+    <a class="watch-link" href="https://youtu.be/8RhQ0X78lf4" target="_blank" rel="noopener">Watch on YouTube ↗</a>
   </div>
 
 </div>
