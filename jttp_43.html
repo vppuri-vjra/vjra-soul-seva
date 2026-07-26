@@ -95,6 +95,26 @@
     }
     section + section { margin-top: 60px; }
 
+    /* ── Table of contents ── */
+    .toc {
+      display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap;
+      margin-bottom: 48px; padding-bottom: 24px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .toc-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .72rem; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--ink-light);
+    }
+    .toc a {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.02rem;
+      color: var(--ink-mid); text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,.2);
+      padding-bottom: 1px; transition: color .2s, border-color .2s;
+    }
+    .toc a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
     /* ── Watch button (reused in schedule tables' Video column) ── */
     .watch-btn {
       display: inline-flex; align-items: center; gap: 6px;
@@ -203,6 +223,13 @@
   <h1 class="page-title">JTTP-43 — Journey to True Path</h1>
   <p class="page-sub">08 Jul – 05 Aug: the meditation practice and topic sessions of the program, including the seven chakras, highlighted below.</p>
 
+  <!-- ── Table of Contents ── -->
+  <nav class="toc">
+    <span class="toc-label">On This Page</span>
+    <a href="#meditation-schedule">Meditation Schedule</a>
+    <a href="#topic-videos">Special Wisdom Topics</a>
+  </nav>
+
   <!-- ── Meditation Schedule ── -->
   <section id="meditation-schedule">
     <p class="section-label">JTTP-43 · Daily Schedule</p>
@@ -248,10 +275,10 @@
     </div>
   </section>
 
-  <!-- ── Topic Videos ── -->
+  <!-- ── Special Wisdom Topics ── -->
   <section id="topic-videos">
     <p class="section-label">JTTP-43 · Standalone</p>
-    <h2 class="section-heading">Topic Videos</h2>
+    <h2 class="section-heading">Special Wisdom Topics</h2>
     <p class="section-sub">Dedicated single-topic teaching videos, separate from the day-by-day full session recordings above — not every one of these maps to a single day.</p>
     <div class="schedule-table-wrap">
       <table class="schedule-table">
