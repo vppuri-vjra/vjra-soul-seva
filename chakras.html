@@ -56,7 +56,7 @@
 
     /* ── Page ── */
     .page-wrap {
-      max-width: 820px; margin: 0 auto;
+      max-width: 900px; margin: 0 auto;
       padding: 72px 40px 90px;
       position: relative; z-index: 1;
     }
@@ -71,8 +71,29 @@
       font-family: 'Cormorant Garamond', serif;
       font-style: italic; font-size: 1rem;
       color: var(--ink-light); margin-bottom: 48px;
-      max-width: 640px; line-height: 1.6;
+      max-width: 680px; line-height: 1.6;
     }
+    .page-sub a { color: var(--ink-mid); }
+
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .72rem; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--ink-light);
+      margin: 0 0 8px;
+    }
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: 1.9rem; color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .section-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: .92rem;
+      color: var(--ink-light); margin-bottom: 22px;
+      max-width: 680px; line-height: 1.6;
+    }
+    section + section { margin-top: 60px; }
 
     /* ── Chakra table ── */
     .chakra-table-wrap {
@@ -130,6 +151,46 @@
     }
     .watch-btn:hover { background: var(--accent); color: #fff; }
 
+    /* ── Schedule tables ── */
+    .schedule-table-wrap {
+      background: #fff; border-radius: 14px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.06);
+      overflow-x: auto;
+    }
+    .schedule-table { width: 100%; border-collapse: collapse; min-width: 560px; }
+    .schedule-table th {
+      font-family: 'Inter', sans-serif;
+      font-size: .68rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--ink-light); text-align: left;
+      padding: 14px 18px; border-bottom: 1px solid rgba(0,0,0,.08);
+      white-space: nowrap;
+    }
+    .schedule-table td {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .98rem; color: var(--ink-mid);
+      padding: 11px 18px; border-top: 1px solid rgba(0,0,0,.05);
+      vertical-align: top;
+    }
+    .schedule-table tr:first-child td { border-top: none; }
+    .schedule-table tr:hover td { background: rgba(0,0,0,.015); }
+    .schedule-table .day-num {
+      font-family: 'Inter', sans-serif; font-size: .78rem;
+      color: var(--ink-light); white-space: nowrap;
+    }
+    .schedule-table .day-date {
+      font-family: 'Inter', sans-serif; font-size: .82rem;
+      color: var(--ink-light); white-space: nowrap;
+    }
+    .schedule-table .topic-name { color: var(--ink); }
+    .schedule-table .topic-name a {
+      color: var(--red-soft); text-decoration: none;
+      border-bottom: 1px solid rgba(224,80,96,.35);
+    }
+    .schedule-table .topic-name a:hover { border-bottom-color: var(--red-soft); }
+    .schedule-table .by-name { color: var(--ink-light); font-style: italic; }
+    .chakra-row td { background: rgba(224,80,96,.05); }
+
     /* ── Petals ── */
     .petal {
       position: fixed;
@@ -139,7 +200,7 @@
     }
 
     /* ── Wave footer ── */
-    .wave-footer { overflow: hidden; margin-top: 50px; }
+    .wave-footer { overflow: hidden; margin-top: 60px; }
 
     @media (max-width: 700px) {
       .page-wrap { padding: 48px 20px 60px; }
@@ -173,85 +234,178 @@
 <div class="page-wrap">
 
   <h1 class="page-title">The Chakra System</h1>
-  <p class="page-sub">Seven centers of energy, each with its own seed sound, quality, and practice.</p>
+  <p class="page-sub">Seven centers of energy, each with its own seed sound, quality, and practice — taught as part of JTTP-43, the "Journey to True Path" program (08 Jul – 05 Aug).</p>
 
-  <div class="chakra-table-wrap">
-    <table class="chakra-table">
-      <tbody>
+  <!-- ── Chakras ── -->
+  <section id="chakras">
+    <div class="chakra-table-wrap">
+      <table class="chakra-table">
+        <tbody>
 
-        <tr id="chakra-1" style="--accent:#b23a48">
-          <td class="num">01</td>
-          <td class="name-cell">
-            <div class="name">Muladhara</div>
-            <div class="deva">मूलाधार चक्र</div>
-          </td>
-          <td class="label-cell">Root</td>
-          <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/jGsN6Tu-b08" target="_blank" rel="noopener">Watch →</a></td>
-        </tr>
+          <tr id="chakra-1" style="--accent:#b23a48">
+            <td class="num">01</td>
+            <td class="name-cell">
+              <div class="name">Muladhara</div>
+              <div class="deva">मूलाधार चक्र</div>
+            </td>
+            <td class="label-cell">Root</td>
+            <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/jGsN6Tu-b08" target="_blank" rel="noopener">Watch →</a></td>
+          </tr>
 
-        <tr id="chakra-2" style="--accent:#c1783a">
-          <td class="num">02</td>
-          <td class="name-cell">
-            <div class="name">Svadhisthana</div>
-            <div class="deva">स्वाधिष्ठान चक्र</div>
-          </td>
-          <td class="label-cell">Sacral</td>
-          <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/9rjDLwKKAJU" target="_blank" rel="noopener">Watch →</a></td>
-        </tr>
+          <tr id="chakra-2" style="--accent:#c1783a">
+            <td class="num">02</td>
+            <td class="name-cell">
+              <div class="name">Svadhisthana</div>
+              <div class="deva">स्वाधिष्ठान चक्र</div>
+            </td>
+            <td class="label-cell">Sacral</td>
+            <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/9rjDLwKKAJU" target="_blank" rel="noopener">Watch →</a></td>
+          </tr>
 
-        <tr id="chakra-3" style="--accent:#b89232">
-          <td class="num">03</td>
-          <td class="name-cell">
-            <div class="name">Manipura</div>
-            <div class="deva">मणिपुर चक्र</div>
-          </td>
-          <td class="label-cell">Solar Plexus</td>
-          <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/4QNw0FsrGew" target="_blank" rel="noopener">Watch →</a></td>
-        </tr>
+          <tr id="chakra-3" style="--accent:#b89232">
+            <td class="num">03</td>
+            <td class="name-cell">
+              <div class="name">Manipura</div>
+              <div class="deva">मणिपुर चक्र</div>
+            </td>
+            <td class="label-cell">Solar Plexus</td>
+            <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/4QNw0FsrGew" target="_blank" rel="noopener">Watch →</a></td>
+          </tr>
 
-        <tr id="chakra-4" style="--accent:#4f8f6b">
-          <td class="num">04</td>
-          <td class="name-cell">
-            <div class="name">Anahata</div>
-            <div class="deva">अनाहत चक्र</div>
-          </td>
-          <td class="label-cell">Heart</td>
-          <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/KVd7I5Uls6A" target="_blank" rel="noopener">Watch →</a></td>
-        </tr>
+          <tr id="chakra-4" style="--accent:#4f8f6b">
+            <td class="num">04</td>
+            <td class="name-cell">
+              <div class="name">Anahata</div>
+              <div class="deva">अनाहत चक्र</div>
+            </td>
+            <td class="label-cell">Heart</td>
+            <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/KVd7I5Uls6A" target="_blank" rel="noopener">Watch →</a></td>
+          </tr>
 
-        <tr id="chakra-5" style="--accent:#3f7ca6">
-          <td class="num">05</td>
-          <td class="name-cell">
-            <div class="name">Vishuddha</div>
-            <div class="deva">विशुद्धि चक्र</div>
-          </td>
-          <td class="label-cell">Throat</td>
-          <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/Jlnd4lzcCVk" target="_blank" rel="noopener">Watch →</a></td>
-        </tr>
+          <tr id="chakra-5" style="--accent:#3f7ca6">
+            <td class="num">05</td>
+            <td class="name-cell">
+              <div class="name">Vishuddha</div>
+              <div class="deva">विशुद्धि चक्र</div>
+            </td>
+            <td class="label-cell">Throat</td>
+            <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/Jlnd4lzcCVk" target="_blank" rel="noopener">Watch →</a></td>
+          </tr>
 
-        <tr id="chakra-6" style="--accent:#6b5b95">
-          <td class="num">06</td>
-          <td class="name-cell">
-            <div class="name">Ajna</div>
-            <div class="deva">आज्ञा चक्र</div>
-          </td>
-          <td class="label-cell">Third Eye</td>
-          <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/8RhQ0X78lf4" target="_blank" rel="noopener">Watch →</a></td>
-        </tr>
+          <tr id="chakra-6" style="--accent:#6b5b95">
+            <td class="num">06</td>
+            <td class="name-cell">
+              <div class="name">Ajna</div>
+              <div class="deva">आज्ञा चक्र</div>
+            </td>
+            <td class="label-cell">Third Eye</td>
+            <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/8RhQ0X78lf4" target="_blank" rel="noopener">Watch →</a></td>
+          </tr>
 
-        <tr id="chakra-7" style="--accent:#8a5a99">
-          <td class="num">07</td>
-          <td class="name-cell">
-            <div class="name">Sahasrara</div>
-            <div class="deva">सहस्रार चक्र</div>
-          </td>
-          <td class="label-cell">Crown</td>
-          <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/mW7J9hGhP2Q" target="_blank" rel="noopener">Watch →</a></td>
-        </tr>
+          <tr id="chakra-7" style="--accent:#8a5a99">
+            <td class="num">07</td>
+            <td class="name-cell">
+              <div class="name">Sahasrara</div>
+              <div class="deva">सहस्रार चक्र</div>
+            </td>
+            <td class="label-cell">Crown</td>
+            <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/mW7J9hGhP2Q" target="_blank" rel="noopener">Watch →</a></td>
+          </tr>
 
-      </tbody>
-    </table>
-  </div>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── Meditation Schedule ── -->
+  <section id="meditation-schedule">
+    <p class="section-label">JTTP-43 · Track 1</p>
+    <h2 class="section-heading">Meditation Schedule</h2>
+    <p class="section-sub">The seven chakra rows below (highlighted) are what the table above is drawn from.</p>
+    <div class="schedule-table-wrap">
+      <table class="schedule-table">
+        <thead>
+          <tr><th>#</th><th>Date</th><th>Topic</th><th>Meditation By</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="day-num">1</td><td class="day-date">08 Jul</td><td class="topic-name">Anapanasati Meditation</td><td class="by-name">PV Rama Raju</td></tr>
+          <tr><td class="day-num">2</td><td class="day-date">09 Jul</td><td class="topic-name">Anapanasati Meditation</td><td class="by-name">Asha Nakrani</td></tr>
+          <tr><td class="day-num">3</td><td class="day-date">10 Jul</td><td class="topic-name">Anapanasati Meditation</td><td class="by-name">Bhavina Desai</td></tr>
+          <tr><td class="day-num">4</td><td class="day-date">11 Jul</td><td class="topic-name">Anapanasati Meditation</td><td class="by-name">Manisha Vedant</td></tr>
+          <tr><td class="day-num">5</td><td class="day-date">12 Jul</td><td class="topic-name">Anapanasati Meditation</td><td class="by-name">PV Rama Raju</td></tr>
+          <tr><td class="day-num">6</td><td class="day-date">13 Jul</td><td class="topic-name">Anapanasati Meditation</td><td class="by-name">Pragya Tomar</td></tr>
+          <tr><td class="day-num">7</td><td class="day-date">14 Jul</td><td class="topic-name">Astral Healing &amp; Surgeries</td><td class="by-name">Balakrishna &amp; Shampa Mukherjee</td></tr>
+          <tr class="chakra-row"><td class="day-num">8</td><td class="day-date">15 Jul</td><td class="topic-name"><a href="#chakra-1">Muladhar Chakra Process</a></td><td class="by-name">Vandana Jain</td></tr>
+          <tr class="chakra-row"><td class="day-num">9</td><td class="day-date">16 Jul</td><td class="topic-name"><a href="#chakra-2">Swadhisthan Chakra Process</a></td><td class="by-name">Asha Nakrani</td></tr>
+          <tr class="chakra-row"><td class="day-num">10</td><td class="day-date">17 Jul</td><td class="topic-name"><a href="#chakra-3">Manipura Chakra Process</a></td><td class="by-name">Mansi</td></tr>
+          <tr class="chakra-row"><td class="day-num">11</td><td class="day-date">18 Jul</td><td class="topic-name"><a href="#chakra-4">Anahat Chakra Process</a></td><td class="by-name">Kanchan &amp; Sachin Gupta</td></tr>
+          <tr class="chakra-row"><td class="day-num">12</td><td class="day-date">19 Jul</td><td class="topic-name"><a href="#chakra-5">Vishuddha Chakra Process</a></td><td class="by-name">Dipti Tak</td></tr>
+          <tr class="chakra-row"><td class="day-num">13</td><td class="day-date">20 Jul</td><td class="topic-name"><a href="#chakra-6">Agna Chakra Process</a></td><td class="by-name">Devyani</td></tr>
+          <tr class="chakra-row"><td class="day-num">14</td><td class="day-date">21 Jul</td><td class="topic-name"><a href="#chakra-7">Sahasrar Process</a></td><td class="by-name">Asha Nakrani</td></tr>
+          <tr><td class="day-num">15</td><td class="day-date">22 Jul</td><td class="topic-name">Physical Body I</td><td class="by-name">Dr. Khushali</td></tr>
+          <tr><td class="day-num">16</td><td class="day-date">23 Jul</td><td class="topic-name">Physical Body II</td><td class="by-name">Ragini Selvaraj</td></tr>
+          <tr><td class="day-num">17</td><td class="day-date">24 Jul</td><td class="topic-name">Energy Body</td><td class="by-name">Shilpa Pradhan</td></tr>
+          <tr><td class="day-num">18</td><td class="day-date">25 Jul</td><td class="topic-name">Emotional Body</td><td class="by-name">Mansi</td></tr>
+          <tr><td class="day-num">19</td><td class="day-date">26 Jul</td><td class="topic-name">Mental Body I</td><td class="by-name">Ragini Selvaraj</td></tr>
+          <tr><td class="day-num">20</td><td class="day-date">27 Jul</td><td class="topic-name">Mental Body II</td><td class="by-name">Ragini Selvaraj</td></tr>
+          <tr><td class="day-num">21</td><td class="day-date">28 Jul</td><td class="topic-name">Mental Body III</td><td class="by-name">Shampa Mukherjee</td></tr>
+          <tr><td class="day-num">22</td><td class="day-date">29 Jul</td><td class="topic-name">Aura Cleansing</td><td class="by-name">Shampa Mukherjee</td></tr>
+          <tr><td class="day-num">23</td><td class="day-date">30 Jul</td><td class="topic-name">Balancing Masculine &amp; Feminine</td><td class="by-name">Shampa Mukherjee</td></tr>
+          <tr><td class="day-num">24</td><td class="day-date">31 Jul</td><td class="topic-name">Self Love</td><td class="by-name">Bhavina Desai</td></tr>
+          <tr><td class="day-num">25</td><td class="day-date">01 Aug</td><td class="topic-name">Forgiveness</td><td class="by-name">Sarika Saraf</td></tr>
+          <tr><td class="day-num">26</td><td class="day-date">02 Aug</td><td class="topic-name">Guided Meditation</td><td class="by-name">Rupali Bose</td></tr>
+          <tr><td class="day-num">27</td><td class="day-date">03 Aug</td><td class="topic-name">Anapanasati Meditation</td><td class="by-name">Navpreet Kaur</td></tr>
+          <tr><td class="day-num">28</td><td class="day-date">04 Aug</td><td class="topic-name">Channelling Meditation</td><td class="by-name">Shampa Mukherjee</td></tr>
+          <tr><td class="day-num">29</td><td class="day-date">05 Aug</td><td class="topic-name">Anapanasati Meditation</td><td class="by-name">PV Rama Raju</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── Topic Schedule ── -->
+  <section id="topic-schedule">
+    <p class="section-label">JTTP-43 · Track 2</p>
+    <h2 class="section-heading">Topic Schedule</h2>
+    <p class="section-sub">Parallel lecture/discussion track, running alongside the meditation practice each day.</p>
+    <div class="schedule-table-wrap">
+      <table class="schedule-table">
+        <thead>
+          <tr><th>#</th><th>Date</th><th>Topic</th><th>Speaker</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="day-num">1</td><td class="day-date">08 Jul</td><td class="topic-name">Inauguration &amp; Introduction</td><td class="by-name">PV Rama Raju, Balakrishna, Madhavi, Malleswara Rao, Asha Nakrani</td></tr>
+          <tr><td class="day-num">2</td><td class="day-date">09 Jul</td><td class="topic-name">Experiences of Admins</td><td class="by-name">Asha Nakrani</td></tr>
+          <tr><td class="day-num">3</td><td class="day-date">10 Jul</td><td class="topic-name">Science of Meditation</td><td class="by-name">PV Rama Raju</td></tr>
+          <tr><td class="day-num">4</td><td class="day-date">11 Jul</td><td class="topic-name">Anapanasati — Subject of Patriji + 5 Finger Concept + 7 Experiences of Meditation</td><td class="by-name">Rachna Gupta</td></tr>
+          <tr><td class="day-num">5</td><td class="day-date">12 Jul</td><td class="topic-name">Health is Wealth</td><td class="by-name">Dr. Khushali</td></tr>
+          <tr><td class="day-num">6</td><td class="day-date">13 Jul</td><td class="topic-name">Basics of Meditation, Kriya Yog, Vipassana, Process of Astral Healing</td><td class="by-name">PV Rama Raju</td></tr>
+          <tr><td class="day-num">7</td><td class="day-date">14 Jul</td><td class="topic-name">Astral Healing &amp; Surgeries</td><td class="by-name">Balakrishna &amp; Shampa Mukherjee</td></tr>
+          <tr><td class="day-num">8</td><td class="day-date">15 Jul</td><td class="topic-name">6 Laws of Spiritual Science</td><td class="by-name">Dr. Ritu Jain</td></tr>
+          <tr><td class="day-num">9</td><td class="day-date">16 Jul</td><td class="topic-name">Forgiveness</td><td class="by-name">Sarika Saraf</td></tr>
+          <tr><td class="day-num">10</td><td class="day-date">17 Jul</td><td class="topic-name">Bhaja Govindam</td><td class="by-name">PV Rama Raju</td></tr>
+          <tr><td class="day-num">11</td><td class="day-date">18 Jul</td><td class="topic-name">Appo Deepo Bhava</td><td class="by-name">Alekhya Shastri</td></tr>
+          <tr><td class="day-num">12</td><td class="day-date">19 Jul</td><td class="topic-name">Brahmarshi Patriji &amp; PSS Movement</td><td class="by-name">Malleswara Rao</td></tr>
+          <tr><td class="day-num">13</td><td class="day-date">20 Jul</td><td class="topic-name">Nav Gyan Ratnas</td><td class="by-name">PV Rama Raju</td></tr>
+          <tr><td class="day-num">14</td><td class="day-date">21 Jul</td><td class="topic-name">Vaakshetra</td><td class="by-name">Suvarna Suvvi</td></tr>
+          <tr><td class="day-num">15</td><td class="day-date">22 Jul</td><td class="topic-name">Sankalp Shakthi</td><td class="by-name">Devyani</td></tr>
+          <tr><td class="day-num">16</td><td class="day-date">23 Jul</td><td class="topic-name">Patanjali Yog Shastra</td><td class="by-name">Dipti Tak</td></tr>
+          <tr><td class="day-num">17</td><td class="day-date">24 Jul</td><td class="topic-name">Yog Parampara</td><td class="by-name">Shilpa Pradhan</td></tr>
+          <tr><td class="day-num">18</td><td class="day-date">25 Jul</td><td class="topic-name">Ahimsa &amp; Vegetarianism</td><td class="by-name">Madhavi Nadella, Pragya Tomar</td></tr>
+          <tr><td class="day-num">19</td><td class="day-date">26 Jul</td><td class="topic-name">Spiritual Parenting</td><td class="by-name">Hitesh &amp; Shubhangi Vasisht</td></tr>
+          <tr><td class="day-num">20</td><td class="day-date">27 Jul</td><td class="topic-name">Pyramid Energy</td><td class="by-name">Dr. Khushali</td></tr>
+          <tr><td class="day-num">21</td><td class="day-date">28 Jul</td><td class="topic-name">Swadhyay, PMC Hindi, PDJ</td><td class="by-name">Alekhya, Amulya &amp; Vasanta Shastri</td></tr>
+          <tr><td class="day-num">22</td><td class="day-date">29 Jul</td><td class="topic-name">Spiritual Service</td><td class="by-name">Asha Nakrani</td></tr>
+          <tr><td class="day-num">23</td><td class="day-date">30 Jul</td><td class="topic-name">Life After Death</td><td class="by-name">PV Rama Raju</td></tr>
+          <tr><td class="day-num">24</td><td class="day-date">31 Jul</td><td class="topic-name">18 Adarsh Sutras</td><td class="by-name">Sweta Sharma</td></tr>
+          <tr><td class="day-num">25</td><td class="day-date">01 Aug</td><td class="topic-name">Youth &amp; Spirituality</td><td class="by-name">Anya, Aindree</td></tr>
+          <tr><td class="day-num">26</td><td class="day-date">02 Aug</td><td class="topic-name">Buddha Astang Marg</td><td class="by-name">Ragini Selvaraj</td></tr>
+          <tr><td class="day-num">27</td><td class="day-date">03 Aug</td><td class="topic-name">Mukti Marg</td><td class="by-name">Ragini Selvaraj</td></tr>
+          <tr><td class="day-num">28</td><td class="day-date">04 Aug</td><td class="topic-name">Four Agreements</td><td class="by-name">Alka Ramani</td></tr>
+          <tr><td class="day-num">29</td><td class="day-date">05 Aug</td><td class="topic-name">Closing &amp; Celebrations</td><td class="by-name">Asha Nakrani</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
 </div>
 
