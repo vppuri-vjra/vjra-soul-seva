@@ -56,7 +56,7 @@
 
     /* ── Page ── */
     .page-wrap {
-      max-width: 1160px; margin: 0 auto;
+      max-width: 820px; margin: 0 auto;
       padding: 72px 40px 90px;
       position: relative; z-index: 1;
     }
@@ -74,83 +74,58 @@
       max-width: 640px; line-height: 1.6;
     }
 
-    /* ── Chakra grid ── */
-    .chakra-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .chakra-card {
-      background: #fff;
-      border-radius: 14px;
-      overflow: hidden;
-      border-top: 4px solid var(--accent);
+    /* ── Chakra table ── */
+    .chakra-table-wrap {
+      background: #fff; border-radius: 14px;
       box-shadow: 0 6px 24px rgba(0,0,0,.06);
-      transition: transform .25s ease, box-shadow .25s ease;
+      overflow-x: auto;
+    }
+    .chakra-table { width: 100%; border-collapse: collapse; }
+    .chakra-table tr {
+      border-top: 1px solid rgba(0,0,0,.07);
+      transition: background .15s;
       scroll-margin-top: calc(var(--nav-h) + 16px);
     }
-    .chakra-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 40px rgba(0,0,0,.13);
+    .chakra-table tr:first-child { border-top: none; }
+    .chakra-table tr:hover { background: rgba(0,0,0,.02); }
+    .chakra-table td {
+      padding: 18px 20px;
+      vertical-align: middle;
+      white-space: nowrap;
     }
-
-    .card-thumb {
-      position: relative; display: block;
-      aspect-ratio: 16 / 9; overflow: hidden;
-      text-decoration: none;
+    .chakra-table td:first-child {
+      border-left: 4px solid var(--accent);
+      padding-left: 22px;
     }
-    .card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .card-thumb .play-overlay {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(0,0,0,.2); transition: background .2s;
-    }
-    .card-thumb:hover .play-overlay { background: rgba(0,0,0,.35); }
-    .play-button {
-      width: 48px; height: 48px; border-radius: 50%;
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 4px 14px rgba(0,0,0,.35);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .play-button::after {
-      content: ''; margin-left: 3px;
-      border-style: solid; border-width: 9px 0 9px 14px;
-      border-color: transparent transparent transparent var(--accent);
-    }
-    .card-number {
-      position: absolute; top: 12px; left: 12px;
+    .num {
       font-family: 'Inter', sans-serif;
-      font-size: .68rem; letter-spacing: .1em; font-weight: 500;
-      color: #fff; background: rgba(0,0,0,.45);
-      padding: 4px 11px; border-radius: 20px;
-      backdrop-filter: blur(3px);
+      font-size: .8rem; color: var(--ink-light);
+      letter-spacing: .04em;
     }
-
-    .card-body { padding: 22px 24px 24px; }
-    .chakra-label {
+    .name-cell { white-space: normal; width: 100%; }
+    .name-cell .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.3rem;
+      color: var(--ink); line-height: 1.2;
+    }
+    .name-cell .deva {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .95rem; color: var(--ink-light);
+      margin-top: 2px;
+    }
+    .label-cell {
       font-family: 'Inter', sans-serif;
-      font-size: .7rem; font-weight: 500;
-      letter-spacing: .14em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 8px;
+      font-size: .68rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent);
     }
-    .chakra-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-weight: 400;
-      font-size: 1.6rem; color: var(--ink);
-      margin-bottom: 2px; line-height: 1.2;
-    }
-    .chakra-devanagari {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem; color: var(--ink-light);
-      margin-bottom: 18px;
-    }
+    .watch-cell { text-align: right; }
     .watch-btn {
       display: inline-flex; align-items: center; gap: 6px;
       font-family: 'Inter', sans-serif; font-size: .76rem; font-weight: 500;
       letter-spacing: .02em; color: var(--accent);
       border: 1px solid var(--accent); border-radius: 999px;
-      padding: 8px 16px; text-decoration: none;
+      padding: 7px 15px; text-decoration: none;
       transition: background .2s, color .2s;
     }
     .watch-btn:hover { background: var(--accent); color: #fff; }
@@ -169,7 +144,8 @@
     @media (max-width: 700px) {
       .page-wrap { padding: 48px 20px 60px; }
       .nav-logo { position: static; transform: none; }
-      .chakra-grid { grid-template-columns: 1fr; }
+      .label-cell { display: none; }
+      .chakra-table td { padding: 14px 14px; }
     }
   </style>
 </head>
@@ -199,106 +175,82 @@
   <h1 class="page-title">The Chakra System</h1>
   <p class="page-sub">Seven centers of energy, each with its own seed sound, quality, and practice.</p>
 
-  <div class="chakra-grid">
+  <div class="chakra-table-wrap">
+    <table class="chakra-table">
+      <tbody>
 
-    <div class="chakra-card" id="chakra-1" style="--accent:#b23a48">
-      <a class="card-thumb" href="https://youtu.be/jGsN6Tu-b08" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/jGsN6Tu-b08/hqdefault.jpg" alt="Muladhara Chakra"/>
-        <span class="card-number">01 · ROOT</span>
-        <span class="play-overlay"><span class="play-button"></span></span>
-      </a>
-      <div class="card-body">
-        <p class="chakra-label">Root</p>
-        <h2 class="chakra-title">Muladhara</h2>
-        <p class="chakra-devanagari">मूलाधार चक्र</p>
-        <a class="watch-btn" href="https://youtu.be/jGsN6Tu-b08" target="_blank" rel="noopener">Watch on YouTube →</a>
-      </div>
-    </div>
+        <tr id="chakra-1" style="--accent:#b23a48">
+          <td class="num">01</td>
+          <td class="name-cell">
+            <div class="name">Muladhara</div>
+            <div class="deva">मूलाधार चक्र</div>
+          </td>
+          <td class="label-cell">Root</td>
+          <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/jGsN6Tu-b08" target="_blank" rel="noopener">Watch →</a></td>
+        </tr>
 
-    <div class="chakra-card" id="chakra-2" style="--accent:#c1783a">
-      <a class="card-thumb" href="https://youtu.be/9rjDLwKKAJU" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/9rjDLwKKAJU/hqdefault.jpg" alt="Svadhisthana Chakra"/>
-        <span class="card-number">02 · SACRAL</span>
-        <span class="play-overlay"><span class="play-button"></span></span>
-      </a>
-      <div class="card-body">
-        <p class="chakra-label">Sacral</p>
-        <h2 class="chakra-title">Svadhisthana</h2>
-        <p class="chakra-devanagari">स्वाधिष्ठान चक्र</p>
-        <a class="watch-btn" href="https://youtu.be/9rjDLwKKAJU" target="_blank" rel="noopener">Watch on YouTube →</a>
-      </div>
-    </div>
+        <tr id="chakra-2" style="--accent:#c1783a">
+          <td class="num">02</td>
+          <td class="name-cell">
+            <div class="name">Svadhisthana</div>
+            <div class="deva">स्वाधिष्ठान चक्र</div>
+          </td>
+          <td class="label-cell">Sacral</td>
+          <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/9rjDLwKKAJU" target="_blank" rel="noopener">Watch →</a></td>
+        </tr>
 
-    <div class="chakra-card" id="chakra-3" style="--accent:#b89232">
-      <a class="card-thumb" href="https://youtu.be/4QNw0FsrGew" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/4QNw0FsrGew/hqdefault.jpg" alt="Manipura Chakra"/>
-        <span class="card-number">03 · SOLAR PLEXUS</span>
-        <span class="play-overlay"><span class="play-button"></span></span>
-      </a>
-      <div class="card-body">
-        <p class="chakra-label">Solar Plexus</p>
-        <h2 class="chakra-title">Manipura</h2>
-        <p class="chakra-devanagari">मणिपुर चक्र</p>
-        <a class="watch-btn" href="https://youtu.be/4QNw0FsrGew" target="_blank" rel="noopener">Watch on YouTube →</a>
-      </div>
-    </div>
+        <tr id="chakra-3" style="--accent:#b89232">
+          <td class="num">03</td>
+          <td class="name-cell">
+            <div class="name">Manipura</div>
+            <div class="deva">मणिपुर चक्र</div>
+          </td>
+          <td class="label-cell">Solar Plexus</td>
+          <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/4QNw0FsrGew" target="_blank" rel="noopener">Watch →</a></td>
+        </tr>
 
-    <div class="chakra-card" id="chakra-4" style="--accent:#4f8f6b">
-      <a class="card-thumb" href="https://youtu.be/KVd7I5Uls6A" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/KVd7I5Uls6A/hqdefault.jpg" alt="Anahata Chakra"/>
-        <span class="card-number">04 · HEART</span>
-        <span class="play-overlay"><span class="play-button"></span></span>
-      </a>
-      <div class="card-body">
-        <p class="chakra-label">Heart</p>
-        <h2 class="chakra-title">Anahata</h2>
-        <p class="chakra-devanagari">अनाहत चक्र</p>
-        <a class="watch-btn" href="https://youtu.be/KVd7I5Uls6A" target="_blank" rel="noopener">Watch on YouTube →</a>
-      </div>
-    </div>
+        <tr id="chakra-4" style="--accent:#4f8f6b">
+          <td class="num">04</td>
+          <td class="name-cell">
+            <div class="name">Anahata</div>
+            <div class="deva">अनाहत चक्र</div>
+          </td>
+          <td class="label-cell">Heart</td>
+          <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/KVd7I5Uls6A" target="_blank" rel="noopener">Watch →</a></td>
+        </tr>
 
-    <div class="chakra-card" id="chakra-5" style="--accent:#3f7ca6">
-      <a class="card-thumb" href="https://youtu.be/Jlnd4lzcCVk" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/Jlnd4lzcCVk/hqdefault.jpg" alt="Vishuddha Chakra"/>
-        <span class="card-number">05 · THROAT</span>
-        <span class="play-overlay"><span class="play-button"></span></span>
-      </a>
-      <div class="card-body">
-        <p class="chakra-label">Throat</p>
-        <h2 class="chakra-title">Vishuddha</h2>
-        <p class="chakra-devanagari">विशुद्धि चक्र</p>
-        <a class="watch-btn" href="https://youtu.be/Jlnd4lzcCVk" target="_blank" rel="noopener">Watch on YouTube →</a>
-      </div>
-    </div>
+        <tr id="chakra-5" style="--accent:#3f7ca6">
+          <td class="num">05</td>
+          <td class="name-cell">
+            <div class="name">Vishuddha</div>
+            <div class="deva">विशुद्धि चक्र</div>
+          </td>
+          <td class="label-cell">Throat</td>
+          <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/Jlnd4lzcCVk" target="_blank" rel="noopener">Watch →</a></td>
+        </tr>
 
-    <div class="chakra-card" id="chakra-6" style="--accent:#6b5b95">
-      <a class="card-thumb" href="https://youtu.be/8RhQ0X78lf4" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/8RhQ0X78lf4/hqdefault.jpg" alt="Ajna Chakra"/>
-        <span class="card-number">06 · THIRD EYE</span>
-        <span class="play-overlay"><span class="play-button"></span></span>
-      </a>
-      <div class="card-body">
-        <p class="chakra-label">Third Eye</p>
-        <h2 class="chakra-title">Ajna</h2>
-        <p class="chakra-devanagari">आज्ञा चक्र</p>
-        <a class="watch-btn" href="https://youtu.be/8RhQ0X78lf4" target="_blank" rel="noopener">Watch on YouTube →</a>
-      </div>
-    </div>
+        <tr id="chakra-6" style="--accent:#6b5b95">
+          <td class="num">06</td>
+          <td class="name-cell">
+            <div class="name">Ajna</div>
+            <div class="deva">आज्ञा चक्र</div>
+          </td>
+          <td class="label-cell">Third Eye</td>
+          <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/8RhQ0X78lf4" target="_blank" rel="noopener">Watch →</a></td>
+        </tr>
 
-    <div class="chakra-card" id="chakra-7" style="--accent:#8a5a99">
-      <a class="card-thumb" href="https://youtu.be/mW7J9hGhP2Q" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/mW7J9hGhP2Q/hqdefault.jpg" alt="Sahasrara Chakra"/>
-        <span class="card-number">07 · CROWN</span>
-        <span class="play-overlay"><span class="play-button"></span></span>
-      </a>
-      <div class="card-body">
-        <p class="chakra-label">Crown</p>
-        <h2 class="chakra-title">Sahasrara</h2>
-        <p class="chakra-devanagari">सहस्रार चक्र</p>
-        <a class="watch-btn" href="https://youtu.be/mW7J9hGhP2Q" target="_blank" rel="noopener">Watch on YouTube →</a>
-      </div>
-    </div>
+        <tr id="chakra-7" style="--accent:#8a5a99">
+          <td class="num">07</td>
+          <td class="name-cell">
+            <div class="name">Sahasrara</div>
+            <div class="deva">सहस्रार चक्र</div>
+          </td>
+          <td class="label-cell">Crown</td>
+          <td class="watch-cell"><a class="watch-btn" href="https://youtu.be/mW7J9hGhP2Q" target="_blank" rel="noopener">Watch →</a></td>
+        </tr>
 
+      </tbody>
+    </table>
   </div>
 
 </div>
