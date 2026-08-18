@@ -119,16 +119,23 @@
     }
     .breath-practice-title {
       font-size: 1.65rem; font-style: italic; font-weight: 400;
-      margin-bottom: 24px;
+      margin-bottom: 12px;
+    }
+    .breath-practice-copy {
+      max-width: 710px; margin: 0 auto 24px;
+      color: var(--ink-mid); line-height: 1.7; font-size: .94rem;
+    }
+    .breath-practice-copy[lang="hi"] {
+      margin-top: -14px; font-family: 'Noto Serif Devanagari', 'Nirmala UI', serif;
     }
     .breath-cycle {
       display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto;
       align-items: center; gap: 14px;
     }
     .breath-step {
-      min-height: 112px; padding: 20px 12px;
+      min-height: 126px; padding: 20px 14px;
       border: 1px solid rgba(217,91,112,.24);
-      border-radius: 50%;
+      border-radius: 16px;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       background: radial-gradient(circle at 42% 35%, #fff 0%, #fbf1ed 72%);
@@ -142,9 +149,17 @@
       font-family: 'Noto Serif Devanagari', 'Nirmala UI', serif;
       font-size: .76rem; color: var(--ink-light);
     }
+    .breath-step small {
+      display: block; margin-top: 7px; line-height: 1.35;
+      font-family: 'Inter', sans-serif; font-size: .66rem; color: var(--ink-mid);
+    }
     .cycle-arrow {
       color: var(--rose); font-size: 1.35rem; opacity: .72;
       line-height: 1;
+    }
+    .return-cue {
+      margin: 18px 0 0; color: var(--rose-dark); font-style: italic;
+      font-size: .92rem;
     }
     .language-nav {
       display: flex; justify-content: center; gap: 10px; margin-bottom: 32px;
@@ -208,7 +223,7 @@
       .script-card { padding: 32px 24px 36px; border-radius: 14px; }
       .breath-practice { padding: 28px 20px 30px; border-radius: 14px; }
       .breath-cycle { grid-template-columns: 1fr; gap: 8px; }
-      .breath-step { width: 138px; min-height: 138px; margin: 0 auto; }
+      .breath-step { width: min(230px, 100%); min-height: 118px; margin: 0 auto; }
       .cycle-arrow { transform: rotate(90deg); }
       .cycle-arrow:last-child { transform: none; }
       .language-nav { position: sticky; top: calc(var(--nav-h) + 8px); z-index: 10; }
@@ -251,24 +266,30 @@
 
     <section class="breath-practice" aria-labelledby="breath-cycle-title">
       <p class="breath-practice-label">Mindfulness of Breathing</p>
-      <h2 class="breath-practice-title" id="breath-cycle-title">Ānāpānasati Breath Cycle</h2>
-      <div class="breath-cycle" aria-label="In-Breath, Out-Breath, Observe, then repeat">
+      <h2 class="breath-practice-title" id="breath-cycle-title">Ānāpānasati · Observe the Natural Breath</h2>
+      <p class="breath-practice-copy">Breathe calmly and let the breath remain natural. Do not hold, stop, deepen, or control it. Observe the breath as it happens. Whenever the mind wanders, notice the stray thought and gently return your attention to the natural rhythm of breathing. Relax and become the observer of the breath.</p>
+      <p class="breath-practice-copy" lang="hi">शांत होकर साँस लें और श्वास को स्वाभाविक रहने दें। उसे रोकें, थामें, गहरा करें या नियंत्रित न करें। जैसी साँस चल रही है, बस उसका अवलोकन करें। जब भी मन भटके, उस विचार को पहचानें और ध्यान को धीरे से फिर स्वाभाविक श्वास की लय पर ले आएँ। सहज रहें और श्वास के साक्षी बनें।</p>
+      <div class="breath-cycle" aria-label="Natural breath, observe, notice when the mind wanders, then return to the natural breath">
         <div class="breath-step">
-          <strong>In-Breath</strong>
-          <span lang="hi">साँस अंदर</span>
-        </div>
-        <span class="cycle-arrow" aria-hidden="true">→</span>
-        <div class="breath-step">
-          <strong>Out-Breath</strong>
-          <span lang="hi">साँस बाहर</span>
+          <strong>Natural Breath</strong>
+          <span lang="hi">स्वाभाविक श्वास</span>
+          <small>In and out · no effort<br><span lang="hi">साँस भीतर-बाहर · बिना प्रयास</span></small>
         </div>
         <span class="cycle-arrow" aria-hidden="true">→</span>
         <div class="breath-step">
           <strong>Observe</strong>
           <span lang="hi">अवलोकन करें</span>
+          <small>Simply notice the breath<br><span lang="hi">केवल श्वास को देखें</span></small>
+        </div>
+        <span class="cycle-arrow" aria-hidden="true">→</span>
+        <div class="breath-step">
+          <strong>Mind Wanders</strong>
+          <span lang="hi">मन भटके</span>
+          <small>Notice the stray thought<br><span lang="hi">भटकते विचार को पहचानें</span></small>
         </div>
         <span class="cycle-arrow" aria-label="Repeat">↺</span>
       </div>
+      <p class="return-cue">Return attention to the natural breath · <span lang="hi">ध्यान फिर से स्वाभाविक श्वास पर लाएँ</span></p>
     </section>
 
     <nav class="language-nav" aria-label="Choose script language">
