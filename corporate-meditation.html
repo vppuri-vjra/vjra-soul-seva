@@ -105,6 +105,47 @@
       max-width: 760px; margin: 0 auto 44px; text-align: center;
       font-size: 1.08rem; color: var(--ink-mid); line-height: 1.75;
     }
+    .breath-practice {
+      max-width: 820px; margin: 0 auto 48px;
+      background: rgba(255,255,255,.44);
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 18px; padding: 30px 34px 34px;
+      text-align: center;
+    }
+    .breath-practice-label {
+      font-family: 'Inter', sans-serif; font-size: .64rem;
+      letter-spacing: .17em; text-transform: uppercase;
+      color: var(--ink-light); margin-bottom: 5px;
+    }
+    .breath-practice-title {
+      font-size: 1.65rem; font-style: italic; font-weight: 400;
+      margin-bottom: 24px;
+    }
+    .breath-cycle {
+      display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto;
+      align-items: center; gap: 14px;
+    }
+    .breath-step {
+      min-height: 112px; padding: 20px 12px;
+      border: 1px solid rgba(217,91,112,.24);
+      border-radius: 50%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      background: radial-gradient(circle at 42% 35%, #fff 0%, #fbf1ed 72%);
+    }
+    .breath-step strong {
+      display: block; font-size: 1.15rem; font-style: italic;
+      font-weight: 400; color: var(--ink);
+    }
+    .breath-step span {
+      display: block; margin-top: 3px;
+      font-family: 'Noto Serif Devanagari', 'Nirmala UI', serif;
+      font-size: .76rem; color: var(--ink-light);
+    }
+    .cycle-arrow {
+      color: var(--rose); font-size: 1.35rem; opacity: .72;
+      line-height: 1;
+    }
     .language-nav {
       display: flex; justify-content: center; gap: 10px; margin-bottom: 32px;
     }
@@ -165,6 +206,11 @@
       .page-hero { padding: 58px 20px 52px; }
       .page-wrap { padding: 44px 18px 70px; }
       .script-card { padding: 32px 24px 36px; border-radius: 14px; }
+      .breath-practice { padding: 28px 20px 30px; border-radius: 14px; }
+      .breath-cycle { grid-template-columns: 1fr; gap: 8px; }
+      .breath-step { width: 138px; min-height: 138px; margin: 0 auto; }
+      .cycle-arrow { transform: rotate(90deg); }
+      .cycle-arrow:last-child { transform: none; }
       .language-nav { position: sticky; top: calc(var(--nav-h) + 8px); z-index: 10; }
       .language-nav a { background: var(--cream); }
     }
@@ -202,6 +248,28 @@
 
   <main class="page-wrap">
     <p class="intro">Designed for office-going professionals, this practice can be used between meetings, before a challenging conversation, or whenever the working day begins to feel overwhelming.</p>
+
+    <section class="breath-practice" aria-labelledby="breath-cycle-title">
+      <p class="breath-practice-label">Mindfulness of Breathing</p>
+      <h2 class="breath-practice-title" id="breath-cycle-title">Ānāpānasati Breath Cycle</h2>
+      <div class="breath-cycle" aria-label="In-Breath, Out-Breath, Observe, then repeat">
+        <div class="breath-step">
+          <strong>In-Breath</strong>
+          <span lang="hi">साँस अंदर</span>
+        </div>
+        <span class="cycle-arrow" aria-hidden="true">→</span>
+        <div class="breath-step">
+          <strong>Out-Breath</strong>
+          <span lang="hi">साँस बाहर</span>
+        </div>
+        <span class="cycle-arrow" aria-hidden="true">→</span>
+        <div class="breath-step">
+          <strong>Observe</strong>
+          <span lang="hi">अवलोकन करें</span>
+        </div>
+        <span class="cycle-arrow" aria-label="Repeat">↺</span>
+      </div>
+    </section>
 
     <nav class="language-nav" aria-label="Choose script language">
       <a href="#english">English</a>
