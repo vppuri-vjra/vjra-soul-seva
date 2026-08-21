@@ -218,7 +218,8 @@
     }
     .script-card summary {
       position: relative; cursor: pointer; list-style: none;
-      padding: 36px 82px 30px 42px;
+      min-height: 168px; padding: 24px 76px 22px 32px;
+      display: flex; flex-direction: column; justify-content: center;
     }
     .script-card summary::-webkit-details-marker { display: none; }
     .script-card summary::after {
@@ -227,7 +228,7 @@
       font-family: 'Inter', sans-serif; font-size: 1.55rem; font-weight: 300;
     }
     .script-card[open] summary::after { content: '−'; }
-    .script-card[open] summary { padding-bottom: 24px; }
+    .script-card[open] summary { min-height: 0; padding-bottom: 22px; }
     .script-card .script-body { padding: 0 42px 46px; }
     .script-card:target { outline: 2px solid rgba(217,91,112,.24); outline-offset: 4px; }
     .script-label {
@@ -277,7 +278,7 @@
       }
       .script-grid { grid-template-columns: 1fr; }
       .script-card { border-radius: 14px; }
-      .script-card summary { padding: 28px 62px 24px 24px; }
+      .script-card summary { min-height: 0; padding: 24px 58px 20px 24px; }
       .script-card summary::after { right: 24px; }
       .script-card .script-body { padding: 0 24px 36px; }
       .breath-practice { border-radius: 14px; }
