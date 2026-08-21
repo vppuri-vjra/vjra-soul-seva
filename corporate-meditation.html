@@ -545,10 +545,10 @@
       <div class="healing-content">
         <div class="healing-audio">
           <div class="healing-audio-copy">
-            <strong>Meditation Music · Looping</strong>
-            <span lang="hi">ध्यान संगीत · लगातार दोहराया जाएगा</span>
+            <strong>Meditation Music · Continuous Loop</strong>
+            <span lang="hi">ध्यान संगीत · 1:58 के बाद अपने-आप फिर चलेगा</span>
           </div>
-          <audio controls loop preload="metadata" aria-label="Meditation music for the 30-minute inner healing practice">
+          <audio controls loop preload="metadata" onended="this.currentTime=0; this.play()" aria-label="Meditation music for the 30-minute inner healing practice; repeats continuously">
             <source src="assets/audio/inner-healing-meditation.mp3" type="audio/mpeg">
             Your browser does not support the audio player.
           </audio>
