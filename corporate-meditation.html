@@ -218,7 +218,7 @@
     }
     .script-card summary {
       position: relative; cursor: pointer; list-style: none;
-      min-height: 168px; padding: 24px 76px 22px 32px;
+      min-height: 118px; padding: 18px 64px 16px 26px;
       display: flex; flex-direction: column; justify-content: center;
     }
     .script-card summary::-webkit-details-marker { display: none; }
@@ -236,7 +236,7 @@
       letter-spacing: .17em; text-transform: uppercase;
       color: var(--ink-light); margin-bottom: 10px;
     }
-    .script-title { font-size: clamp(1.45rem, 3vw, 2rem); font-style: italic; font-weight: 400; }
+    .script-title { font-size: clamp(1.25rem, 2.3vw, 1.68rem); font-style: italic; font-weight: 400; }
     .script-body { font-size: 1.08rem; color: var(--ink-mid); line-height: 1.82; }
     .script-body p { margin-bottom: 17px; }
     .script-body p:last-child { margin-bottom: 0; }
@@ -249,6 +249,49 @@
       font-family: 'Noto Serif Devanagari', 'Nirmala UI', serif;
     }
     .hindi .script-body { font-size: 1rem; line-height: 1.95; }
+    .healing-meditation {
+      margin-top: 28px; background: rgba(255,255,255,.5);
+      border: 1px solid rgba(0,0,0,.08);
+      border-top: 2px solid rgba(217,91,112,.42);
+      border-radius: 18px; box-shadow: 0 14px 36px rgba(61,45,34,.05);
+    }
+    .healing-meditation > summary {
+      position: relative; cursor: pointer; list-style: none;
+      min-height: 132px; padding: 28px 76px 24px 34px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .healing-meditation > summary::-webkit-details-marker { display: none; }
+    .healing-meditation > summary::after {
+      content: '+'; position: absolute; right: 34px; top: 50%;
+      transform: translateY(-50%); color: var(--rose);
+      font-family: 'Inter', sans-serif; font-size: 1.55rem; font-weight: 300;
+    }
+    .healing-meditation[open] > summary::after { content: '−'; }
+    .healing-title { font-size: clamp(1.65rem, 3vw, 2.35rem); font-style: italic; font-weight: 400; }
+    .healing-content { padding: 0 34px 40px; }
+    .healing-phase {
+      display: grid; grid-template-columns: minmax(180px, .58fr) minmax(0, 2fr);
+      gap: 30px; padding: 32px 0; border-top: 1px solid rgba(0,0,0,.09);
+    }
+    .phase-heading h3 { font-size: 1.3rem; font-style: italic; font-weight: 400; line-height: 1.25; }
+    .phase-time {
+      display: block; margin-top: 8px; color: var(--rose);
+      font-family: 'Inter', sans-serif; font-size: .68rem; letter-spacing: .1em;
+    }
+    .phase-languages { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+    .phase-copy { color: var(--ink-mid); font-size: .96rem; line-height: 1.82; }
+    .phase-copy[lang="hi"] {
+      font-family: 'Noto Serif Devanagari', 'Nirmala UI', serif;
+      border-left: 1px solid rgba(0,0,0,.09); padding-left: 26px;
+      font-size: .9rem; line-height: 1.95;
+    }
+    .phase-language-label {
+      margin-bottom: 12px; color: var(--ink-light);
+      font-family: 'Inter', sans-serif; font-size: .62rem;
+      letter-spacing: .14em; text-transform: uppercase;
+    }
+    .phase-copy p { margin-bottom: 16px; }
+    .phase-copy p:last-child { margin-bottom: 0; }
     .practice-note {
       max-width: 760px; margin: 42px auto 0;
       border-top: 1px solid rgba(0,0,0,.08); padding-top: 24px;
@@ -281,6 +324,16 @@
       .script-card summary { min-height: 0; padding: 24px 58px 20px 24px; }
       .script-card summary::after { right: 24px; }
       .script-card .script-body { padding: 0 24px 36px; }
+      .healing-meditation { border-radius: 14px; }
+      .healing-meditation > summary { min-height: 0; padding: 24px 58px 20px 24px; }
+      .healing-meditation > summary::after { right: 24px; }
+      .healing-content { padding: 0 24px 32px; }
+      .healing-phase { grid-template-columns: 1fr; gap: 14px; padding: 26px 0; }
+      .phase-languages { grid-template-columns: 1fr; gap: 20px; }
+      .phase-copy[lang="hi"] {
+        border-left: 0; border-top: 1px solid rgba(0,0,0,.09);
+        padding: 20px 0 0;
+      }
       .breath-practice { border-radius: 14px; }
       .breath-practice summary { padding: 24px 58px 20px 20px; }
       .breath-practice summary::after { right: 20px; }
@@ -465,6 +518,128 @@
         </div>
       </details>
     </div>
+
+    <details class="healing-meditation">
+      <summary>
+        <p class="script-label">Guided Practice · <span lang="hi">निर्देशित ध्यान</span></p>
+        <h2 class="healing-title">30-Minute Inner Healing Meditation · <span lang="hi">30 मिनट का आंतरिक उपचार ध्यान</span></h2>
+      </summary>
+
+      <div class="healing-content">
+        <section class="healing-phase">
+          <div class="phase-heading">
+            <h3>Introduction and Preparation</h3>
+            <span class="phase-time">0:00–1:00</span>
+          </div>
+          <div class="phase-languages">
+          <div class="phase-copy" lang="en">
+            <p class="phase-language-label">English</p>
+            <p>Let us sit comfortably for meditation and settle joyfully within ourselves. Sit cross-legged, or sit as I am sitting, in a comfortable chair.</p>
+            <p>Join your hands together and allow your eyes to close gently.</p>
+            <p>After closing your eyes, let the body become loose and relaxed for one minute—especially the shoulders, neck, both arms, and calf muscles.</p>
+          </div>
+          <div class="phase-copy" lang="hi">
+            <p class="phase-language-label">हिन्दी</p>
+            <p>आइए हम ध्यान के लिए आराम से बैठ जाएँ। अपने भीतर, अपने आप में हम मस्त हो जाएँ। आलथी-पालथी या जिस तरह से मैं बैठा हूँ, आरामदायक कुर्सी पर हम बैठ जाएँ।</p>
+            <p>दोनों हाथों को आपस में मिला लें और अपनी आँखों को धीरे से बंद हो जाने दें।</p>
+            <p>आँखों को बंद करने के बाद हम अपने शरीर को शिथिल छोड़ें, रिलैक्स करें—एक मिनट के लिए, खासकर कंधे, गर्दन, दोनों बाजू और अपनी काफ मसल्स को हम ढीला छोड़ते हैं।</p>
+          </div>
+          </div>
+        </section>
+
+        <section class="healing-phase">
+          <div class="phase-heading">
+            <h3>Anapanasati Meditation Technique</h3>
+            <span class="phase-time">1:00–3:07</span>
+          </div>
+          <div class="phase-languages">
+          <div class="phase-copy" lang="en">
+            <p class="phase-language-label">English</p>
+            <p>In meditation, we allow the mind to become empty. For this, place attention on the natural breath—the breath coming in and going out. With the eyes closed, connect with each incoming and outgoing breath.</p>
+            <p>Feel the breath as it enters and feel it as it leaves. Do not make any deliberate change to the breathing.</p>
+            <p>Simply feel the breath that is happening by itself. As the breath enters, notice the movement in the abdomen. Keep the entire body loose.</p>
+            <p>Let the whole body be peaceful and relaxed while attention remains on the incoming and outgoing breath.</p>
+          </div>
+          <div class="phase-copy" lang="hi">
+            <p class="phase-language-label">हिन्दी</p>
+            <p>ध्यान में हम अपने मन को शून्य बनाते हैं और उसके लिए हम अपनी प्राकृतिक साँसों पर—अंदर आती, बाहर जाती प्राकृतिक साँसों पर—ध्यान लगाते हैं। आँखें बंद करें और अंदर आती, बाहर जाती साँसों से जुड़ जाएँ।</p>
+            <p>साँस अंदर आती है, उसे महसूस करें; श्वास बाहर जाती है, उसे फील करें। अपनी तरफ से साँसों में कोई बदलाव नहीं करना है।</p>
+            <p>जो साँसें खुद-ब-खुद चल रही हैं, उन्हें फील करना है। साँसों के अंदर आने पर पेट में जो मूवमेंट या हलचल होती है, उसे महसूस करें। अपने पूरे शरीर को ढीला रखें।</p>
+            <p>पूरा शरीर शांत, शिथिल और साँसों पर ध्यान। अंदर आती, बाहर जाती साँसों पर ध्यान देते जाएँ।</p>
+          </div>
+          </div>
+        </section>
+
+        <section class="healing-phase">
+          <div class="phase-heading">
+            <h3>Deepening the Meditation</h3>
+            <span class="phase-time">3:31–14:41</span>
+          </div>
+          <div class="phase-languages">
+          <div class="phase-copy" lang="en">
+            <p class="phase-language-label">English</p>
+            <p>As your attention on the breath deepens, the mind becomes quieter and increasingly empty.</p>
+            <p>Attend to every breath. Feel each breath and become one with its movement. Remain aware and also notice the interval between breaths.</p>
+            <p>Feel the gap after one breath leaves and before the next breath enters. “Dhyanam Sharanam Gacchami”—I take refuge in meditation. Remain conscious, attentive, and alert to the breath.</p>
+            <p>Visualize divine or cosmic energy descending through the sushumna nadi. If you experience sensations of energy, observe the descending and flowing energy. Practise Anapanasati—awareness of breath—and Kayanupassana—awareness of the body. Let the mind remain undisturbed.</p>
+            <p>If the mind wanders, tell yourself, “I am meditating now,” and gently return to the breath. Once again, feel each inhalation and exhalation.</p>
+          </div>
+          <div class="phase-copy" lang="hi">
+            <p class="phase-language-label">हिन्दी</p>
+            <p>जैसे-जैसे साँसों पर ध्यान आगे बढ़ रहा है, आपका मन शांत होता जा रहा है, शून्य होता जा रहा है।</p>
+            <p>हर एक श्वास पर ध्यान दें। एक-एक श्वास को महसूस करें, फील करें; साँसों के साथ एक हो जाएँ। होश साँसों का—साँसों के मूवमेंट को फील करते हुए साँसों के अंतराल को भी महसूस करें।</p>
+            <p>दो साँसों के बीच का अंतराल—जब श्वास बाहर जाती है और उसके कुछ पलों के बाद अगली श्वास अंदर आती है—इस गैप को भी फील करें। ध्यानम् शरणम् गच्छामि। ध्यान की शरण में मैं जा रहा हूँ। होश, सजग, अलर्ट—साँसों के प्रति।</p>
+            <p>आपकी सुषुम्ना नाड़ी में डिवाइन एनर्जी, कॉस्मिक एनर्जी उतर रही है। ऊर्जा की संवेदनाओं को अपने स्पाइन में फील करें। अगर आपको ऊर्जा की अनुभूति हो रही हो, तो उतरती हुई ऊर्जा, बहती हुई ऊर्जा पर ध्यान दें। आनापानसति—साँसों पर ध्यान; कायानुपश्यना—ऊर्जा शरीर पर ध्यान। मन में कोई हलचल नहीं, कोई कंपन नहीं, कोई याद नहीं।</p>
+            <p>अगर मन भटके, अपने मन से कहें, “मैं अभी ध्यान में हूँ,” और पुनः साँस पर आ जाएँ। फिर से साँसों के आने और जाने को फील करने लग जाएँ।</p>
+          </div>
+          </div>
+        </section>
+
+        <section class="healing-phase">
+          <div class="phase-heading">
+            <h3>Realization and Wholeness</h3>
+            <span class="phase-time">11:07–23:37</span>
+          </div>
+          <div class="phase-languages">
+          <div class="phase-copy" lang="en">
+            <p class="phase-language-label">English</p>
+            <p>While feeling the breath and the spaces between breaths, recognize that we are not merely the body. As we enter inner stillness, awareness of the hands and feet may fade and we may awaken to our non-physical nature.</p>
+            <p>Experience: “I am not the body; I am non-physical consciousness”—bodiless awareness, the soul. Attend to the breath to awaken to your true nature and realize the nature of the soul. Aham Brahmasmi.</p>
+            <p>“I am all-pervading divine consciousness.” In meditative stillness, one may experience the eternal or Brahman nature. Become immersed in this divine presence. Patriji teaches, “We are all divine.” This sense of divinity may be experienced in deep meditation.</p>
+          </div>
+          <div class="phase-copy" lang="hi">
+            <p class="phase-language-label">हिन्दी</p>
+            <p>साँसों को महसूस करते हुए, साँसों के अंतराल को महसूस करते हुए हम यह जानेंगे कि हम शरीर नहीं हैं। हमें अपने हाथों और पैरों का आभास नहीं होता, जब हम शून्यता में उतर जाते हैं। अपने नॉन-फिजिकलनेस में जागने लगते हैं।</p>
+            <p>हमें यह अनुभव करना है—हम शरीर नहीं हैं। वी आर नॉट द बॉडी; वी आर नॉन-फिजिकल कॉन्शसनेस। अशरीरी चेतना, आत्मा। साँसों पर ध्यान—अपने आत्म-स्वरूप में जागने के लिए, अपने सोल नेचर को रियलाइज़ करने के लिए। अहम् ब्रह्मास्मि।</p>
+            <p>आई एम ऑल-परवेडिंग डिवाइन कॉन्शसनेस। ध्यान की शून्यता में यह अनुभव हो सकता है—हमारा शाश्वत रूप, ब्रह्म नेचर। अपने ब्रह्म स्वभाव में, भगवत सत्ता में डूब जाएँ। पत्रीजी कहते हैं, “हम सब भगवान हैं।” भगवत का अनुभव गहरे ध्यान में होता है।</p>
+          </div>
+          </div>
+        </section>
+
+        <section class="healing-phase">
+          <div class="phase-heading">
+            <h3>Concluding the Session</h3>
+            <span class="phase-time">24:32–30:35</span>
+          </div>
+          <div class="phase-languages">
+          <div class="phase-copy" lang="en">
+            <p class="phase-language-label">English</p>
+            <p>Remember the peace you are experiencing during meditation. Keeping gentle attention in the third-eye space between and behind the eyes, affirm: “May the awareness of this stillness and divinity remain with me twenty-four hours a day, seven days a week.”</p>
+            <p>Live with the awareness, “I am an eternal soul.” I am a soul in a body for certain experiences. We have taken this human body to learn, experience, act, and serve.</p>
+            <p>Live with this awakening. Self-realization means seeing the Self through the Self. Bring awareness to the muladhara, svadhisthana, manipura, anahata, vishuddhi, ajna, and sahasrara chakras, with the affirmation: “All my chakras are becoming balanced through meditation.”</p>
+            <p>Gently move the fingers and toes, then the wrists and ankles. Slowly bring both hands together in namaste. Thank existence for the peace received in meditation—an attitude of gratitude. Place both hands gently over the eyes. Soften the eyes, smile like a master, and slowly open them.</p>
+          </div>
+          <div class="phase-copy" lang="hi">
+            <p class="phase-language-label">हिन्दी</p>
+            <p>ध्यान के दौरान जिस शांति को आप अनुभव कर रहे हैं, आप इसे बाद में भी याद रखने वाले हैं। दोनों आँखों के बीच और पीछे, थर्ड-आई स्पेस में फोकस रखते हुए अपने आप से यह बोल दें: “ध्यान की इस शून्यता, इस दिव्यता का बोध मुझे 24 बाय 7 रहने वाला है।”</p>
+            <p>मैं अपना पूरा जीवन “एक शाश्वत आत्मा हूँ” इस बोध से जीने वाला हूँ। आई एम ए सोल, हू इज़ इन ए बॉडी फॉर सम एक्सपीरियंस। कुछ सीखने के लिए, कुछ अनुभव के लिए, कुछ कर्म के लिए, कुछ सेवा के लिए हमने यह मानव शरीर धारण किया है।</p>
+            <p>इस जागृति के साथ हम अपना जीवन जिएँ। आत्म-दर्शन—खुद को ही देखना है। ध्यानी, आत्मनि, आत्मना। खुद से खुद को देखना ध्यान है। मूलाधार, स्वाधिष्ठान, मणिपुर, अनाहत चक्र, विशुद्धि चक्र, आज्ञा चक्र, सहस्रार—मेरे सभी चक्र ध्यान से संतुलित हो रहे हैं।</p>
+            <p>अपने हाथों और पैरों की उँगलियों को थोड़ा-थोड़ा हिलाएँ। अपनी कलाइयों और एंकल्स को हिलाएँ। दोनों हाथों को धीरे-धीरे प्रणाम की मुद्रा में जोड़ लें। ध्यान में जो शांति मिली, उसके लिए अस्तित्व को धन्यवाद दें—एटीट्यूड ऑफ ग्रैटिट्यूड। फिर दोनों हाथों को धीरे से अपनी आँखों पर रखें। आँखों को सहलाते हुए और एक मास्टर की तरह मुस्कुराते हुए, अपनी आँखों को धीरे-धीरे खोलें।</p>
+          </div>
+          </div>
+        </section>
+      </div>
+    </details>
 
     <p class="practice-note">This practice is intended for general wellbeing and focused attention. Please do not use it while driving or operating machinery.</p>
   </main>
