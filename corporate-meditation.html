@@ -213,6 +213,27 @@
       margin: 18px 0 0; color: var(--rose-dark); font-style: italic;
       font-size: .92rem;
     }
+    .principles-card { margin-top: -30px; }
+    .principles-body { padding: 0 34px 34px; }
+    .principles-note {
+      margin-bottom: 24px; padding: 12px 16px;
+      border: 1px solid rgba(217,91,112,.2); border-radius: 10px;
+      color: var(--ink-mid); background: rgba(251,241,237,.55);
+      font-family: 'Inter', sans-serif; font-size: .72rem; line-height: 1.55;
+    }
+    .principles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; text-align: left; }
+    .principles-column[lang="hi"] {
+      border-left: 1px solid rgba(0,0,0,.08); padding-left: 28px;
+      font-family: 'Noto Serif Devanagari', 'Nirmala UI', serif;
+    }
+    .principles-language {
+      margin-bottom: 16px; color: var(--ink-light);
+      font-family: 'Inter', sans-serif; font-size: .64rem;
+      letter-spacing: .14em; text-transform: uppercase;
+    }
+    .principles-list { padding-left: 22px; color: var(--ink-mid); }
+    .principles-list li { margin-bottom: 16px; padding-left: 5px; line-height: 1.65; }
+    .principles-list strong { color: var(--ink); font-weight: 500; }
     .language-nav {
       display: flex; justify-content: center; gap: 10px; margin-bottom: 32px;
     }
@@ -377,6 +398,13 @@
       .breath-practice summary { padding: 24px 58px 20px 20px; }
       .breath-practice summary::after { right: 20px; }
       .breath-practice-body { padding: 0 20px 30px; }
+      .principles-card { margin-top: -20px; }
+      .principles-body { padding: 0 20px 30px; }
+      .principles-grid { grid-template-columns: 1fr; gap: 22px; }
+      .principles-column[lang="hi"] {
+        border-left: 0; border-top: 1px solid rgba(0,0,0,.08);
+        padding: 22px 0 0;
+      }
       .breath-cycle { grid-template-columns: 1fr; gap: 8px; }
       .breath-step { width: min(230px, 100%); min-height: 118px; margin: 0 auto; }
       .cycle-arrow { transform: rotate(90deg); }
@@ -495,6 +523,65 @@
         <span class="cycle-arrow" aria-label="Repeat">↺</span>
       </div>
       <p class="return-cue">Return attention to the natural breath · <span lang="hi">ध्यान फिर से स्वाभाविक श्वास पर लाएँ</span></p>
+      </div>
+    </details>
+
+    <details class="breath-practice principles-card">
+      <summary>
+        <p class="breath-practice-label">Guiding Principles · <span lang="hi">मार्गदर्शक सिद्धांत</span></p>
+        <h2 class="breath-practice-title">PSSM’s 18 Guiding Principles · <span lang="hi">PSSM के 18 मार्गदर्शक सिद्धांत</span></h2>
+      </summary>
+      <div class="principles-body">
+        <p class="principles-note">These principles summarize PSSM teachings and are not medical advice. Do not stop prescribed medicine or treatment without consulting a qualified healthcare professional. · <span lang="hi">ये सिद्धांत PSSM की शिक्षाओं का सार हैं, चिकित्सा सलाह नहीं। किसी योग्य चिकित्सक की सलाह के बिना निर्धारित दवा या उपचार बंद न करें।</span></p>
+        <div class="principles-grid">
+          <div class="principles-column" lang="en">
+            <p class="principles-language">English</p>
+            <ol class="principles-list">
+              <li><strong>Meditate correctly:</strong> Practise Anapanasati meditation and teach everyone the same method. Do not introduce difficult postures, pranayama techniques, or other methods.</li>
+              <li><strong>Read appropriate spiritual books:</strong> Read books by authors such as Osho, Lobsang Rampa, Carlos Castaneda, Jane Roberts, Annie Besant, Richard Bach, Deepak Chopra, Sylvia Browne, and other spiritual masters.</li>
+              <li><strong>Share experiences:</strong> Share your meditative and spiritual experiences with anyone who is interested.</li>
+              <li><strong>Observe silence:</strong> Spend as much time as possible in silence each day. Avoid worldly gossip, as it leads to a “rusty mind.”</li>
+              <li><strong>Full-moon meditation:</strong> Make use of full-moon nights to practise meditation.</li>
+              <li><strong>Pyramid energy:</strong> Use pyramid energy for meditation as much as possible.</li>
+              <li><strong>Give up dependence on medicines:</strong> PSSM teaches releasing psychological dependence on medicines and cultivating meditative energy for wellbeing.</li>
+              <li><strong>Do not smoke or consume intoxicants:</strong> Do not smoke or drink alcohol. Avoid eggs, become vegetarian, and take medicines only when medically necessary.</li>
+              <li><strong>Stay close to nature:</strong> Spend more time in unpolluted natural surroundings, such as forests, grassy fields, riverbanks, and mountains.</li>
+              <li><strong>No deity worship:</strong> Do not wear special spiritual clothing, display sacred symbols on the body, or perform rituals.</li>
+              <li><strong>Teach children:</strong> Meditation training is the greatest savings account parents can establish for their children.</li>
+              <li><strong>Live like a master:</strong> Learn to live as a master—never as a disciple.</li>
+              <li><strong>Free service:</strong> Reject the exchange of money in meditation-training programmes.</li>
+              <li><strong>No idol worship:</strong> Do not worship idols, and do not worship living masters either.</li>
+              <li><strong>Self-healing:</strong> Use meditative awareness as a supportive resource when addressing personal problems.</li>
+              <li><strong>Family life:</strong> Enjoy an ordinary family life. Renunciation or asceticism is unnecessary.</li>
+              <li><strong>Expansion:</strong> Establish pyramid meditation centres in every village, town, and city.</li>
+              <li><strong>Publication:</strong> Publish your meditative experiences and personal spiritual understanding through your own magazines.</li>
+            </ol>
+          </div>
+
+          <div class="principles-column" lang="hi">
+            <p class="principles-language">हिन्दी</p>
+            <ol class="principles-list">
+              <li><strong>सही ध्यान करें:</strong> आनापानसति ध्यान का अभ्यास करें और सभी को यही विधि सिखाएँ। कठिन आसन, प्राणायाम तकनीकें या अन्य विधियाँ न जोड़ें।</li>
+              <li><strong>उपयुक्त आध्यात्मिक पुस्तकें पढ़ें:</strong> ओशो, लोबसांग रम्पा, कार्लोस कास्टानेडा, जेन रॉबर्ट्स, एनी बेसेंट, रिचर्ड बाख, दीपक चोपड़ा, सिल्विया ब्राउन और अन्य आध्यात्मिक गुरुओं की पुस्तकें पढ़ें।</li>
+              <li><strong>अनुभव साझा करें:</strong> रुचि रखने वाले लोगों के साथ अपने ध्यान और आध्यात्मिक अनुभव साझा करें।</li>
+              <li><strong>मौन अपनाएँ:</strong> प्रतिदिन जितना संभव हो मौन में रहें। सांसारिक गपशप से बचें, क्योंकि यह मन को जड़ बनाती है।</li>
+              <li><strong>पूर्णिमा ध्यान:</strong> पूर्णिमा की रातों का उपयोग ध्यान-अभ्यास के लिए करें।</li>
+              <li><strong>पिरामिड ऊर्जा:</strong> ध्यान के लिए यथासंभव पिरामिड ऊर्जा का उपयोग करें।</li>
+              <li><strong>दवाओं पर निर्भरता छोड़ें:</strong> PSSM दवाओं पर मनोवैज्ञानिक निर्भरता छोड़ने और कल्याण के लिए ध्यान की ऊर्जा विकसित करने की शिक्षा देता है।</li>
+              <li><strong>धूम्रपान और नशीले पदार्थों से बचें:</strong> धूम्रपान और शराब का सेवन न करें। अंडों से बचें, शाकाहारी बनें और चिकित्सकीय आवश्यकता होने पर ही दवा लें।</li>
+              <li><strong>प्रकृति के निकट रहें:</strong> जंगलों, घास के मैदानों, नदी-तटों और पहाड़ों जैसे स्वच्छ प्राकृतिक वातावरण में अधिक समय बिताएँ।</li>
+              <li><strong>देव-पूजा नहीं:</strong> विशेष आध्यात्मिक वस्त्र न पहनें, शरीर पर पवित्र चिह्न प्रदर्शित न करें और कर्मकांड न करें।</li>
+              <li><strong>बच्चों को सिखाएँ:</strong> ध्यान-प्रशिक्षण वह सबसे बड़ा बचत खाता है, जिसे माता-पिता अपने बच्चों के लिए स्थापित कर सकते हैं।</li>
+              <li><strong>मास्टर की तरह जिएँ:</strong> मास्टर की तरह जीना सीखें—शिष्य की तरह नहीं।</li>
+              <li><strong>निःशुल्क सेवा:</strong> ध्यान-प्रशिक्षण कार्यक्रमों में धन के लेन-देन को अस्वीकार करें।</li>
+              <li><strong>मूर्ति-पूजा नहीं:</strong> मूर्तियों की पूजा न करें और जीवित गुरुओं की भी पूजा न करें।</li>
+              <li><strong>स्व-उपचार:</strong> व्यक्तिगत समस्याओं का सामना करते समय ध्यानपूर्ण जागरूकता को सहायक साधन के रूप में अपनाएँ।</li>
+              <li><strong>पारिवारिक जीवन:</strong> सामान्य पारिवारिक जीवन का आनंद लें। संन्यास या तपस्या आवश्यक नहीं है।</li>
+              <li><strong>विस्तार:</strong> प्रत्येक गाँव, कस्बे और शहर में पिरामिड ध्यान केंद्र स्थापित करें।</li>
+              <li><strong>प्रकाशन:</strong> अपनी पत्रिकाओं के माध्यम से अपने ध्यान-अनुभव और व्यक्तिगत आध्यात्मिक समझ प्रकाशित करें।</li>
+            </ol>
+          </div>
+        </div>
       </div>
     </details>
 
