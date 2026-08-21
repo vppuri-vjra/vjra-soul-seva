@@ -135,9 +135,21 @@
       max-width: 820px; margin: 0 auto 48px;
       background: rgba(255,255,255,.44);
       border: 1px solid rgba(0,0,0,.08);
-      border-radius: 18px; padding: 30px 34px 34px;
+      border-radius: 18px;
       text-align: center;
     }
+    .breath-practice summary {
+      position: relative; cursor: pointer; list-style: none;
+      padding: 28px 76px 24px 34px;
+    }
+    .breath-practice summary::-webkit-details-marker { display: none; }
+    .breath-practice summary::after {
+      content: '+'; position: absolute; right: 34px; top: 50%;
+      transform: translateY(-50%); color: var(--rose);
+      font-family: 'Inter', sans-serif; font-size: 1.45rem; font-weight: 300;
+    }
+    .breath-practice[open] summary::after { content: '−'; }
+    .breath-practice-body { padding: 0 34px 34px; }
     .breath-practice-label {
       font-family: 'Inter', sans-serif; font-size: .64rem;
       letter-spacing: .17em; text-transform: uppercase;
@@ -145,7 +157,6 @@
     }
     .breath-practice-title {
       font-size: 1.65rem; font-style: italic; font-weight: 400;
-      margin-bottom: 12px;
     }
     .breath-practice-copy {
       max-width: 710px; margin: 0 auto 24px;
@@ -269,7 +280,10 @@
       .script-card summary { padding: 28px 62px 24px 24px; }
       .script-card summary::after { right: 24px; }
       .script-card .script-body { padding: 0 24px 36px; }
-      .breath-practice { padding: 28px 20px 30px; border-radius: 14px; }
+      .breath-practice { border-radius: 14px; }
+      .breath-practice summary { padding: 24px 58px 20px 20px; }
+      .breath-practice summary::after { right: 20px; }
+      .breath-practice-body { padding: 0 20px 30px; }
       .breath-cycle { grid-template-columns: 1fr; gap: 8px; }
       .breath-step { width: min(230px, 100%); min-height: 118px; margin: 0 auto; }
       .cycle-arrow { transform: rotate(90deg); }
@@ -330,9 +344,12 @@
       </section>
     </div>
 
-    <section class="breath-practice" aria-labelledby="breath-cycle-title">
-      <p class="breath-practice-label">Mindfulness of Breathing</p>
-      <h2 class="breath-practice-title" id="breath-cycle-title">Ānāpānasati · Observe the Natural Breath</h2>
+    <details class="breath-practice">
+      <summary>
+        <p class="breath-practice-label">Mindfulness of Breathing</p>
+        <h2 class="breath-practice-title">Ānāpānasati · Observe the Natural Breath</h2>
+      </summary>
+      <div class="breath-practice-body">
       <p class="breath-practice-copy">Breathe calmly and let the breath remain natural. Do not hold, stop, deepen, or control it. Observe the breath as it happens. Whenever the mind wanders, notice the stray thought and gently return your attention to the natural rhythm of breathing. Relax and become the observer of the breath.</p>
       <p class="breath-practice-copy" lang="hi">शांत होकर साँस लें और श्वास को स्वाभाविक रहने दें। उसे रोकें, थामें, गहरा करें या नियंत्रित न करें। जैसी साँस चल रही है, बस उसका अवलोकन करें। जब भी मन भटके, उस विचार को पहचानें और ध्यान को धीरे से फिर स्वाभाविक श्वास की लय पर ले आएँ। सहज रहें और श्वास के साक्षी बनें।</p>
       <div class="breath-cycle" aria-label="Natural breath, observe, notice when the mind wanders, then return to the natural breath">
@@ -356,7 +373,8 @@
         <span class="cycle-arrow" aria-label="Repeat">↺</span>
       </div>
       <p class="return-cue">Return attention to the natural breath · <span lang="hi">ध्यान फिर से स्वाभाविक श्वास पर लाएँ</span></p>
-    </section>
+      </div>
+    </details>
 
     <nav class="language-nav" aria-label="Choose script language">
       <a href="#english">English</a>
