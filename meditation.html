@@ -435,6 +435,13 @@
     .pitch-language strong { color: var(--ink); font-weight: 500; }
     .sample-heading { margin: 42px 0 18px; text-align: center; font-size: clamp(1.55rem,3vw,2.2rem); font-style: italic; font-weight: 400; }
     .pitch-safety { max-width: 820px; margin: 22px auto 0; padding: 16px 20px; border: 1px solid rgba(217,91,112,.22); border-radius: 12px; background: rgba(251,241,237,.55); color: var(--ink-mid); text-align: center; font-family: 'Inter',sans-serif; font-size: .73rem; line-height: 1.65; }
+    .pitch-key-message { max-width: 820px; margin: 28px auto 0; padding: 22px 24px; border: 1px solid rgba(111,159,123,.34); border-left: 4px solid var(--sage); border-radius: 14px; background: #f4f8f4; }
+    .pitch-key-label { margin-bottom: 14px; text-align: center; color: var(--sage); font-family: 'Inter',sans-serif; font-size: .62rem; letter-spacing: .15em; text-transform: uppercase; }
+    .pitch-key-languages { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .pitch-key-copy { color: var(--ink-mid); font-size: .94rem; line-height: 1.72; }
+    .pitch-key-copy + .pitch-key-copy { border-left: 1px solid rgba(111,159,123,.2); padding-left: 24px; }
+    .pitch-key-copy[lang="hi"] { font-family: 'Noto Serif Devanagari','Nirmala UI',serif; line-height: 1.9; }
+    .pitch-key-copy p + p { margin-top: 12px; }
     .pitch-dashboard {
       width: min(1180px,calc(100vw - 40px)); margin: 48px 0 0 50%;
       transform: translateX(-50%); display: grid;
@@ -532,6 +539,8 @@
       .pitch-dashboard .neighbour-pitch { grid-column: 1 / -1; grid-row: 2; }
       .pitch-shortcuts { position: static; grid-template-columns: 1fr 1fr; gap: 8px; }
       .pitch-shortcut { min-height: 66px; font-size: .84rem; }
+      .pitch-key-languages { grid-template-columns: 1fr; gap: 18px; }
+      .pitch-key-copy + .pitch-key-copy { border-left: 0; border-top: 1px solid rgba(111,159,123,.2); padding: 18px 0 0; }
     }
   </style>
 </head>
@@ -1101,6 +1110,13 @@
         <article class="pitch-row"><div class="pitch-focus"><strong>Small Next Step</strong></div><div class="pitch-language"><strong>Vipin:</strong> That is the complete practice. If it feels suitable, try it for two minutes before sleeping. Do not expect a particular result; simply observe your experience for a few days.</div><div class="pitch-language" lang="hi"><strong>विपिन:</strong> बस इतना ही अभ्यास है। यदि आपको ठीक लगे, तो सोने से पहले दो मिनट करके देखिए। किसी विशेष परिणाम का दबाव न रखें; कुछ दिनों तक केवल अपना अनुभव देखिए।</div></article>
       </div>
 
+      <section class="pitch-key-message" aria-labelledby="pitch-key-title">
+        <p class="pitch-key-label" id="pitch-key-title">Key Message · <span lang="hi">मुख्य संदेश</span></p>
+        <div class="pitch-key-languages">
+          <div class="pitch-key-copy"><p><strong>If the mind wanders, tell yourself, “I am meditating now,” and gently return to the breath. Once again, feel each inhalation and exhalation.</strong></p><p>Dhyan may support a quieter and more peaceful mind, mindfulness, memory, better relationships, family harmony, and general wellbeing. A quieter mind may also help us reflect clearly and discover our own answers.</p></div>
+          <div class="pitch-key-copy" lang="hi"><p><strong>यदि मन भटके, तो अपने आप से कहें, “मैं अभी ध्यान कर रहा हूँ,” और धीरे से फिर साँस पर लौट आएँ। एक बार फिर प्रत्येक आती और जाती साँस को महसूस करें।</strong></p><p>ध्यान मन को अधिक शांत और स्थिर बनाने तथा सजगता, स्मरण-शक्ति, बेहतर संबंधों, पारिवारिक सौहार्द और सामान्य स्वास्थ्य-कल्याण में सहायता कर सकता है। शांत मन हमें स्पष्टता से विचार करने और अपने प्रश्नों के उत्तर स्वयं खोजने में भी सहायक हो सकता है।</p></div>
+        </div>
+      </section>
       <p class="pitch-safety">Meditation is a supportive wellbeing practice, not a replacement for medical care. Do not stop, reduce, or change any medicine without discussing it with your doctor. · <span lang="hi">ध्यान एक सहायक अभ्यास है, चिकित्सकीय उपचार का विकल्प नहीं। डॉक्टर से बात किए बिना कोई दवा बंद, कम या परिवर्तित न करें।</span></p>
       </div>
     </details>
@@ -1108,6 +1124,7 @@
       <button class="pitch-shortcut" type="button" data-pitch-target="pitch-row-4"><small>Foundation 04</small>What Is Meditation?</button>
       <button class="pitch-shortcut" type="button" data-pitch-target="pitch-row-4a"><small>Stages in Meditation 4A</small>Three Happenings</button>
       <button class="pitch-shortcut" type="button" data-pitch-target="pitch-row-7"><small>Story 07</small>Story and Social Proof</button>
+      <button class="pitch-shortcut" type="button" data-pitch-target="pitch-key-title"><small>Key Message</small>Return to the Breath</button>
     </aside>
     </div>
 
