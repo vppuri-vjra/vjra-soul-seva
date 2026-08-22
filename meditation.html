@@ -398,10 +398,15 @@
       text-align: center; color: var(--ink-light); font-style: italic; line-height: 1.7;
     }
     .neighbour-pitch { margin-top: 64px; padding-top: 58px; border-top: 1px solid rgba(0,0,0,.1); }
-    .pitch-heading { max-width: 760px; margin: 0 auto 30px; text-align: center; }
+    .neighbour-pitch > summary { position: relative; cursor: pointer; list-style: none; padding: 0 62px 24px; }
+    .neighbour-pitch > summary::-webkit-details-marker { display: none; }
+    .neighbour-pitch > summary::after { content: '+'; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); color: var(--rose); font-family: 'Inter',sans-serif; font-size: 1.65rem; font-weight: 300; }
+    .neighbour-pitch[open] > summary::after { content: '−'; }
+    .pitch-heading { max-width: 760px; margin: 0 auto; text-align: center; }
     .pitch-heading .eyebrow { margin-bottom: 10px; }
     .pitch-heading h2 { font-size: clamp(2rem,4vw,3.2rem); font-style: italic; font-weight: 400; }
     .pitch-heading p { margin-top: 14px; color: var(--ink-mid); font-size: 1rem; line-height: 1.7; }
+    .pitch-content { padding-top: 8px; }
     .pitch-list { display: grid; gap: 14px; }
     .pitch-row {
       display: grid; grid-template-columns: minmax(150px,.55fr) repeat(2,minmax(0,1fr));
@@ -956,12 +961,13 @@
       </div>
     </details>
 
-    <section class="neighbour-pitch" aria-labelledby="neighbour-pitch-title">
-      <div class="pitch-heading">
+    <details class="neighbour-pitch">
+      <summary class="pitch-heading">
         <p class="eyebrow">Story · Science · Sample</p>
         <h2 id="neighbour-pitch-title">Complete Meditation Pitch · <span lang="hi">ध्यान के लिए संपूर्ण संवाद</span></h2>
         <p>A respectful English-Hindi role-play for inviting a skeptical elderly neighbour to experience two minutes of natural-breath observation.</p>
-      </div>
+      </summary>
+      <div class="pitch-content">
 
       <div class="pitch-list">
         <article class="pitch-row">
@@ -1051,7 +1057,8 @@
       </div>
 
       <p class="pitch-safety">Meditation is a supportive wellbeing practice, not a replacement for medical care. Do not stop, reduce, or change any medicine without discussing it with your doctor. · <span lang="hi">ध्यान एक सहायक अभ्यास है, चिकित्सकीय उपचार का विकल्प नहीं। डॉक्टर से बात किए बिना कोई दवा बंद, कम या परिवर्तित न करें।</span></p>
-    </section>
+      </div>
+    </details>
 
     <p class="practice-note">This practice is intended for general wellbeing and focused attention. Please do not use it while driving or operating machinery.</p>
   </main>
