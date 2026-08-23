@@ -462,6 +462,12 @@
     .story-shortcuts .pitch-shortcut { background: #f4f8f4; border-right: 3px solid rgba(111,159,123,.65); }
     .pitch-shortcut small { display: block; margin-bottom: 5px; color: var(--ink-light); font-family: 'Inter',sans-serif; font-size: .58rem; letter-spacing: .08em; text-transform: uppercase; }
     .pitch-wheel-section { max-width: 720px; margin: 50px auto 10px; text-align: center; }
+    .pitch-wheel-card { border: 1px solid rgba(111,159,123,.3); border-left: 4px solid var(--sage); border-radius: 18px; background: rgba(255,255,255,.62); box-shadow: 0 10px 28px rgba(61,45,34,.05); overflow: hidden; }
+    .pitch-wheel-card > summary { position: relative; padding: 18px 58px 18px 24px; cursor: pointer; list-style: none; }
+    .pitch-wheel-card > summary::-webkit-details-marker { display: none; }
+    .pitch-wheel-card > summary::after { content: '+'; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); color: var(--sage); font-family: 'Inter',sans-serif; font-size: 1.35rem; font-weight: 600; }
+    .pitch-wheel-card[open] > summary::after { content: '−'; }
+    .pitch-wheel-card-body { padding: 0 18px 20px; }
     .pitch-wheel-heading { margin-bottom: 4px; font-size: clamp(1.4rem,2.5vw,2rem); font-style: italic; font-weight: 400; }
     .pitch-wheel-note { color: var(--ink-light); font-size: .88rem; }
     .pitch-wheel { position: relative; width: 560px; height: 500px; margin: 18px auto 0; }
@@ -1043,7 +1049,9 @@
     </details>
 
     <section class="pitch-wheel-section" aria-labelledby="pitch-wheel-title">
-      <h2 class="pitch-wheel-heading" id="pitch-wheel-title">My Pitch Journey with Uncle ji · <span lang="hi">अंकल जी के साथ संवाद का क्रम</span></h2>
+      <details class="pitch-wheel-card" id="uncle-ji">
+      <summary><h2 class="pitch-wheel-heading" id="pitch-wheel-title">My Pitch Journey with Uncle ji · <span lang="hi">अंकल जी के साथ संवाद का क्रम</span></h2></summary>
+      <div class="pitch-wheel-card-body">
       <p class="pitch-wheel-note">Choose each circle in order to open the matching part of the pitch.</p>
       <div class="pitch-wheel" aria-label="Nine-step meditation pitch journey">
         <button class="wheel-topic" type="button" data-pitch-target="pitch-row-1"><b>1</b>Hello &amp; Sit on Chair</button>
@@ -1057,6 +1065,8 @@
         <button class="wheel-topic" type="button" data-pitch-target="pitch-key-title"><b>9</b>Key Message</button>
         <div class="pitch-wheel-center" id="uncle-pitch-circle" aria-label="Meditation with Uncle ji"><div class="pitch-wheel-avatar" aria-hidden="true">👴</div><strong>Uncle ji</strong><span>Meditation Conversation</span></div>
       </div>
+      </div>
+      </details>
     </section>
 
     <div class="pitch-dashboard">
@@ -1207,13 +1217,20 @@
     });
     const backToUncle = document.querySelector('.back-to-uncle');
     const unclePitchCircle = document.getElementById('uncle-pitch-circle');
+    const unclePitchCard = document.getElementById('uncle-ji');
     const pitchWheelSection = document.querySelector('.pitch-wheel-section');
     const updateBackToUncle = () => {
       if (!backToUncle || !pitchWheelSection) return;
       const triggerPoint = pitchWheelSection.offsetTop + pitchWheelSection.offsetHeight * .55;
       backToUncle.classList.toggle('visible', window.scrollY > triggerPoint);
     };
-    backToUncle?.addEventListener('click', () => unclePitchCircle?.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+    const openUncleJourney = () => {
+      if (unclePitchCard) unclePitchCard.open = true;
+      requestAnimationFrame(() => unclePitchCircle?.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+    };
+    backToUncle?.addEventListener('click', openUncleJourney);
+    if (location.hash === '#uncle-ji') openUncleJourney();
+    window.addEventListener('hashchange', () => { if (location.hash === '#uncle-ji') openUncleJourney(); });
     window.addEventListener('scroll', updateBackToUncle, { passive: true });
     updateBackToUncle();
   </script>
