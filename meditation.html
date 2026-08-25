@@ -178,6 +178,10 @@
       padding: 12px 10px; border: 1px solid rgba(0,0,0,.07); vertical-align: top;
     }
     .brain-wave-table tbody tr:nth-child(even) { background: rgba(255,255,255,.34); }
+    .brain-wave-table tr.wave-beta { background: rgba(226,109,120,.13); }
+    .brain-wave-table tr.wave-alpha { background: rgba(139,190,145,.13); }
+    .brain-wave-table tr.wave-theta { background: rgba(111,170,121,.20); }
+    .brain-wave-table tr.wave-delta { background: rgba(78,139,91,.27); }
     .brain-wave-table td:first-child { color: var(--ink); font-weight: 600; }
     .brain-wave-language[lang="hi"] .brain-wave-table {
       font-family: 'Noto Serif Devanagari', 'Nirmala UI', serif; line-height: 1.7;
@@ -736,10 +740,10 @@
                 <thead><tr><th>Wave name</th><th>Frequency</th><th>Description</th><th>People experience</th><th>Commonly found in / during</th></tr></thead>
                 <tbody>
                   <tr><td>Gamma</td><td>30–100 Hz</td><td>The fastest band; associated with intense integration, attention and rapid information processing.</td><td>Heightened perception, vivid recall, learning, creativity, compassion and a strong sense of connection.</td><td>Advanced meditators or monks; people intensely solving difficult problems, creating art or performing high-impact work.</td></tr>
-                  <tr><td>Beta</td><td>13–30 Hz</td><td>The predominant band of normal waking alertness and attention directed toward the outer world.</td><td>Active thinking and engagement; excessive high-beta activity may accompany worry, fear, irritability, mental chatter or difficulty settling for sleep.</td><td>Awake, alert people working, planning or responding to their environment; often elevated during stress or anxiety.</td></tr>
-                  <tr><td>Alpha</td><td>7–13 Hz</td><td>Relaxed wakefulness—the transition where relaxation and meditation commonly begin.</td><td>Calm focus, comfort, peace, creativity and easier learning or recall.</td><td>Relaxed meditators; creative people during insight; athletes immediately before a highly focused performance.</td></tr>
-                  <tr><td>Theta</td><td>4–7 Hz</td><td>Slower activity associated with deeper relaxation, meditation and the threshold between waking and sleep.</td><td>Vivid imagery, intuition, insight, openness, creative ideas and sometimes lucid dreaming.</td><td>People falling asleep or waking; deep meditators; dreamers and people absorbed in imagination or inner reflection.</td></tr>
-                  <tr><td>Delta</td><td>0–4 Hz</td><td>The slowest band, dominant in deep dreamless sleep and reported in some very deep meditative states.</td><td>Minimal conscious thought, profound rest and bodily restoration.</td><td>People in deep dreamless sleep; sometimes highly experienced meditators during deep absorption.</td></tr>
+                  <tr class="wave-beta"><td>Beta</td><td>13–30 Hz</td><td>The predominant band of normal waking alertness and attention directed toward the outer world.</td><td>Active thinking and engagement; excessive high-beta activity may accompany worry, fear, irritability, mental chatter or difficulty settling for sleep.</td><td>Awake, alert people working, planning or responding to their environment; often elevated during stress or anxiety.</td></tr>
+                  <tr class="wave-alpha"><td>Alpha</td><td>7–13 Hz</td><td>Relaxed wakefulness—the transition where relaxation and meditation commonly begin.</td><td>Calm focus, comfort, peace, creativity and easier learning or recall.</td><td>Relaxed meditators; creative people during insight; athletes immediately before a highly focused performance.</td></tr>
+                  <tr class="wave-theta"><td>Theta</td><td>4–7 Hz</td><td>Slower activity associated with deeper relaxation, meditation and the threshold between waking and sleep.</td><td>Vivid imagery, intuition, insight, openness, creative ideas and sometimes lucid dreaming.</td><td>People falling asleep or waking; deep meditators; dreamers and people absorbed in imagination or inner reflection.</td></tr>
+                  <tr class="wave-delta"><td>Delta</td><td>0–4 Hz</td><td>The slowest band, dominant in deep dreamless sleep and reported in some very deep meditative states.</td><td>Minimal conscious thought, profound rest and bodily restoration.</td><td>People in deep dreamless sleep; sometimes highly experienced meditators during deep absorption.</td></tr>
                 </tbody>
               </table>
             </div>
@@ -752,10 +756,10 @@
                 <thead><tr><th>तरंग का नाम</th><th>आवृत्ति</th><th>विवरण</th><th>लोगों का अनुभव</th><th>किन लोगों या अवस्थाओं में सामान्यतः</th></tr></thead>
                 <tbody>
                   <tr><td>गामा</td><td>30–100 Hz</td><td>सबसे तेज तरंग; गहन एकीकरण, एकाग्रता और तीव्र सूचना-प्रसंस्करण से जुड़ी।</td><td>तीव्र अनुभूति, स्पष्ट स्मरण, सीखना, रचनात्मकता, करुणा और गहरे जुड़ाव की भावना।</td><td>अनुभवी ध्यान-साधकों या भिक्षुओं में; कठिन समस्या सुलझाने, कला रचने या प्रभावशाली कार्य में गहराई से लगे लोगों में।</td></tr>
-                  <tr><td>बीटा</td><td>13–30 Hz</td><td>सामान्य जाग्रत और सजग अवस्था की प्रमुख तरंग, जिसमें ध्यान बाहरी संसार की ओर रहता है।</td><td>सक्रिय सोच और संलग्नता; अत्यधिक हाई-बीटा चिंता, भय, चिड़चिड़ापन, मानसिक शोर या नींद के लिए शांत होने में कठिनाई के साथ दिख सकती है।</td><td>काम, योजना या वातावरण पर प्रतिक्रिया करते जाग्रत लोगों में; तनाव या चिंता के समय प्रायः अधिक।</td></tr>
-                  <tr><td>अल्फा</td><td>7–13 Hz</td><td>शांत जागरूकता—वह संक्रमण जहाँ विश्राम और ध्यान सामान्यतः आरंभ होते हैं।</td><td>शांत एकाग्रता, सहजता, शांति, रचनात्मकता और सीखने या याद करने में सरलता।</td><td>आराम में बैठे ध्यान-साधकों में; अंतर्दृष्टि के समय रचनात्मक लोगों में; गहन प्रदर्शन से पहले खिलाड़ियों में।</td></tr>
-                  <tr><td>थीटा</td><td>4–7 Hz</td><td>धीमी गतिविधि, जो गहरे विश्राम, ध्यान और जागने-सोने की सीमा से जुड़ी है।</td><td>सजीव कल्पना, अंतर्ज्ञान, अंतर्दृष्टि, खुलापन, रचनात्मक विचार और कभी-कभी सचेत स्वप्न।</td><td>सोते या जागते समय; गहरे ध्यान-साधकों, स्वप्न देखने वालों और आंतरिक चिंतन में तल्लीन लोगों में।</td></tr>
-                  <tr><td>डेल्टा</td><td>0–4 Hz</td><td>सबसे धीमी तरंग, जो गहरी स्वप्नरहित नींद में प्रमुख होती है और कुछ अत्यंत गहरी ध्यान-अवस्थाओं में भी बताई जाती है।</td><td>बहुत कम सचेत विचार, गहरा विश्राम और शरीर की पुनर्स्थापना।</td><td>गहरी स्वप्नरहित नींद में; कभी-कभी अत्यंत अनुभवी साधकों में गहरे अवशोषण के दौरान।</td></tr>
+                  <tr class="wave-beta"><td>बीटा</td><td>13–30 Hz</td><td>सामान्य जाग्रत और सजग अवस्था की प्रमुख तरंग, जिसमें ध्यान बाहरी संसार की ओर रहता है।</td><td>सक्रिय सोच और संलग्नता; अत्यधिक हाई-बीटा चिंता, भय, चिड़चिड़ापन, मानसिक शोर या नींद के लिए शांत होने में कठिनाई के साथ दिख सकती है।</td><td>काम, योजना या वातावरण पर प्रतिक्रिया करते जाग्रत लोगों में; तनाव या चिंता के समय प्रायः अधिक।</td></tr>
+                  <tr class="wave-alpha"><td>अल्फा</td><td>7–13 Hz</td><td>शांत जागरूकता—वह संक्रमण जहाँ विश्राम और ध्यान सामान्यतः आरंभ होते हैं।</td><td>शांत एकाग्रता, सहजता, शांति, रचनात्मकता और सीखने या याद करने में सरलता।</td><td>आराम में बैठे ध्यान-साधकों में; अंतर्दृष्टि के समय रचनात्मक लोगों में; गहन प्रदर्शन से पहले खिलाड़ियों में।</td></tr>
+                  <tr class="wave-theta"><td>थीटा</td><td>4–7 Hz</td><td>धीमी गतिविधि, जो गहरे विश्राम, ध्यान और जागने-सोने की सीमा से जुड़ी है।</td><td>सजीव कल्पना, अंतर्ज्ञान, अंतर्दृष्टि, खुलापन, रचनात्मक विचार और कभी-कभी सचेत स्वप्न।</td><td>सोते या जागते समय; गहरे ध्यान-साधकों, स्वप्न देखने वालों और आंतरिक चिंतन में तल्लीन लोगों में।</td></tr>
+                  <tr class="wave-delta"><td>डेल्टा</td><td>0–4 Hz</td><td>सबसे धीमी तरंग, जो गहरी स्वप्नरहित नींद में प्रमुख होती है और कुछ अत्यंत गहरी ध्यान-अवस्थाओं में भी बताई जाती है।</td><td>बहुत कम सचेत विचार, गहरा विश्राम और शरीर की पुनर्स्थापना।</td><td>गहरी स्वप्नरहित नींद में; कभी-कभी अत्यंत अनुभवी साधकों में गहरे अवशोषण के दौरान।</td></tr>
                 </tbody>
               </table>
             </div>
