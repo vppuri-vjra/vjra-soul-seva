@@ -178,10 +178,10 @@
       padding: 12px 10px; border: 1px solid rgba(0,0,0,.07); vertical-align: top;
     }
     .brain-wave-table tbody tr:nth-child(even) { background: rgba(255,255,255,.34); }
-    .brain-wave-table tr.wave-beta { background: rgba(226,109,120,.13); }
-    .brain-wave-table tr.wave-alpha { background: rgba(139,190,145,.13); }
-    .brain-wave-table tr.wave-theta { background: rgba(111,170,121,.20); }
-    .brain-wave-table tr.wave-delta { background: rgba(78,139,91,.27); }
+    .brain-wave-table tr.wave-beta { background: #f9dfe3; }
+    .brain-wave-table tr.wave-alpha { background: #e8f4e9; }
+    .brain-wave-table tr.wave-theta { background: #c9e4cc; }
+    .brain-wave-table tr.wave-delta { background: #a9d2af; }
     .brain-wave-table td:first-child { color: var(--ink); font-weight: 600; }
     .brain-wave-language[lang="hi"] .brain-wave-table {
       font-family: 'Noto Serif Devanagari', 'Nirmala UI', serif; line-height: 1.7;
@@ -364,6 +364,57 @@
     .principles-list { padding-left: 22px; color: var(--ink-mid); }
     .principles-list li { margin-bottom: 16px; padding-left: 5px; line-height: 1.65; }
     .principles-list strong { color: var(--ink); font-weight: 500; }
+    .professional-examples {
+      max-width: 1050px; margin: 28px auto 34px;
+      background: rgba(255,255,255,.5); border: 1px solid rgba(0,0,0,.08);
+      border-left: 3px solid rgba(111,159,123,.72); border-radius: 18px;
+      box-shadow: 0 14px 36px rgba(61,45,34,.05);
+    }
+    .professional-examples summary {
+      position: relative; cursor: pointer; list-style: none;
+      min-height: 94px; padding: 19px 62px 17px 28px;
+      display: flex; flex-direction: column; justify-content: center; text-align: center;
+    }
+    .professional-examples summary::-webkit-details-marker { display: none; }
+    .professional-examples summary::after {
+      content: '+'; position: absolute; right: 30px; top: 50%; transform: translateY(-50%);
+      color: var(--sage); font-family: 'Inter', sans-serif; font-size: 1.3rem; font-weight: 300;
+    }
+    .professional-examples[open] summary::after { content: '−'; }
+    .professional-kicker {
+      margin-bottom: 7px; color: var(--sage); font-family: 'Inter', sans-serif;
+      font-size: .64rem; letter-spacing: .17em; text-transform: uppercase;
+    }
+    .professional-title { font-size: clamp(1.25rem, 2.4vw, 1.75rem); font-style: italic; font-weight: 400; }
+    .professional-body { padding: 0 28px 30px; }
+    .professional-note {
+      margin-bottom: 20px; color: var(--ink-light); text-align: center;
+      font-family: 'Inter', sans-serif; font-size: .7rem; line-height: 1.55;
+    }
+    .professional-language + .professional-language {
+      margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(0,0,0,.08);
+    }
+    .professional-language-label {
+      margin-bottom: 10px; color: var(--ink-light); font-family: 'Inter', sans-serif;
+      font-size: .64rem; letter-spacing: .14em; text-transform: uppercase;
+    }
+    .professional-table-wrap { overflow-x: auto; border-radius: 12px; }
+    .professional-table {
+      width: 100%; min-width: 680px; border-collapse: collapse;
+      font-family: 'Inter', sans-serif; font-size: .73rem; line-height: 1.55;
+    }
+    .professional-table th {
+      padding: 11px 13px; color: var(--ink); background: var(--sage-soft);
+      border: 1px solid rgba(0,0,0,.08); text-align: left; font-weight: 500;
+    }
+    .professional-table td {
+      padding: 12px 13px; color: var(--ink-mid); border: 1px solid rgba(0,0,0,.07); vertical-align: top;
+    }
+    .professional-table tbody tr:nth-child(even) { background: rgba(237,245,239,.54); }
+    .professional-table a { color: var(--ink); font-weight: 500; text-underline-offset: 3px; }
+    .professional-language[lang="hi"] .professional-table {
+      font-family: 'Noto Serif Devanagari', 'Nirmala UI', serif; font-size: .82rem;
+    }
     .language-nav {
       display: flex; justify-content: center; gap: 10px; margin-bottom: 32px;
     }
@@ -974,6 +1025,42 @@
               <li><strong>प्रकाशन:</strong> अपनी पत्रिकाओं के माध्यम से अपने ध्यान-अनुभव और व्यक्तिगत आध्यात्मिक समझ प्रकाशित करें।</li>
             </ol>
           </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="professional-examples">
+      <summary>
+        <p class="professional-kicker">Research · रिसर्च</p>
+        <h2 class="professional-title">Meditation in Professional Life · पेशेवर जीवन में ध्यान</h2>
+      </summary>
+      <div class="professional-body">
+        <p class="professional-note">These are personal, self-reported experiences—not proof of a guaranteed medical or professional outcome. · <span lang="hi">ये व्यक्तिगत अनुभव हैं; किसी निश्चित चिकित्सकीय या पेशेवर परिणाम का प्रमाण नहीं।</span></p>
+        <div class="professional-language" lang="en">
+          <p class="professional-language-label">English</p>
+          <div class="professional-table-wrap"><table class="professional-table">
+            <thead><tr><th>Name</th><th>Profession</th><th>Key benefit experienced</th></tr></thead>
+            <tbody>
+              <tr><td><a href="https://fortune.com/well/article/ray-dalio-meditation-success/" target="_blank" rel="noopener">Ray Dalio</a></td><td>Investor and founder, Bridgewater Associates</td><td>Describes greater calmness, equanimity and perspective.</td></tr>
+              <tr><td><a href="https://www.moneycontrol.com/news/business/companies/how-meditation-ice-hockey-help-ford-chairman-face-crises-6297221.html" target="_blank" rel="noopener">Bill Ford</a></td><td>Executive Chair, Ford Motor Company</td><td>Says meditation clears his head during stress and helped him through difficult company crises.</td></tr>
+              <tr><td><a href="https://fortune.com/2024/12/20/marc-benioff-learning-mindset-salesforce-leadership-next/" target="_blank" rel="noopener">Marc Benioff</a></td><td>Chair and CEO, Salesforce</td><td>Uses meditation to cultivate a “beginner’s mind”—openness to new ideas and change.</td></tr>
+              <tr><td><a href="https://community.thriveglobal.com/arianna-huffington-innovative-leadership-improve-workplace-culture-hrd-podcast/" target="_blank" rel="noopener">Arianna Huffington</a></td><td>Founder and CEO, Thrive Global</td><td>Describes even a brief practice as bringing clarity and helping her course-correct after stress.</td></tr>
+              <tr><td><a href="https://haslam.utk.edu/news/improving-athletic-performance-through-meditation-coaching/" target="_blank" rel="noopener">Alexa Schnittka</a></td><td>Young entrepreneur and sports-meditation coach</td><td>Uses meditation to support athletes’ wellbeing, sleep, stress management and performance.</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="professional-language" lang="hi">
+          <p class="professional-language-label">हिन्दी</p>
+          <div class="professional-table-wrap"><table class="professional-table">
+            <thead><tr><th>नाम</th><th>पेशा</th><th>अनुभव किया गया प्रमुख लाभ</th></tr></thead>
+            <tbody>
+              <tr><td><a href="https://fortune.com/well/article/ray-dalio-meditation-success/" target="_blank" rel="noopener">रे डालियो</a></td><td>निवेशक और ब्रिजवॉटर एसोसिएट्स के संस्थापक</td><td>अधिक शांति, समभाव और व्यापक दृष्टिकोण का अनुभव बताते हैं।</td></tr>
+              <tr><td><a href="https://www.moneycontrol.com/news/business/companies/how-meditation-ice-hockey-help-ford-chairman-face-crises-6297221.html" target="_blank" rel="noopener">बिल फोर्ड</a></td><td>कार्यकारी अध्यक्ष, फोर्ड मोटर कंपनी</td><td>कहते हैं कि ध्यान तनाव में मन साफ करता है और कठिन व्यावसायिक संकटों में सहायक रहा।</td></tr>
+              <tr><td><a href="https://fortune.com/2024/12/20/marc-benioff-learning-mindset-salesforce-leadership-next/" target="_blank" rel="noopener">मार्क बेनिऑफ</a></td><td>अध्यक्ष और CEO, सेल्सफोर्स</td><td>नए विचारों और बदलाव के प्रति खुलापन रखने वाला “आरंभिक मन” विकसित करने के लिए ध्यान करते हैं।</td></tr>
+              <tr><td><a href="https://community.thriveglobal.com/arianna-huffington-innovative-leadership-improve-workplace-culture-hrd-podcast/" target="_blank" rel="noopener">एरियाना हफ़िंगटन</a></td><td>संस्थापक और CEO, थ्राइव ग्लोबल</td><td>बताती हैं कि छोटा अभ्यास भी स्पष्टता देता है और तनाव के बाद मन को फिर संतुलित करने में मदद करता है।</td></tr>
+              <tr><td><a href="https://haslam.utk.edu/news/improving-athletic-performance-through-meditation-coaching/" target="_blank" rel="noopener">एलेक्सा श्निट्का</a></td><td>युवा उद्यमी और खेल-ध्यान प्रशिक्षक</td><td>खिलाड़ियों के कल्याण, नींद, तनाव-प्रबंधन और प्रदर्शन में सहायता के लिए ध्यान का उपयोग करती हैं।</td></tr>
+            </tbody>
+          </table></div>
         </div>
       </div>
     </details>
