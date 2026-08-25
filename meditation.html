@@ -415,6 +415,54 @@
     .professional-language[lang="hi"] .professional-table {
       font-family: 'Noto Serif Devanagari', 'Nirmala UI', serif; font-size: .82rem;
     }
+    .session-plans-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px; margin: 28px 0 32px; align-items: start;
+    }
+    .session-plan {
+      background: rgba(255,255,255,.5); border: 1px solid rgba(0,0,0,.08);
+      border-top: 2px solid rgba(217,91,112,.42); border-radius: 18px;
+      box-shadow: 0 14px 36px rgba(61,45,34,.05);
+    }
+    .session-plan.school { border-top-color: rgba(111,159,123,.62); }
+    .session-plan summary {
+      position: relative; cursor: pointer; list-style: none; min-height: 100px;
+      padding: 18px 58px 16px 24px; display: flex; flex-direction: column; justify-content: center;
+    }
+    .session-plan summary::-webkit-details-marker { display: none; }
+    .session-plan summary::after {
+      content: '+'; position: absolute; right: 26px; top: 50%; transform: translateY(-50%);
+      color: var(--rose); font-family: 'Inter', sans-serif; font-size: 1.3rem; font-weight: 300;
+    }
+    .session-plan.school summary::after { color: var(--sage); }
+    .session-plan[open] summary::after { content: '−'; }
+    .session-plan-label {
+      margin-bottom: 8px; color: var(--ink-light); font-family: 'Inter', sans-serif;
+      font-size: .64rem; letter-spacing: .16em; text-transform: uppercase;
+    }
+    .session-plan-title { font-size: clamp(1.2rem, 2.1vw, 1.55rem); font-style: italic; font-weight: 400; }
+    .session-plan-body { padding: 0 22px 26px; }
+    .session-plan-note {
+      margin-bottom: 16px; color: var(--ink-light); font-family: 'Inter', sans-serif;
+      font-size: .7rem; line-height: 1.55;
+    }
+    .session-table-wrap { overflow-x: auto; border-radius: 11px; }
+    .session-table {
+      width: 100%; min-width: 520px; border-collapse: collapse;
+      font-family: 'Inter', sans-serif; font-size: .7rem; line-height: 1.55;
+    }
+    .session-table th {
+      padding: 10px 11px; color: var(--ink); background: rgba(251,241,237,.85);
+      border: 1px solid rgba(0,0,0,.08); text-align: left; font-weight: 500;
+    }
+    .school .session-table th { background: var(--sage-soft); }
+    .session-table td {
+      padding: 11px; color: var(--ink-mid); border: 1px solid rgba(0,0,0,.07); vertical-align: top;
+    }
+    .session-table td:first-child { width: 72px; color: var(--ink); font-weight: 500; white-space: nowrap; }
+    .session-table tbody tr:nth-child(even) { background: rgba(255,255,255,.38); }
+    .session-table ul { margin: 0; padding-left: 16px; }
+    .session-table li + li { margin-top: 5px; }
     .language-nav {
       display: flex; justify-content: center; gap: 10px; margin-bottom: 32px;
     }
@@ -669,6 +717,10 @@
       .eight-limbs-language + .eight-limbs-language {
         border-left: 0; border-top: 1px solid rgba(0,0,0,.08); padding: 20px 0 0;
       }
+      .session-plans-grid { grid-template-columns: 1fr; }
+      .session-plan { border-radius: 14px; }
+      .session-plan summary { min-height: 0; padding: 22px 56px 20px 22px; }
+      .session-plan-body { padding: 0 18px 24px; }
       .script-grid { grid-template-columns: 1fr; }
       .script-card { border-radius: 14px; }
       .script-card summary { min-height: 0; padding: 24px 58px 20px 24px; }
@@ -1074,6 +1126,50 @@
         </div>
       </div>
     </details>
+
+    <section class="session-plans-grid" aria-label="English meditation session plans">
+      <details class="session-plan corporate">
+        <summary>
+          <p class="session-plan-label">Corporate · 15 minutes</p>
+          <h2 class="session-plan-title">Bank Officers: Calm, Clear &amp; Client-Ready</h2>
+        </summary>
+        <div class="session-plan-body">
+          <p class="session-plan-note">A practical, belief-neutral session requiring only a chair and the natural breath.</p>
+          <div class="session-table-wrap"><table class="session-table">
+            <thead><tr><th>Time</th><th>Focus</th><th>Facilitator plan</th></tr></thead>
+            <tbody>
+              <tr><td>0:00–1:00</td><td>Welcome</td><td>“Banking demands accuracy, composure and respectful communication. Today we will try a short mental reset that can be used before a customer conversation or an important decision.”</td></tr>
+              <tr><td>1:00–4:00</td><td>3-minute pitch</td><td>“We regularly recharge our phones and update our systems, but the mind also needs a brief reset. Meditation is not about forcing thoughts to stop. It is the practice of noticing the natural breath and gently returning whenever attention wanders. This trains the pause between pressure and response. No belief, equipment or difficult posture is required. You can practise in your office chair for two minutes between tasks. Let us experience it first and judge it from our own observation.”</td></tr>
+              <tr><td>4:00–7:00</td><td>3 relevant benefits</td><td><ul><li><strong>Composure:</strong> may help settle mental agitation before difficult client interactions.</li><li><strong>Attention:</strong> practising the return to the breath exercises refocusing after interruptions.</li><li><strong>Response control:</strong> creates a deliberate pause before reacting under pressure.</li></ul></td></tr>
+              <tr><td>7:00–12:00</td><td>Simple activity</td><td>Sit comfortably with both feet on the floor. Relax the shoulders and hands. Close the eyes if comfortable. Observe five natural breaths without changing them. When the mind wanders, silently note “thinking” and return to the breath. Continue quietly for three minutes, then notice the body and open the eyes.</td></tr>
+              <tr><td>12:00–14:00</td><td>Reflection</td><td>Ask: “What did you notice—speed of thoughts, body tension or ease of returning?” Accept every response without judging the practice.</td></tr>
+              <tr><td>14:00–15:00</td><td>Close</td><td>Invite one two-minute practice before the first customer, after lunch or before a high-pressure meeting.</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </details>
+
+      <details class="session-plan school">
+        <summary>
+          <p class="session-plan-label">School · Class 8 · 15 minutes</p>
+          <h2 class="session-plan-title">The Attention Superpower Experiment</h2>
+        </summary>
+        <div class="session-plan-body">
+          <p class="session-plan-note">A playful, non-competitive introduction using curiosity rather than performance.</p>
+          <div class="session-table-wrap"><table class="session-table">
+            <thead><tr><th>Time</th><th>Focus</th><th>Facilitator plan</th></tr></thead>
+            <tbody>
+              <tr><td>0:00–2:00</td><td>Engaging introduction</td><td>Ask: “If your attention were a flashlight, who controls where it points—you or every notification around you?” Explain that the class will run a short experiment to see whether attention can be trained like a muscle.</td></tr>
+              <tr><td>2:00–5:00</td><td>3 fun facts</td><td><ul><li>You breathe roughly thousands of times each day, but usually notice very few breaths.</li><li>A wandering mind is normal; noticing it and returning is the actual attention exercise.</li><li>Meditation needs no special equipment and can be practised sitting in a classroom chair.</li></ul></td></tr>
+              <tr><td>5:00–6:00</td><td>Set up</td><td>Feet on the floor, hands relaxed and spine comfortable. Eyes may close or look softly downward. There is no winner and no need to make the mind blank.</td></tr>
+              <tr><td>6:00–11:00</td><td>Simple activity</td><td>Notice where the breath is easiest to feel—nose, chest or belly. Silently count each exhalation from one to five, then begin again. If attention wanders, gently restart at one. Finish by hearing three sounds in the room and opening the eyes.</td></tr>
+              <tr><td>11:00–14:00</td><td>Share the experiment</td><td>Use a quick show of fingers: 1 = difficult, 3 = mixed, 5 = easy to return. Ask two students what helped without comparing scores.</td></tr>
+              <tr><td>14:00–15:00</td><td>Close</td><td>Challenge students to try five natural breaths before homework, an exam, a game or a difficult conversation.</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </details>
+    </section>
 
     <nav class="language-nav" aria-label="Choose script language">
       <a href="#english">English</a>
