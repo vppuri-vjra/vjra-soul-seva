@@ -32,9 +32,9 @@
     .school-center,.school-topic{position:absolute;border-radius:50%;background:#fff;border:1px solid rgba(0,0,0,.13);text-decoration:none;color:var(--ink);box-shadow:0 8px 20px rgba(61,45,34,.06)}
     .school-center{left:50%;top:50%;width:27%;aspect-ratio:1;transform:translate(-50%,-50%);border:4px solid var(--rose);overflow:hidden}
     .school-topic{left:var(--x);top:var(--y);width:18%;aspect-ratio:1;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;padding:12px;text-align:center;font-size:.84rem;font-weight:500;line-height:1.12}
-    .school-topic:nth-of-type(3n+1){background:#fcecef;border-color:#efbec7}
-    .school-topic:nth-of-type(3n+2){background:#fff5d9;border-color:#ead49a}
-    .school-topic:nth-of-type(3n){background:#edf5ef;border-color:#bdd7c3}
+    .school-topic.tone-red{background:#f8dfe4;border-color:#e9a8b4}
+    .school-topic.tone-yellow{background:#f8edc2;border-color:#dfc66e}
+    .school-topic.tone-green{background:#dcebdd;border-color:#9fc5a7}
     .school-topic:hover{filter:saturate(1.15) brightness(.98);transform:translate(-50%,-50%) translateY(-2px)}
     .school-center img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;background:#fff}
     .content-card{margin:26px 0;background:rgba(255,255,255,.58);border:1px solid rgba(0,0,0,.08);border-left:4px solid var(--sage);border-radius:20px;box-shadow:0 12px 30px rgba(61,45,34,.04);overflow:hidden;scroll-margin-top:86px}
@@ -70,12 +70,12 @@
 
     <section class="school-wheel" aria-label="Six focus areas in the Class 8 meditation session">
       <div class="school-center"><img src="assets/images/class-8-bunny-circle/students-studying-center.png" alt="Two students studying together"></div>
-      <a class="school-topic" style="--x:50%;--y:7%" href="#opening">Engaging Introduction</a>
-      <a class="school-topic" style="--x:87%;--y:28%" href="#experiments">Six Experiments</a>
-      <a class="school-topic" style="--x:87%;--y:72%" href="#setup">Set Up</a>
-      <a class="school-topic" style="--x:50%;--y:93%" href="#practice">Simple Activity</a>
-      <a class="school-topic" style="--x:13%;--y:72%" href="#reflection">Share</a>
-      <a class="school-topic" style="--x:13%;--y:28%" href="#reflection">Close</a>
+      <a class="school-topic tone-red" style="--x:50%;--y:7%" href="#opening">Engaging Introduction</a>
+      <a class="school-topic tone-yellow" style="--x:87%;--y:28%" href="#experiments">Six Experiments</a>
+      <a class="school-topic tone-green" style="--x:87%;--y:72%" href="#setup">Set Up</a>
+      <a class="school-topic tone-red" style="--x:50%;--y:93%" href="#practice">Simple Activity</a>
+      <a class="school-topic tone-yellow" style="--x:13%;--y:72%" href="#reflection">Share</a>
+      <a class="school-topic tone-green" style="--x:13%;--y:28%" href="#reflection">Close</a>
     </section>
 
     <details class="content-card" id="audience"><summary><p class="card-label">01 · Engaging Introduction</p><h2>Capture Their Attention · <span lang="hi">रोचक शुरुआत</span></h2></summary><div class="card-body bilingual"><div><p class="language-label">English</p><p>Ask: <strong class="spoken">“Who controls your attention—you, or the many things happening around you?”</strong> Explain that this is a playful experiment in operating their own attention—not a demand to become silent or perfectly calm.</p><p>Invite everyone to participate with curiosity. There are no winners, scores or wrong experiences.</p></div><div class="hindi" lang="hi"><p class="language-label">हिन्दी</p><p>पूछें: <strong>“आपका ध्यान कौन चलाता है—आप या आपके आसपास हो रही बहुत-सी चीज़ें?”</strong> बताएँ कि यह अपने ध्यान को चलाना सीखने का मज़ेदार प्रयोग है—चुप या पूरी तरह शांत होने का दबाव नहीं।</p><p>सबको जिज्ञासा के साथ भाग लेने दें। इसमें कोई विजेता, अंक या गलत अनुभव नहीं है।</p></div></div></details>
