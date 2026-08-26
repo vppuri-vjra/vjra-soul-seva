@@ -463,6 +463,28 @@
     .session-table tbody tr:nth-child(even) { background: rgba(255,255,255,.38); }
     .session-table ul { margin: 0; padding-left: 16px; }
     .session-table li + li { margin-top: 5px; }
+    .bunny-attention-orbit {
+      position: relative; width: min(640px, 92vw); aspect-ratio: 1;
+      margin: 8px auto 28px;
+    }
+    .bunny-attention-orbit::before {
+      content: ''; position: absolute; inset: 13%; border-radius: 50%;
+      border: 1px dashed rgba(0,0,0,.16);
+    }
+    .bunny-orbit-center, .bunny-orbit-item {
+      position: absolute; border-radius: 50%; overflow: hidden;
+      background: #fff; border: 1px solid rgba(0,0,0,.14);
+    }
+    .bunny-orbit-center {
+      left: 50%; top: 50%; width: 36%; aspect-ratio: 1;
+      transform: translate(-50%,-50%);
+    }
+    .bunny-orbit-center img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 36%; }
+    .bunny-orbit-item {
+      left: var(--x); top: var(--y); width: 18%; aspect-ratio: 1;
+      transform: translate(-50%,-50%);
+    }
+    .bunny-orbit-item img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 36%; }
     .language-nav {
       display: flex; justify-content: center; gap: 10px; margin-bottom: 32px;
     }
@@ -801,6 +823,7 @@
             <div class="dropdown-divider"></div>
             <a href="meditation.html" class="nav-active" aria-current="page">Meditation — <span lang="hi">ध्यान</span></a>
             <a href="senior-uncle-meditation.html">Intro to Senior Uncle</a>
+            <a href="school-meditation.html">Meditation for Class 8</a>
           </div>
         </div>
       </div>
@@ -1164,6 +1187,17 @@
         </summary>
         <div class="session-plan-body">
           <p class="session-plan-note">A playful, non-competitive introduction using curiosity rather than performance.</p>
+          <div class="bunny-attention-orbit" aria-label="One studious bunny surrounded by eight matching studious bunnies">
+            <div class="bunny-orbit-center"><img src="assets/images/class-8-bunny-circle/bunny-studying.png" alt="Studious white bunny reading a book"></div>
+            <div class="bunny-orbit-item" style="--x:50%;--y:8%"><img src="assets/images/class-8-bunny-circle/bunny-studying.png" alt=""></div>
+            <div class="bunny-orbit-item" style="--x:79%;--y:20%"><img src="assets/images/class-8-bunny-circle/bunny-studying.png" alt=""></div>
+            <div class="bunny-orbit-item" style="--x:92%;--y:50%"><img src="assets/images/class-8-bunny-circle/bunny-studying.png" alt=""></div>
+            <div class="bunny-orbit-item" style="--x:79%;--y:80%"><img src="assets/images/class-8-bunny-circle/bunny-studying.png" alt=""></div>
+            <div class="bunny-orbit-item" style="--x:50%;--y:92%"><img src="assets/images/class-8-bunny-circle/bunny-studying.png" alt=""></div>
+            <div class="bunny-orbit-item" style="--x:21%;--y:80%"><img src="assets/images/class-8-bunny-circle/bunny-studying.png" alt=""></div>
+            <div class="bunny-orbit-item" style="--x:8%;--y:50%"><img src="assets/images/class-8-bunny-circle/bunny-studying.png" alt=""></div>
+            <div class="bunny-orbit-item" style="--x:21%;--y:20%"><img src="assets/images/class-8-bunny-circle/bunny-studying.png" alt=""></div>
+          </div>
           <div class="session-table-wrap"><table class="session-table">
             <thead><tr><th>Time</th><th>Focus</th><th>Facilitator plan</th></tr></thead>
             <tbody>
