@@ -52,8 +52,9 @@
     .benefits-table{min-width:680px;margin-top:16px}.benefits-table td:first-child{white-space:normal;width:22%;color:var(--ink);font-weight:500}.benefits-table td:nth-child(2){white-space:normal;width:42%;font-weight:400}.benefits-table td:nth-child(3){width:36%}.benefits-table tr:nth-child(1){background:#f8dfe4}.benefits-table tr:nth-child(2){background:#dcebdd}.benefits-table tr:nth-child(3){background:#f8edc2}
     .practice-box{padding:22px;border-radius:14px;background:var(--sage-soft);margin-top:18px}.practice-box strong{color:var(--ink)}
     .spoken{color:var(--rose);font-weight:500}
+    .back-to-journey{position:fixed;right:24px;bottom:24px;z-index:90;width:68px;aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;background:var(--rose);border:3px solid rgba(255,255,255,.9);box-shadow:0 8px 24px rgba(61,45,34,.22);color:#fff;text-decoration:none;font:500 .62rem/1.05 'Inter',sans-serif;text-align:center;letter-spacing:.03em;transition:transform .2s ease,box-shadow .2s ease}.back-to-journey .arrow{font-size:1.05rem;line-height:1}.back-to-journey:hover,.back-to-journey:focus-visible{transform:translateY(-3px);box-shadow:0 11px 28px rgba(61,45,34,.28);outline:none}
     .closing{margin-top:48px;text-align:center;color:var(--ink-mid);font-size:1.25rem;font-style:italic}.closing strong{display:block;margin-top:8px;color:var(--rose)}
-    @media(max-width:760px){.nav-inner{grid-template-columns:1fr auto;padding:0 20px}.nav-right{display:none}.nav-left{gap:14px}.page-wrap{padding:34px 18px 70px}.bilingual,.experiments-grid{grid-template-columns:1fr}.hindi{border-left:0;border-top:1px solid rgba(0,0,0,.09);padding:22px 0 0}.school-wheel{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 12px;aspect-ratio:auto;margin-bottom:48px}.school-wheel::before{display:none}.school-center,.school-topic{position:relative;left:auto!important;top:auto!important;transform:none;width:130px;margin:auto}.school-topic:hover{transform:translateY(-2px)}.school-center{grid-column:1/-1;width:150px}.content-card summary{padding-left:21px}.card-body{padding:0 21px 26px}}
+    @media(max-width:760px){.nav-inner{grid-template-columns:1fr auto;padding:0 20px}.nav-right{display:none}.nav-left{gap:14px}.page-wrap{padding:34px 18px 70px}.bilingual,.experiments-grid{grid-template-columns:1fr}.hindi{border-left:0;border-top:1px solid rgba(0,0,0,.09);padding:22px 0 0}.school-wheel{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 12px;aspect-ratio:auto;margin-bottom:48px}.school-wheel::before{display:none}.school-center,.school-topic{position:relative;left:auto!important;top:auto!important;transform:none;width:130px;margin:auto}.school-topic:hover{transform:translateY(-2px)}.school-center{grid-column:1/-1;width:150px}.content-card summary{padding-left:21px}.card-body{padding:0 21px 26px}.back-to-journey{right:14px;bottom:14px;width:60px;font-size:.56rem}}
   </style>
 </head>
 <body>
@@ -71,7 +72,7 @@
   </header>
 
   <main class="page-wrap">
-    <section class="journey-card"><h2>Class 8 Session Journey · <span lang="hi">कक्षा 8 ध्यान यात्रा</span></h2><p>Choose a section to jump to that part of the session.</p></section>
+    <section class="journey-card" id="journey"><h2>Class 8 Session Journey · <span lang="hi">कक्षा 8 ध्यान यात्रा</span></h2><p>Choose a section to jump to that part of the session.</p></section>
 
     <section class="school-wheel" aria-label="Six focus areas in the Class 8 meditation session">
       <div class="school-center"><img src="assets/images/class-8-bunny-circle/students-studying-center.png" alt="Two students studying together"></div>
@@ -137,5 +138,6 @@
 
     <p class="closing">The goal is not to become calm every time. The goal is to notice what the mind is doing right now.<strong>Notice → Return → Repeat</strong></p>
   </main>
+  <a class="back-to-journey" href="#journey" aria-label="Return to the Class 8 Session Journey" title="Back to Session Journey"><span class="arrow">↑</span><span>Journey</span></a>
 </body>
 </html>
