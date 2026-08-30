@@ -81,6 +81,13 @@
     }
     .dropdown-menu a:hover { background: #ede8e0; color: var(--ink); }
     .dropdown-divider { height: 1px; background: rgba(0,0,0,.07); margin: 6px 0; }
+    .dropdown-menu .week-group { border-top: 1px solid rgba(0,0,0,.07); }
+    .dropdown-menu .week-group summary { position: relative; list-style: none; cursor: pointer; padding: 12px 42px 9px 18px; font: 500 .62rem 'Inter',sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-light); }
+    .dropdown-menu .week-group summary::-webkit-details-marker { display: none; }
+    .dropdown-menu .week-group summary::after { content: '+'; position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: var(--rose); font: 500 .9rem 'Inter',sans-serif; }
+    .dropdown-menu .week-group[open] > summary::after { content: '−'; }
+    .dropdown-menu .week-links { padding-bottom: 5px; }
+    .dropdown-menu .week-links a { padding-left: 28px; font-style: italic; color: var(--ink-light); }
 
     /* ── Hero ── */
     .page-hero {
@@ -508,14 +515,18 @@
           <div class="dropdown-divider"></div>
           <a href="#ten-mantras">The Ten Mantras</a>
           <div class="dropdown-divider"></div>
-          <div style="padding:8px 18px 3px;font:500 .62rem 'Inter',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-light);">W1 · Meditation Foundation</div>
-          <a href="programs/pssm-master-bano/week-01/meditation.html">Meditation — <span lang="hi">ध्यान</span></a>
-          <a href="programs/pssm-master-bano/week-01/senior-uncle-exercise.html">Introduction to Senior Uncle</a>
-          <div style="padding:10px 18px 3px;font:500 .62rem 'Inter',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-light);">W2 · Applied Meditation</div><a href="programs/pssm-master-bano/week-02/meditation-benefits-research.html">Research · 5 Corporate Professionals/Youngsters</a>
-          <a href="programs/pssm-master-bano/week-02/class-8-exercise.html">Meditation for Class 8</a>
-          
-          <a href="programs/pssm-master-bano/week-02/bank-officers-exercise.html">Corporate · Bank Officers</a>
-          <div class="week">W3 · Applied Meditation</div><a href="programs/pssm-master-bano/week-03/college-students-exercise.html">Meditation for College Students</a><a href="programs/pssm-master-bano/week-03/young-mother-exercise.html">Meditation for a Multitasking Mother</a><a href="programs/pssm-master-bano/week-03/ayurveda-naturopathy-members-exercise.html">Ayurveda/Naturopathy Institution</a>
+          <details class="week-group">
+            <summary>W1 · Meditation Foundation</summary>
+            <div class="week-links"><a href="programs/pssm-master-bano/week-01/meditation.html">Meditation — <span lang="hi">ध्यान</span></a><a href="programs/pssm-master-bano/week-01/senior-uncle-exercise.html">Introduction to Senior Uncle</a></div>
+          </details>
+          <details class="week-group">
+            <summary>W2 · Applied Meditation</summary>
+            <div class="week-links"><a href="programs/pssm-master-bano/week-02/meditation-benefits-research.html">Research · 5 Corporate Professionals/Youngsters</a><a href="programs/pssm-master-bano/week-02/class-8-exercise.html">Meditation for Class 8</a><a href="programs/pssm-master-bano/week-02/bank-officers-exercise.html">Corporate · Bank Officers</a></div>
+          </details>
+          <details class="week-group">
+            <summary>W3 · Applied Meditation</summary>
+            <div class="week-links"><a href="programs/pssm-master-bano/week-03/college-students-exercise.html">Meditation for College Students</a><a href="programs/pssm-master-bano/week-03/young-mother-exercise.html">Meditation for a Multitasking Mother</a><a href="programs/pssm-master-bano/week-03/ayurveda-naturopathy-members-exercise.html">Ayurveda/Naturopathy Institution</a></div>
+          </details>
         </div>
       </div>
     </div>
