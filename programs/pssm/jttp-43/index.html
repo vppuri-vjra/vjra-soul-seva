@@ -126,6 +126,16 @@
     }
     .watch-btn:hover { background: var(--accent, var(--red-soft)); color: #fff; }
 
+    /* ── Playlist ── */
+    .playlist-card {
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      background: #fff; border: 1px solid rgba(0,0,0,.08);
+      border-left: 5px solid var(--red-soft); border-radius: 14px;
+      padding: 22px 24px; box-shadow: 0 6px 24px rgba(0,0,0,.05);
+    }
+    .playlist-card .section-heading { margin-bottom: 4px; }
+    .playlist-card .section-sub { margin-bottom: 0; }
+
     /* ── Schedule tables ── */
     .schedule-table-wrap {
       background: #fff; border-radius: 14px;
@@ -192,6 +202,7 @@
     @media (max-width: 700px) {
       .page-wrap { padding: 48px 20px 60px; }
       .nav-logo { position: static; transform: none; }
+      .playlist-card { align-items: flex-start; flex-direction: column; }
       .label-cell { display: none; }
       .chakra-table td { padding: 14px 14px; }
     }
@@ -227,6 +238,7 @@
   <!-- ── Table of Contents ── -->
   <nav class="toc">
     <span class="toc-label">On This Page</span>
+    <a href="#playlist">Playlist</a>
     <a href="#meditation-schedule">Meditation Schedule</a>
     <a href="#topic-videos">Special Wisdom Topics</a>
   </nav>
@@ -239,6 +251,16 @@
     <a href="https://www.youtube.com/c/PMCHindiTV/videos" target="_blank" rel="noopener">PMC Hindi TV</a>
     <a href="https://www.youtube.com/@ShreansDaga" target="_blank" rel="noopener">Shreans Daga</a>
   </nav>
+
+  <!-- ── Playlist ── -->
+  <section id="playlist" class="playlist-card">
+    <div>
+      <p class="section-label">JTTP-43 · Video Collection</p>
+      <h2 class="section-heading">Complete Playlist</h2>
+      <p class="section-sub">Watch the complete JTTP-43 series on YouTube.</p>
+    </div>
+    <a class="watch-btn" href="https://youtube.com/playlist?list=PLXu5EyyUgFso&amp;si=QsrWYdlwdSLlhMpy" target="_blank" rel="noopener">▶ Open Playlist</a>
+  </section>
 
   <!-- ── Meditation Schedule ── -->
   <section id="meditation-schedule">
