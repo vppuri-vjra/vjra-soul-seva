@@ -20,6 +20,7 @@
     .book-resource{display:flex;align-items:center;justify-content:space-between;gap:28px;background:var(--paper);border:1px solid rgba(0,0,0,.09);border-left:6px solid var(--gold);border-radius:24px;padding:28px 32px;margin:0 0 30px;box-shadow:0 12px 35px rgba(41,30,22,.05)}
     .book-label{font-family:Inter,sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin:0 0 7px}.book-resource h2{font-size:1.75rem;font-style:italic;font-weight:400;margin:0 0 4px}.book-resource p{font-size:1rem;color:var(--soft);margin:0}
     .book-link{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);border-radius:999px;padding:11px 18px;color:#765f17;font-family:Inter,sans-serif;font-size:.82rem;font-weight:500;text-decoration:none;white-space:nowrap;transition:.2s}.book-link:hover{background:var(--gold);color:var(--ink);transform:translateY(-1px)}
+    .playlist-resource{border-left-color:var(--red)}.playlist-resource .book-link{border-color:var(--red);color:var(--red)}.playlist-resource .book-link:hover{background:var(--red);color:#fff}
     .recordings{background:var(--paper);border:1px solid rgba(0,0,0,.09);border-left:6px solid var(--red);border-radius:28px;overflow:hidden;box-shadow:0 16px 45px rgba(41,30,22,.06)}
     .recordings-head{padding:34px 38px 26px;border-bottom:1px solid rgba(0,0,0,.08)}
     .recordings-head h2{font-size:2.25rem;font-style:italic;font-weight:400;margin:0 0 6px}.recordings-head p{font-size:1.05rem;color:var(--soft);margin:0}
@@ -56,6 +57,15 @@
         <p>By J. Z. Knight · Access is managed through Google Drive.</p>
       </div>
       <a class="book-link" href="https://drive.google.com/drive/folders/1eVW5N-W9_SVwg4824zmR7IjF8jyvequX" target="_blank" rel="noopener">↗ Open Book</a>
+    </section>
+
+    <section class="book-resource playlist-resource" aria-labelledby="playlist-title">
+      <div>
+        <p class="book-label">Video Collection</p>
+        <h2 id="playlist-title">Ramtha Study Playlist</h2>
+        <p>Watch the complete series on YouTube.</p>
+      </div>
+      <a class="book-link" href="https://youtube.com/playlist?list=PLXu5EyyUgFso&amp;si=QsrWYdlwdSLlhMpy" target="_blank" rel="noopener">▶ Open Playlist</a>
     </section>
 
     <section class="recordings" aria-labelledby="recordings-title">
