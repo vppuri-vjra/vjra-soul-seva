@@ -55,8 +55,14 @@
       const target=document.querySelector(link.getAttribute('href'));
       if(!target)return;
       event.preventDefault();
+      document.querySelectorAll('.category-group[open]').forEach(card=>{if(card!==target)card.open=false});
       target.open=true;
-      target.scrollIntoView({behavior:'smooth',block:'start'});
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{
+        const nav=document.querySelector('.site-nav');
+        const offset=(nav?.offsetHeight||64)+14;
+        const top=window.scrollY+target.getBoundingClientRect().top-offset;
+        window.scrollTo({top,behavior:'smooth'});
+      }));
     }));
     if(categoryMap&&backToMap&&referenceCard){
       let mapVisible=false;
