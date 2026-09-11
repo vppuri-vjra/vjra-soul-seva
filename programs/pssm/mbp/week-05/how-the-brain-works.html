@@ -60,11 +60,13 @@
     const categoryMap=document.getElementById('brain-category-map');
     const backToMap=document.querySelector('.back-to-map');
     const referenceCard=document.querySelector('.reference-card');
+    const categoryList=document.querySelector('.category-list');
     document.querySelectorAll('.orbit-node').forEach(link=>link.addEventListener('click',event=>{
       const target=document.querySelector(link.getAttribute('href'));
       if(!target)return;
       event.preventDefault();
       document.querySelectorAll('.category-group[open]').forEach(card=>{if(card!==target)card.open=false});
+      categoryList?.prepend(target);
       target.open=true;
       requestAnimationFrame(()=>requestAnimationFrame(()=>{
         const nav=document.querySelector('.site-nav');
