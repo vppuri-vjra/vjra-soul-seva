@@ -10,7 +10,7 @@
     .orbit-center{padding:10px;border-width:2px;font-size:clamp(.9rem,1.4vw,1.15rem)}
     .orbit-node{padding:6px;border-width:1.5px;font-size:clamp(.42rem,.78vw,.58rem);box-shadow:0 4px 12px #3d2d220a}
     .orbit-arrows{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.orbit-arrows line{stroke:#1a1410;stroke-width:.45;stroke-linecap:round;marker-end:url(#orbit-arrowhead)}.orbit-center,.orbit-node{z-index:1}
-    .orbit-center{font-style:italic}
+    .orbit-center{color:var(--ink);font-style:italic;text-decoration:none;cursor:pointer}
     .orbit-node{font-family:'Cormorant Garamond',serif;font-size:clamp(.56rem,1vw,.72rem);font-style:italic;font-weight:600;line-height:1.08}
     .category-group>summary{font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-style:italic;font-weight:600}
     .reference-table{font-family:'Cormorant Garamond',serif;font-size:1.02rem;font-style:italic;line-height:1.4}
@@ -24,7 +24,7 @@
   <header class="hero"><p class="eyebrow">Week 5 · Understanding the mind</p><h1>How the Brain Works</h1><p class="sub">A focused Brain Works study page within MBP Week 5.</p></header>
   <main class="wrap"><nav aria-label="Brain Works topics" style="display:flex;gap:9px;overflow-x:auto;margin-bottom:30px;padding-bottom:4px"><a data-topic="how-the-brain-works" aria-current="page" href="programs/pssm/mbp/week-05/how-the-brain-works.html" style="flex:0 0 auto;padding:10px 15px;border:1px solid #0001;border-radius:999px;background:var(--rose-soft);color:var(--rose);text-decoration:none;font:600 .72rem/1.2 Inter,sans-serif">How the Brain Works</a><a data-topic="neuroplasticity" href="programs/pssm/mbp/week-05/neuroplasticity.html" style="flex:0 0 auto;padding:10px 15px;border:1px solid #0001;border-radius:999px;background:var(--paper);color:var(--mid);text-decoration:none;font:600 .72rem/1.2 Inter,sans-serif">Neuroplasticity</a><a data-topic="how-our-brain-thinks" href="programs/pssm/mbp/week-05/how-our-brain-thinks.html" style="flex:0 0 auto;padding:10px 15px;border:1px solid #0001;border-radius:999px;background:var(--paper);color:var(--mid);text-decoration:none;font:600 .72rem/1.2 Inter,sans-serif">How Our Brain Thinks</a><a data-topic="personal-reality" href="programs/pssm/mbp/week-05/personal-reality.html" style="flex:0 0 auto;padding:10px 15px;border:1px solid #0001;border-radius:999px;background:var(--paper);color:var(--mid);text-decoration:none;font:600 .72rem/1.2 Inter,sans-serif">Our Personality Creates Our Personal Reality</a><a data-topic="power-of-thought" href="programs/pssm/mbp/week-05/power-of-thought.html" style="flex:0 0 auto;padding:10px 15px;border:1px solid #0001;border-radius:999px;background:var(--paper);color:var(--mid);text-decoration:none;font:600 .72rem/1.2 Inter,sans-serif">Power of Thought</a><a data-topic="emotional-intelligence" href="programs/pssm/mbp/week-05/emotional-intelligence.html" style="flex:0 0 auto;padding:10px 15px;border:1px solid #0001;border-radius:999px;background:var(--paper);color:var(--mid);text-decoration:none;font:600 .72rem/1.2 Inter,sans-serif">Emotional Intelligence</a></nav><article class="prose"><section class="message" id="how-the-brain-works"><h2>How the Brain Works</h2><p>The brain is a highly connected organ whose neurons communicate through electrical and chemical signals.</p></section>
     <details class="reference-card"><summary>Brain Systems &amp; Functionality</summary><div class="reference-content">
-      <img class="brain-map" src="programs/pssm/mbp/week-05/assets/brain-systems-alignment.png" alt="Diagram of interconnected brain systems with arrows showing thinking, feeling, regulation, stress, dopamine, sleep-wake and autonomic pathways.">
+      <img class="brain-map" id="brain-systems-image" src="programs/pssm/mbp/week-05/assets/brain-systems-alignment.png" alt="Diagram of interconnected brain systems with arrows showing thinking, feeling, regulation, stress, dopamine, sleep-wake and autonomic pathways.">
       <div class="accuracy-note"><strong>How to read this map:</strong> “Thinking brain,” “feeling brain” and “primitive brain” are teaching shortcuts. The structures do not operate as three separate brains; interconnected networks work together in every thought, feeling and action.</div>
       <div class="category-orbit" id="brain-category-map" aria-label="Brain system category navigation">
         <svg class="orbit-arrows" viewBox="0 0 100 100" aria-hidden="true">
@@ -35,7 +35,7 @@
           <line x1="42.4" y1="61.2" x2="30" y2="79.5"/><line x1="37.4" y1="54.9" x2="17.4" y2="62.7"/>
           <line x1="37" y1="46.2" x2="17.6" y2="40.5"/><line x1="42" y1="39.1" x2="30.3" y2="23.3"/>
         </svg>
-        <div class="orbit-center">Brain</div>
+        <a class="orbit-center" href="#brain-systems-image" aria-label="View the brain systems diagram">Brain</a>
         <a class="orbit-node node-think" style="--x:50%;--y:8%" href="#category-think">Think &amp;<br>Decide</a>
         <a class="orbit-node node-connect" style="--x:75%;--y:16%" href="#category-connect">Connection</a>
         <a class="orbit-node node-feel" style="--x:91%;--y:38%" href="#category-feel">Feel, Remember<br>&amp; Interpret</a>
@@ -68,6 +68,15 @@
     const backToMap=document.querySelector('.back-to-map');
     const referenceCard=document.querySelector('.reference-card');
     const categoryList=document.querySelector('.category-list');
+    document.querySelector('.orbit-center')?.addEventListener('click',event=>{
+      const image=document.getElementById('brain-systems-image');
+      if(!image)return;
+      event.preventDefault();
+      const nav=document.querySelector('.site-nav');
+      const offset=(nav?.offsetHeight||64)+14;
+      const top=window.scrollY+image.getBoundingClientRect().top-offset;
+      window.scrollTo({top,behavior:'smooth'});
+    });
     document.querySelectorAll('.orbit-node').forEach(link=>link.addEventListener('click',event=>{
       const target=document.querySelector(link.getAttribute('href'));
       if(!target)return;
