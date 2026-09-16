@@ -21,6 +21,7 @@
     .course-resource{display:flex;align-items:center;justify-content:space-between;gap:28px;background:var(--paper);border:1px solid rgba(0,0,0,.09);border-left:6px solid var(--gold);border-radius:24px;padding:28px 32px;margin:0 0 30px;box-shadow:0 12px 35px rgba(41,30,22,.05)}
     .course-label{font-family:Inter,sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin:0 0 7px}.course-resource h2{font-size:1.75rem;font-style:italic;font-weight:400;margin:0 0 4px}.course-resource p{font-size:1rem;color:var(--soft);margin:0}
     .course-link{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);border-radius:999px;padding:11px 18px;color:#765f17;font-family:Inter,sans-serif;font-size:.82rem;font-weight:500;text-decoration:none;white-space:nowrap;transition:.2s}.course-link:hover{background:var(--gold);color:var(--ink);transform:translateY(-1px)}
+    .playlist-resource{border-left-color:var(--green)}.playlist-resource .course-link{border-color:var(--green);color:#477255}.playlist-resource .course-link:hover{background:var(--green);color:white}
     .recordings{background:var(--paper);border:1px solid rgba(0,0,0,.09);border-left:6px solid var(--red);border-radius:28px;overflow:hidden;box-shadow:0 16px 45px rgba(41,30,22,.06)}
     .recordings-head{padding:34px 38px 26px;border-bottom:1px solid rgba(0,0,0,.08)}
     .recordings-head h2{font-size:2.25rem;font-style:italic;font-weight:400;margin:0 0 6px}.recordings-head p{font-size:1.05rem;color:var(--soft);margin:0}
@@ -48,6 +49,15 @@
     <h1>MBP 12 · Daily Recordings</h1>
     <p class="intro">A growing collection of the available day-by-day recordings from the Master Bano 12 study sessions.</p>
 
+    <section class="course-resource playlist-resource" aria-labelledby="playlist-title">
+      <div>
+        <p class="course-label">Daily YouTube Recordings</p>
+        <h2 id="playlist-title">Full MBP 12 Playlist</h2>
+        <p>Watch all available daily sessions together on YouTube.</p>
+      </div>
+      <a class="course-link" href="https://www.youtube.com/playlist?list=PLeIPf89jPdXk" target="_blank" rel="noopener">Open Full Playlist ↗</a>
+    </section>
+
     <section class="course-resource" aria-labelledby="course-title">
       <div>
         <p class="course-label">Course Material</p>
@@ -67,6 +77,7 @@
           <thead><tr><th>Day</th><th>Study</th><th>Recording</th></tr></thead>
           <tbody>
             <tr><td class="day">Day 3</td><td class="topic">Science of Breath</td><td><a class="watch" href="https://www.youtube.com/live/zoe-XXNwFHY?si=WmcIZmSACbVuOBZX" target="_blank" rel="noopener">▶ Watch Recording</a></td></tr>
+            <tr><td class="day">Day 10</td><td class="topic">Understanding the Self — Thoughts</td><td><a class="watch" href="https://www.youtube.com/watch?v=8JKliMQevq8&amp;list=PLeIPf89jPdXk&amp;index=10" target="_blank" rel="noopener">▶ Watch Recording</a></td></tr>
           </tbody>
         </table>
       </div>
