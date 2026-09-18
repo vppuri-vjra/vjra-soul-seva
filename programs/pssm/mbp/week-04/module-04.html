@@ -38,6 +38,18 @@
     .kosha-table td:last-child{min-width:210px}
     .kosha-table-wrap:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
     @media(max-width:760px){.kosha-table{min-width:930px}}
+    .kosha-detail{margin-top:14px;border:1px solid #d7e6da;border-radius:13px;background:#fff;overflow:hidden}
+    .kosha-detail>summary{position:relative;padding:15px 44px 15px 17px;list-style:none;cursor:pointer;color:var(--ink);font:600 .78rem/1.4 Inter,sans-serif}
+    .kosha-detail>summary::-webkit-details-marker{display:none}
+    .kosha-detail>summary::after{content:'+';position:absolute;right:17px;top:50%;transform:translateY(-50%);color:var(--sage);font-size:1.1rem}
+    .kosha-detail[open]>summary::after{content:'−'}
+    .kosha-detail .kosha-table-wrap{border:0;border-top:1px solid #d7e6da;border-radius:0}
+    .kosha-detail-table{min-width:980px}
+    .kosha-detail-table td:first-of-type{min-width:155px}
+    .kosha-detail-table td:nth-of-type(2){min-width:270px}
+    .kosha-detail-table td:last-child{min-width:275px}
+    .kosha-detail-table td strong,.kosha-detail-table td span{display:block}
+    .kosha-detail-table td span{margin-top:3px;color:var(--light)}
   </style>
 </head>
 <body data-mode="prep">
@@ -97,6 +109,24 @@
               </table>
             </div>
             <figcaption>The English spellings follow the course document. These are spiritual descriptions, not anatomical body layers.</figcaption>
+            <details class="kosha-detail">
+              <summary>Read the detailed seven-layer table</summary>
+              <div class="kosha-table-wrap" role="region" aria-label="Detailed meanings and meditation connections for the seven koshas" tabindex="0">
+                <table class="kosha-table kosha-detail-table">
+                  <caption>Seven layers — meaning and meditation connection</caption>
+                  <thead><tr><th scope="col">Layer</th><th scope="col">Kosha and body names</th><th scope="col">What it means</th><th scope="col">In meditation</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">01</th><td><strong>Annamaya · <span lang="hi">अन्नमय कोश</span></strong>Physical Body · <span lang="hi">भौतिक शरीर</span></td><td><em>Anna</em> means food. This tangible body is sustained by nourishment—the body we most easily identify as “me.”</td><td>With eyes closed, notice the body from within: sensations, comfort, tension and stillness. The curriculum presents this as an accessible starting point.</td></tr>
+                    <tr><th scope="row">02</th><td><strong>Pranamaya · <span lang="hi">प्राणमय कोश</span></strong>Etheric or pranic body · <span lang="hi">ईथरिक बॉडी</span></td><td><em>Prana</em> means vital energy. The module describes this layer as animating the physical body and being closely connected with breath and bodily processes.</td><td>Observing the natural breath brings attention to this energy-related layer. Possible feelings of lightness or levitation are mentioned, but are not goals or required experiences.</td></tr>
+                    <tr><th scope="row">03</th><td><strong>Manomaya · <span lang="hi">मनोमय कोश</span></strong>Astral body or mental sheath · <span lang="hi">सूक्ष्म शरीर</span></td><td>The module places thoughts, emotions, sensory impressions, desires, pleasure, pain and doubt here. It is the active, changeable mind—not just intellectual thought.</td><td>Become aware of thoughts and emotions rather than being carried away by them. The module describes exploring this layer and turning further inward.</td></tr>
+                    <tr><th scope="row">04</th><td><strong>Vijnanamaya · <span lang="hi">विज्ञानमय कोश</span></strong>Causal body · <span lang="hi">कारण शरीर</span></td><td>The intellect or knowledge sheath: knowing, judging, deciding, discriminating and the sense of “I.” The module places deeper wisdom beneath ordinary thinking here.</td><td>The module says meditation can soften ego-identification and give access to higher wisdom. In simpler terms, you may see your assumptions and choices more clearly.</td></tr>
+                    <tr><th scope="row">05</th><td><strong>Anandamaya · <span lang="hi">आनंदमय कोश</span></strong>Spiritual or bliss body · <span lang="hi">आध्यात्मिक शरीर</span></td><td><em>Ananda</em> means bliss. The module describes peace, joy, love and rest that do not depend on an outside event. It places this sheath nearest the Atman or Self.</td><td>Meditation may bring awareness of deeper peace and the question “Who am I?” The module cautions that even bliss is an experience, so one should not cling to it as the final destination.</td></tr>
+                    <tr><th scope="row">06</th><td><strong>Viswamaya · <span lang="hi">विश्वमय कोश</span></strong>Cosmic body · <span lang="hi">ब्रह्मांडीय शरीर</span></td><td>The module describes a shift from a separate “I” toward a sense of “we” that includes all existence, using the image of a drop becoming the ocean.</td><td>The text explicitly says there is no method to reach this layer. Meditation belongs to the broader journey, but no technique or practice duration guarantees it.</td></tr>
+                    <tr><th scope="row">07</th><td><strong>Nirvanmaya · <span lang="hi">निर्वाणमय कोश</span></strong>Nirvanic body · <span lang="hi">निर्वाण शरीर</span></td><td>The module describes cessation or void, beyond even the experience of cosmic oneness, and says this state is difficult to communicate in words.</td><td>The module gives no practice that reliably produces this state. It says it “just happens”; even attachment to a method must be let go.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
             <a class="seven-body-link" href="programs/pssm/mbp/week-04/module-04.html#bodies">Open the complete Seven Bodies notes ↓</a>
           </figure>
         </div>
